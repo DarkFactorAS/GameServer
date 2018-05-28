@@ -1,0 +1,818 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		330440C81AA6639E00C9DF3F /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 330440C61AA6639E00C9DF3F /* Character.cpp */; };
+		330440C91AA6639E00C9DF3F /* Character.h in Headers */ = {isa = PBXBuildFile; fileRef = 330440C71AA6639E00C9DF3F /* Character.h */; };
+		331DAF771C1DBBC500688ECE /* XPTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 331DAF751C1DBBC500688ECE /* XPTable.cpp */; };
+		331DAF781C1DBBC500688ECE /* XPTable.h in Headers */ = {isa = PBXBuildFile; fileRef = 331DAF761C1DBBC500688ECE /* XPTable.h */; };
+		3326A3D019B88AE200B357A1 /* BoardGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3326A3CE19B88AE200B357A1 /* BoardGame.cpp */; };
+		3326A3D119B88AE200B357A1 /* BoardGame.h in Headers */ = {isa = PBXBuildFile; fileRef = 3326A3CF19B88AE200B357A1 /* BoardGame.h */; };
+		3328AE3D19BF18C1004770D4 /* CoreBaseRenderObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3328AE3B19BF18C1004770D4 /* CoreBaseRenderObject.cpp */; };
+		3328AE3E19BF18C1004770D4 /* CoreBaseRenderObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 3328AE3C19BF18C1004770D4 /* CoreBaseRenderObject.h */; };
+		3328AE4219BF1C28004770D4 /* PlayfieldInfoManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3328AE4019BF1C28004770D4 /* PlayfieldInfoManager.cpp */; };
+		3328AE4319BF1C28004770D4 /* PlayfieldInfoManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3328AE4119BF1C28004770D4 /* PlayfieldInfoManager.h */; };
+		3337309E1D54634800E6E56B /* DeleteGameNetworkPacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3337309C1D54634800E6E56B /* DeleteGameNetworkPacket.cpp */; };
+		3337309F1D54634800E6E56B /* DeleteGameNetworkPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 3337309D1D54634800E6E56B /* DeleteGameNetworkPacket.h */; };
+		333BA98A1AAA51F100596B99 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 333BA9861AAA51F100596B99 /* GameObject.cpp */; };
+		333BA98B1AAA51F100596B99 /* GameObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 333BA9871AAA51F100596B99 /* GameObject.h */; };
+		333BA98C1AAA51F100596B99 /* Item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 333BA9881AAA51F100596B99 /* Item.cpp */; };
+		333BA98D1AAA51F100596B99 /* Item.h in Headers */ = {isa = PBXBuildFile; fileRef = 333BA9891AAA51F100596B99 /* Item.h */; };
+		333E9F611DE810ED00FA1B3B /* CreateGameWithPlayerNetworkPacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33B4765C1DE80E0D00D6E881 /* CreateGameWithPlayerNetworkPacket.cpp */; };
+		333E9F621DE810F100FA1B3B /* CreateGameWithRandomPlayerNetworkPacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33B4765E1DE80E0D00D6E881 /* CreateGameWithRandomPlayerNetworkPacket.cpp */; };
+		333E9F631DE810F600FA1B3B /* GameListNetworkPacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33B476601DE80E0D00D6E881 /* GameListNetworkPacket.cpp */; };
+		333E9F641DE810FB00FA1B3B /* GameListNetworkPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 33B476611DE80E0D00D6E881 /* GameListNetworkPacket.h */; };
+		333E9F651DE8110500FA1B3B /* CreateGameWithPlayerNetworkPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 33B4765D1DE80E0D00D6E881 /* CreateGameWithPlayerNetworkPacket.h */; };
+		333E9F661DE8110500FA1B3B /* CreateGameWithRandomPlayerNetworkPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 33B4765F1DE80E0D00D6E881 /* CreateGameWithRandomPlayerNetworkPacket.h */; };
+		333E9F671DE8110500FA1B3B /* NewGameNetworkPacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33B476621DE80E0D00D6E881 /* NewGameNetworkPacket.cpp */; };
+		333E9F681DE8110500FA1B3B /* NewGameNetworkPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 33B476631DE80E0D00D6E881 /* NewGameNetworkPacket.h */; };
+		333E9F691DE8110500FA1B3B /* SearchForPlayerWithNickNetworkPacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33B476641DE80E0D00D6E881 /* SearchForPlayerWithNickNetworkPacket.cpp */; };
+		333E9F6A1DE8110500FA1B3B /* SearchForPlayerWithNickNetworkPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 33B476651DE80E0D00D6E881 /* SearchForPlayerWithNickNetworkPacket.h */; };
+		333E9F6B1DE8111000FA1B3B /* DeletePlayfieldNetworkPacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33B476711DE80E3E00D6E881 /* DeletePlayfieldNetworkPacket.cpp */; };
+		333E9F6C1DE8111000FA1B3B /* DeletePlayfieldNetworkPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 33B476721DE80E3E00D6E881 /* DeletePlayfieldNetworkPacket.h */; };
+		333E9F6D1DE8111000FA1B3B /* LoadPlayfieldNetworkPacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33B476731DE80E3E00D6E881 /* LoadPlayfieldNetworkPacket.cpp */; };
+		333E9F6E1DE8111000FA1B3B /* LoadPlayfieldNetworkPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 33B476741DE80E3E00D6E881 /* LoadPlayfieldNetworkPacket.h */; };
+		333E9F6F1DE8111000FA1B3B /* PlayfieldListNetworkPacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33B476751DE80E3E00D6E881 /* PlayfieldListNetworkPacket.cpp */; };
+		333E9F701DE8111000FA1B3B /* PlayfieldListNetworkPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 33B476761DE80E3E00D6E881 /* PlayfieldListNetworkPacket.h */; };
+		333E9F711DE8111000FA1B3B /* SavePlayfieldNetworkPacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33B476771DE80E3E00D6E881 /* SavePlayfieldNetworkPacket.cpp */; };
+		333E9F721DE8111000FA1B3B /* SavePlayfieldNetworkPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 33B476781DE80E3E00D6E881 /* SavePlayfieldNetworkPacket.h */; };
+		338ABA891D4F2DBF003328F0 /* BoardGamePacketData.h in Headers */ = {isa = PBXBuildFile; fileRef = 338ABA881D4F2DBF003328F0 /* BoardGamePacketData.h */; };
+		338D5BE91D6C843100181569 /* BoardGameServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 338D5BE71D6C843100181569 /* BoardGameServer.cpp */; };
+		338D5BEA1D6C843100181569 /* BoardGameServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 338D5BE81D6C843100181569 /* BoardGameServer.h */; };
+		33954DE81B0A790800CC452F /* SetGridpositionEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33954DE61B0A790800CC452F /* SetGridpositionEffect.cpp */; };
+		33954DE91B0A790800CC452F /* SetGridpositionEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 33954DE71B0A790800CC452F /* SetGridpositionEffect.h */; };
+		33B476661DE80E0D00D6E881 /* CreateGameWithPlayerNetworkPacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33B4765C1DE80E0D00D6E881 /* CreateGameWithPlayerNetworkPacket.cpp */; };
+		33B476671DE80E0D00D6E881 /* CreateGameWithPlayerNetworkPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 33B4765D1DE80E0D00D6E881 /* CreateGameWithPlayerNetworkPacket.h */; };
+		33B476681DE80E0D00D6E881 /* CreateGameWithRandomPlayerNetworkPacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33B4765E1DE80E0D00D6E881 /* CreateGameWithRandomPlayerNetworkPacket.cpp */; };
+		33B476691DE80E0D00D6E881 /* CreateGameWithRandomPlayerNetworkPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 33B4765F1DE80E0D00D6E881 /* CreateGameWithRandomPlayerNetworkPacket.h */; };
+		33B4766A1DE80E0D00D6E881 /* GameListNetworkPacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33B476601DE80E0D00D6E881 /* GameListNetworkPacket.cpp */; };
+		33B4766B1DE80E0D00D6E881 /* GameListNetworkPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 33B476611DE80E0D00D6E881 /* GameListNetworkPacket.h */; };
+		33B4766C1DE80E0D00D6E881 /* NewGameNetworkPacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33B476621DE80E0D00D6E881 /* NewGameNetworkPacket.cpp */; };
+		33B4766D1DE80E0D00D6E881 /* NewGameNetworkPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 33B476631DE80E0D00D6E881 /* NewGameNetworkPacket.h */; };
+		33B4766E1DE80E0D00D6E881 /* SearchForPlayerWithNickNetworkPacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33B476641DE80E0D00D6E881 /* SearchForPlayerWithNickNetworkPacket.cpp */; };
+		33B4766F1DE80E0D00D6E881 /* SearchForPlayerWithNickNetworkPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 33B476651DE80E0D00D6E881 /* SearchForPlayerWithNickNetworkPacket.h */; };
+		33B476791DE80E3E00D6E881 /* DeletePlayfieldNetworkPacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33B476711DE80E3E00D6E881 /* DeletePlayfieldNetworkPacket.cpp */; };
+		33B4767A1DE80E3E00D6E881 /* DeletePlayfieldNetworkPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 33B476721DE80E3E00D6E881 /* DeletePlayfieldNetworkPacket.h */; };
+		33B4767B1DE80E3E00D6E881 /* LoadPlayfieldNetworkPacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33B476731DE80E3E00D6E881 /* LoadPlayfieldNetworkPacket.cpp */; };
+		33B4767C1DE80E3E00D6E881 /* LoadPlayfieldNetworkPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 33B476741DE80E3E00D6E881 /* LoadPlayfieldNetworkPacket.h */; };
+		33B4767D1DE80E3E00D6E881 /* PlayfieldListNetworkPacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33B476751DE80E3E00D6E881 /* PlayfieldListNetworkPacket.cpp */; };
+		33B4767E1DE80E3E00D6E881 /* PlayfieldListNetworkPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 33B476761DE80E3E00D6E881 /* PlayfieldListNetworkPacket.h */; };
+		33B4767F1DE80E3E00D6E881 /* SavePlayfieldNetworkPacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33B476771DE80E3E00D6E881 /* SavePlayfieldNetworkPacket.cpp */; };
+		33B476801DE80E3E00D6E881 /* SavePlayfieldNetworkPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 33B476781DE80E3E00D6E881 /* SavePlayfieldNetworkPacket.h */; };
+		33C1A1541C42F8A600351A1C /* GridTilePlayfield.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33C1A1521C42F8A600351A1C /* GridTilePlayfield.cpp */; };
+		33C1A1551C42F8A600351A1C /* GridTilePlayfield.h in Headers */ = {isa = PBXBuildFile; fileRef = 33C1A1531C42F8A600351A1C /* GridTilePlayfield.h */; };
+		33C534121D4E27020005A2C8 /* BaseGameNetworkPacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33C534101D4E27020005A2C8 /* BaseGameNetworkPacket.cpp */; };
+		33C534131D4E27020005A2C8 /* BaseGameNetworkPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 33C534111D4E27020005A2C8 /* BaseGameNetworkPacket.h */; };
+		33E038EF1DA563C000EA64E0 /* DeleteGameNetworkPacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3337309C1D54634800E6E56B /* DeleteGameNetworkPacket.cpp */; };
+		33E038F01DA563C000EA64E0 /* BoardGameServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 338D5BE71D6C843100181569 /* BoardGameServer.cpp */; };
+		33E038F11DA563C000EA64E0 /* BaseGameNetworkPacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33C534101D4E27020005A2C8 /* BaseGameNetworkPacket.cpp */; };
+		33E038F21DA563C000EA64E0 /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 330440C61AA6639E00C9DF3F /* Character.cpp */; };
+		33E038F31DA563C000EA64E0 /* XPTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 331DAF751C1DBBC500688ECE /* XPTable.cpp */; };
+		33E038F41DA563C000EA64E0 /* SetGridpositionEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33954DE61B0A790800CC452F /* SetGridpositionEffect.cpp */; };
+		33E038F51DA563C000EA64E0 /* GridTilePathfinding.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33F39FD11C57FEAF00A8FBCB /* GridTilePathfinding.cpp */; };
+		33E038F61DA563C000EA64E0 /* BaseTile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7494FD6E1905423600208ED4 /* BaseTile.cpp */; };
+		33E038F71DA563C000EA64E0 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 333BA9861AAA51F100596B99 /* GameObject.cpp */; };
+		33E038F81DA563C000EA64E0 /* PlayfieldInfoManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3328AE4019BF1C28004770D4 /* PlayfieldInfoManager.cpp */; };
+		33E038F91DA563C000EA64E0 /* HexTile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7494FD701905423600208ED4 /* HexTile.cpp */; };
+		33E038FA1DA563C000EA64E0 /* QuadTile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7494FD721905423600208ED4 /* QuadTile.cpp */; };
+		33E038FB1DA563C000EA64E0 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74089F561926C0ED008B98DA /* Player.cpp */; };
+		33E038FC1DA563C000EA64E0 /* PlayfieldInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 747BA65C194918DB00B9A561 /* PlayfieldInfo.cpp */; };
+		33E038FD1DA563C000EA64E0 /* Precompile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7494FD87190544BA00208ED4 /* Precompile.cpp */; };
+		33E038FE1DA563C000EA64E0 /* BoardGameEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 747BA658194918A200B9A561 /* BoardGameEngine.cpp */; };
+		33E038FF1DA563C000EA64E0 /* CoreBaseRenderObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3328AE3B19BF18C1004770D4 /* CoreBaseRenderObject.cpp */; };
+		33E039011DA563C000EA64E0 /* BoardGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3326A3CE19B88AE200B357A1 /* BoardGame.cpp */; };
+		33E039021DA563C000EA64E0 /* GridTilePlayfield.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33C1A1521C42F8A600351A1C /* GridTilePlayfield.cpp */; };
+		33E039031DA563C000EA64E0 /* Item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 333BA9881AAA51F100596B99 /* Item.cpp */; };
+		33E039061DA563C000EA64E0 /* QuadTile.h in Headers */ = {isa = PBXBuildFile; fileRef = 7494FD731905423600208ED4 /* QuadTile.h */; };
+		33E039081DA563C000EA64E0 /* BoardGameServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 338D5BE81D6C843100181569 /* BoardGameServer.h */; };
+		33E039091DA563C000EA64E0 /* GridTilePathfinding.h in Headers */ = {isa = PBXBuildFile; fileRef = 33F39FD21C57FEAF00A8FBCB /* GridTilePathfinding.h */; };
+		33E0390A1DA563C000EA64E0 /* DeleteGameNetworkPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 3337309D1D54634800E6E56B /* DeleteGameNetworkPacket.h */; };
+		33E0390B1DA563C000EA64E0 /* BaseGameNetworkPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 33C534111D4E27020005A2C8 /* BaseGameNetworkPacket.h */; };
+		33E0390C1DA563C000EA64E0 /* PlayfieldInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 747BA65D194918DB00B9A561 /* PlayfieldInfo.h */; };
+		33E0390D1DA563C000EA64E0 /* Precompile.h in Headers */ = {isa = PBXBuildFile; fileRef = 7494FD88190544BA00208ED4 /* Precompile.h */; };
+		33E0390E1DA563C000EA64E0 /* SetGridpositionEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 33954DE71B0A790800CC452F /* SetGridpositionEffect.h */; };
+		33E0390F1DA563C000EA64E0 /* BoardGamePacketData.h in Headers */ = {isa = PBXBuildFile; fileRef = 338ABA881D4F2DBF003328F0 /* BoardGamePacketData.h */; };
+		33E039101DA563C000EA64E0 /* BoardGame.h in Headers */ = {isa = PBXBuildFile; fileRef = 3326A3CF19B88AE200B357A1 /* BoardGame.h */; };
+		33E039111DA563C000EA64E0 /* Player.h in Headers */ = {isa = PBXBuildFile; fileRef = 74089F571926C0ED008B98DA /* Player.h */; };
+		33E039121DA563C000EA64E0 /* Item.h in Headers */ = {isa = PBXBuildFile; fileRef = 333BA9891AAA51F100596B99 /* Item.h */; };
+		33E039131DA563C000EA64E0 /* XPTable.h in Headers */ = {isa = PBXBuildFile; fileRef = 331DAF761C1DBBC500688ECE /* XPTable.h */; };
+		33E039141DA563C000EA64E0 /* GridTilePlayfield.h in Headers */ = {isa = PBXBuildFile; fileRef = 33C1A1531C42F8A600351A1C /* GridTilePlayfield.h */; };
+		33E039151DA563C000EA64E0 /* HexTile.h in Headers */ = {isa = PBXBuildFile; fileRef = 7494FD711905423600208ED4 /* HexTile.h */; };
+		33E039161DA563C000EA64E0 /* Character.h in Headers */ = {isa = PBXBuildFile; fileRef = 330440C71AA6639E00C9DF3F /* Character.h */; };
+		33E039181DA563C000EA64E0 /* PlayfieldInfoManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3328AE4119BF1C28004770D4 /* PlayfieldInfoManager.h */; };
+		33E039191DA563C000EA64E0 /* GameObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 333BA9871AAA51F100596B99 /* GameObject.h */; };
+		33E0391A1DA563C000EA64E0 /* BaseTile.h in Headers */ = {isa = PBXBuildFile; fileRef = 7494FD6F1905423600208ED4 /* BaseTile.h */; };
+		33E0391B1DA563C000EA64E0 /* CoreBaseRenderObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 3328AE3C19BF18C1004770D4 /* CoreBaseRenderObject.h */; };
+		33E0391C1DA563C000EA64E0 /* BoardGameEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 747BA659194918A200B9A561 /* BoardGameEngine.h */; };
+		33F39FD31C57FEAF00A8FBCB /* GridTilePathfinding.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33F39FD11C57FEAF00A8FBCB /* GridTilePathfinding.cpp */; };
+		33F39FD41C57FEAF00A8FBCB /* GridTilePathfinding.h in Headers */ = {isa = PBXBuildFile; fileRef = 33F39FD21C57FEAF00A8FBCB /* GridTilePathfinding.h */; };
+		74089F581926C0ED008B98DA /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74089F561926C0ED008B98DA /* Player.cpp */; };
+		74089F591926C0ED008B98DA /* Player.h in Headers */ = {isa = PBXBuildFile; fileRef = 74089F571926C0ED008B98DA /* Player.h */; };
+		747BA65A194918A200B9A561 /* BoardGameEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 747BA658194918A200B9A561 /* BoardGameEngine.cpp */; };
+		747BA65B194918A200B9A561 /* BoardGameEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 747BA659194918A200B9A561 /* BoardGameEngine.h */; };
+		747BA65E194918DB00B9A561 /* PlayfieldInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 747BA65C194918DB00B9A561 /* PlayfieldInfo.cpp */; };
+		747BA65F194918DB00B9A561 /* PlayfieldInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 747BA65D194918DB00B9A561 /* PlayfieldInfo.h */; };
+		7494FD741905423600208ED4 /* BaseTile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7494FD6E1905423600208ED4 /* BaseTile.cpp */; };
+		7494FD751905423600208ED4 /* BaseTile.h in Headers */ = {isa = PBXBuildFile; fileRef = 7494FD6F1905423600208ED4 /* BaseTile.h */; };
+		7494FD761905423600208ED4 /* HexTile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7494FD701905423600208ED4 /* HexTile.cpp */; };
+		7494FD771905423600208ED4 /* HexTile.h in Headers */ = {isa = PBXBuildFile; fileRef = 7494FD711905423600208ED4 /* HexTile.h */; };
+		7494FD781905423600208ED4 /* QuadTile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7494FD721905423600208ED4 /* QuadTile.cpp */; };
+		7494FD791905423600208ED4 /* QuadTile.h in Headers */ = {isa = PBXBuildFile; fileRef = 7494FD731905423600208ED4 /* QuadTile.h */; };
+		7494FD89190544BA00208ED4 /* Precompile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7494FD87190544BA00208ED4 /* Precompile.cpp */; };
+		7494FD8A190544BA00208ED4 /* Precompile.h in Headers */ = {isa = PBXBuildFile; fileRef = 7494FD88190544BA00208ED4 /* Precompile.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		330440C61AA6639E00C9DF3F /* Character.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Character.cpp; path = GameLogic/Character/Character.cpp; sourceTree = "<group>"; };
+		330440C71AA6639E00C9DF3F /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Character.h; path = GameLogic/Character/Character.h; sourceTree = "<group>"; };
+		331DAF751C1DBBC500688ECE /* XPTable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = XPTable.cpp; path = GameLogic/XPTable/XPTable.cpp; sourceTree = "<group>"; };
+		331DAF761C1DBBC500688ECE /* XPTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XPTable.h; path = GameLogic/XPTable/XPTable.h; sourceTree = "<group>"; };
+		3326A3CE19B88AE200B357A1 /* BoardGame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BoardGame.cpp; path = GameLogic/Game/BoardGame.cpp; sourceTree = "<group>"; };
+		3326A3CF19B88AE200B357A1 /* BoardGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoardGame.h; path = GameLogic/Game/BoardGame.h; sourceTree = "<group>"; };
+		3328AE3B19BF18C1004770D4 /* CoreBaseRenderObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoreBaseRenderObject.cpp; path = GameEngine/CoreBaseRenderObject.cpp; sourceTree = "<group>"; };
+		3328AE3C19BF18C1004770D4 /* CoreBaseRenderObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreBaseRenderObject.h; path = GameEngine/CoreBaseRenderObject.h; sourceTree = "<group>"; };
+		3328AE4019BF1C28004770D4 /* PlayfieldInfoManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PlayfieldInfoManager.cpp; path = Playfield/PlayfieldInfoManager.cpp; sourceTree = "<group>"; };
+		3328AE4119BF1C28004770D4 /* PlayfieldInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayfieldInfoManager.h; path = Playfield/PlayfieldInfoManager.h; sourceTree = "<group>"; };
+		3337309C1D54634800E6E56B /* DeleteGameNetworkPacket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DeleteGameNetworkPacket.cpp; path = Network/GameNetworkPackets/DeleteGameNetworkPacket.cpp; sourceTree = "<group>"; };
+		3337309D1D54634800E6E56B /* DeleteGameNetworkPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeleteGameNetworkPacket.h; path = Network/GameNetworkPackets/DeleteGameNetworkPacket.h; sourceTree = "<group>"; };
+		333BA9861AAA51F100596B99 /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameObject.cpp; path = GameLogic/GameObject/GameObject.cpp; sourceTree = "<group>"; };
+		333BA9871AAA51F100596B99 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameObject.h; path = GameLogic/GameObject/GameObject.h; sourceTree = "<group>"; };
+		333BA9881AAA51F100596B99 /* Item.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Item.cpp; path = GameLogic/GameObject/Item.cpp; sourceTree = "<group>"; };
+		333BA9891AAA51F100596B99 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = GameLogic/GameObject/Item.h; sourceTree = "<group>"; };
+		338ABA881D4F2DBF003328F0 /* BoardGamePacketData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoardGamePacketData.h; path = Network/BoardGamePacketData.h; sourceTree = "<group>"; };
+		338D5BE71D6C843100181569 /* BoardGameServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BoardGameServer.cpp; path = GameLogic/Game/BoardGameServer.cpp; sourceTree = "<group>"; };
+		338D5BE81D6C843100181569 /* BoardGameServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoardGameServer.h; path = GameLogic/Game/BoardGameServer.h; sourceTree = "<group>"; };
+		33954DE61B0A790800CC452F /* SetGridpositionEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SetGridpositionEffect.cpp; path = GameLogic/Effects/SetGridpositionEffect.cpp; sourceTree = "<group>"; };
+		33954DE71B0A790800CC452F /* SetGridpositionEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetGridpositionEffect.h; path = GameLogic/Effects/SetGridpositionEffect.h; sourceTree = "<group>"; };
+		33B4765C1DE80E0D00D6E881 /* CreateGameWithPlayerNetworkPacket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CreateGameWithPlayerNetworkPacket.cpp; path = Network/GameNetworkPackets/CreateGameWithPlayerNetworkPacket.cpp; sourceTree = "<group>"; };
+		33B4765D1DE80E0D00D6E881 /* CreateGameWithPlayerNetworkPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreateGameWithPlayerNetworkPacket.h; path = Network/GameNetworkPackets/CreateGameWithPlayerNetworkPacket.h; sourceTree = "<group>"; };
+		33B4765E1DE80E0D00D6E881 /* CreateGameWithRandomPlayerNetworkPacket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CreateGameWithRandomPlayerNetworkPacket.cpp; path = Network/GameNetworkPackets/CreateGameWithRandomPlayerNetworkPacket.cpp; sourceTree = "<group>"; };
+		33B4765F1DE80E0D00D6E881 /* CreateGameWithRandomPlayerNetworkPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreateGameWithRandomPlayerNetworkPacket.h; path = Network/GameNetworkPackets/CreateGameWithRandomPlayerNetworkPacket.h; sourceTree = "<group>"; };
+		33B476601DE80E0D00D6E881 /* GameListNetworkPacket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameListNetworkPacket.cpp; path = Network/GameNetworkPackets/GameListNetworkPacket.cpp; sourceTree = "<group>"; };
+		33B476611DE80E0D00D6E881 /* GameListNetworkPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameListNetworkPacket.h; path = Network/GameNetworkPackets/GameListNetworkPacket.h; sourceTree = "<group>"; };
+		33B476621DE80E0D00D6E881 /* NewGameNetworkPacket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NewGameNetworkPacket.cpp; path = Network/GameNetworkPackets/NewGameNetworkPacket.cpp; sourceTree = "<group>"; };
+		33B476631DE80E0D00D6E881 /* NewGameNetworkPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewGameNetworkPacket.h; path = Network/GameNetworkPackets/NewGameNetworkPacket.h; sourceTree = "<group>"; };
+		33B476641DE80E0D00D6E881 /* SearchForPlayerWithNickNetworkPacket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SearchForPlayerWithNickNetworkPacket.cpp; path = Network/GameNetworkPackets/SearchForPlayerWithNickNetworkPacket.cpp; sourceTree = "<group>"; };
+		33B476651DE80E0D00D6E881 /* SearchForPlayerWithNickNetworkPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchForPlayerWithNickNetworkPacket.h; path = Network/GameNetworkPackets/SearchForPlayerWithNickNetworkPacket.h; sourceTree = "<group>"; };
+		33B476711DE80E3E00D6E881 /* DeletePlayfieldNetworkPacket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DeletePlayfieldNetworkPacket.cpp; path = Network/PlayfieldNetworkPackets/DeletePlayfieldNetworkPacket.cpp; sourceTree = "<group>"; };
+		33B476721DE80E3E00D6E881 /* DeletePlayfieldNetworkPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeletePlayfieldNetworkPacket.h; path = Network/PlayfieldNetworkPackets/DeletePlayfieldNetworkPacket.h; sourceTree = "<group>"; };
+		33B476731DE80E3E00D6E881 /* LoadPlayfieldNetworkPacket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LoadPlayfieldNetworkPacket.cpp; path = Network/PlayfieldNetworkPackets/LoadPlayfieldNetworkPacket.cpp; sourceTree = "<group>"; };
+		33B476741DE80E3E00D6E881 /* LoadPlayfieldNetworkPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadPlayfieldNetworkPacket.h; path = Network/PlayfieldNetworkPackets/LoadPlayfieldNetworkPacket.h; sourceTree = "<group>"; };
+		33B476751DE80E3E00D6E881 /* PlayfieldListNetworkPacket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PlayfieldListNetworkPacket.cpp; path = Network/PlayfieldNetworkPackets/PlayfieldListNetworkPacket.cpp; sourceTree = "<group>"; };
+		33B476761DE80E3E00D6E881 /* PlayfieldListNetworkPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayfieldListNetworkPacket.h; path = Network/PlayfieldNetworkPackets/PlayfieldListNetworkPacket.h; sourceTree = "<group>"; };
+		33B476771DE80E3E00D6E881 /* SavePlayfieldNetworkPacket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SavePlayfieldNetworkPacket.cpp; path = Network/PlayfieldNetworkPackets/SavePlayfieldNetworkPacket.cpp; sourceTree = "<group>"; };
+		33B476781DE80E3E00D6E881 /* SavePlayfieldNetworkPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SavePlayfieldNetworkPacket.h; path = Network/PlayfieldNetworkPackets/SavePlayfieldNetworkPacket.h; sourceTree = "<group>"; };
+		33C1A1521C42F8A600351A1C /* GridTilePlayfield.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GridTilePlayfield.cpp; path = Playfield/GridTilePlayfield.cpp; sourceTree = "<group>"; };
+		33C1A1531C42F8A600351A1C /* GridTilePlayfield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GridTilePlayfield.h; path = Playfield/GridTilePlayfield.h; sourceTree = "<group>"; };
+		33C534101D4E27020005A2C8 /* BaseGameNetworkPacket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseGameNetworkPacket.cpp; path = Network/GameNetworkPackets/BaseGameNetworkPacket.cpp; sourceTree = "<group>"; };
+		33C534111D4E27020005A2C8 /* BaseGameNetworkPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseGameNetworkPacket.h; path = Network/GameNetworkPackets/BaseGameNetworkPacket.h; sourceTree = "<group>"; };
+		33E039201DA563C000EA64E0 /* libCoreBoardGame.OSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCoreBoardGame.OSX.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		33F39FD11C57FEAF00A8FBCB /* GridTilePathfinding.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GridTilePathfinding.cpp; path = Playfield/Pathfinding/GridTilePathfinding.cpp; sourceTree = "<group>"; };
+		33F39FD21C57FEAF00A8FBCB /* GridTilePathfinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GridTilePathfinding.h; path = Playfield/Pathfinding/GridTilePathfinding.h; sourceTree = "<group>"; };
+		74089F561926C0ED008B98DA /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Player.cpp; path = GameLogic/Player/Player.cpp; sourceTree = "<group>"; };
+		74089F571926C0ED008B98DA /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = GameLogic/Player/Player.h; sourceTree = "<group>"; };
+		747BA658194918A200B9A561 /* BoardGameEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BoardGameEngine.cpp; path = GameEngine/BoardGameEngine.cpp; sourceTree = "<group>"; };
+		747BA659194918A200B9A561 /* BoardGameEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoardGameEngine.h; path = GameEngine/BoardGameEngine.h; sourceTree = "<group>"; };
+		747BA65C194918DB00B9A561 /* PlayfieldInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PlayfieldInfo.cpp; path = Playfield/PlayfieldInfo.cpp; sourceTree = "<group>"; };
+		747BA65D194918DB00B9A561 /* PlayfieldInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayfieldInfo.h; path = Playfield/PlayfieldInfo.h; sourceTree = "<group>"; };
+		7494FD59190540F200208ED4 /* libCoreBoardGame.iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCoreBoardGame.iOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7494FD6E1905423600208ED4 /* BaseTile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseTile.cpp; path = Playfield/Tiles/BaseTile.cpp; sourceTree = "<group>"; };
+		7494FD6F1905423600208ED4 /* BaseTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseTile.h; path = Playfield/Tiles/BaseTile.h; sourceTree = "<group>"; };
+		7494FD701905423600208ED4 /* HexTile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HexTile.cpp; path = Playfield/Tiles/HexTile.cpp; sourceTree = "<group>"; };
+		7494FD711905423600208ED4 /* HexTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HexTile.h; path = Playfield/Tiles/HexTile.h; sourceTree = "<group>"; };
+		7494FD721905423600208ED4 /* QuadTile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = QuadTile.cpp; path = Playfield/Tiles/QuadTile.cpp; sourceTree = "<group>"; };
+		7494FD731905423600208ED4 /* QuadTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuadTile.h; path = Playfield/Tiles/QuadTile.h; sourceTree = "<group>"; };
+		7494FD87190544BA00208ED4 /* Precompile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Precompile.cpp; sourceTree = "<group>"; };
+		7494FD88190544BA00208ED4 /* Precompile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Precompile.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		33E039041DA563C000EA64E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7494FD56190540F200208ED4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		330440C51AA6638F00C9DF3F /* Character */ = {
+			isa = PBXGroup;
+			children = (
+				330440C61AA6639E00C9DF3F /* Character.cpp */,
+				330440C71AA6639E00C9DF3F /* Character.h */,
+			);
+			name = Character;
+			sourceTree = "<group>";
+		};
+		331DAF741C1DBBB300688ECE /* XPTable */ = {
+			isa = PBXGroup;
+			children = (
+				331DAF751C1DBBC500688ECE /* XPTable.cpp */,
+				331DAF761C1DBBC500688ECE /* XPTable.h */,
+			);
+			name = XPTable;
+			sourceTree = "<group>";
+		};
+		3328AE3F19BF1C0F004770D4 /* PlayfieldInfo */ = {
+			isa = PBXGroup;
+			children = (
+				3328AE4019BF1C28004770D4 /* PlayfieldInfoManager.cpp */,
+				3328AE4119BF1C28004770D4 /* PlayfieldInfoManager.h */,
+				747BA65D194918DB00B9A561 /* PlayfieldInfo.h */,
+				747BA65C194918DB00B9A561 /* PlayfieldInfo.cpp */,
+			);
+			name = PlayfieldInfo;
+			sourceTree = "<group>";
+		};
+		333BA9851AAA51E100596B99 /* GameObject */ = {
+			isa = PBXGroup;
+			children = (
+				333BA9861AAA51F100596B99 /* GameObject.cpp */,
+				333BA9871AAA51F100596B99 /* GameObject.h */,
+				333BA9881AAA51F100596B99 /* Item.cpp */,
+				333BA9891AAA51F100596B99 /* Item.h */,
+			);
+			name = GameObject;
+			sourceTree = "<group>";
+		};
+		33954DE51B0A78E700CC452F /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				33954DE61B0A790800CC452F /* SetGridpositionEffect.cpp */,
+				33954DE71B0A790800CC452F /* SetGridpositionEffect.h */,
+			);
+			name = Effects;
+			sourceTree = "<group>";
+		};
+		33B476701DE80E2800D6E881 /* PlayfieldNetworkPackets */ = {
+			isa = PBXGroup;
+			children = (
+				33B476711DE80E3E00D6E881 /* DeletePlayfieldNetworkPacket.cpp */,
+				33B476721DE80E3E00D6E881 /* DeletePlayfieldNetworkPacket.h */,
+				33B476731DE80E3E00D6E881 /* LoadPlayfieldNetworkPacket.cpp */,
+				33B476741DE80E3E00D6E881 /* LoadPlayfieldNetworkPacket.h */,
+				33B476751DE80E3E00D6E881 /* PlayfieldListNetworkPacket.cpp */,
+				33B476761DE80E3E00D6E881 /* PlayfieldListNetworkPacket.h */,
+				33B476771DE80E3E00D6E881 /* SavePlayfieldNetworkPacket.cpp */,
+				33B476781DE80E3E00D6E881 /* SavePlayfieldNetworkPacket.h */,
+			);
+			name = PlayfieldNetworkPackets;
+			sourceTree = "<group>";
+		};
+		33C5340F1D4E26EB0005A2C8 /* GameNetworkPackets */ = {
+			isa = PBXGroup;
+			children = (
+				33B4765C1DE80E0D00D6E881 /* CreateGameWithPlayerNetworkPacket.cpp */,
+				33B4765D1DE80E0D00D6E881 /* CreateGameWithPlayerNetworkPacket.h */,
+				33B4765E1DE80E0D00D6E881 /* CreateGameWithRandomPlayerNetworkPacket.cpp */,
+				33B4765F1DE80E0D00D6E881 /* CreateGameWithRandomPlayerNetworkPacket.h */,
+				33B476601DE80E0D00D6E881 /* GameListNetworkPacket.cpp */,
+				33B476611DE80E0D00D6E881 /* GameListNetworkPacket.h */,
+				33B476621DE80E0D00D6E881 /* NewGameNetworkPacket.cpp */,
+				33B476631DE80E0D00D6E881 /* NewGameNetworkPacket.h */,
+				33B476641DE80E0D00D6E881 /* SearchForPlayerWithNickNetworkPacket.cpp */,
+				33B476651DE80E0D00D6E881 /* SearchForPlayerWithNickNetworkPacket.h */,
+				3337309C1D54634800E6E56B /* DeleteGameNetworkPacket.cpp */,
+				3337309D1D54634800E6E56B /* DeleteGameNetworkPacket.h */,
+				33C534101D4E27020005A2C8 /* BaseGameNetworkPacket.cpp */,
+				33C534111D4E27020005A2C8 /* BaseGameNetworkPacket.h */,
+			);
+			name = GameNetworkPackets;
+			sourceTree = "<group>";
+		};
+		33F39FD51C57FEBF00A8FBCB /* Pathfinding */ = {
+			isa = PBXGroup;
+			children = (
+				33F39FD11C57FEAF00A8FBCB /* GridTilePathfinding.cpp */,
+				33F39FD21C57FEAF00A8FBCB /* GridTilePathfinding.h */,
+			);
+			name = Pathfinding;
+			sourceTree = "<group>";
+		};
+		74089F4B1926C0B8008B98DA /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				338D5BE71D6C843100181569 /* BoardGameServer.cpp */,
+				338D5BE81D6C843100181569 /* BoardGameServer.h */,
+				3326A3CE19B88AE200B357A1 /* BoardGame.cpp */,
+				3326A3CF19B88AE200B357A1 /* BoardGame.h */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
+		74089F541926C0D3008B98DA /* GameLogic */ = {
+			isa = PBXGroup;
+			children = (
+				331DAF741C1DBBB300688ECE /* XPTable */,
+				33954DE51B0A78E700CC452F /* Effects */,
+				333BA9851AAA51E100596B99 /* GameObject */,
+				330440C51AA6638F00C9DF3F /* Character */,
+				74089F551926C0DD008B98DA /* Player */,
+				74089F4B1926C0B8008B98DA /* Game */,
+			);
+			name = GameLogic;
+			sourceTree = "<group>";
+		};
+		74089F551926C0DD008B98DA /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				74089F561926C0ED008B98DA /* Player.cpp */,
+				74089F571926C0ED008B98DA /* Player.h */,
+			);
+			name = Player;
+			sourceTree = "<group>";
+		};
+		741151AB190732BC00365907 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				33B476701DE80E2800D6E881 /* PlayfieldNetworkPackets */,
+				33C5340F1D4E26EB0005A2C8 /* GameNetworkPackets */,
+				338ABA881D4F2DBF003328F0 /* BoardGamePacketData.h */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		747BA6571949189600B9A561 /* GameEngine */ = {
+			isa = PBXGroup;
+			children = (
+				3328AE3B19BF18C1004770D4 /* CoreBaseRenderObject.cpp */,
+				3328AE3C19BF18C1004770D4 /* CoreBaseRenderObject.h */,
+				747BA658194918A200B9A561 /* BoardGameEngine.cpp */,
+				747BA659194918A200B9A561 /* BoardGameEngine.h */,
+			);
+			name = GameEngine;
+			sourceTree = "<group>";
+		};
+		7494FD50190540F200208ED4 = {
+			isa = PBXGroup;
+			children = (
+				747BA6571949189600B9A561 /* GameEngine */,
+				74089F541926C0D3008B98DA /* GameLogic */,
+				741151AB190732BC00365907 /* Network */,
+				7494FD87190544BA00208ED4 /* Precompile.cpp */,
+				7494FD88190544BA00208ED4 /* Precompile.h */,
+				7494FD6C1905421F00208ED4 /* Playfield */,
+				7494FD5A190540F200208ED4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7494FD5A190540F200208ED4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7494FD59190540F200208ED4 /* libCoreBoardGame.iOS.a */,
+				33E039201DA563C000EA64E0 /* libCoreBoardGame.OSX.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7494FD6C1905421F00208ED4 /* Playfield */ = {
+			isa = PBXGroup;
+			children = (
+				33F39FD51C57FEBF00A8FBCB /* Pathfinding */,
+				33C1A1521C42F8A600351A1C /* GridTilePlayfield.cpp */,
+				33C1A1531C42F8A600351A1C /* GridTilePlayfield.h */,
+				3328AE3F19BF1C0F004770D4 /* PlayfieldInfo */,
+				7494FD6D1905422A00208ED4 /* Tiles */,
+			);
+			name = Playfield;
+			sourceTree = "<group>";
+		};
+		7494FD6D1905422A00208ED4 /* Tiles */ = {
+			isa = PBXGroup;
+			children = (
+				7494FD6E1905423600208ED4 /* BaseTile.cpp */,
+				7494FD6F1905423600208ED4 /* BaseTile.h */,
+				7494FD701905423600208ED4 /* HexTile.cpp */,
+				7494FD711905423600208ED4 /* HexTile.h */,
+				7494FD721905423600208ED4 /* QuadTile.cpp */,
+				7494FD731905423600208ED4 /* QuadTile.h */,
+			);
+			name = Tiles;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		33E039051DA563C000EA64E0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				333E9F721DE8111000FA1B3B /* SavePlayfieldNetworkPacket.h in Headers */,
+				333E9F6E1DE8111000FA1B3B /* LoadPlayfieldNetworkPacket.h in Headers */,
+				33E039061DA563C000EA64E0 /* QuadTile.h in Headers */,
+				33E039081DA563C000EA64E0 /* BoardGameServer.h in Headers */,
+				333E9F651DE8110500FA1B3B /* CreateGameWithPlayerNetworkPacket.h in Headers */,
+				33E039091DA563C000EA64E0 /* GridTilePathfinding.h in Headers */,
+				33E0390A1DA563C000EA64E0 /* DeleteGameNetworkPacket.h in Headers */,
+				33E0390B1DA563C000EA64E0 /* BaseGameNetworkPacket.h in Headers */,
+				33E0390C1DA563C000EA64E0 /* PlayfieldInfo.h in Headers */,
+				33E0390D1DA563C000EA64E0 /* Precompile.h in Headers */,
+				33E0390E1DA563C000EA64E0 /* SetGridpositionEffect.h in Headers */,
+				333E9F6A1DE8110500FA1B3B /* SearchForPlayerWithNickNetworkPacket.h in Headers */,
+				333E9F661DE8110500FA1B3B /* CreateGameWithRandomPlayerNetworkPacket.h in Headers */,
+				333E9F6C1DE8111000FA1B3B /* DeletePlayfieldNetworkPacket.h in Headers */,
+				33E0390F1DA563C000EA64E0 /* BoardGamePacketData.h in Headers */,
+				33E039101DA563C000EA64E0 /* BoardGame.h in Headers */,
+				33E039111DA563C000EA64E0 /* Player.h in Headers */,
+				33E039121DA563C000EA64E0 /* Item.h in Headers */,
+				33E039131DA563C000EA64E0 /* XPTable.h in Headers */,
+				33E039141DA563C000EA64E0 /* GridTilePlayfield.h in Headers */,
+				33E039151DA563C000EA64E0 /* HexTile.h in Headers */,
+				333E9F701DE8111000FA1B3B /* PlayfieldListNetworkPacket.h in Headers */,
+				33E039161DA563C000EA64E0 /* Character.h in Headers */,
+				33E039181DA563C000EA64E0 /* PlayfieldInfoManager.h in Headers */,
+				33E039191DA563C000EA64E0 /* GameObject.h in Headers */,
+				33E0391A1DA563C000EA64E0 /* BaseTile.h in Headers */,
+				333E9F681DE8110500FA1B3B /* NewGameNetworkPacket.h in Headers */,
+				333E9F641DE810FB00FA1B3B /* GameListNetworkPacket.h in Headers */,
+				33E0391B1DA563C000EA64E0 /* CoreBaseRenderObject.h in Headers */,
+				33E0391C1DA563C000EA64E0 /* BoardGameEngine.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7494FD57190540F200208ED4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33B476801DE80E3E00D6E881 /* SavePlayfieldNetworkPacket.h in Headers */,
+				33B4767C1DE80E3E00D6E881 /* LoadPlayfieldNetworkPacket.h in Headers */,
+				7494FD791905423600208ED4 /* QuadTile.h in Headers */,
+				33B4766B1DE80E0D00D6E881 /* GameListNetworkPacket.h in Headers */,
+				33B476691DE80E0D00D6E881 /* CreateGameWithRandomPlayerNetworkPacket.h in Headers */,
+				338D5BEA1D6C843100181569 /* BoardGameServer.h in Headers */,
+				33F39FD41C57FEAF00A8FBCB /* GridTilePathfinding.h in Headers */,
+				3337309F1D54634800E6E56B /* DeleteGameNetworkPacket.h in Headers */,
+				33B476671DE80E0D00D6E881 /* CreateGameWithPlayerNetworkPacket.h in Headers */,
+				33C534131D4E27020005A2C8 /* BaseGameNetworkPacket.h in Headers */,
+				747BA65F194918DB00B9A561 /* PlayfieldInfo.h in Headers */,
+				33B4766F1DE80E0D00D6E881 /* SearchForPlayerWithNickNetworkPacket.h in Headers */,
+				7494FD8A190544BA00208ED4 /* Precompile.h in Headers */,
+				33B4767A1DE80E3E00D6E881 /* DeletePlayfieldNetworkPacket.h in Headers */,
+				33954DE91B0A790800CC452F /* SetGridpositionEffect.h in Headers */,
+				338ABA891D4F2DBF003328F0 /* BoardGamePacketData.h in Headers */,
+				3326A3D119B88AE200B357A1 /* BoardGame.h in Headers */,
+				74089F591926C0ED008B98DA /* Player.h in Headers */,
+				333BA98D1AAA51F100596B99 /* Item.h in Headers */,
+				331DAF781C1DBBC500688ECE /* XPTable.h in Headers */,
+				33C1A1551C42F8A600351A1C /* GridTilePlayfield.h in Headers */,
+				33B4767E1DE80E3E00D6E881 /* PlayfieldListNetworkPacket.h in Headers */,
+				7494FD771905423600208ED4 /* HexTile.h in Headers */,
+				330440C91AA6639E00C9DF3F /* Character.h in Headers */,
+				3328AE4319BF1C28004770D4 /* PlayfieldInfoManager.h in Headers */,
+				333BA98B1AAA51F100596B99 /* GameObject.h in Headers */,
+				33B4766D1DE80E0D00D6E881 /* NewGameNetworkPacket.h in Headers */,
+				7494FD751905423600208ED4 /* BaseTile.h in Headers */,
+				3328AE3E19BF18C1004770D4 /* CoreBaseRenderObject.h in Headers */,
+				747BA65B194918A200B9A561 /* BoardGameEngine.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		33E038ED1DA563C000EA64E0 /* CoreBoardGame.OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33E0391D1DA563C000EA64E0 /* Build configuration list for PBXNativeTarget "CoreBoardGame.OSX" */;
+			buildPhases = (
+				33E038EE1DA563C000EA64E0 /* Sources */,
+				33E039041DA563C000EA64E0 /* Frameworks */,
+				33E039051DA563C000EA64E0 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoreBoardGame.OSX;
+			productName = CoreBoardGame;
+			productReference = 33E039201DA563C000EA64E0 /* libCoreBoardGame.OSX.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		7494FD58190540F200208ED4 /* CoreBoardGame.iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7494FD5D190540F200208ED4 /* Build configuration list for PBXNativeTarget "CoreBoardGame.iOS" */;
+			buildPhases = (
+				7494FD55190540F200208ED4 /* Sources */,
+				7494FD56190540F200208ED4 /* Frameworks */,
+				7494FD57190540F200208ED4 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoreBoardGame.iOS;
+			productName = CoreBoardGame;
+			productReference = 7494FD59190540F200208ED4 /* libCoreBoardGame.iOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7494FD51190540F200208ED4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Thor Hansen";
+			};
+			buildConfigurationList = 7494FD54190540F200208ED4 /* Build configuration list for PBXProject "CoreBoardGame" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7494FD50190540F200208ED4;
+			productRefGroup = 7494FD5A190540F200208ED4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7494FD58190540F200208ED4 /* CoreBoardGame.iOS */,
+				33E038ED1DA563C000EA64E0 /* CoreBoardGame.OSX */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		33E038EE1DA563C000EA64E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				333E9F6F1DE8111000FA1B3B /* PlayfieldListNetworkPacket.cpp in Sources */,
+				333E9F6B1DE8111000FA1B3B /* DeletePlayfieldNetworkPacket.cpp in Sources */,
+				33E038EF1DA563C000EA64E0 /* DeleteGameNetworkPacket.cpp in Sources */,
+				33E038F01DA563C000EA64E0 /* BoardGameServer.cpp in Sources */,
+				333E9F631DE810F600FA1B3B /* GameListNetworkPacket.cpp in Sources */,
+				33E038F11DA563C000EA64E0 /* BaseGameNetworkPacket.cpp in Sources */,
+				33E038F21DA563C000EA64E0 /* Character.cpp in Sources */,
+				33E038F31DA563C000EA64E0 /* XPTable.cpp in Sources */,
+				33E038F41DA563C000EA64E0 /* SetGridpositionEffect.cpp in Sources */,
+				33E038F51DA563C000EA64E0 /* GridTilePathfinding.cpp in Sources */,
+				333E9F611DE810ED00FA1B3B /* CreateGameWithPlayerNetworkPacket.cpp in Sources */,
+				33E038F61DA563C000EA64E0 /* BaseTile.cpp in Sources */,
+				333E9F671DE8110500FA1B3B /* NewGameNetworkPacket.cpp in Sources */,
+				33E038F71DA563C000EA64E0 /* GameObject.cpp in Sources */,
+				333E9F621DE810F100FA1B3B /* CreateGameWithRandomPlayerNetworkPacket.cpp in Sources */,
+				33E038F81DA563C000EA64E0 /* PlayfieldInfoManager.cpp in Sources */,
+				33E038F91DA563C000EA64E0 /* HexTile.cpp in Sources */,
+				33E038FA1DA563C000EA64E0 /* QuadTile.cpp in Sources */,
+				333E9F711DE8111000FA1B3B /* SavePlayfieldNetworkPacket.cpp in Sources */,
+				333E9F691DE8110500FA1B3B /* SearchForPlayerWithNickNetworkPacket.cpp in Sources */,
+				33E038FB1DA563C000EA64E0 /* Player.cpp in Sources */,
+				333E9F6D1DE8111000FA1B3B /* LoadPlayfieldNetworkPacket.cpp in Sources */,
+				33E038FC1DA563C000EA64E0 /* PlayfieldInfo.cpp in Sources */,
+				33E038FD1DA563C000EA64E0 /* Precompile.cpp in Sources */,
+				33E038FE1DA563C000EA64E0 /* BoardGameEngine.cpp in Sources */,
+				33E038FF1DA563C000EA64E0 /* CoreBaseRenderObject.cpp in Sources */,
+				33E039011DA563C000EA64E0 /* BoardGame.cpp in Sources */,
+				33E039021DA563C000EA64E0 /* GridTilePlayfield.cpp in Sources */,
+				33E039031DA563C000EA64E0 /* Item.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7494FD55190540F200208ED4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33B4767D1DE80E3E00D6E881 /* PlayfieldListNetworkPacket.cpp in Sources */,
+				33B476791DE80E3E00D6E881 /* DeletePlayfieldNetworkPacket.cpp in Sources */,
+				3337309E1D54634800E6E56B /* DeleteGameNetworkPacket.cpp in Sources */,
+				338D5BE91D6C843100181569 /* BoardGameServer.cpp in Sources */,
+				33B4766A1DE80E0D00D6E881 /* GameListNetworkPacket.cpp in Sources */,
+				33C534121D4E27020005A2C8 /* BaseGameNetworkPacket.cpp in Sources */,
+				330440C81AA6639E00C9DF3F /* Character.cpp in Sources */,
+				331DAF771C1DBBC500688ECE /* XPTable.cpp in Sources */,
+				33954DE81B0A790800CC452F /* SetGridpositionEffect.cpp in Sources */,
+				33F39FD31C57FEAF00A8FBCB /* GridTilePathfinding.cpp in Sources */,
+				33B476661DE80E0D00D6E881 /* CreateGameWithPlayerNetworkPacket.cpp in Sources */,
+				7494FD741905423600208ED4 /* BaseTile.cpp in Sources */,
+				33B4766C1DE80E0D00D6E881 /* NewGameNetworkPacket.cpp in Sources */,
+				333BA98A1AAA51F100596B99 /* GameObject.cpp in Sources */,
+				33B476681DE80E0D00D6E881 /* CreateGameWithRandomPlayerNetworkPacket.cpp in Sources */,
+				3328AE4219BF1C28004770D4 /* PlayfieldInfoManager.cpp in Sources */,
+				7494FD761905423600208ED4 /* HexTile.cpp in Sources */,
+				7494FD781905423600208ED4 /* QuadTile.cpp in Sources */,
+				33B4767F1DE80E3E00D6E881 /* SavePlayfieldNetworkPacket.cpp in Sources */,
+				33B4766E1DE80E0D00D6E881 /* SearchForPlayerWithNickNetworkPacket.cpp in Sources */,
+				74089F581926C0ED008B98DA /* Player.cpp in Sources */,
+				33B4767B1DE80E3E00D6E881 /* LoadPlayfieldNetworkPacket.cpp in Sources */,
+				747BA65E194918DB00B9A561 /* PlayfieldInfo.cpp in Sources */,
+				7494FD89190544BA00208ED4 /* Precompile.cpp in Sources */,
+				747BA65A194918A200B9A561 /* BoardGameEngine.cpp in Sources */,
+				3328AE3D19BF18C1004770D4 /* CoreBaseRenderObject.cpp in Sources */,
+				3326A3D019B88AE200B357A1 /* BoardGame.cpp in Sources */,
+				33C1A1541C42F8A600351A1C /* GridTilePlayfield.cpp in Sources */,
+				333BA98C1AAA51F100596B99 /* Item.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		33E0391E1DA563C000EA64E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					..,
+					../..,
+					../../..,
+					"$(DF_EXTERNALLIBS)/boost-1.53.0/include",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = macosx;
+			};
+			name = Debug;
+		};
+		33E0391F1DA563C000EA64E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					..,
+					../..,
+					../../..,
+					"$(DF_EXTERNALLIBS)/boost-1.53.0/include",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = macosx;
+			};
+			name = Release;
+		};
+		7494FD5B190540F200208ED4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					CLIENT,
+					OPENGL,
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		7494FD5C190540F200208ED4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					CLIENT,
+					OPENGL,
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		7494FD5E190540F200208ED4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					..,
+					../..,
+					../../..,
+					"$(DF_EXTERNALLIBS)/boost-1.53.0/include",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+			};
+			name = Debug;
+		};
+		7494FD5F190540F200208ED4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					..,
+					../..,
+					../../..,
+					"$(DF_EXTERNALLIBS)/boost-1.53.0/include",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		33E0391D1DA563C000EA64E0 /* Build configuration list for PBXNativeTarget "CoreBoardGame.OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33E0391E1DA563C000EA64E0 /* Debug */,
+				33E0391F1DA563C000EA64E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7494FD54190540F200208ED4 /* Build configuration list for PBXProject "CoreBoardGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7494FD5B190540F200208ED4 /* Debug */,
+				7494FD5C190540F200208ED4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7494FD5D190540F200208ED4 /* Build configuration list for PBXNativeTarget "CoreBoardGame.iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7494FD5E190540F200208ED4 /* Debug */,
+				7494FD5F190540F200208ED4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7494FD51190540F200208ED4 /* Project object */;
+}

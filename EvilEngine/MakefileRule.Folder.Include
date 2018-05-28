@@ -1,0 +1,30 @@
+#
+# Makefile rules for building a set of folders. $FOLDERS have to be defined before calling this
+#
+
+folder_all:
+	@make folder_debug
+
+folder_debug:
+	@$(eval allowed_folders := $(LD_LIBS) $(MASTER_FOLDERS) ) \
+	for libf in $(allowed_folders); do \
+		if [ -d "$$libf" ]; then \
+			make --directory=$$libf debug ; \
+               	fi; \
+	done
+
+folder_release:
+	@$(eval allowed_folders := $(LD_LIBS) $(MASTER_FOLDERS) ) \
+	for libf in $(allowed_folders); do \
+		if [ -d "$$libf" ]; then \
+			make --directory=$$libf release ; \
+		fi; \
+	done
+
+folder_clean:
+	@$(eval allowed_folders := $(LD_LIBS) $(MASTER_FOLDERS) ) \
+	for libf in $(allowed_folders); do \
+		if [ -d "$$libf" ]; then \
+			make --directory=$$libf clean ; \
+		fi; \
+	done

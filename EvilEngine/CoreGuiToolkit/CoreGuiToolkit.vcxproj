@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="NsightTegraProject">
+    <NsightTegraProjectRevisionNumber>11</NsightTegraProjectRevisionNumber>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Tegra-Android">
+      <Configuration>Debug</Configuration>
+      <Platform>Tegra-Android</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Tegra-Android">
+      <Configuration>Release</Configuration>
+      <Platform>Tegra-Android</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6D114609-C24A-49BE-9647-E4662F0E6DAA}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>CoreGuiToolkit</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Tegra-Android'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <AndroidNativeAPI>UseTarget</AndroidNativeAPI>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Tegra-Android'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <AndroidNativeAPI>UseTarget</AndroidNativeAPI>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Tegra-Android'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Tegra-Android'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(INCLUDEDIR);$(IncludePath)</IncludePath>
+    <OutDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Libs\</OutDir>
+    <IntDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Objects\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Tegra-Android'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Libs\</OutDir>
+    <IntDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Objects\$(ProjectName)\</IntDir>
+    <IncludePath>$(INCLUDEDIR);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Libs\</OutDir>
+    <IntDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Objects\$(ProjectName)\</IntDir>
+    <IncludePath>$(INCLUDEDIR);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Tegra-Android'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Libs\</OutDir>
+    <IntDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Objects\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;$(PREPROCESSOR);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeaderFile>Precompile.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>.;..;../..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Tegra-Android'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>DEBUG;$(PREPROCESSOR);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeaderFile>Precompile.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>.;..;../..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>RELEASE;$(PREPROCESSOR);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeaderFile>PreCompile.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>.;..;../..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Tegra-Android'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>RELEASE;$(PREPROCESSOR);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>.;..;../..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>Precompile.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="BaseGuiElements\CoreGuiBase.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Precompile.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Tegra-Android'">Precompile.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="BaseGuiElements\CoreGuiButton.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Precompile.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Tegra-Android'">Precompile.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="BaseGuiElements\CoreGuiFrame.cpp" />
+    <ClCompile Include="BaseGuiElements\CoreGuiImageView.cpp" />
+    <ClCompile Include="BaseGuiElements\CoreGuiInputfield.cpp" />
+    <ClCompile Include="BaseGuiElements\CoreGuiRoundedImageView.cpp" />
+    <ClCompile Include="BaseGuiElements\CoreGuiScrollbar.cpp" />
+    <ClCompile Include="BaseGuiElements\CoreGuiTextfield.cpp" />
+    <ClCompile Include="BaseGuiElements\CoreGuiXMLView.cpp" />
+    <ClCompile Include="CoreGuiToolkit.cpp" />
+    <ClCompile Include="DebugGui\DebugGui.cpp" />
+    <ClCompile Include="DebugGui\GuiEditor\GuiEditor.cpp" />
+    <ClCompile Include="DebugGui\GuiEditor\GuiPropertyEditor.cpp" />
+    <ClCompile Include="GuiControls\SlideGuiView.cpp" />
+    <ClCompile Include="GuiCreator\GuiResource.cpp" />
+    <ClCompile Include="GuiElements\CoreGuiDialog.cpp" />
+    <ClCompile Include="GuiElements\CoreGuiMenu.cpp" />
+    <ClCompile Include="GuiElements\CoreGuiTileView.cpp" />
+    <ClCompile Include="GuiElements\CoreGuiView.cpp" />
+    <ClCompile Include="GuiElements\CoreGuiWindow.cpp" />
+    <ClCompile Include="GuiElements\CoreGuiGridView.cpp" />
+    <ClCompile Include="GuiElements\GridRowData.cpp" />
+    <ClCompile Include="GuiTemplates\GuiDialogHelper.cpp" />
+    <ClCompile Include="Precompile.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Tegra-Android'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Precompile.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Tegra-Android'">Precompile.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BaseGuiElements\ConnectButtonTemplate.h" />
+    <ClInclude Include="BaseGuiElements\CoreGuiBase.h" />
+    <ClInclude Include="BaseGuiElements\CoreGuiButton.h" />
+    <ClInclude Include="BaseGuiElements\CoreGuiFrame.h" />
+    <ClInclude Include="BaseGuiElements\CoreGuiImageView.h" />
+    <ClInclude Include="BaseGuiElements\CoreGuiInputfield.h" />
+    <ClInclude Include="BaseGuiElements\CoreGuiRoundedImageView.h" />
+    <ClInclude Include="BaseGuiElements\CoreGuiScrollbar.h" />
+    <ClInclude Include="BaseGuiElements\CoreGuiTextfield.h" />
+    <ClInclude Include="BaseGuiElements\CoreGuiXMLView.h" />
+    <ClInclude Include="CoreGuiResources.h" />
+    <ClInclude Include="CoreGuiToolkit.h" />
+    <ClInclude Include="CoreGuiToolkitInclude.h" />
+    <ClInclude Include="DebugGui\DebugGui.h" />
+    <ClInclude Include="DebugGui\GuiEditor\GuiEditor.h" />
+    <ClInclude Include="DebugGui\GuiEditor\GuiPropertyEditor.h" />
+    <ClInclude Include="GuiControls\SlideGuiView.h" />
+    <ClInclude Include="GuiCreator\GuiResource.h" />
+    <ClInclude Include="GuiElements\CoreGuiDialog.h" />
+    <ClInclude Include="GuiElements\CoreGuiMenu.h" />
+    <ClInclude Include="GuiElements\CoreGuiTileView.h" />
+    <ClInclude Include="GuiElements\CoreGuiView.h" />
+    <ClInclude Include="GuiElements\CoreGuiWindow.h" />
+    <ClInclude Include="GuiElements\CoreGuiGridView.h" />
+    <ClInclude Include="GuiElements\GridRowData.h" />
+    <ClInclude Include="GuiTemplates\GuiButtonTemplate.h" />
+    <ClInclude Include="GuiTemplates\GuiDialogHelper.h" />
+    <ClInclude Include="Precompile.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Android.mk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="DebugGui\Data\DebugGuiEditorWindow.xml">
+      <SubType>Designer</SubType>
+    </Xml>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

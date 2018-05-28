@@ -1,0 +1,596 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		33112F171D3ABC730014BEC2 /* CoreOpenGLRender_OSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33112F151D3ABC730014BEC2 /* CoreOpenGLRender_OSX.cpp */; };
+		339BBFD91A1153F100699E0C /* CoreTextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 339BBFD71A1153F100699E0C /* CoreTextureManager.cpp */; };
+		33D4922F1A5FE318008B2872 /* HexagonRenderObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33D4922D1A5FE318008B2872 /* HexagonRenderObject.cpp */; };
+		33DC0E0F1DA56048009D2738 /* RenderObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74004A8218716F1F0004133E /* RenderObject.cpp */; };
+		33DC0E101DA56048009D2738 /* CoreOpenGLRender_IOS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 744718BC1902B411000087B7 /* CoreOpenGLRender_IOS.cpp */; };
+		33DC0E111DA56048009D2738 /* HexagonRenderObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33D4922D1A5FE318008B2872 /* HexagonRenderObject.cpp */; };
+		33DC0E121DA56048009D2738 /* TextStringRenderObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74AE0CB418B5705C0051E302 /* TextStringRenderObject.cpp */; };
+		33DC0E131DA56048009D2738 /* CoreOpenGLRender_Common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 744718BB1902B411000087B7 /* CoreOpenGLRender_Common.cpp */; };
+		33DC0E141DA56048009D2738 /* CoreShaderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 749EA7DE18833D5F00457715 /* CoreShaderManager.cpp */; };
+		33DC0E151DA56048009D2738 /* MultiFaceRenderObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7407F25118FAFBF500E19445 /* MultiFaceRenderObject.cpp */; };
+		33DC0E161DA56048009D2738 /* RenderListObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33F02A5C1A25376A00E52286 /* RenderListObject.cpp */; };
+		33DC0E171DA56048009D2738 /* AtlasTextureResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74AE0CB818B570880051E302 /* AtlasTextureResource.cpp */; };
+		33DC0E181DA56048009D2738 /* ImageResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74AE0CBC18B570880051E302 /* ImageResource.cpp */; };
+		33DC0E191DA56048009D2738 /* Bitmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74525E6E1913F79300753667 /* Bitmap.cpp */; };
+		33DC0E1A1DA56048009D2738 /* FontAtlasTextureResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74AE0CBA18B570880051E302 /* FontAtlasTextureResource.cpp */; };
+		33DC0E1B1DA56048009D2738 /* DDSTextureResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 740D591A18E2BE97005C44E5 /* DDSTextureResource.cpp */; };
+		33DC0E1C1DA56048009D2738 /* CoreTextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 339BBFD71A1153F100699E0C /* CoreTextureManager.cpp */; };
+		33DC0E1D1DA56048009D2738 /* QuadRenderObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74004A8018716F1F0004133E /* QuadRenderObject.cpp */; };
+		33DC0E1E1DA56048009D2738 /* PreCompile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 747C5DEF186F895F0081A7D5 /* PreCompile.cpp */; };
+		33DC0E1F1DA56048009D2738 /* CoreOpenGLRender_OSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33112F151D3ABC730014BEC2 /* CoreOpenGLRender_OSX.cpp */; };
+		33DC0E201DA56048009D2738 /* CubeRenderObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74004A7E18716F1F0004133E /* CubeRenderObject.cpp */; };
+		33DC0E211DA56048009D2738 /* RenderCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74CC956218D980AA007F8BA4 /* RenderCamera.cpp */; };
+		33DC0E221DA56048009D2738 /* TextureResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74AE0CBE18B570880051E302 /* TextureResource.cpp */; };
+		33DC0E241DA56048009D2738 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 749B7832186F54B7003DFED0 /* Foundation.framework */; };
+		33DC0E251DA56048009D2738 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74597AE7186F9BA900984661 /* OpenGLES.framework */; };
+		33F02A5E1A25376A00E52286 /* RenderListObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33F02A5C1A25376A00E52286 /* RenderListObject.cpp */; };
+		74004A8418716F1F0004133E /* CubeRenderObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74004A7E18716F1F0004133E /* CubeRenderObject.cpp */; };
+		74004A8518716F1F0004133E /* QuadRenderObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74004A8018716F1F0004133E /* QuadRenderObject.cpp */; };
+		74004A8618716F1F0004133E /* RenderObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74004A8218716F1F0004133E /* RenderObject.cpp */; };
+		7407F25318FAFBF500E19445 /* MultiFaceRenderObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7407F25118FAFBF500E19445 /* MultiFaceRenderObject.cpp */; };
+		740D591C18E2BE97005C44E5 /* DDSTextureResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 740D591A18E2BE97005C44E5 /* DDSTextureResource.cpp */; };
+		744718C01902B411000087B7 /* CoreOpenGLRender_Common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 744718BB1902B411000087B7 /* CoreOpenGLRender_Common.cpp */; };
+		744718C11902B411000087B7 /* CoreOpenGLRender_IOS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 744718BC1902B411000087B7 /* CoreOpenGLRender_IOS.cpp */; };
+		74525E701913F79300753667 /* Bitmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74525E6E1913F79300753667 /* Bitmap.cpp */; };
+		74597AE8186F9BA900984661 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74597AE7186F9BA900984661 /* OpenGLES.framework */; };
+		747C5DF1186F895F0081A7D5 /* PreCompile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 747C5DEF186F895F0081A7D5 /* PreCompile.cpp */; };
+		749EA7E018833D5F00457715 /* CoreShaderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 749EA7DE18833D5F00457715 /* CoreShaderManager.cpp */; };
+		74AE0CB618B5705C0051E302 /* TextStringRenderObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74AE0CB418B5705C0051E302 /* TextStringRenderObject.cpp */; };
+		74AE0CC018B570880051E302 /* AtlasTextureResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74AE0CB818B570880051E302 /* AtlasTextureResource.cpp */; };
+		74AE0CC118B570880051E302 /* FontAtlasTextureResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74AE0CBA18B570880051E302 /* FontAtlasTextureResource.cpp */; };
+		74AE0CC218B570880051E302 /* ImageResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74AE0CBC18B570880051E302 /* ImageResource.cpp */; };
+		74AE0CC318B570880051E302 /* TextureResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74AE0CBE18B570880051E302 /* TextureResource.cpp */; };
+		74CBEF841870122B0080FFFA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 749B7832186F54B7003DFED0 /* Foundation.framework */; };
+		74CC956418D980AA007F8BA4 /* RenderCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74CC956218D980AA007F8BA4 /* RenderCamera.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		33DC0E261DA56048009D2738 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		749B782D186F54B7003DFED0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		33112F151D3ABC730014BEC2 /* CoreOpenGLRender_OSX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoreOpenGLRender_OSX.cpp; path = OpenGLRender/CoreOpenGLRender_OSX.cpp; sourceTree = SOURCE_ROOT; };
+		339BBFD71A1153F100699E0C /* CoreTextureManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoreTextureManager.cpp; path = CoreTextureManager/CoreTextureManager.cpp; sourceTree = "<group>"; };
+		339BBFD81A1153F100699E0C /* CoreTextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreTextureManager.h; path = CoreTextureManager/CoreTextureManager.h; sourceTree = "<group>"; };
+		33D4922D1A5FE318008B2872 /* HexagonRenderObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HexagonRenderObject.cpp; path = RenderObjects/HexagonRenderObject.cpp; sourceTree = "<group>"; };
+		33D4922E1A5FE318008B2872 /* HexagonRenderObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HexagonRenderObject.h; path = RenderObjects/HexagonRenderObject.h; sourceTree = "<group>"; };
+		33DC0E2A1DA56048009D2738 /* libCoreRendering.OSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCoreRendering.OSX.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		33E77F541CAB12090029F99E /* PlatformRenderDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlatformRenderDefinitions.h; sourceTree = "<group>"; };
+		33F02A5C1A25376A00E52286 /* RenderListObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RenderListObject.cpp; path = RenderObjects/RenderListObject.cpp; sourceTree = "<group>"; };
+		33F02A5D1A25376A00E52286 /* RenderListObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderListObject.h; path = RenderObjects/RenderListObject.h; sourceTree = "<group>"; };
+		74004A7E18716F1F0004133E /* CubeRenderObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CubeRenderObject.cpp; path = RenderObjects/CubeRenderObject.cpp; sourceTree = "<group>"; };
+		74004A7F18716F1F0004133E /* CubeRenderObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CubeRenderObject.h; path = RenderObjects/CubeRenderObject.h; sourceTree = "<group>"; };
+		74004A8018716F1F0004133E /* QuadRenderObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = QuadRenderObject.cpp; path = RenderObjects/QuadRenderObject.cpp; sourceTree = "<group>"; };
+		74004A8118716F1F0004133E /* QuadRenderObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuadRenderObject.h; path = RenderObjects/QuadRenderObject.h; sourceTree = "<group>"; };
+		74004A8218716F1F0004133E /* RenderObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RenderObject.cpp; path = RenderObjects/RenderObject.cpp; sourceTree = "<group>"; };
+		74004A8318716F1F0004133E /* RenderObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderObject.h; path = RenderObjects/RenderObject.h; sourceTree = "<group>"; };
+		7407F25118FAFBF500E19445 /* MultiFaceRenderObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MultiFaceRenderObject.cpp; path = RenderObjects/MultiFaceRenderObject.cpp; sourceTree = "<group>"; };
+		7407F25218FAFBF500E19445 /* MultiFaceRenderObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MultiFaceRenderObject.h; path = RenderObjects/MultiFaceRenderObject.h; sourceTree = "<group>"; };
+		740D591A18E2BE97005C44E5 /* DDSTextureResource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DDSTextureResource.cpp; path = Resources/DDSTextureResource.cpp; sourceTree = "<group>"; };
+		740D591B18E2BE97005C44E5 /* DDSTextureResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDSTextureResource.h; path = Resources/DDSTextureResource.h; sourceTree = "<group>"; };
+		7425129118B576C7009C9D43 /* CoreRendering-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreRendering-Prefix.pch"; sourceTree = "<group>"; };
+		744718BA1902B411000087B7 /* CoreOpenGLRender_Android.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoreOpenGLRender_Android.cpp; path = OpenGLRender/CoreOpenGLRender_Android.cpp; sourceTree = SOURCE_ROOT; };
+		744718BB1902B411000087B7 /* CoreOpenGLRender_Common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoreOpenGLRender_Common.cpp; path = OpenGLRender/CoreOpenGLRender_Common.cpp; sourceTree = SOURCE_ROOT; };
+		744718BC1902B411000087B7 /* CoreOpenGLRender_IOS.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoreOpenGLRender_IOS.cpp; path = OpenGLRender/CoreOpenGLRender_IOS.cpp; sourceTree = SOURCE_ROOT; };
+		744718BD1902B411000087B7 /* CoreOpenGLRender_Windows.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoreOpenGLRender_Windows.cpp; path = OpenGLRender/CoreOpenGLRender_Windows.cpp; sourceTree = SOURCE_ROOT; };
+		744718BE1902B411000087B7 /* CoreOpenGLRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreOpenGLRender.h; path = OpenGLRender/CoreOpenGLRender.h; sourceTree = SOURCE_ROOT; };
+		74525E6E1913F79300753667 /* Bitmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bitmap.cpp; sourceTree = "<group>"; };
+		74525E6F1913F79300753667 /* Bitmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bitmap.h; sourceTree = "<group>"; };
+		74597AE7186F9BA900984661 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		747C5DEF186F895F0081A7D5 /* PreCompile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PreCompile.cpp; sourceTree = "<group>"; };
+		747C5DF0186F895F0081A7D5 /* PreCompile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreCompile.h; sourceTree = "<group>"; };
+		749B782F186F54B7003DFED0 /* libCoreRendering.iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCoreRendering.iOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		749B7832186F54B7003DFED0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		749B7840186F54B7003DFED0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		749B7843186F54B7003DFED0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		749EA7DE18833D5F00457715 /* CoreShaderManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoreShaderManager.cpp; path = CoreShaderManager/CoreShaderManager.cpp; sourceTree = "<group>"; };
+		749EA7DF18833D5F00457715 /* CoreShaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreShaderManager.h; path = CoreShaderManager/CoreShaderManager.h; sourceTree = "<group>"; };
+		74AE0CB418B5705C0051E302 /* TextStringRenderObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TextStringRenderObject.cpp; path = RenderObjects/TextStringRenderObject.cpp; sourceTree = "<group>"; };
+		74AE0CB518B5705C0051E302 /* TextStringRenderObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextStringRenderObject.h; path = RenderObjects/TextStringRenderObject.h; sourceTree = "<group>"; };
+		74AE0CB818B570880051E302 /* AtlasTextureResource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AtlasTextureResource.cpp; path = Resources/AtlasTextureResource.cpp; sourceTree = "<group>"; };
+		74AE0CB918B570880051E302 /* AtlasTextureResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AtlasTextureResource.h; path = Resources/AtlasTextureResource.h; sourceTree = "<group>"; };
+		74AE0CBA18B570880051E302 /* FontAtlasTextureResource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FontAtlasTextureResource.cpp; path = Resources/FontAtlasTextureResource.cpp; sourceTree = "<group>"; };
+		74AE0CBB18B570880051E302 /* FontAtlasTextureResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FontAtlasTextureResource.h; path = Resources/FontAtlasTextureResource.h; sourceTree = "<group>"; };
+		74AE0CBC18B570880051E302 /* ImageResource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ImageResource.cpp; path = Resources/ImageResource.cpp; sourceTree = "<group>"; };
+		74AE0CBD18B570880051E302 /* ImageResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageResource.h; path = Resources/ImageResource.h; sourceTree = "<group>"; };
+		74AE0CBE18B570880051E302 /* TextureResource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TextureResource.cpp; path = Resources/TextureResource.cpp; sourceTree = "<group>"; };
+		74AE0CBF18B570880051E302 /* TextureResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextureResource.h; path = Resources/TextureResource.h; sourceTree = "<group>"; };
+		74CC956218D980AA007F8BA4 /* RenderCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RenderCamera.cpp; path = Camera/RenderCamera.cpp; sourceTree = "<group>"; };
+		74CC956318D980AA007F8BA4 /* RenderCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderCamera.h; path = Camera/RenderCamera.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		33DC0E231DA56048009D2738 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33DC0E241DA56048009D2738 /* Foundation.framework in Frameworks */,
+				33DC0E251DA56048009D2738 /* OpenGLES.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		749B782C186F54B7003DFED0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74CBEF841870122B0080FFFA /* Foundation.framework in Frameworks */,
+				74597AE8186F9BA900984661 /* OpenGLES.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		339BBFD61A1153C300699E0C /* CoreTextureManager */ = {
+			isa = PBXGroup;
+			children = (
+				339BBFD71A1153F100699E0C /* CoreTextureManager.cpp */,
+				339BBFD81A1153F100699E0C /* CoreTextureManager.h */,
+			);
+			name = CoreTextureManager;
+			sourceTree = "<group>";
+		};
+		74004A7D18716EEF0004133E /* CoreRenderObjects */ = {
+			isa = PBXGroup;
+			children = (
+				33D4922D1A5FE318008B2872 /* HexagonRenderObject.cpp */,
+				33D4922E1A5FE318008B2872 /* HexagonRenderObject.h */,
+				33F02A5C1A25376A00E52286 /* RenderListObject.cpp */,
+				33F02A5D1A25376A00E52286 /* RenderListObject.h */,
+				7407F25118FAFBF500E19445 /* MultiFaceRenderObject.cpp */,
+				7407F25218FAFBF500E19445 /* MultiFaceRenderObject.h */,
+				74AE0CB418B5705C0051E302 /* TextStringRenderObject.cpp */,
+				74AE0CB518B5705C0051E302 /* TextStringRenderObject.h */,
+				74004A7E18716F1F0004133E /* CubeRenderObject.cpp */,
+				74004A7F18716F1F0004133E /* CubeRenderObject.h */,
+				74004A8018716F1F0004133E /* QuadRenderObject.cpp */,
+				74004A8118716F1F0004133E /* QuadRenderObject.h */,
+				74004A8218716F1F0004133E /* RenderObject.cpp */,
+				74004A8318716F1F0004133E /* RenderObject.h */,
+			);
+			name = CoreRenderObjects;
+			sourceTree = "<group>";
+		};
+		749B7826186F54B7003DFED0 = {
+			isa = PBXGroup;
+			children = (
+				33E77F541CAB12090029F99E /* PlatformRenderDefinitions.h */,
+				74525E6E1913F79300753667 /* Bitmap.cpp */,
+				74525E6F1913F79300753667 /* Bitmap.h */,
+				7425129118B576C7009C9D43 /* CoreRendering-Prefix.pch */,
+				747C5DF0186F895F0081A7D5 /* PreCompile.h */,
+				747C5DEF186F895F0081A7D5 /* PreCompile.cpp */,
+				74CC956118D98097007F8BA4 /* Camera */,
+				339BBFD61A1153C300699E0C /* CoreTextureManager */,
+				749EA7DD18833D2800457715 /* CoreShaderManager */,
+				74AE0CB718B5706B0051E302 /* CoreResources */,
+				74004A7D18716EEF0004133E /* CoreRenderObjects */,
+				749B7834186F54B7003DFED0 /* CoreRendering */,
+				749B7831186F54B7003DFED0 /* Frameworks */,
+				749B7830186F54B7003DFED0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		749B7830186F54B7003DFED0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				749B782F186F54B7003DFED0 /* libCoreRendering.iOS.a */,
+				33DC0E2A1DA56048009D2738 /* libCoreRendering.OSX.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		749B7831186F54B7003DFED0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				74597AE7186F9BA900984661 /* OpenGLES.framework */,
+				749B7832186F54B7003DFED0 /* Foundation.framework */,
+				749B7840186F54B7003DFED0 /* XCTest.framework */,
+				749B7843186F54B7003DFED0 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		749B7834186F54B7003DFED0 /* CoreRendering */ = {
+			isa = PBXGroup;
+			children = (
+				744718BA1902B411000087B7 /* CoreOpenGLRender_Android.cpp */,
+				744718BB1902B411000087B7 /* CoreOpenGLRender_Common.cpp */,
+				744718BC1902B411000087B7 /* CoreOpenGLRender_IOS.cpp */,
+				33112F151D3ABC730014BEC2 /* CoreOpenGLRender_OSX.cpp */,
+				744718BD1902B411000087B7 /* CoreOpenGLRender_Windows.cpp */,
+				744718BE1902B411000087B7 /* CoreOpenGLRender.h */,
+			);
+			path = CoreRendering;
+			sourceTree = "<group>";
+		};
+		749EA7DD18833D2800457715 /* CoreShaderManager */ = {
+			isa = PBXGroup;
+			children = (
+				749EA7DE18833D5F00457715 /* CoreShaderManager.cpp */,
+				749EA7DF18833D5F00457715 /* CoreShaderManager.h */,
+			);
+			name = CoreShaderManager;
+			sourceTree = "<group>";
+		};
+		74AE0CB718B5706B0051E302 /* CoreResources */ = {
+			isa = PBXGroup;
+			children = (
+				740D591A18E2BE97005C44E5 /* DDSTextureResource.cpp */,
+				740D591B18E2BE97005C44E5 /* DDSTextureResource.h */,
+				74AE0CB818B570880051E302 /* AtlasTextureResource.cpp */,
+				74AE0CB918B570880051E302 /* AtlasTextureResource.h */,
+				74AE0CBA18B570880051E302 /* FontAtlasTextureResource.cpp */,
+				74AE0CBB18B570880051E302 /* FontAtlasTextureResource.h */,
+				74AE0CBC18B570880051E302 /* ImageResource.cpp */,
+				74AE0CBD18B570880051E302 /* ImageResource.h */,
+				74AE0CBE18B570880051E302 /* TextureResource.cpp */,
+				74AE0CBF18B570880051E302 /* TextureResource.h */,
+			);
+			name = CoreResources;
+			sourceTree = "<group>";
+		};
+		74CC956118D98097007F8BA4 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				74CC956218D980AA007F8BA4 /* RenderCamera.cpp */,
+				74CC956318D980AA007F8BA4 /* RenderCamera.h */,
+			);
+			name = Camera;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		33DC0E0D1DA56048009D2738 /* CoreRendering.OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33DC0E271DA56048009D2738 /* Build configuration list for PBXNativeTarget "CoreRendering.OSX" */;
+			buildPhases = (
+				33DC0E0E1DA56048009D2738 /* Sources */,
+				33DC0E231DA56048009D2738 /* Frameworks */,
+				33DC0E261DA56048009D2738 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoreRendering.OSX;
+			productName = CoreRendering;
+			productReference = 33DC0E2A1DA56048009D2738 /* libCoreRendering.OSX.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		749B782E186F54B7003DFED0 /* CoreRendering.iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 749B7852186F54B8003DFED0 /* Build configuration list for PBXNativeTarget "CoreRendering.iOS" */;
+			buildPhases = (
+				749B782B186F54B7003DFED0 /* Sources */,
+				749B782C186F54B7003DFED0 /* Frameworks */,
+				749B782D186F54B7003DFED0 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoreRendering.iOS;
+			productName = CoreRendering;
+			productReference = 749B782F186F54B7003DFED0 /* libCoreRendering.iOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		749B7827186F54B7003DFED0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Thor Hansen";
+			};
+			buildConfigurationList = 749B782A186F54B7003DFED0 /* Build configuration list for PBXProject "CoreRendering" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 749B7826186F54B7003DFED0;
+			productRefGroup = 749B7830186F54B7003DFED0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				749B782E186F54B7003DFED0 /* CoreRendering.iOS */,
+				33DC0E0D1DA56048009D2738 /* CoreRendering.OSX */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		33DC0E0E1DA56048009D2738 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33DC0E0F1DA56048009D2738 /* RenderObject.cpp in Sources */,
+				33DC0E101DA56048009D2738 /* CoreOpenGLRender_IOS.cpp in Sources */,
+				33DC0E111DA56048009D2738 /* HexagonRenderObject.cpp in Sources */,
+				33DC0E121DA56048009D2738 /* TextStringRenderObject.cpp in Sources */,
+				33DC0E131DA56048009D2738 /* CoreOpenGLRender_Common.cpp in Sources */,
+				33DC0E141DA56048009D2738 /* CoreShaderManager.cpp in Sources */,
+				33DC0E151DA56048009D2738 /* MultiFaceRenderObject.cpp in Sources */,
+				33DC0E161DA56048009D2738 /* RenderListObject.cpp in Sources */,
+				33DC0E171DA56048009D2738 /* AtlasTextureResource.cpp in Sources */,
+				33DC0E181DA56048009D2738 /* ImageResource.cpp in Sources */,
+				33DC0E191DA56048009D2738 /* Bitmap.cpp in Sources */,
+				33DC0E1A1DA56048009D2738 /* FontAtlasTextureResource.cpp in Sources */,
+				33DC0E1B1DA56048009D2738 /* DDSTextureResource.cpp in Sources */,
+				33DC0E1C1DA56048009D2738 /* CoreTextureManager.cpp in Sources */,
+				33DC0E1D1DA56048009D2738 /* QuadRenderObject.cpp in Sources */,
+				33DC0E1E1DA56048009D2738 /* PreCompile.cpp in Sources */,
+				33DC0E1F1DA56048009D2738 /* CoreOpenGLRender_OSX.cpp in Sources */,
+				33DC0E201DA56048009D2738 /* CubeRenderObject.cpp in Sources */,
+				33DC0E211DA56048009D2738 /* RenderCamera.cpp in Sources */,
+				33DC0E221DA56048009D2738 /* TextureResource.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		749B782B186F54B7003DFED0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74004A8618716F1F0004133E /* RenderObject.cpp in Sources */,
+				744718C11902B411000087B7 /* CoreOpenGLRender_IOS.cpp in Sources */,
+				33D4922F1A5FE318008B2872 /* HexagonRenderObject.cpp in Sources */,
+				74AE0CB618B5705C0051E302 /* TextStringRenderObject.cpp in Sources */,
+				744718C01902B411000087B7 /* CoreOpenGLRender_Common.cpp in Sources */,
+				749EA7E018833D5F00457715 /* CoreShaderManager.cpp in Sources */,
+				7407F25318FAFBF500E19445 /* MultiFaceRenderObject.cpp in Sources */,
+				33F02A5E1A25376A00E52286 /* RenderListObject.cpp in Sources */,
+				74AE0CC018B570880051E302 /* AtlasTextureResource.cpp in Sources */,
+				74AE0CC218B570880051E302 /* ImageResource.cpp in Sources */,
+				74525E701913F79300753667 /* Bitmap.cpp in Sources */,
+				74AE0CC118B570880051E302 /* FontAtlasTextureResource.cpp in Sources */,
+				740D591C18E2BE97005C44E5 /* DDSTextureResource.cpp in Sources */,
+				339BBFD91A1153F100699E0C /* CoreTextureManager.cpp in Sources */,
+				74004A8518716F1F0004133E /* QuadRenderObject.cpp in Sources */,
+				747C5DF1186F895F0081A7D5 /* PreCompile.cpp in Sources */,
+				33112F171D3ABC730014BEC2 /* CoreOpenGLRender_OSX.cpp in Sources */,
+				74004A8418716F1F0004133E /* CubeRenderObject.cpp in Sources */,
+				74CC956418D980AA007F8BA4 /* RenderCamera.cpp in Sources */,
+				74AE0CC318B570880051E302 /* TextureResource.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		33DC0E281DA56048009D2738 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/CoreRendering.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CoreRendering-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					..,
+					../..,
+					../../..,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		33DC0E291DA56048009D2738 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/CoreRendering.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CoreRendering-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					..,
+					../..,
+					../../..,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		749B7850186F54B8003DFED0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					CLIENT,
+					OPENGL,
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(PNGLIB)/",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		749B7851186F54B8003DFED0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					CLIENT,
+					OPENGL,
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(PNGLIB)/",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		749B7853186F54B8003DFED0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/CoreRendering.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CoreRendering-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					..,
+					../..,
+					../../..,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos10.0;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		749B7854186F54B8003DFED0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/CoreRendering.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CoreRendering-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					..,
+					../..,
+					../../..,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos10.0;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		33DC0E271DA56048009D2738 /* Build configuration list for PBXNativeTarget "CoreRendering.OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33DC0E281DA56048009D2738 /* Debug */,
+				33DC0E291DA56048009D2738 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		749B782A186F54B7003DFED0 /* Build configuration list for PBXProject "CoreRendering" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				749B7850186F54B8003DFED0 /* Debug */,
+				749B7851186F54B8003DFED0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		749B7852186F54B8003DFED0 /* Build configuration list for PBXNativeTarget "CoreRendering.iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				749B7853186F54B8003DFED0 /* Debug */,
+				749B7854186F54B8003DFED0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 749B7827186F54B7003DFED0 /* Project object */;
+}

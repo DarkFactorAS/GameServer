@@ -1,0 +1,24 @@
+#ifndef PROJECT_ONLINEGAME_DATA_NETWORKPACKETDATA
+#define PROJECT_ONLINEGAME_DATA_NETWORKPACKETDATA 1
+#pragma once
+
+namespace OnlineGamePacketData
+{
+  enum PacketData
+  {
+    // 300-399 Game management data
+    PacketData_ServerRequestGameData = 600,
+
+    PacketData_ClientReceiveGameData = 650,
+  };
+
+  enum PacketError
+  {
+    ErrorCode_NoError = 0,
+    ErrorCode_CodeError = 400,
+    ErrorCode_NotLoggedIn = 401,
+  };
+
+};
+
+#endif /// PROJECT_ONLINEGAME_DATA_NETWORKPACKETDATA

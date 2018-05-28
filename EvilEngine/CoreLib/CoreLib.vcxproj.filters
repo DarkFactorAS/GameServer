@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="BasicTypes">
+      <UniqueIdentifier>{8aa11b11-77f4-4a5e-bf3f-0cd7ec54ae5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BasicTypes\String">
+      <UniqueIdentifier>{e7e94e74-8d50-4d9e-a16c-dc9d74e09188}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BasicTypes\Definitions">
+      <UniqueIdentifier>{a99079fa-b183-4dda-ab9f-f9ac8795e0e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BasicTypes\BinaryStream">
+      <UniqueIdentifier>{8df4236a-6c7d-4d6f-b8ad-a80fd50e2f43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CRC32">
+      <UniqueIdentifier>{10412e4a-c7e3-4fbb-94ec-0903c6fe8694}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MD5">
+      <UniqueIdentifier>{f18fde0a-2970-4831-959e-dba328d8f0e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Signal">
+      <UniqueIdentifier>{d8c1afd0-ef40-44d5-b6a1-5a355e01fdeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{a3138992-d6d2-489b-8816-1d9fee926310}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BasicTypes\Mutex">
+      <UniqueIdentifier>{0bd2227c-4cbb-48e0-a5a9-3e720425db27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assert">
+      <UniqueIdentifier>{54f6b6ba-c81b-44b4-8673-3a1188c757e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{79761de0-dc98-424f-adb6-387f5ebf9add}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BasicTypes\Variant">
+      <UniqueIdentifier>{7eb95917-835c-47d3-82e2-6c4537c8efbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XMLParser">
+      <UniqueIdentifier>{8d8c6f49-e53d-47ff-95ff-d0743d7f3a6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BasicTypes\FixedMaps">
+      <UniqueIdentifier>{c17878bb-5b22-4e3f-be86-436f4d3610f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BasicTypes\Bundle">
+      <UniqueIdentifier>{0a2a5563-2eb9-4302-a9d7-7aef02a79b55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Crypto">
+      <UniqueIdentifier>{a0fb2eec-eb07-479f-85c9-720c2257a54f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Unittests">
+      <UniqueIdentifier>{221a7fec-1409-4399-a2d9-d3f0f04a5beb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Precompile.h" />
+    <ClInclude Include="BasicTypes\Definitions\PlatformDefinition.h">
+      <Filter>BasicTypes\Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicTypes\String\StringList.h">
+      <Filter>BasicTypes\String</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicTypes\BinaryStream\BinaryStream.h">
+      <Filter>BasicTypes\BinaryStream</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicTypes\Definitions\BasicTypes.h">
+      <Filter>BasicTypes\Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicTypes\Definitions\VolatileArgs.h">
+      <Filter>BasicTypes\Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="CRC32\crc32.h">
+      <Filter>CRC32</Filter>
+    </ClInclude>
+    <ClInclude Include="Md5\md5.h">
+      <Filter>MD5</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicTypes\String\CoreString.h">
+      <Filter>BasicTypes\String</Filter>
+    </ClInclude>
+    <ClInclude Include="Signal\SignalTarget.h">
+      <Filter>Signal</Filter>
+    </ClInclude>
+    <ClInclude Include="Signal\SlotBase.h">
+      <Filter>Signal</Filter>
+    </ClInclude>
+    <ClInclude Include="Signal\SignalBase.h">
+      <Filter>Signal</Filter>
+    </ClInclude>
+    <ClInclude Include="Signal\Signal.h">
+      <Filter>Signal</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreMath\Matrix.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreMath\Rect.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreMath\Vector2.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreMath\Vector3.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreMath\Vector4.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreMath\Point.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicTypes\Mutex\Mutex.h">
+      <Filter>BasicTypes\Mutex</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicTypes\Mutex\ScopedMutex.h">
+      <Filter>BasicTypes\Mutex</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreMath\Quaternion.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreMath\Math.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreMath\Color.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Assert\DFAssert.h">
+      <Filter>Assert</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\CoreUtils.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicTypes\Variant\Variant.h">
+      <Filter>BasicTypes\Variant</Filter>
+    </ClInclude>
+    <ClInclude Include="XMLParser\XMLParser.h">
+      <Filter>XMLParser</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicTypes\FixedMaps\FixedMultimap.h">
+      <Filter>BasicTypes\FixedMaps</Filter>
+    </ClInclude>
+    <ClInclude Include="Assert\DFCallstack.h">
+      <Filter>Assert</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicTypes\Bundle\Bundle.h">
+      <Filter>BasicTypes\Bundle</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicTypes\FixedMaps\FixedSizeVector.h">
+      <Filter>BasicTypes\FixedMaps</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicTypes\Variant\VariantTree.h">
+      <Filter>BasicTypes\Variant</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\Base64Util.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicTypes\String\StringId.h">
+      <Filter>BasicTypes\String</Filter>
+    </ClInclude>
+    <ClInclude Include="Crypto\ElfHash.h">
+      <Filter>Crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="Signal\VFConnector.h">
+      <Filter>Signal</Filter>
+    </ClInclude>
+    <ClInclude Include="Unittests\CoreLibUnittestRunner.hpp">
+      <Filter>Unittests</Filter>
+    </ClInclude>
+    <ClInclude Include="Unittests\CoreStringVeryLongString.hpp">
+      <Filter>Unittests</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Precompile.cpp" />
+    <ClCompile Include="BasicTypes\String\StringList.cpp">
+      <Filter>BasicTypes\String</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicTypes\BinaryStream\BinaryStream.cpp">
+      <Filter>BasicTypes\BinaryStream</Filter>
+    </ClCompile>
+    <ClCompile Include="CRC32\crc32.cpp">
+      <Filter>CRC32</Filter>
+    </ClCompile>
+    <ClCompile Include="Md5\md5.cpp">
+      <Filter>MD5</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicTypes\String\CoreString.cpp">
+      <Filter>BasicTypes\String</Filter>
+    </ClCompile>
+    <ClCompile Include="Signal\SignalTarget.cpp">
+      <Filter>Signal</Filter>
+    </ClCompile>
+    <ClCompile Include="Signal\SignalBase.cpp">
+      <Filter>Signal</Filter>
+    </ClCompile>
+    <ClCompile Include="Signal\SlotBase.cpp">
+      <Filter>Signal</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreMath\Matrix.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreMath\Vector3.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicTypes\Mutex\Mutex.cpp">
+      <Filter>BasicTypes\Mutex</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicTypes\Mutex\ScopedMutex.cpp">
+      <Filter>BasicTypes\Mutex</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreMath\Quaternion.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreMath\Vector2.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreMath\Color.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\CoreUtils.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicTypes\Variant\Variant.cpp">
+      <Filter>BasicTypes\Variant</Filter>
+    </ClCompile>
+    <ClCompile Include="XMLParser\XMLParser.cpp">
+      <Filter>XMLParser</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicTypes\FixedMaps\FixedMultimap.cpp">
+      <Filter>BasicTypes\FixedMaps</Filter>
+    </ClCompile>
+    <ClCompile Include="Assert\DFCallstack.cpp">
+      <Filter>Assert</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicTypes\Bundle\Bundle.cpp">
+      <Filter>BasicTypes\Bundle</Filter>
+    </ClCompile>
+    <ClCompile Include="Assert\DFAssert_Android.cpp">
+      <Filter>Assert</Filter>
+    </ClCompile>
+    <ClCompile Include="Assert\DFAssert_Windows.cpp">
+      <Filter>Assert</Filter>
+    </ClCompile>
+    <ClCompile Include="Assert\DFAssert_Common.cpp">
+      <Filter>Assert</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicTypes\FixedMaps\FixedSizeVector.cpp">
+      <Filter>BasicTypes\FixedMaps</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicTypes\Variant\VariantTree.cpp">
+      <Filter>BasicTypes\Variant</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\Base64Util.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Assert\DFAssert_OSX.cpp">
+      <Filter>Assert</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicTypes\String\StringId.cpp">
+      <Filter>BasicTypes\String</Filter>
+    </ClCompile>
+    <ClCompile Include="Crypto\ElfHash.cpp">
+      <Filter>Crypto</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Android.mk" />
+    <None Include="Makefile" />
+    <None Include="Assert\DFAssert_IOS.mm">
+      <Filter>Assert</Filter>
+    </None>
+    <None Include="Assert\DFAssert_Linux.cpp">
+      <Filter>Assert</Filter>
+    </None>
+  </ItemGroup>
+</Project>

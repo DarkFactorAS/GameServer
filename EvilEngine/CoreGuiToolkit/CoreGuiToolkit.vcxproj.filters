@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="BaseGuiElements">
+      <UniqueIdentifier>{c7509e0a-1276-41c7-9b95-8cc906789938}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GuiElements">
+      <UniqueIdentifier>{649ae10c-23ee-4f80-a2cd-233e683b9482}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BaseGuiRenderElements">
+      <UniqueIdentifier>{0321b3cc-5140-46c6-8aff-f83516d0fd83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DebugGui">
+      <UniqueIdentifier>{980adbd0-72af-4a30-942a-c7f96fea06bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GuiCreator">
+      <UniqueIdentifier>{bb3210d1-628f-4b57-96b4-b670b7273727}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DebugGui\GuiEditor">
+      <UniqueIdentifier>{602449b3-9aca-4f3b-9ce0-b5a6b7f294f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GuiControls">
+      <UniqueIdentifier>{0b918805-85bd-4efc-a519-362f4a6c453d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GuiTemplates">
+      <UniqueIdentifier>{2c2298e7-4c91-44fc-8f9c-acef3f4d54af}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BaseGuiElements\CoreGuiBase.cpp">
+      <Filter>BaseGuiElements</Filter>
+    </ClCompile>
+    <ClCompile Include="Precompile.cpp" />
+    <ClCompile Include="BaseGuiElements\CoreGuiButton.cpp">
+      <Filter>BaseGuiElements</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreGuiToolkit.cpp" />
+    <ClCompile Include="GuiElements\CoreGuiDialog.cpp">
+      <Filter>GuiElements</Filter>
+    </ClCompile>
+    <ClCompile Include="GuiElements\CoreGuiWindow.cpp">
+      <Filter>GuiElements</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseGuiElements\CoreGuiFrame.cpp">
+      <Filter>BaseGuiElements</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseGuiElements\CoreGuiInputfield.cpp">
+      <Filter>BaseGuiElements</Filter>
+    </ClCompile>
+    <ClCompile Include="GuiElements\CoreGuiView.cpp">
+      <Filter>GuiElements</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseGuiElements\CoreGuiTextfield.cpp">
+      <Filter>BaseGuiRenderElements</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseGuiElements\CoreGuiImageView.cpp">
+      <Filter>BaseGuiRenderElements</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugGui\DebugGui.cpp">
+      <Filter>DebugGui</Filter>
+    </ClCompile>
+    <ClCompile Include="GuiElements\CoreGuiTileView.cpp">
+      <Filter>GuiElements</Filter>
+    </ClCompile>
+    <ClCompile Include="GuiElements\CoreGuiMenu.cpp">
+      <Filter>GuiElements</Filter>
+    </ClCompile>
+    <ClCompile Include="GuiCreator\GuiResource.cpp">
+      <Filter>GuiCreator</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugGui\GuiEditor\GuiEditor.cpp">
+      <Filter>DebugGui\GuiEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseGuiElements\CoreGuiXMLView.cpp">
+      <Filter>BaseGuiElements</Filter>
+    </ClCompile>
+    <ClCompile Include="GuiElements\CoreGuiGridView.cpp">
+      <Filter>GuiElements</Filter>
+    </ClCompile>
+    <ClCompile Include="GuiControls\SlideGuiView.cpp">
+      <Filter>GuiControls</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseGuiElements\CoreGuiRoundedImageView.cpp">
+      <Filter>BaseGuiElements</Filter>
+    </ClCompile>
+    <ClCompile Include="GuiTemplates\GuiDialogHelper.cpp">
+      <Filter>GuiTemplates</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugGui\GuiEditor\GuiPropertyEditor.cpp">
+      <Filter>DebugGui\GuiEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="GuiElements\GridRowData.cpp">
+      <Filter>GuiElements</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseGuiElements\CoreGuiScrollbar.cpp">
+      <Filter>BaseGuiElements</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BaseGuiElements\CoreGuiBase.h">
+      <Filter>BaseGuiElements</Filter>
+    </ClInclude>
+    <ClInclude Include="Precompile.h" />
+    <ClInclude Include="BaseGuiElements\CoreGuiButton.h">
+      <Filter>BaseGuiElements</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreGuiToolkit.h" />
+    <ClInclude Include="GuiElements\CoreGuiDialog.h">
+      <Filter>GuiElements</Filter>
+    </ClInclude>
+    <ClInclude Include="GuiElements\CoreGuiWindow.h">
+      <Filter>GuiElements</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreGuiResources.h" />
+    <ClInclude Include="BaseGuiElements\CoreGuiFrame.h">
+      <Filter>BaseGuiElements</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseGuiElements\CoreGuiInputfield.h">
+      <Filter>BaseGuiElements</Filter>
+    </ClInclude>
+    <ClInclude Include="GuiElements\CoreGuiView.h">
+      <Filter>GuiElements</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseGuiElements\CoreGuiTextfield.h">
+      <Filter>BaseGuiRenderElements</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseGuiElements\CoreGuiImageView.h">
+      <Filter>BaseGuiRenderElements</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreGuiToolkitInclude.h" />
+    <ClInclude Include="DebugGui\DebugGui.h">
+      <Filter>DebugGui</Filter>
+    </ClInclude>
+    <ClInclude Include="GuiElements\CoreGuiTileView.h">
+      <Filter>GuiElements</Filter>
+    </ClInclude>
+    <ClInclude Include="GuiElements\CoreGuiMenu.h">
+      <Filter>GuiElements</Filter>
+    </ClInclude>
+    <ClInclude Include="GuiCreator\GuiResource.h">
+      <Filter>GuiCreator</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugGui\GuiEditor\GuiEditor.h">
+      <Filter>DebugGui\GuiEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseGuiElements\CoreGuiXMLView.h">
+      <Filter>BaseGuiElements</Filter>
+    </ClInclude>
+    <ClInclude Include="GuiElements\CoreGuiGridView.h">
+      <Filter>GuiElements</Filter>
+    </ClInclude>
+    <ClInclude Include="GuiControls\SlideGuiView.h">
+      <Filter>GuiControls</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseGuiElements\CoreGuiRoundedImageView.h">
+      <Filter>BaseGuiElements</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseGuiElements\ConnectButtonTemplate.h">
+      <Filter>BaseGuiElements</Filter>
+    </ClInclude>
+    <ClInclude Include="GuiTemplates\GuiButtonTemplate.h">
+      <Filter>GuiTemplates</Filter>
+    </ClInclude>
+    <ClInclude Include="GuiTemplates\GuiDialogHelper.h">
+      <Filter>GuiTemplates</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugGui\GuiEditor\GuiPropertyEditor.h">
+      <Filter>DebugGui\GuiEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="GuiElements\GridRowData.h">
+      <Filter>GuiElements</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseGuiElements\CoreGuiScrollbar.h">
+      <Filter>BaseGuiElements</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Android.mk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="DebugGui\Data\DebugGuiEditorWindow.xml">
+      <Filter>DebugGui\GuiEditor</Filter>
+    </Xml>
+  </ItemGroup>
+</Project>

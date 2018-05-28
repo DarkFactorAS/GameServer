@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="PreCompile.cpp" />
+    <ClCompile Include="Module\ProjectOnlineGameServerModule.cpp">
+      <Filter>Module</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerRequestGameDataNetworkPacket.cpp">
+      <Filter>NetworkPackets\ServerNetworkPackets</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PreCompile.h" />
+    <ClInclude Include="Module\ProjectOnlineGameServerModule.h">
+      <Filter>Module</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerRequestGameDataNetworkPacket.h">
+      <Filter>NetworkPackets\ServerNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\OnlineGamePacketData.h">
+      <Filter>Data</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Module">
+      <UniqueIdentifier>{34b7cd72-df12-4d9f-ae6e-b78a169a21a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NetworkPackets">
+      <UniqueIdentifier>{8c922ca2-3132-4e5c-a268-87f8cb3e7413}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NetworkPackets\ServerNetworkPackets">
+      <UniqueIdentifier>{57126854-b43e-4946-b888-47886aa23e3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data">
+      <UniqueIdentifier>{efc39c8b-69d9-4059-880f-7eb9602f6a0c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,568 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		331764C31AED7CF500390FEC /* SSLNetworkClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 331764C11AED7CF500390FEC /* SSLNetworkClient.cpp */; };
+		331764C41AED7CF500390FEC /* SSLNetworkClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 331764C21AED7CF500390FEC /* SSLNetworkClient.h */; };
+		3336EA8D1D66CE93008225E8 /* HttpNetworkClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3336EA8B1D66CE93008225E8 /* HttpNetworkClient.cpp */; };
+		3336EA8E1D66CE93008225E8 /* HttpNetworkClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 3336EA8C1D66CE93008225E8 /* HttpNetworkClient.h */; };
+		3353B52D1DFC391E005373CD /* CoreNetworkEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3353B52B1DFC391E005373CD /* CoreNetworkEngine.cpp */; };
+		3353B52E1DFC391E005373CD /* CoreNetworkEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 3353B52C1DFC391E005373CD /* CoreNetworkEngine.h */; };
+		3353B5331DFC3D4B005373CD /* CoreNetworkEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3353B52B1DFC391E005373CD /* CoreNetworkEngine.cpp */; };
+		3353B5361DFC3D5F005373CD /* CoreNetworkEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 3353B52C1DFC391E005373CD /* CoreNetworkEngine.h */; };
+		33DC0DDC1DA5600F009D2738 /* NetworkConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74CCB9AF190D32E40097B373 /* NetworkConnection.cpp */; };
+		33DC0DDD1DA5600F009D2738 /* NetworkClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74CCB9A3190D32BE0097B373 /* NetworkClient.cpp */; };
+		33DC0DDE1DA5600F009D2738 /* NetworkBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74CCB9AD190D32E40097B373 /* NetworkBase.cpp */; };
+		33DC0DDF1DA5600F009D2738 /* ZlibCompression.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74CCB9BA190D332C0097B373 /* ZlibCompression.cpp */; };
+		33DC0DE01DA5600F009D2738 /* SSLNetworkClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 331764C11AED7CF500390FEC /* SSLNetworkClient.cpp */; };
+		33DC0DE11DA5600F009D2738 /* NetworkReactor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74CCB9B1190D32E40097B373 /* NetworkReactor.cpp */; };
+		33DC0DE21DA5600F009D2738 /* Precompile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7408B8D0190D50CC000A8CE3 /* Precompile.cpp */; };
+		33DC0DE31DA5600F009D2738 /* HttpNetworkClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3336EA8B1D66CE93008225E8 /* HttpNetworkClient.cpp */; };
+		33DC0DE61DA5600F009D2738 /* libboost_system.Debug.iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CCC05D190D34040097B373 /* libboost_system.Debug.iOS.a */; };
+		33DC0DE71DA5600F009D2738 /* libboost_thread.Debug.iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CCC05E190D34040097B373 /* libboost_thread.Debug.iOS.a */; };
+		33DC0DE91DA5600F009D2738 /* ZLibCompression.h in Headers */ = {isa = PBXBuildFile; fileRef = 74CCB9BB190D332C0097B373 /* ZLibCompression.h */; };
+		33DC0DEA1DA5600F009D2738 /* HttpNetworkClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 3336EA8C1D66CE93008225E8 /* HttpNetworkClient.h */; };
+		33DC0DEB1DA5600F009D2738 /* NetworkServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 74CCB9AA190D32DB0097B373 /* NetworkServer.h */; };
+		33DC0DEC1DA5600F009D2738 /* Precompile.h in Headers */ = {isa = PBXBuildFile; fileRef = 7408B8D1190D50CC000A8CE3 /* Precompile.h */; };
+		33DC0DED1DA5600F009D2738 /* SSLNetworkClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 331764C21AED7CF500390FEC /* SSLNetworkClient.h */; };
+		33DC0DEE1DA5600F009D2738 /* NetworkReactor.h in Headers */ = {isa = PBXBuildFile; fileRef = 74CCB9B2190D32E40097B373 /* NetworkReactor.h */; };
+		33DC0DEF1DA5600F009D2738 /* NetworkClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 74CCB9A4190D32BE0097B373 /* NetworkClient.h */; };
+		33DC0DF01DA5600F009D2738 /* NetworkBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 74CCB9AE190D32E40097B373 /* NetworkBase.h */; };
+		33DC0DF11DA5600F009D2738 /* NetworkConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 74CCB9B0190D32E40097B373 /* NetworkConnection.h */; };
+		7408B8D2190D50CC000A8CE3 /* Precompile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7408B8D0190D50CC000A8CE3 /* Precompile.cpp */; };
+		7408B8D3190D50CC000A8CE3 /* Precompile.h in Headers */ = {isa = PBXBuildFile; fileRef = 7408B8D1190D50CC000A8CE3 /* Precompile.h */; };
+		74CCB9A5190D32BE0097B373 /* NetworkClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74CCB9A3190D32BE0097B373 /* NetworkClient.cpp */; };
+		74CCB9A6190D32BE0097B373 /* NetworkClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 74CCB9A4190D32BE0097B373 /* NetworkClient.h */; };
+		74CCB9AC190D32DB0097B373 /* NetworkServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 74CCB9AA190D32DB0097B373 /* NetworkServer.h */; };
+		74CCB9B3190D32E40097B373 /* NetworkBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74CCB9AD190D32E40097B373 /* NetworkBase.cpp */; };
+		74CCB9B4190D32E40097B373 /* NetworkBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 74CCB9AE190D32E40097B373 /* NetworkBase.h */; };
+		74CCB9B5190D32E40097B373 /* NetworkConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74CCB9AF190D32E40097B373 /* NetworkConnection.cpp */; };
+		74CCB9B6190D32E40097B373 /* NetworkConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 74CCB9B0190D32E40097B373 /* NetworkConnection.h */; };
+		74CCB9B7190D32E40097B373 /* NetworkReactor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74CCB9B1190D32E40097B373 /* NetworkReactor.cpp */; };
+		74CCB9B8190D32E40097B373 /* NetworkReactor.h in Headers */ = {isa = PBXBuildFile; fileRef = 74CCB9B2190D32E40097B373 /* NetworkReactor.h */; };
+		74CCB9BC190D332C0097B373 /* ZlibCompression.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74CCB9BA190D332C0097B373 /* ZlibCompression.cpp */; };
+		74CCB9BD190D332C0097B373 /* ZLibCompression.h in Headers */ = {isa = PBXBuildFile; fileRef = 74CCB9BB190D332C0097B373 /* ZLibCompression.h */; };
+		74CCC05F190D34040097B373 /* libboost_system.Debug.iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CCC05D190D34040097B373 /* libboost_system.Debug.iOS.a */; };
+		74CCC060190D34040097B373 /* libboost_thread.Debug.iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CCC05E190D34040097B373 /* libboost_thread.Debug.iOS.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		331764C11AED7CF500390FEC /* SSLNetworkClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SSLNetworkClient.cpp; path = SSLNetworkClient/SSLNetworkClient.cpp; sourceTree = "<group>"; };
+		331764C21AED7CF500390FEC /* SSLNetworkClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSLNetworkClient.h; path = SSLNetworkClient/SSLNetworkClient.h; sourceTree = "<group>"; };
+		3336EA8B1D66CE93008225E8 /* HttpNetworkClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HttpNetworkClient.cpp; path = HttpNetworkClient/HttpNetworkClient.cpp; sourceTree = "<group>"; };
+		3336EA8C1D66CE93008225E8 /* HttpNetworkClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpNetworkClient.h; path = HttpNetworkClient/HttpNetworkClient.h; sourceTree = "<group>"; };
+		3353B52B1DFC391E005373CD /* CoreNetworkEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoreNetworkEngine.cpp; path = Engine/CoreNetworkEngine.cpp; sourceTree = "<group>"; };
+		3353B52C1DFC391E005373CD /* CoreNetworkEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreNetworkEngine.h; path = Engine/CoreNetworkEngine.h; sourceTree = "<group>"; };
+		33DC0DF51DA5600F009D2738 /* libCoreNetwork.OSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCoreNetwork.OSX.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7408B8D0190D50CC000A8CE3 /* Precompile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Precompile.cpp; sourceTree = "<group>"; };
+		7408B8D1190D50CC000A8CE3 /* Precompile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Precompile.h; sourceTree = "<group>"; };
+		7495F146190D238F00AB1DF3 /* libCoreNetwork.iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCoreNetwork.iOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		74CCB9A3190D32BE0097B373 /* NetworkClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NetworkClient.cpp; path = Client/NetworkClient.cpp; sourceTree = "<group>"; };
+		74CCB9A4190D32BE0097B373 /* NetworkClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkClient.h; path = Client/NetworkClient.h; sourceTree = "<group>"; };
+		74CCB9A9190D32DB0097B373 /* NetworkServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NetworkServer.cpp; path = Server/NetworkServer.cpp; sourceTree = "<group>"; };
+		74CCB9AA190D32DB0097B373 /* NetworkServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkServer.h; path = Server/NetworkServer.h; sourceTree = "<group>"; };
+		74CCB9AD190D32E40097B373 /* NetworkBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NetworkBase.cpp; path = Common/NetworkBase.cpp; sourceTree = "<group>"; };
+		74CCB9AE190D32E40097B373 /* NetworkBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkBase.h; path = Common/NetworkBase.h; sourceTree = "<group>"; };
+		74CCB9AF190D32E40097B373 /* NetworkConnection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NetworkConnection.cpp; path = Common/NetworkConnection.cpp; sourceTree = "<group>"; };
+		74CCB9B0190D32E40097B373 /* NetworkConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkConnection.h; path = Common/NetworkConnection.h; sourceTree = "<group>"; };
+		74CCB9B1190D32E40097B373 /* NetworkReactor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NetworkReactor.cpp; path = Common/NetworkReactor.cpp; sourceTree = "<group>"; };
+		74CCB9B2190D32E40097B373 /* NetworkReactor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkReactor.h; path = Common/NetworkReactor.h; sourceTree = "<group>"; };
+		74CCB9BA190D332C0097B373 /* ZlibCompression.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZlibCompression.cpp; path = ZLibCompression/ZlibCompression.cpp; sourceTree = "<group>"; };
+		74CCB9BB190D332C0097B373 /* ZLibCompression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZLibCompression.h; path = ZLibCompression/ZLibCompression.h; sourceTree = "<group>"; };
+		74CCC05D190D34040097B373 /* libboost_system.Debug.iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.Debug.iOS.a; path = "../../../../../../External_Libraries/boost-1.53.0/lib/iOS/libboost_system.Debug.iOS.a"; sourceTree = "<group>"; };
+		74CCC05E190D34040097B373 /* libboost_thread.Debug.iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_thread.Debug.iOS.a; path = "../../../../../../External_Libraries/boost-1.53.0/lib/iOS/libboost_thread.Debug.iOS.a"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		33DC0DE41DA5600F009D2738 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33DC0DE61DA5600F009D2738 /* libboost_system.Debug.iOS.a in Frameworks */,
+				33DC0DE71DA5600F009D2738 /* libboost_thread.Debug.iOS.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7495F143190D238F00AB1DF3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74CCC05F190D34040097B373 /* libboost_system.Debug.iOS.a in Frameworks */,
+				74CCC060190D34040097B373 /* libboost_thread.Debug.iOS.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		331764C01AED7CC900390FEC /* SSLVerification */ = {
+			isa = PBXGroup;
+			children = (
+				331764C11AED7CF500390FEC /* SSLNetworkClient.cpp */,
+				331764C21AED7CF500390FEC /* SSLNetworkClient.h */,
+			);
+			name = SSLVerification;
+			sourceTree = "<group>";
+		};
+		3336EA8A1D66CE81008225E8 /* HttpNetworkClient */ = {
+			isa = PBXGroup;
+			children = (
+				3336EA8B1D66CE93008225E8 /* HttpNetworkClient.cpp */,
+				3336EA8C1D66CE93008225E8 /* HttpNetworkClient.h */,
+			);
+			name = HttpNetworkClient;
+			sourceTree = "<group>";
+		};
+		336B225C1DCF4A6A004E41FD /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				3353B52B1DFC391E005373CD /* CoreNetworkEngine.cpp */,
+				3353B52C1DFC391E005373CD /* CoreNetworkEngine.h */,
+			);
+			name = Engine;
+			sourceTree = "<group>";
+		};
+		7495F13D190D238F00AB1DF3 = {
+			isa = PBXGroup;
+			children = (
+				336B225C1DCF4A6A004E41FD /* Engine */,
+				3336EA8A1D66CE81008225E8 /* HttpNetworkClient */,
+				74CCB9BE190D334D0097B373 /* Frameworks */,
+				74CCB9B9190D331F0097B373 /* ZLibCompression */,
+				74CCB9A8190D32CA0097B373 /* Server */,
+				74CCB9A7190D32C20097B373 /* Common */,
+				74CCB9A2190D32B20097B373 /* Client */,
+				331764C01AED7CC900390FEC /* SSLVerification */,
+				7495F147190D238F00AB1DF3 /* Products */,
+				7408B8D0190D50CC000A8CE3 /* Precompile.cpp */,
+				7408B8D1190D50CC000A8CE3 /* Precompile.h */,
+			);
+			sourceTree = "<group>";
+		};
+		7495F147190D238F00AB1DF3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7495F146190D238F00AB1DF3 /* libCoreNetwork.iOS.a */,
+				33DC0DF51DA5600F009D2738 /* libCoreNetwork.OSX.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		74CCB9A2190D32B20097B373 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				74CCB9A3190D32BE0097B373 /* NetworkClient.cpp */,
+				74CCB9A4190D32BE0097B373 /* NetworkClient.h */,
+			);
+			name = Client;
+			sourceTree = "<group>";
+		};
+		74CCB9A7190D32C20097B373 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				74CCB9AD190D32E40097B373 /* NetworkBase.cpp */,
+				74CCB9AE190D32E40097B373 /* NetworkBase.h */,
+				74CCB9AF190D32E40097B373 /* NetworkConnection.cpp */,
+				74CCB9B0190D32E40097B373 /* NetworkConnection.h */,
+				74CCB9B1190D32E40097B373 /* NetworkReactor.cpp */,
+				74CCB9B2190D32E40097B373 /* NetworkReactor.h */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		74CCB9A8190D32CA0097B373 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				74CCB9A9190D32DB0097B373 /* NetworkServer.cpp */,
+				74CCB9AA190D32DB0097B373 /* NetworkServer.h */,
+			);
+			name = Server;
+			sourceTree = "<group>";
+		};
+		74CCB9B9190D331F0097B373 /* ZLibCompression */ = {
+			isa = PBXGroup;
+			children = (
+				74CCB9BA190D332C0097B373 /* ZlibCompression.cpp */,
+				74CCB9BB190D332C0097B373 /* ZLibCompression.h */,
+			);
+			name = ZLibCompression;
+			sourceTree = "<group>";
+		};
+		74CCB9BE190D334D0097B373 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				74CCC05D190D34040097B373 /* libboost_system.Debug.iOS.a */,
+				74CCC05E190D34040097B373 /* libboost_thread.Debug.iOS.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		33DC0DE81DA5600F009D2738 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33DC0DE91DA5600F009D2738 /* ZLibCompression.h in Headers */,
+				33DC0DEA1DA5600F009D2738 /* HttpNetworkClient.h in Headers */,
+				33DC0DEB1DA5600F009D2738 /* NetworkServer.h in Headers */,
+				33DC0DEC1DA5600F009D2738 /* Precompile.h in Headers */,
+				33DC0DED1DA5600F009D2738 /* SSLNetworkClient.h in Headers */,
+				33DC0DEE1DA5600F009D2738 /* NetworkReactor.h in Headers */,
+				3353B5361DFC3D5F005373CD /* CoreNetworkEngine.h in Headers */,
+				33DC0DEF1DA5600F009D2738 /* NetworkClient.h in Headers */,
+				33DC0DF01DA5600F009D2738 /* NetworkBase.h in Headers */,
+				33DC0DF11DA5600F009D2738 /* NetworkConnection.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7495F144190D238F00AB1DF3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74CCB9BD190D332C0097B373 /* ZLibCompression.h in Headers */,
+				3336EA8E1D66CE93008225E8 /* HttpNetworkClient.h in Headers */,
+				74CCB9AC190D32DB0097B373 /* NetworkServer.h in Headers */,
+				7408B8D3190D50CC000A8CE3 /* Precompile.h in Headers */,
+				331764C41AED7CF500390FEC /* SSLNetworkClient.h in Headers */,
+				74CCB9B8190D32E40097B373 /* NetworkReactor.h in Headers */,
+				3353B52E1DFC391E005373CD /* CoreNetworkEngine.h in Headers */,
+				74CCB9A6190D32BE0097B373 /* NetworkClient.h in Headers */,
+				74CCB9B4190D32E40097B373 /* NetworkBase.h in Headers */,
+				74CCB9B6190D32E40097B373 /* NetworkConnection.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		33DC0DDA1DA5600F009D2738 /* CoreNetwork.OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33DC0DF21DA5600F009D2738 /* Build configuration list for PBXNativeTarget "CoreNetwork.OSX" */;
+			buildPhases = (
+				33DC0DDB1DA5600F009D2738 /* Sources */,
+				33DC0DE41DA5600F009D2738 /* Frameworks */,
+				33DC0DE81DA5600F009D2738 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoreNetwork.OSX;
+			productName = CoreNetwork;
+			productReference = 33DC0DF51DA5600F009D2738 /* libCoreNetwork.OSX.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		7495F145190D238F00AB1DF3 /* CoreNetwork.iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7495F14A190D238F00AB1DF3 /* Build configuration list for PBXNativeTarget "CoreNetwork.iOS" */;
+			buildPhases = (
+				7495F142190D238F00AB1DF3 /* Sources */,
+				7495F143190D238F00AB1DF3 /* Frameworks */,
+				7495F144190D238F00AB1DF3 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoreNetwork.iOS;
+			productName = CoreNetwork;
+			productReference = 7495F146190D238F00AB1DF3 /* libCoreNetwork.iOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7495F13E190D238F00AB1DF3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Thor Hansen";
+			};
+			buildConfigurationList = 7495F141190D238F00AB1DF3 /* Build configuration list for PBXProject "CoreNetwork" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7495F13D190D238F00AB1DF3;
+			productRefGroup = 7495F147190D238F00AB1DF3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7495F145190D238F00AB1DF3 /* CoreNetwork.iOS */,
+				33DC0DDA1DA5600F009D2738 /* CoreNetwork.OSX */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		33DC0DDB1DA5600F009D2738 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3353B5331DFC3D4B005373CD /* CoreNetworkEngine.cpp in Sources */,
+				33DC0DDC1DA5600F009D2738 /* NetworkConnection.cpp in Sources */,
+				33DC0DDD1DA5600F009D2738 /* NetworkClient.cpp in Sources */,
+				33DC0DDE1DA5600F009D2738 /* NetworkBase.cpp in Sources */,
+				33DC0DDF1DA5600F009D2738 /* ZlibCompression.cpp in Sources */,
+				33DC0DE01DA5600F009D2738 /* SSLNetworkClient.cpp in Sources */,
+				33DC0DE11DA5600F009D2738 /* NetworkReactor.cpp in Sources */,
+				33DC0DE21DA5600F009D2738 /* Precompile.cpp in Sources */,
+				33DC0DE31DA5600F009D2738 /* HttpNetworkClient.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7495F142190D238F00AB1DF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3353B52D1DFC391E005373CD /* CoreNetworkEngine.cpp in Sources */,
+				74CCB9B5190D32E40097B373 /* NetworkConnection.cpp in Sources */,
+				74CCB9A5190D32BE0097B373 /* NetworkClient.cpp in Sources */,
+				74CCB9B3190D32E40097B373 /* NetworkBase.cpp in Sources */,
+				74CCB9BC190D332C0097B373 /* ZlibCompression.cpp in Sources */,
+				331764C31AED7CF500390FEC /* SSLNetworkClient.cpp in Sources */,
+				74CCB9B7190D32E40097B373 /* NetworkReactor.cpp in Sources */,
+				7408B8D2190D50CC000A8CE3 /* Precompile.cpp in Sources */,
+				3336EA8D1D66CE93008225E8 /* HttpNetworkClient.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		33DC0DF31DA5600F009D2738 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					PLATFORM_OSXCLIENT,
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					..,
+					../..,
+					../../..,
+					"$(DF_EXTERNALLIBS)/boost-1.53.0/include",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DF_EXTERNALLIBS)/boost-1.53.0/lib/iOS",
+				);
+				MACOSX_DEPLOYMENT_TARGET = "";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		33DC0DF41DA5600F009D2738 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					PLATFORM_OSXCLIENT,
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					..,
+					../..,
+					../../..,
+					"$(DF_EXTERNALLIBS)/boost-1.53.0/include",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DF_EXTERNALLIBS)/boost-1.53.0/lib/iOS",
+				);
+				MACOSX_DEPLOYMENT_TARGET = "";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		7495F148190D238F00AB1DF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					CLIENT,
+					OPENGL,
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7495F149190D238F00AB1DF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"RELEASE=1",
+					CLIENT,
+					OPENGL,
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		7495F14B190D238F00AB1DF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					..,
+					../..,
+					../../..,
+					"$(DF_EXTERNALLIBS)/boost-1.53.0/include",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DF_EXTERNALLIBS)/boost-1.53.0/lib/iOS",
+				);
+				MACOSX_DEPLOYMENT_TARGET = "";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7495F14C190D238F00AB1DF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					..,
+					../..,
+					../../..,
+					"$(DF_EXTERNALLIBS)/boost-1.53.0/include",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DF_EXTERNALLIBS)/boost-1.53.0/lib/iOS",
+				);
+				MACOSX_DEPLOYMENT_TARGET = "";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		33DC0DF21DA5600F009D2738 /* Build configuration list for PBXNativeTarget "CoreNetwork.OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33DC0DF31DA5600F009D2738 /* Debug */,
+				33DC0DF41DA5600F009D2738 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7495F141190D238F00AB1DF3 /* Build configuration list for PBXProject "CoreNetwork" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7495F148190D238F00AB1DF3 /* Debug */,
+				7495F149190D238F00AB1DF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7495F14A190D238F00AB1DF3 /* Build configuration list for PBXNativeTarget "CoreNetwork.iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7495F14B190D238F00AB1DF3 /* Debug */,
+				7495F14C190D238F00AB1DF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7495F13E190D238F00AB1DF3 /* Project object */;
+}

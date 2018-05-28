@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Account">
+      <UniqueIdentifier>{8cba88bf-b39e-49fd-94c1-c1e8b9fe1385}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LoginScreen">
+      <UniqueIdentifier>{3f21835d-2295-4b5d-9d51-ef55d27a055a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformLogin">
+      <UniqueIdentifier>{f1bd261a-514c-4a6c-9176-33c3dda9bf4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformLogin\GameCenter">
+      <UniqueIdentifier>{fe5ddd13-b9bd-499f-901c-8bf9bdbeee89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{5b0be6bc-7ce0-4e76-9042-d503dc7c4180}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NetworkPackets">
+      <UniqueIdentifier>{bedec49e-2e57-41eb-9b3e-7002f422d5fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gui">
+      <UniqueIdentifier>{88ea1456-dc3a-4d19-a4ad-4dcfd32a2ca6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gui\GMDebugWindow">
+      <UniqueIdentifier>{88f0827c-975f-48e7-afe5-aa10a877dcaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gui\CoreGameLoginDebugGui">
+      <UniqueIdentifier>{ef599689-d9b5-47a0-b6fd-f1796c0ac8f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NetworkPackets\ItemShopPackets">
+      <UniqueIdentifier>{8faa4894-cde2-4dd5-a017-61e012157268}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Unittests">
+      <UniqueIdentifier>{f333ae1e-5280-4ed6-a99f-a48234542090}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Unittests\AsyncUnittest">
+      <UniqueIdentifier>{e2df55ac-7f3f-4c50-8f4b-46af50e6314f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NetworkPackets\ServerAccountNetworkPackets">
+      <UniqueIdentifier>{759ae697-d759-4490-979b-2d203d59d050}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NetworkPackets\ClientAccountNetworkPackets">
+      <UniqueIdentifier>{bdd47946-e244-4e4d-9ce7-9ac941e8861f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LoginModule">
+      <UniqueIdentifier>{269b20be-3676-49c8-8427-9e85f15e7814}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Unittests\UnittestFramework">
+      <UniqueIdentifier>{efd601dd-e454-4010-bc40-47e7b20ec048}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Account\Account.cpp">
+      <Filter>Account</Filter>
+    </ClCompile>
+    <ClCompile Include="Account\AccountManager.cpp">
+      <Filter>Account</Filter>
+    </ClCompile>
+    <ClCompile Include="Precompile.cpp" />
+    <ClCompile Include="LoginScreen\LoginScreenModule.cpp">
+      <Filter>LoginScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="Gui\GMPasswordWindow\GMPasswordWindow.cpp">
+      <Filter>Gui\GMDebugWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="Gui\CoreGameLoginDebugGui\CoreGameLoginDebugGui.cpp">
+      <Filter>Gui\CoreGameLoginDebugGui</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ItemShopPackets\PurchaseItemFromAmazonNetworkPacket.cpp">
+      <Filter>NetworkPackets\ItemShopPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ItemShopPackets\PurchaseItemFromAppleNetworkPacket.cpp">
+      <Filter>NetworkPackets\ItemShopPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ItemShopPackets\PurchaseItemFromDarkfactorNetworkPacket.cpp">
+      <Filter>NetworkPackets\ItemShopPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ServerAccountNetworkPackets\LoginGMNetworkPacket.cpp">
+      <Filter>NetworkPackets\ServerAccountNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ServerAccountNetworkPackets\SwitchLoggedInAccountNetworkPacket.cpp">
+      <Filter>NetworkPackets\ServerAccountNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ServerAccountNetworkPackets\UpdatedAccountFlagsNetworkPacket.cpp">
+      <Filter>NetworkPackets\ServerAccountNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ServerAccountNetworkPackets\CreateServerAccountNetworkPacket.cpp">
+      <Filter>NetworkPackets\ServerAccountNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginModule\CoreGameBaseLoginModule.cpp">
+      <Filter>LoginModule</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginModule\CoreGameClientLoginModule.cpp">
+      <Filter>LoginModule</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginModule\CoreGameServerLoginModule.cpp">
+      <Filter>LoginModule</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ClientAccountNetworkPackets\ClientAccountCreatedNetworkPacket.cpp">
+      <Filter>NetworkPackets\ClientAccountNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\BaseAuthentcatedNetworkPacket.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\BaseLoginModuleNetworkPacket.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ServerAccountNetworkPackets\LoginServerAccountNetworkPacket.cpp">
+      <Filter>NetworkPackets\ServerAccountNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ClientAccountNetworkPackets\ClientAccountErrorNetworkPacket.cpp">
+      <Filter>NetworkPackets\ClientAccountNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ClientAccountNetworkPackets\ClientAccountLoggedOnNetworkPacket.cpp">
+      <Filter>NetworkPackets\ClientAccountNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ClientAccountNetworkPackets\ClientAccountLoggedOffNetworkPacket.cpp">
+      <Filter>NetworkPackets\ClientAccountNetworkPackets</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Account\Account.h">
+      <Filter>Account</Filter>
+    </ClInclude>
+    <ClInclude Include="Account\AccountManager.h">
+      <Filter>Account</Filter>
+    </ClInclude>
+    <ClInclude Include="Precompile.h" />
+    <ClInclude Include="PlatformLogin\GameCenter\GameCenterManager.iOS.h">
+      <Filter>PlatformLogin\GameCenter</Filter>
+    </ClInclude>
+    <ClInclude Include="PlatformLogin\GameCenter\GameCenterViewController.h">
+      <Filter>PlatformLogin\GameCenter</Filter>
+    </ClInclude>
+    <ClInclude Include="Account\GMFlags.h">
+      <Filter>Account</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\GameLoginPacketData.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginScreen\LoginScreenModule.h">
+      <Filter>LoginScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="Gui\GMPasswordWindow\GMPasswordWindow.h">
+      <Filter>Gui\GMDebugWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="Gui\CoreGameLoginDebugGui\CoreGameLoginDebugGui.h">
+      <Filter>Gui\CoreGameLoginDebugGui</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ItemShopPackets\PurchaseItemFromAmazonNetworkPacket.h">
+      <Filter>NetworkPackets\ItemShopPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ItemShopPackets\PurchaseItemFromAppleNetworkPacket.h">
+      <Filter>NetworkPackets\ItemShopPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ItemShopPackets\PurchaseItemFromDarkfactorNetworkPacket.h">
+      <Filter>NetworkPackets\ItemShopPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="Unittests\AccountAsyncUnittestRunner.hpp">
+      <Filter>Unittests</Filter>
+    </ClInclude>
+    <ClInclude Include="Unittests\AsyncUnittest\CreateAccountUnittest.hpp">
+      <Filter>Unittests\AsyncUnittest</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ServerAccountNetworkPackets\LoginGMNetworkPacket.h">
+      <Filter>NetworkPackets\ServerAccountNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ServerAccountNetworkPackets\SwitchLoggedInAccountNetworkPacket.h">
+      <Filter>NetworkPackets\ServerAccountNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ServerAccountNetworkPackets\UpdatedAccountFlagsNetworkPacket.h">
+      <Filter>NetworkPackets\ServerAccountNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ServerAccountNetworkPackets\CreateServerAccountNetworkPacket.h">
+      <Filter>NetworkPackets\ServerAccountNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginModule\CoreGameBaseLoginModule.h">
+      <Filter>LoginModule</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginModule\CoreGameClientLoginModule.h">
+      <Filter>LoginModule</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginModule\CoreGameServerLoginModule.h">
+      <Filter>LoginModule</Filter>
+    </ClInclude>
+    <ClInclude Include="Unittests\UnittestFramework\UnittestGameServerLoginModule.hpp">
+      <Filter>Unittests\UnittestFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ClientAccountNetworkPackets\ClientAccountCreatedNetworkPacket.h">
+      <Filter>NetworkPackets\ClientAccountNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\BaseAuthentcatedNetworkPacket.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\BaseLoginModuleNetworkPacket.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Unittests\AsyncUnittest\LoginAccountUnittest.hpp">
+      <Filter>Unittests\AsyncUnittest</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ServerAccountNetworkPackets\LoginServerAccountNetworkPacket.h">
+      <Filter>NetworkPackets\ServerAccountNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ClientAccountNetworkPackets\ClientAccountErrorNetworkPacket.h">
+      <Filter>NetworkPackets\ClientAccountNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="Unittests\AsyncUnittest\AccountErrorUnittest.hpp">
+      <Filter>Unittests\AsyncUnittest</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ClientAccountNetworkPackets\ClientAccountLoggedOnNetworkPacket.h">
+      <Filter>NetworkPackets\ClientAccountNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ClientAccountNetworkPackets\ClientAccountLoggedOffNetworkPacket.h">
+      <Filter>NetworkPackets\ClientAccountNetworkPackets</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PlatformLogin\GameCenter\GameCenterManager.iOS.mm">
+      <Filter>PlatformLogin\GameCenter</Filter>
+    </None>
+    <None Include="PlatformLogin\GameCenter\GameCenterViewController.mm">
+      <Filter>PlatformLogin\GameCenter</Filter>
+    </None>
+    <None Include="Makefile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\..\ProjectVA\Data\Resources\Gui\GMPasswordWindow.xml">
+      <Filter>Gui\GMDebugWindow</Filter>
+    </Xml>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Documents">
+      <UniqueIdentifier>{f650ef30-d427-4db2-8fad-5f23b054dcda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{f9be93d7-eb3f-45be-a56e-4767018fc0cc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PreCompile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowsMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\stuff2fix.txt">
+      <Filter>Documents</Filter>
+    </Text>
+    <Text Include="..\..\Features.txt">
+      <Filter>Documents</Filter>
+    </Text>
+    <Text Include="..\..\..\EvilEngine\CodeStandard.txt">
+      <Filter>Documents</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PreCompile.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="client_icon_green.ico" />
+    <Image Include="client_icon_red.ico" />
+    <Image Include="client_icon_yellow.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Client.rc">
+      <Filter>Resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\UnittestConfig.xml">
+      <Filter>Source Files</Filter>
+    </Xml>
+  </ItemGroup>
+</Project>

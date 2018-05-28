@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Client">
+      <UniqueIdentifier>{686c67cf-7bf0-4b9e-977b-41e16eafee5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Server">
+      <UniqueIdentifier>{c3a93f79-7548-4632-95d4-4fde3a852795}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{328b21f3-c3bb-45a7-854c-fa15b5f1ebec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ZLibCompression">
+      <UniqueIdentifier>{c20bd859-7fff-4082-a159-30b06d99471b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EmailConnection">
+      <UniqueIdentifier>{9b397092-14f3-4934-bb66-ba1c19943fa1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SSLVerification">
+      <UniqueIdentifier>{d8ce4705-c763-4a56-8af4-bd8e3f0201cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HttpNetworkClient">
+      <UniqueIdentifier>{129f6031-9086-4332-a569-62a90e7f69a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{9645442d-3256-4036-83ab-8df37e9b5179}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UnittestFramework">
+      <UniqueIdentifier>{4f070416-cdcc-48d7-b1b4-75805c88faf2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Client\NetworkClient.cpp">
+      <Filter>Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\NetworkServer.cpp">
+      <Filter>Server</Filter>
+    </ClCompile>
+    <ClCompile Include="ZLibCompression\ZlibCompression.cpp">
+      <Filter>ZLibCompression</Filter>
+    </ClCompile>
+    <ClCompile Include="Precompile.cpp" />
+    <ClCompile Include="Common\NetworkBase.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\NetworkReactor.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\NetworkConnection.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="EmailConnection\EmailNetworkConnection.cpp">
+      <Filter>EmailConnection</Filter>
+    </ClCompile>
+    <ClCompile Include="EmailConnection\EmailNetworkClient.cpp">
+      <Filter>EmailConnection</Filter>
+    </ClCompile>
+    <ClCompile Include="SSLNetworkClient\SSLNetworkClient.cpp">
+      <Filter>SSLVerification</Filter>
+    </ClCompile>
+    <ClCompile Include="HttpNetworkClient\HttpNetworkClient.cpp">
+      <Filter>HttpNetworkClient</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\CoreNetworkEngine.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Client\NetworkClient.h">
+      <Filter>Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\NetworkServer.h">
+      <Filter>Server</Filter>
+    </ClInclude>
+    <ClInclude Include="ZLibCompression\ZLibCompression.h">
+      <Filter>ZLibCompression</Filter>
+    </ClInclude>
+    <ClInclude Include="Precompile.h" />
+    <ClInclude Include="Common\NetworkBase.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\NetworkReactor.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\NetworkConnection.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="EmailConnection\EmailNetworkConnection.h">
+      <Filter>EmailConnection</Filter>
+    </ClInclude>
+    <ClInclude Include="EmailConnection\EmailNetworkClient.h">
+      <Filter>EmailConnection</Filter>
+    </ClInclude>
+    <ClInclude Include="SSLNetworkClient\SSLNetworkClient.h">
+      <Filter>SSLVerification</Filter>
+    </ClInclude>
+    <ClInclude Include="HttpNetworkClient\HttpNetworkClient.h">
+      <Filter>HttpNetworkClient</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\CoreNetworkEngine.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="UnittestFramework\UnittestNetworkClient.hpp">
+      <Filter>UnittestFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="UnittestFramework\UnittestNetworkServer.hpp">
+      <Filter>UnittestFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="UnittestFramework\UnittestNetworkConnection.hpp">
+      <Filter>UnittestFramework</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
+  </ItemGroup>
+</Project>

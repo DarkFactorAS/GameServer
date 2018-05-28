@@ -1,0 +1,1 @@
+mysql games_unitybeer -u root -p < AllPatches.sql

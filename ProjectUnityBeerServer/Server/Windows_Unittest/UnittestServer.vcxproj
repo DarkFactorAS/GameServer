@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{67D926D6-72DC-4FA0-9C54-8C725DB05440}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>OpenGLGuiDemo</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>$(BOOST)\lib\win32.vc14;$(ZLIB)\lib;$(MYSQL)\lib;$(OPENSSL)\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(INCLUDEDIR);$(IncludePath)</IncludePath>
+    <TargetName>$(SolutionName)</TargetName>
+    <OutDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Bin\</OutDir>
+    <IntDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Objects\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <LibraryPath>$(BOOST)\lib\win32.vc14;$(ZLIB)\lib;$(MYSQL)\lib;$(OPENSSL)\lib;$(LibraryPath)</LibraryPath>
+    <IntDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Objects\$(ProjectName)\</IntDir>
+    <OutDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Bin\</OutDir>
+    <IncludePath>$(INCLUDEDIR);$(IncludePath)</IncludePath>
+    <TargetName>$(SolutionName)</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>$(PREPROCESSOR);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>.;..;../..;../../..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <PrecompiledHeaderFile>PreCompile.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>libboost_system-mt-sgd.lib;libboost_thread-mt-sgd.lib;zlib.Debug.Win32.lib;mysqlcppconn.lib;libmysql.lib;libeay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy $(MYSQL)\lib\*.dll /I /Y "$(OutDir)"
+xcopy "$(PROJECTDIR)..\ServerConfig.xml" /Y /C "$(OutDir)"
+xcopy $(OPENSSL)\lib\libeay32.dll /I /Y "$(OutDir)"
+
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>RELEASE;$(PREPROCESSOR);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>.;..;../..;../../..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <PrecompiledHeaderFile>PreCompile.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>libboost_system-mt-s.lib;libboost_thread-mt-s.lib;zlib.Release.Win32.lib;mysqlcppconn.lib;libmysql.lib;libeay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy $(MYSQL)\lib\*.dll /I /Y "$(OutDir)"
+xcopy "$(PROJECTDIR)..\ServerConfig.xml" /Y /C "$(OutDir)"
+xcopy $(OPENSSL)\lib\libeay32.dll /I /Y "$(OutDir)"
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="PreCompile.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PreCompile.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">PreCompile.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">PreCompile.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="WindowsUnittestMain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\EvilEngine\CodeStandard.txt" />
+    <Text Include="..\..\Features.txt">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </Text>
+    <Text Include="..\..\stuff2fix.txt">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\ServerConfig.xml">
+      <SubType>Designer</SubType>
+    </Xml>
+    <Xml Include="..\ServerConfigTemplate.xml">
+    </Xml>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Server.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\Resources\Icons\server_icon_green.ico" />
+    <Image Include="..\..\Resources\Icons\server_icon_red.ico" />
+    <Image Include="..\..\Resources\Icons\server_icon_yellow.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\EvilEngine\CoreBugReport\CoreBugReport.vcxproj">
+      <Project>{3ca7d2a2-115c-4932-b31b-a8c4db8901b1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\EvilEngine\CoreDatabase\CoreDatabase.vcxproj">
+      <Project>{9e210005-3149-4ca3-b737-d50602f87cff}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\EvilEngine\CoreEngine\CoreEngine.vcxproj">
+      <Project>{e9b3c2f8-3fef-41c3-b59f-3894c3a19889}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\EvilEngine\CoreIO\CoreIO.vcxproj">
+      <Project>{f442d7f9-2c5c-4a78-9140-7b9159db5f76}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\EvilEngine\CoreLib\CoreLib.vcxproj">
+      <Project>{54823a30-c084-4fc8-82a2-f3c5b9e0914f}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\EvilEngine\CoreNetwork\CoreNetwork.vcxproj">
+      <Project>{636f52aa-9052-4653-8821-bdc526747378}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\EvilGameEngine\CoreBoardGame\CoreBoardGame.vcxproj">
+      <Project>{c975f325-4f51-4213-bfa3-4205aec5fc94}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\EvilGameEngine\CoreGameEngine\CoreGameEngine.vcxproj">
+      <Project>{74d11d19-8a7b-4e49-84d4-4afbc703b4f0}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\EvilGameEngine\CoreGameLogin\CoreGameLogin.vcxproj">
+      <Project>{0c769ba1-5816-4ff6-89e0-aa78d47d8fba}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\EvilGameEngine\CorePatcherModule\CorePatcherModule.vcxproj">
+      <Project>{3e652816-3e72-4e08-a2d3-643bb72eb534}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ProjectModules\ProjectGameManagementModule\ProjectGameManagementModule.vcxproj">
+      <Project>{3a1cb0f1-7396-4195-9331-92c19231cf69}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ProjectModules\ProjectWorldBuilderModule\ProjectWorldBuilderModule.vcxproj">
+      <Project>{be2dd673-332b-4d64-ad2d-4964c1a800fb}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

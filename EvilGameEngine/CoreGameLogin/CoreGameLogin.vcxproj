@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="NsightTegraProject">
+    <NsightTegraProjectRevisionNumber>11</NsightTegraProjectRevisionNumber>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Tegra-Android">
+      <Configuration>Debug</Configuration>
+      <Platform>Tegra-Android</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Tegra-Android">
+      <Configuration>Release</Configuration>
+      <Platform>Tegra-Android</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Server-Debug|Tegra-Android">
+      <Configuration>Server-Debug</Configuration>
+      <Platform>Tegra-Android</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Server-Debug|Win32">
+      <Configuration>Server-Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0C769BA1-5816-4FF6-89E0-AA78D47D8FBA}</ProjectGuid>
+    <RootNamespace>CoreGameLogin</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Tegra-Android'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <AndroidNativeAPI>UseTarget</AndroidNativeAPI>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Server-Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Server-Debug|Tegra-Android'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <AndroidNativeAPI>UseTarget</AndroidNativeAPI>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Tegra-Android'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <AndroidNativeAPI>UseTarget</AndroidNativeAPI>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Tegra-Android'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Server-Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Server-Debug|Tegra-Android'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Tegra-Android'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Libs\</OutDir>
+    <IntDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Objects\$(ProjectName)\</IntDir>
+    <IncludePath>$(INCLUDEDIR);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Tegra-Android'">
+    <OutDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Libs\</OutDir>
+    <IntDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Objects\$(ProjectName)\</IntDir>
+    <IncludePath>$(INCLUDEDIR);$(IncludePath)</IncludePath>
+    <LibraryPath>
+    </LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Server-Debug|Win32'">
+    <OutDir>$(STARTDIR)\Build\$(SolutionName).VS2012.$(Configuration).$(Platform)\Libs\</OutDir>
+    <IntDir>$(STARTDIR)\Build\$(SolutionName).VS2012.$(Configuration).$(Platform)\Objects\$(ProjectName)\</IntDir>
+    <IncludePath>$(INCLUDEDIR);$(IncludePath)</IncludePath>
+    <LibraryPath>$(BOOST)\lib\win32.vc11;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Server-Debug|Tegra-Android'">
+    <OutDir>$(STARTDIR)\Build\$(SolutionName).VS2012.$(Configuration).$(Platform)\Libs\</OutDir>
+    <IntDir>$(STARTDIR)\Build\$(SolutionName).VS2012.$(Configuration).$(Platform)\Objects\$(ProjectName)\</IntDir>
+    <IncludePath>$(INCLUDEDIR);$(IncludePath)</IncludePath>
+    <LibraryPath>$(BOOST)\lib\win32.vc11;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Libs\</OutDir>
+    <IntDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Objects\$(ProjectName)\</IntDir>
+    <IncludePath>$(INCLUDEDIR);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Tegra-Android'">
+    <OutDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Libs\</OutDir>
+    <IntDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Objects\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;$(PREPROCESSOR);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..;../..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>Precompile.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Tegra-Android'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>DEBUG;$(PREPROCESSOR);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..;../..;$(BOOST)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <GccExceptionHandling>true</GccExceptionHandling>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Server-Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>$(PREPROCESSOR);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..;../..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Server-Debug|Tegra-Android'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>$(PREPROCESSOR);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..;../..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>Precompile.h</PrecompiledHeaderFile>
+      <PreprocessorDefinitions>RELEASE;$(PREPROCESSOR);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..;../..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Tegra-Android'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>.;..;../..;$(BOOST)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RELEASE;$(PREPROCESSOR);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>Precompile.h</PrecompiledHeaderFile>
+      <GccExceptionHandling>true</GccExceptionHandling>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Account\Account.cpp" />
+    <ClCompile Include="Account\AccountManager.cpp" />
+    <ClCompile Include="Gui\CoreGameLoginDebugGui\CoreGameLoginDebugGui.cpp" />
+    <ClCompile Include="Gui\GMPasswordWindow\GMPasswordWindow.cpp" />
+    <ClCompile Include="LoginModule\CoreGameBaseLoginModule.cpp" />
+    <ClCompile Include="LoginModule\CoreGameClientLoginModule.cpp" />
+    <ClCompile Include="LoginModule\CoreGameServerLoginModule.cpp" />
+    <ClCompile Include="LoginScreen\LoginScreenModule.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Server-Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ClientAccountNetworkPackets\ClientAccountCreatedNetworkPacket.cpp" />
+    <ClCompile Include="NetworkPackets\ClientAccountNetworkPackets\ClientAccountLoggedOffNetworkPacket.cpp" />
+    <ClCompile Include="NetworkPackets\ClientAccountNetworkPackets\ClientAccountLoggedOnNetworkPacket.cpp" />
+    <ClCompile Include="NetworkPackets\ClientAccountNetworkPackets\ClientAccountErrorNetworkPacket.cpp" />
+    <ClCompile Include="NetworkPackets\ItemShopPackets\PurchaseItemFromAmazonNetworkPacket.cpp" />
+    <ClCompile Include="NetworkPackets\ItemShopPackets\PurchaseItemFromAppleNetworkPacket.cpp" />
+    <ClCompile Include="NetworkPackets\ItemShopPackets\PurchaseItemFromDarkfactorNetworkPacket.cpp" />
+    <ClCompile Include="NetworkPackets\ServerAccountNetworkPackets\CreateServerAccountNetworkPacket.cpp" />
+    <ClCompile Include="NetworkPackets\ServerAccountNetworkPackets\LoginServerAccountNetworkPacket.cpp" />
+    <ClCompile Include="NetworkPackets\ServerAccountNetworkPackets\LoginGMNetworkPacket.cpp" />
+    <ClCompile Include="NetworkPackets\ServerAccountNetworkPackets\SwitchLoggedInAccountNetworkPacket.cpp" />
+    <ClCompile Include="NetworkPackets\ServerAccountNetworkPackets\UpdatedAccountFlagsNetworkPacket.cpp" />
+    <ClCompile Include="Network\BaseAuthentcatedNetworkPacket.cpp" />
+    <ClCompile Include="Network\BaseLoginModuleNetworkPacket.cpp" />
+    <ClCompile Include="Precompile.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Tegra-Android'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Server-Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Server-Debug|Tegra-Android'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Precompile.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Tegra-Android'">PreCompile.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Server-Debug|Win32'">PreCompile.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Server-Debug|Tegra-Android'">PreCompile.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClInclude Include="LoginModule\CoreGameBaseLoginModule.h" />
+    <ClInclude Include="LoginModule\CoreGameClientLoginModule.h" />
+    <ClInclude Include="LoginModule\CoreGameServerLoginModule.h" />
+    <ClInclude Include="NetworkPackets\ClientAccountNetworkPackets\ClientAccountCreatedNetworkPacket.h" />
+    <ClInclude Include="NetworkPackets\ClientAccountNetworkPackets\ClientAccountLoggedOffNetworkPacket.h" />
+    <ClInclude Include="NetworkPackets\ClientAccountNetworkPackets\ClientAccountLoggedOnNetworkPacket.h" />
+    <ClInclude Include="NetworkPackets\ClientAccountNetworkPackets\ClientAccountErrorNetworkPacket.h" />
+    <ClInclude Include="NetworkPackets\ServerAccountNetworkPackets\CreateServerAccountNetworkPacket.h" />
+    <ClInclude Include="NetworkPackets\ServerAccountNetworkPackets\LoginServerAccountNetworkPacket.h" />
+    <ClInclude Include="NetworkPackets\ServerAccountNetworkPackets\LoginGMNetworkPacket.h" />
+    <ClInclude Include="NetworkPackets\ServerAccountNetworkPackets\SwitchLoggedInAccountNetworkPacket.h" />
+    <ClInclude Include="NetworkPackets\ServerAccountNetworkPackets\UpdatedAccountFlagsNetworkPacket.h" />
+    <ClInclude Include="Network\BaseAuthentcatedNetworkPacket.h" />
+    <ClInclude Include="Unittests\AsyncUnittest\AccountErrorUnittest.hpp" />
+    <ClInclude Include="Unittests\AsyncUnittest\CreateAccountUnittest.hpp">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="Unittests\AsyncUnittest\LoginAccountUnittest.hpp" />
+    <ClInclude Include="Unittests\UnittestFramework\UnittestGameServerLoginModule.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Account\Account.h" />
+    <ClInclude Include="Account\AccountManager.h" />
+    <ClInclude Include="Account\GMFlags.h" />
+    <ClInclude Include="Gui\CoreGameLoginDebugGui\CoreGameLoginDebugGui.h" />
+    <ClInclude Include="Gui\GMPasswordWindow\GMPasswordWindow.h" />
+    <ClInclude Include="LoginScreen\LoginScreenModule.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Server-Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ItemShopPackets\PurchaseItemFromAmazonNetworkPacket.h" />
+    <ClInclude Include="NetworkPackets\ItemShopPackets\PurchaseItemFromAppleNetworkPacket.h" />
+    <ClInclude Include="NetworkPackets\ItemShopPackets\PurchaseItemFromDarkfactorNetworkPacket.h" />
+    <ClInclude Include="Network\BaseLoginModuleNetworkPacket.h" />
+    <ClInclude Include="Network\GameLoginPacketData.h" />
+    <ClInclude Include="PlatformLogin\GameCenter\GameCenterManager.iOS.h" />
+    <ClInclude Include="PlatformLogin\GameCenter\GameCenterViewController.h" />
+    <ClInclude Include="Precompile.h" />
+    <ClInclude Include="Unittests\AccountAsyncUnittestRunner.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </None>
+    <None Include="PlatformLogin\GameCenter\GameCenterManager.iOS.mm" />
+    <None Include="PlatformLogin\GameCenter\GameCenterViewController.mm" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\..\ProjectVA\Data\Resources\Gui\GMPasswordWindow.xml" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

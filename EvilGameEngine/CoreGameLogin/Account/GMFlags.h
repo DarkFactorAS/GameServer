@@ -1,0 +1,15 @@
+#ifndef EVILENGINE_COREGAMELOGIN_ACCOUNT_GMFLAGS
+#define EVILENGINE_COREGAMELOGIN_ACCOUNT_GMFLAGS
+
+namespace GM_FLAGS
+{
+  enum GM_FLAGS
+  {
+    //NONE             = 0,
+    GMFLAG           = 1 << 0,
+    CLIENTGMFLAG     = 1 << 1,
+    NEVER_SAVE       = 1 << 2,
+  };
+}
+
+#endif /// EVILENGINE_COREGAMELOGIN_ACCOUNT_GMFLAGS

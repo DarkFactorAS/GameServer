@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="NsightTegraProject">
+    <NsightTegraProjectRevisionNumber>11</NsightTegraProjectRevisionNumber>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Tegra-Android">
+      <Configuration>Debug</Configuration>
+      <Platform>Tegra-Android</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Tegra-Android">
+      <Configuration>Release</Configuration>
+      <Platform>Tegra-Android</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{51B1246A-2F7D-4DFD-A09F-A0A42B4CE9DD}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>CoreRendering</RootNamespace>
+    <ProjectName>CoreRendering</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Tegra-Android'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <AndroidNativeAPI>UseTarget</AndroidNativeAPI>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Tegra-Android'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <AndroidNativeAPI>UseTarget</AndroidNativeAPI>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Tegra-Android'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Tegra-Android'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(INCLUDEDIR);$(IncludePath)</IncludePath>
+    <OutDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Libs\</OutDir>
+    <IntDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Objects\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Tegra-Android'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Libs\</OutDir>
+    <IntDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Objects\$(ProjectName)\</IntDir>
+    <IncludePath>$(INCLUDEDIR);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Libs\</OutDir>
+    <IntDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Objects\$(ProjectName)\</IntDir>
+    <IncludePath>$(INCLUDEDIR);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Tegra-Android'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Libs\</OutDir>
+    <IntDir>$(STARTDIR)\Build\$(SolutionName).$(LINKER).$(Configuration).$(Platform)\Objects\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;$(PREPROCESSOR);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeaderFile>PreCompile.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>.;..;../..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Tegra-Android'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>DEBUG;$(PREPROCESSOR);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeaderFile>PreCompile.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>.;..;../..;$(PNGLIB);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>RELEASE;$(PREPROCESSOR);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeaderFile>PreCompile.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>.;..;../..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Tegra-Android'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>RELEASE;$(PREPROCESSOR);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeaderFile>PreCompile.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>.;..;../..;$(PNGLIB);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Bitmap.h" />
+    <ClInclude Include="Camera\RenderCamera.h" />
+    <ClInclude Include="CoreShaderManager\CoreShaderManager.h" />
+    <ClInclude Include="CoreTextureManager\CoreTextureManager.h" />
+    <ClInclude Include="CoreTextureManager\FrameBuffer.h" />
+    <ClInclude Include="CoreTextureManager\Texture.h" />
+    <ClInclude Include="OpenGLRender\CoreOpenGLRender.h" />
+    <ClInclude Include="PlatformRenderDefinitions.h" />
+    <ClInclude Include="PreCompile.h" />
+    <ClInclude Include="RenderModule.h" />
+    <ClInclude Include="RenderObjects\CubeRenderObject.h" />
+    <ClInclude Include="RenderObjects\HexagonRenderObject.h" />
+    <ClInclude Include="RenderObjects\MultiFaceRenderObject.h" />
+    <ClInclude Include="RenderObjects\QuadRenderObject.h" />
+    <ClInclude Include="RenderObjects\RenderListObject.h" />
+    <ClInclude Include="RenderObjects\RenderObject.h" />
+    <ClInclude Include="RenderObjects\TextStringRenderObject.h" />
+    <ClInclude Include="Resources\AtlasTextureResource.h" />
+    <ClInclude Include="Resources\DDSTextureResource.h" />
+    <ClInclude Include="Resources\FontAtlasTextureResource.h" />
+    <ClInclude Include="Resources\ImageResource.h" />
+    <ClInclude Include="Resources\TextureResource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Bitmap.cpp" />
+    <ClCompile Include="Camera\RenderCamera.cpp" />
+    <ClCompile Include="CoreShaderManager\CoreShaderManager.cpp" />
+    <ClCompile Include="CoreTextureManager\CoreTextureManager.cpp" />
+    <ClCompile Include="OpenGLRender\CoreOpenGLRender_Android.cpp" />
+    <ClCompile Include="OpenGLRender\CoreOpenGLRender_Common.cpp" />
+    <ClCompile Include="OpenGLRender\CoreOpenGLRender_IOS.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Tegra-Android'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Tegra-Android'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="OpenGLRender\CoreOpenGLRender_Windows.cpp" />
+    <ClCompile Include="PreCompile.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Tegra-Android'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">PreCompile.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Tegra-Android'">PreCompile.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="RenderObjects\CubeRenderObject.cpp" />
+    <ClCompile Include="RenderObjects\HexagonRenderObject.cpp" />
+    <ClCompile Include="RenderObjects\MultiFaceRenderObject.cpp" />
+    <ClCompile Include="RenderObjects\QuadRenderObject.cpp" />
+    <ClCompile Include="RenderObjects\RenderListObject.cpp" />
+    <ClCompile Include="RenderObjects\RenderObject.cpp" />
+    <ClCompile Include="RenderObjects\TextStringRenderObject.cpp" />
+    <ClCompile Include="Resources\AtlasTextureResource.cpp" />
+    <ClCompile Include="Resources\DDSTextureResource.cpp" />
+    <ClCompile Include="Resources\FontAtlasTextureResource.cpp" />
+    <ClCompile Include="Resources\ImageResource.cpp" />
+    <ClCompile Include="Resources\TextureResource.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

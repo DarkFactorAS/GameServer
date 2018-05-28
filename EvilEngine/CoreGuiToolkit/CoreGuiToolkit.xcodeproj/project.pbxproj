@@ -1,0 +1,720 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3300708C1E054C5600EA7BE6 /* GuiPropertyEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33F79D201E0121D8000F200D /* GuiPropertyEditor.cpp */; };
+		3300708D1E054C5600EA7BE6 /* GuiPropertyEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 33F79D211E0121D8000F200D /* GuiPropertyEditor.h */; };
+		33023C8C19A34F4400581803 /* GuiEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33023C8A19A34F4400581803 /* GuiEditor.cpp */; };
+		33023C8D19A34F4400581803 /* GuiEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 33023C8B19A34F4400581803 /* GuiEditor.h */; };
+		33023C9119A34F7600581803 /* DebugGuiResolutionDialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33023C8F19A34F7600581803 /* DebugGuiResolutionDialog.cpp */; };
+		33023C9219A34F7600581803 /* DebugGuiResolutionDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = 33023C9019A34F7600581803 /* DebugGuiResolutionDialog.h */; };
+		33023C9519A3509F00581803 /* CoreGuiGridView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33023C9319A3509F00581803 /* CoreGuiGridView.cpp */; };
+		33023C9619A3509F00581803 /* CoreGuiGridView.h in Headers */ = {isa = PBXBuildFile; fileRef = 33023C9419A3509F00581803 /* CoreGuiGridView.h */; };
+		33023C9919A353FD00581803 /* CoreGuiXMLView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33023C9719A353FD00581803 /* CoreGuiXMLView.cpp */; };
+		33023C9A19A353FD00581803 /* CoreGuiXMLView.h in Headers */ = {isa = PBXBuildFile; fileRef = 33023C9819A353FD00581803 /* CoreGuiXMLView.h */; };
+		33023C9D19A366C900581803 /* DebugGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33023C9B19A366C900581803 /* DebugGui.cpp */; };
+		33023C9E19A366C900581803 /* DebugGui.h in Headers */ = {isa = PBXBuildFile; fileRef = 33023C9C19A366C900581803 /* DebugGui.h */; };
+		333AB7761E07F098002EA1EB /* GridRowData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 333AB7741E07F098002EA1EB /* GridRowData.cpp */; };
+		333AB7771E07F098002EA1EB /* GridRowData.h in Headers */ = {isa = PBXBuildFile; fileRef = 333AB7751E07F098002EA1EB /* GridRowData.h */; };
+		333AB7781E07F207002EA1EB /* GridRowData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 333AB7741E07F098002EA1EB /* GridRowData.cpp */; };
+		336D283C196E079A00F98295 /* GuiResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 336D283A196E079A00F98295 /* GuiResource.cpp */; };
+		336D283D196E079A00F98295 /* GuiResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 336D283B196E079A00F98295 /* GuiResource.h */; };
+		337316081A92A59500A664B6 /* CoreGuiRoundedImageView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 337316061A92A59500A664B6 /* CoreGuiRoundedImageView.cpp */; };
+		337316091A92A59500A664B6 /* CoreGuiRoundedImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 337316071A92A59500A664B6 /* CoreGuiRoundedImageView.h */; };
+		33BED5DA1E0C6B520042FF58 /* CoreGuiScrollbar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33BED5D81E0C6B520042FF58 /* CoreGuiScrollbar.cpp */; };
+		33BED5DB1E0C6B520042FF58 /* CoreGuiScrollbar.h in Headers */ = {isa = PBXBuildFile; fileRef = 33BED5D91E0C6B520042FF58 /* CoreGuiScrollbar.h */; };
+		33BED5DD1E0C6B630042FF58 /* ConnectButtonTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 33BED5DC1E0C6B630042FF58 /* ConnectButtonTemplate.h */; };
+		33BED5DE1E0C6B680042FF58 /* CoreGuiScrollbar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33BED5D81E0C6B520042FF58 /* CoreGuiScrollbar.cpp */; };
+		33CEDB851D24ECC1007AF093 /* GuiButtonTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 33CEDB821D24ECC1007AF093 /* GuiButtonTemplate.h */; };
+		33CEDB861D24ECC1007AF093 /* GuiDialogHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33CEDB831D24ECC1007AF093 /* GuiDialogHelper.cpp */; };
+		33CEDB871D24ECC1007AF093 /* GuiDialogHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 33CEDB841D24ECC1007AF093 /* GuiDialogHelper.h */; };
+		33D4922B1A5FE2ED008B2872 /* SlideGuiView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33D492291A5FE2ED008B2872 /* SlideGuiView.cpp */; };
+		33D4922C1A5FE2ED008B2872 /* SlideGuiView.h in Headers */ = {isa = PBXBuildFile; fileRef = 33D4922A1A5FE2ED008B2872 /* SlideGuiView.h */; };
+		33DC0D8A1DA55FC4009D2738 /* CoreGuiTextfield.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7438659218C11C8D0036AD3F /* CoreGuiTextfield.cpp */; };
+		33DC0D8B1DA55FC4009D2738 /* CoreGuiXMLView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33023C9719A353FD00581803 /* CoreGuiXMLView.cpp */; };
+		33DC0D8C1DA55FC4009D2738 /* CoreGuiFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7425129218B57813009C9D43 /* CoreGuiFrame.cpp */; };
+		33DC0D8D1DA55FC4009D2738 /* CoreGuiView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7438659A18C11CA50036AD3F /* CoreGuiView.cpp */; };
+		33DC0D8E1DA55FC4009D2738 /* CoreGuiImageView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7438658E18C11C8D0036AD3F /* CoreGuiImageView.cpp */; };
+		33DC0D8F1DA55FC4009D2738 /* CoreGuiRoundedImageView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 337316061A92A59500A664B6 /* CoreGuiRoundedImageView.cpp */; };
+		33DC0D901DA55FC4009D2738 /* CoreGuiWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74C7622618AC94720028342B /* CoreGuiWindow.cpp */; };
+		33DC0D911DA55FC4009D2738 /* GuiDialogHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33CEDB831D24ECC1007AF093 /* GuiDialogHelper.cpp */; };
+		33DC0D921DA55FC4009D2738 /* GuiEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33023C8A19A34F4400581803 /* GuiEditor.cpp */; };
+		33DC0D931DA55FC4009D2738 /* CoreGuiDialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74C7622418AC94720028342B /* CoreGuiDialog.cpp */; };
+		33DC0D941DA55FC4009D2738 /* DebugGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33023C9B19A366C900581803 /* DebugGui.cpp */; };
+		33DC0D951DA55FC4009D2738 /* CoreGuiTileView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74089F5A1926C114008B98DA /* CoreGuiTileView.cpp */; };
+		33DC0D961DA55FC4009D2738 /* CoreGuiButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74C7621E18AC94540028342B /* CoreGuiButton.cpp */; };
+		33DC0D971DA55FC4009D2738 /* CoreGuiMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 747567A7193351580066E7BE /* CoreGuiMenu.cpp */; };
+		33DC0D981DA55FC4009D2738 /* Precompile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74C7623418AC94A60028342B /* Precompile.cpp */; };
+		33DC0D991DA55FC4009D2738 /* CoreGuiBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74C7621C18AC94540028342B /* CoreGuiBase.cpp */; };
+		33DC0D9A1DA55FC4009D2738 /* DebugGuiResolutionDialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33023C8F19A34F7600581803 /* DebugGuiResolutionDialog.cpp */; };
+		33DC0D9B1DA55FC4009D2738 /* GuiResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 336D283A196E079A00F98295 /* GuiResource.cpp */; };
+		33DC0D9C1DA55FC4009D2738 /* CoreGuiToolkit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74C7622E18AC949D0028342B /* CoreGuiToolkit.cpp */; };
+		33DC0D9D1DA55FC4009D2738 /* SlideGuiView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33D492291A5FE2ED008B2872 /* SlideGuiView.cpp */; };
+		33DC0D9E1DA55FC4009D2738 /* CoreGuiInputfield.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7438659018C11C8D0036AD3F /* CoreGuiInputfield.cpp */; };
+		33DC0D9F1DA55FC4009D2738 /* CoreGuiGridView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33023C9319A3509F00581803 /* CoreGuiGridView.cpp */; };
+		33DC0DA21DA55FC4009D2738 /* CoreGuiMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 747567A8193351580066E7BE /* CoreGuiMenu.h */; };
+		33DC0DA31DA55FC4009D2738 /* DebugGui.h in Headers */ = {isa = PBXBuildFile; fileRef = 33023C9C19A366C900581803 /* DebugGui.h */; };
+		33DC0DA41DA55FC4009D2738 /* CoreGuiView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7438659B18C11CA50036AD3F /* CoreGuiView.h */; };
+		33DC0DA51DA55FC4009D2738 /* CoreGuiToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = 74C7622F18AC949D0028342B /* CoreGuiToolkit.h */; };
+		33DC0DA61DA55FC4009D2738 /* GuiDialogHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 33CEDB841D24ECC1007AF093 /* GuiDialogHelper.h */; };
+		33DC0DA71DA55FC4009D2738 /* CoreGuiXMLView.h in Headers */ = {isa = PBXBuildFile; fileRef = 33023C9819A353FD00581803 /* CoreGuiXMLView.h */; };
+		33DC0DA81DA55FC4009D2738 /* CoreGuiTextfield.h in Headers */ = {isa = PBXBuildFile; fileRef = 7438659318C11C8D0036AD3F /* CoreGuiTextfield.h */; };
+		33DC0DA91DA55FC4009D2738 /* CoreGuiTileView.h in Headers */ = {isa = PBXBuildFile; fileRef = 74089F5B1926C114008B98DA /* CoreGuiTileView.h */; };
+		33DC0DAA1DA55FC4009D2738 /* GuiButtonTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 33CEDB821D24ECC1007AF093 /* GuiButtonTemplate.h */; };
+		33DC0DAB1DA55FC4009D2738 /* CoreGuiInputfield.h in Headers */ = {isa = PBXBuildFile; fileRef = 7438659118C11C8D0036AD3F /* CoreGuiInputfield.h */; };
+		33DC0DAC1DA55FC4009D2738 /* CoreGuiBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 74C7621D18AC94540028342B /* CoreGuiBase.h */; };
+		33DC0DAD1DA55FC4009D2738 /* Precompile.h in Headers */ = {isa = PBXBuildFile; fileRef = 74C7623518AC94A60028342B /* Precompile.h */; };
+		33DC0DAE1DA55FC4009D2738 /* SlideGuiView.h in Headers */ = {isa = PBXBuildFile; fileRef = 33D4922A1A5FE2ED008B2872 /* SlideGuiView.h */; };
+		33DC0DAF1DA55FC4009D2738 /* CoreGuiButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 74C7621F18AC94540028342B /* CoreGuiButton.h */; };
+		33DC0DB01DA55FC4009D2738 /* CoreGuiGridView.h in Headers */ = {isa = PBXBuildFile; fileRef = 33023C9419A3509F00581803 /* CoreGuiGridView.h */; };
+		33DC0DB11DA55FC4009D2738 /* CoreGuiDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = 74C7622518AC94720028342B /* CoreGuiDialog.h */; };
+		33DC0DB21DA55FC4009D2738 /* CoreGuiRoundedImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 337316071A92A59500A664B6 /* CoreGuiRoundedImageView.h */; };
+		33DC0DB31DA55FC4009D2738 /* CoreGuiFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = 7425129318B57813009C9D43 /* CoreGuiFrame.h */; };
+		33DC0DB41DA55FC4009D2738 /* GuiResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 336D283B196E079A00F98295 /* GuiResource.h */; };
+		33DC0DB51DA55FC4009D2738 /* CoreGuiResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 74C7622C18AC94920028342B /* CoreGuiResources.h */; };
+		33DC0DB61DA55FC4009D2738 /* DebugGuiResolutionDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = 33023C9019A34F7600581803 /* DebugGuiResolutionDialog.h */; };
+		33DC0DB71DA55FC4009D2738 /* CoreGuiImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7438658F18C11C8D0036AD3F /* CoreGuiImageView.h */; };
+		33DC0DB81DA55FC4009D2738 /* GuiEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 33023C8B19A34F4400581803 /* GuiEditor.h */; };
+		33DC0DB91DA55FC4009D2738 /* CoreGuiWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 74C7622718AC94720028342B /* CoreGuiWindow.h */; };
+		33F79D221E0121D8000F200D /* GuiPropertyEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33F79D201E0121D8000F200D /* GuiPropertyEditor.cpp */; };
+		33F79D231E0121D8000F200D /* GuiPropertyEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 33F79D211E0121D8000F200D /* GuiPropertyEditor.h */; };
+		74089F5C1926C114008B98DA /* CoreGuiTileView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74089F5A1926C114008B98DA /* CoreGuiTileView.cpp */; };
+		74089F5D1926C114008B98DA /* CoreGuiTileView.h in Headers */ = {isa = PBXBuildFile; fileRef = 74089F5B1926C114008B98DA /* CoreGuiTileView.h */; };
+		7425129418B57813009C9D43 /* CoreGuiFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7425129218B57813009C9D43 /* CoreGuiFrame.cpp */; };
+		7425129518B57813009C9D43 /* CoreGuiFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = 7425129318B57813009C9D43 /* CoreGuiFrame.h */; };
+		7438659418C11C8D0036AD3F /* CoreGuiImageView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7438658E18C11C8D0036AD3F /* CoreGuiImageView.cpp */; };
+		7438659518C11C8D0036AD3F /* CoreGuiImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7438658F18C11C8D0036AD3F /* CoreGuiImageView.h */; };
+		7438659618C11C8D0036AD3F /* CoreGuiInputfield.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7438659018C11C8D0036AD3F /* CoreGuiInputfield.cpp */; };
+		7438659718C11C8D0036AD3F /* CoreGuiInputfield.h in Headers */ = {isa = PBXBuildFile; fileRef = 7438659118C11C8D0036AD3F /* CoreGuiInputfield.h */; };
+		7438659818C11C8D0036AD3F /* CoreGuiTextfield.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7438659218C11C8D0036AD3F /* CoreGuiTextfield.cpp */; };
+		7438659918C11C8D0036AD3F /* CoreGuiTextfield.h in Headers */ = {isa = PBXBuildFile; fileRef = 7438659318C11C8D0036AD3F /* CoreGuiTextfield.h */; };
+		7438659C18C11CA50036AD3F /* CoreGuiView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7438659A18C11CA50036AD3F /* CoreGuiView.cpp */; };
+		7438659D18C11CA50036AD3F /* CoreGuiView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7438659B18C11CA50036AD3F /* CoreGuiView.h */; };
+		747567A9193351580066E7BE /* CoreGuiMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 747567A7193351580066E7BE /* CoreGuiMenu.cpp */; };
+		747567AA193351580066E7BE /* CoreGuiMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 747567A8193351580066E7BE /* CoreGuiMenu.h */; };
+		74C7622018AC94540028342B /* CoreGuiBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74C7621C18AC94540028342B /* CoreGuiBase.cpp */; };
+		74C7622118AC94540028342B /* CoreGuiBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 74C7621D18AC94540028342B /* CoreGuiBase.h */; };
+		74C7622218AC94540028342B /* CoreGuiButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74C7621E18AC94540028342B /* CoreGuiButton.cpp */; };
+		74C7622318AC94540028342B /* CoreGuiButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 74C7621F18AC94540028342B /* CoreGuiButton.h */; };
+		74C7622818AC94720028342B /* CoreGuiDialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74C7622418AC94720028342B /* CoreGuiDialog.cpp */; };
+		74C7622918AC94720028342B /* CoreGuiDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = 74C7622518AC94720028342B /* CoreGuiDialog.h */; };
+		74C7622A18AC94720028342B /* CoreGuiWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74C7622618AC94720028342B /* CoreGuiWindow.cpp */; };
+		74C7622B18AC94720028342B /* CoreGuiWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 74C7622718AC94720028342B /* CoreGuiWindow.h */; };
+		74C7622D18AC94920028342B /* CoreGuiResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 74C7622C18AC94920028342B /* CoreGuiResources.h */; };
+		74C7623218AC949D0028342B /* CoreGuiToolkit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74C7622E18AC949D0028342B /* CoreGuiToolkit.cpp */; };
+		74C7623318AC949D0028342B /* CoreGuiToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = 74C7622F18AC949D0028342B /* CoreGuiToolkit.h */; };
+		74C7623618AC94A60028342B /* Precompile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74C7623418AC94A60028342B /* Precompile.cpp */; };
+		74C7623718AC94A60028342B /* Precompile.h in Headers */ = {isa = PBXBuildFile; fileRef = 74C7623518AC94A60028342B /* Precompile.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		33023C8A19A34F4400581803 /* GuiEditor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GuiEditor.cpp; path = DebugGui/GuiEditor/GuiEditor.cpp; sourceTree = "<group>"; };
+		33023C8B19A34F4400581803 /* GuiEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GuiEditor.h; path = DebugGui/GuiEditor/GuiEditor.h; sourceTree = "<group>"; };
+		33023C8F19A34F7600581803 /* DebugGuiResolutionDialog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DebugGuiResolutionDialog.cpp; path = DebugGui/GuiResolutionDialog/DebugGuiResolutionDialog.cpp; sourceTree = "<group>"; };
+		33023C9019A34F7600581803 /* DebugGuiResolutionDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebugGuiResolutionDialog.h; path = DebugGui/GuiResolutionDialog/DebugGuiResolutionDialog.h; sourceTree = "<group>"; };
+		33023C9319A3509F00581803 /* CoreGuiGridView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoreGuiGridView.cpp; path = GuiElements/CoreGuiGridView.cpp; sourceTree = "<group>"; };
+		33023C9419A3509F00581803 /* CoreGuiGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreGuiGridView.h; path = GuiElements/CoreGuiGridView.h; sourceTree = "<group>"; };
+		33023C9719A353FD00581803 /* CoreGuiXMLView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoreGuiXMLView.cpp; path = BaseGuiElements/CoreGuiXMLView.cpp; sourceTree = "<group>"; };
+		33023C9819A353FD00581803 /* CoreGuiXMLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreGuiXMLView.h; path = BaseGuiElements/CoreGuiXMLView.h; sourceTree = "<group>"; };
+		33023C9B19A366C900581803 /* DebugGui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DebugGui.cpp; path = DebugGui/DebugGui.cpp; sourceTree = "<group>"; };
+		33023C9C19A366C900581803 /* DebugGui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebugGui.h; path = DebugGui/DebugGui.h; sourceTree = "<group>"; };
+		333AB7741E07F098002EA1EB /* GridRowData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GridRowData.cpp; path = GuiElements/GridRowData.cpp; sourceTree = "<group>"; };
+		333AB7751E07F098002EA1EB /* GridRowData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GridRowData.h; path = GuiElements/GridRowData.h; sourceTree = "<group>"; };
+		336D283A196E079A00F98295 /* GuiResource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GuiResource.cpp; path = GuiCreator/GuiResource.cpp; sourceTree = "<group>"; };
+		336D283B196E079A00F98295 /* GuiResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GuiResource.h; path = GuiCreator/GuiResource.h; sourceTree = "<group>"; };
+		337316061A92A59500A664B6 /* CoreGuiRoundedImageView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoreGuiRoundedImageView.cpp; path = BaseGuiElements/CoreGuiRoundedImageView.cpp; sourceTree = "<group>"; };
+		337316071A92A59500A664B6 /* CoreGuiRoundedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreGuiRoundedImageView.h; path = BaseGuiElements/CoreGuiRoundedImageView.h; sourceTree = "<group>"; };
+		33BED5D81E0C6B520042FF58 /* CoreGuiScrollbar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoreGuiScrollbar.cpp; path = BaseGuiElements/CoreGuiScrollbar.cpp; sourceTree = "<group>"; };
+		33BED5D91E0C6B520042FF58 /* CoreGuiScrollbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreGuiScrollbar.h; path = BaseGuiElements/CoreGuiScrollbar.h; sourceTree = "<group>"; };
+		33BED5DC1E0C6B630042FF58 /* ConnectButtonTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectButtonTemplate.h; path = BaseGuiElements/ConnectButtonTemplate.h; sourceTree = "<group>"; };
+		33CEDB821D24ECC1007AF093 /* GuiButtonTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GuiButtonTemplate.h; path = GuiTemplates/GuiButtonTemplate.h; sourceTree = "<group>"; };
+		33CEDB831D24ECC1007AF093 /* GuiDialogHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GuiDialogHelper.cpp; path = GuiTemplates/GuiDialogHelper.cpp; sourceTree = "<group>"; };
+		33CEDB841D24ECC1007AF093 /* GuiDialogHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GuiDialogHelper.h; path = GuiTemplates/GuiDialogHelper.h; sourceTree = "<group>"; };
+		33D492291A5FE2ED008B2872 /* SlideGuiView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SlideGuiView.cpp; path = GuiControls/SlideGuiView.cpp; sourceTree = "<group>"; };
+		33D4922A1A5FE2ED008B2872 /* SlideGuiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideGuiView.h; path = GuiControls/SlideGuiView.h; sourceTree = "<group>"; };
+		33DC0DBD1DA55FC4009D2738 /* libCoreGuiToolkit.OSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCoreGuiToolkit.OSX.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		33F79D201E0121D8000F200D /* GuiPropertyEditor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GuiPropertyEditor.cpp; path = DebugGui/GuiEditor/GuiPropertyEditor.cpp; sourceTree = "<group>"; };
+		33F79D211E0121D8000F200D /* GuiPropertyEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GuiPropertyEditor.h; path = DebugGui/GuiEditor/GuiPropertyEditor.h; sourceTree = "<group>"; };
+		74089F5A1926C114008B98DA /* CoreGuiTileView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoreGuiTileView.cpp; path = GuiElements/CoreGuiTileView.cpp; sourceTree = "<group>"; };
+		74089F5B1926C114008B98DA /* CoreGuiTileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreGuiTileView.h; path = GuiElements/CoreGuiTileView.h; sourceTree = "<group>"; };
+		7425129218B57813009C9D43 /* CoreGuiFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoreGuiFrame.cpp; path = BaseGuiElements/CoreGuiFrame.cpp; sourceTree = "<group>"; };
+		7425129318B57813009C9D43 /* CoreGuiFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreGuiFrame.h; path = BaseGuiElements/CoreGuiFrame.h; sourceTree = "<group>"; };
+		7438658E18C11C8D0036AD3F /* CoreGuiImageView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoreGuiImageView.cpp; path = BaseGuiElements/CoreGuiImageView.cpp; sourceTree = "<group>"; };
+		7438658F18C11C8D0036AD3F /* CoreGuiImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreGuiImageView.h; path = BaseGuiElements/CoreGuiImageView.h; sourceTree = "<group>"; };
+		7438659018C11C8D0036AD3F /* CoreGuiInputfield.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoreGuiInputfield.cpp; path = BaseGuiElements/CoreGuiInputfield.cpp; sourceTree = "<group>"; };
+		7438659118C11C8D0036AD3F /* CoreGuiInputfield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreGuiInputfield.h; path = BaseGuiElements/CoreGuiInputfield.h; sourceTree = "<group>"; };
+		7438659218C11C8D0036AD3F /* CoreGuiTextfield.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoreGuiTextfield.cpp; path = BaseGuiElements/CoreGuiTextfield.cpp; sourceTree = "<group>"; };
+		7438659318C11C8D0036AD3F /* CoreGuiTextfield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreGuiTextfield.h; path = BaseGuiElements/CoreGuiTextfield.h; sourceTree = "<group>"; };
+		7438659A18C11CA50036AD3F /* CoreGuiView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoreGuiView.cpp; path = GuiElements/CoreGuiView.cpp; sourceTree = "<group>"; };
+		7438659B18C11CA50036AD3F /* CoreGuiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreGuiView.h; path = GuiElements/CoreGuiView.h; sourceTree = "<group>"; };
+		747567A7193351580066E7BE /* CoreGuiMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoreGuiMenu.cpp; path = GuiElements/CoreGuiMenu.cpp; sourceTree = "<group>"; };
+		747567A8193351580066E7BE /* CoreGuiMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreGuiMenu.h; path = GuiElements/CoreGuiMenu.h; sourceTree = "<group>"; };
+		74C7620D18AC93C50028342B /* libCoreGuiToolkit.iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCoreGuiToolkit.iOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		74C7621C18AC94540028342B /* CoreGuiBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoreGuiBase.cpp; path = BaseGuiElements/CoreGuiBase.cpp; sourceTree = "<group>"; };
+		74C7621D18AC94540028342B /* CoreGuiBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreGuiBase.h; path = BaseGuiElements/CoreGuiBase.h; sourceTree = "<group>"; };
+		74C7621E18AC94540028342B /* CoreGuiButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoreGuiButton.cpp; path = BaseGuiElements/CoreGuiButton.cpp; sourceTree = "<group>"; };
+		74C7621F18AC94540028342B /* CoreGuiButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreGuiButton.h; path = BaseGuiElements/CoreGuiButton.h; sourceTree = "<group>"; };
+		74C7622418AC94720028342B /* CoreGuiDialog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoreGuiDialog.cpp; path = GuiElements/CoreGuiDialog.cpp; sourceTree = "<group>"; };
+		74C7622518AC94720028342B /* CoreGuiDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreGuiDialog.h; path = GuiElements/CoreGuiDialog.h; sourceTree = "<group>"; };
+		74C7622618AC94720028342B /* CoreGuiWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoreGuiWindow.cpp; path = GuiElements/CoreGuiWindow.cpp; sourceTree = "<group>"; };
+		74C7622718AC94720028342B /* CoreGuiWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreGuiWindow.h; path = GuiElements/CoreGuiWindow.h; sourceTree = "<group>"; };
+		74C7622C18AC94920028342B /* CoreGuiResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreGuiResources.h; sourceTree = "<group>"; };
+		74C7622E18AC949D0028342B /* CoreGuiToolkit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoreGuiToolkit.cpp; sourceTree = "<group>"; };
+		74C7622F18AC949D0028342B /* CoreGuiToolkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreGuiToolkit.h; sourceTree = "<group>"; };
+		74C7623418AC94A60028342B /* Precompile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Precompile.cpp; sourceTree = "<group>"; };
+		74C7623518AC94A60028342B /* Precompile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Precompile.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		33DC0DA01DA55FC4009D2738 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74C7620A18AC93C50028342B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		33023C8819A34F0C00581803 /* DebugGui */ = {
+			isa = PBXGroup;
+			children = (
+				33023C9B19A366C900581803 /* DebugGui.cpp */,
+				33023C9C19A366C900581803 /* DebugGui.h */,
+				33023C8E19A34F5B00581803 /* GuiResolutionDialog */,
+				33023C8919A34F1B00581803 /* GuiEditor */,
+			);
+			name = DebugGui;
+			sourceTree = "<group>";
+		};
+		33023C8919A34F1B00581803 /* GuiEditor */ = {
+			isa = PBXGroup;
+			children = (
+				33F79D201E0121D8000F200D /* GuiPropertyEditor.cpp */,
+				33F79D211E0121D8000F200D /* GuiPropertyEditor.h */,
+				33023C8A19A34F4400581803 /* GuiEditor.cpp */,
+				33023C8B19A34F4400581803 /* GuiEditor.h */,
+			);
+			name = GuiEditor;
+			sourceTree = "<group>";
+		};
+		33023C8E19A34F5B00581803 /* GuiResolutionDialog */ = {
+			isa = PBXGroup;
+			children = (
+				33023C8F19A34F7600581803 /* DebugGuiResolutionDialog.cpp */,
+				33023C9019A34F7600581803 /* DebugGuiResolutionDialog.h */,
+			);
+			name = GuiResolutionDialog;
+			sourceTree = "<group>";
+		};
+		336D2839196E078A00F98295 /* GuiCreator */ = {
+			isa = PBXGroup;
+			children = (
+				336D283A196E079A00F98295 /* GuiResource.cpp */,
+				336D283B196E079A00F98295 /* GuiResource.h */,
+			);
+			name = GuiCreator;
+			sourceTree = "<group>";
+		};
+		33CEDB811D24ECAD007AF093 /* GuiTemplates */ = {
+			isa = PBXGroup;
+			children = (
+				33CEDB821D24ECC1007AF093 /* GuiButtonTemplate.h */,
+				33CEDB831D24ECC1007AF093 /* GuiDialogHelper.cpp */,
+				33CEDB841D24ECC1007AF093 /* GuiDialogHelper.h */,
+			);
+			name = GuiTemplates;
+			sourceTree = "<group>";
+		};
+		33D492281A5FE2D4008B2872 /* GuiControls */ = {
+			isa = PBXGroup;
+			children = (
+				33D492291A5FE2ED008B2872 /* SlideGuiView.cpp */,
+				33D4922A1A5FE2ED008B2872 /* SlideGuiView.h */,
+			);
+			name = GuiControls;
+			sourceTree = "<group>";
+		};
+		74C7620418AC93C50028342B = {
+			isa = PBXGroup;
+			children = (
+				33CEDB811D24ECAD007AF093 /* GuiTemplates */,
+				33D492281A5FE2D4008B2872 /* GuiControls */,
+				33023C8819A34F0C00581803 /* DebugGui */,
+				336D2839196E078A00F98295 /* GuiCreator */,
+				74C7621B18AC94360028342B /* BaseGuiElements */,
+				74C7621A18AC94260028342B /* GuiElements */,
+				74C7623418AC94A60028342B /* Precompile.cpp */,
+				74C7623518AC94A60028342B /* Precompile.h */,
+				74C7622E18AC949D0028342B /* CoreGuiToolkit.cpp */,
+				74C7622F18AC949D0028342B /* CoreGuiToolkit.h */,
+				74C7622C18AC94920028342B /* CoreGuiResources.h */,
+				74C7620E18AC93C50028342B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		74C7620E18AC93C50028342B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				74C7620D18AC93C50028342B /* libCoreGuiToolkit.iOS.a */,
+				33DC0DBD1DA55FC4009D2738 /* libCoreGuiToolkit.OSX.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		74C7621A18AC94260028342B /* GuiElements */ = {
+			isa = PBXGroup;
+			children = (
+				333AB7741E07F098002EA1EB /* GridRowData.cpp */,
+				333AB7751E07F098002EA1EB /* GridRowData.h */,
+				33023C9319A3509F00581803 /* CoreGuiGridView.cpp */,
+				33023C9419A3509F00581803 /* CoreGuiGridView.h */,
+				747567A7193351580066E7BE /* CoreGuiMenu.cpp */,
+				747567A8193351580066E7BE /* CoreGuiMenu.h */,
+				74089F5A1926C114008B98DA /* CoreGuiTileView.cpp */,
+				74089F5B1926C114008B98DA /* CoreGuiTileView.h */,
+				7438659A18C11CA50036AD3F /* CoreGuiView.cpp */,
+				7438659B18C11CA50036AD3F /* CoreGuiView.h */,
+				74C7622418AC94720028342B /* CoreGuiDialog.cpp */,
+				74C7622518AC94720028342B /* CoreGuiDialog.h */,
+				74C7622618AC94720028342B /* CoreGuiWindow.cpp */,
+				74C7622718AC94720028342B /* CoreGuiWindow.h */,
+			);
+			name = GuiElements;
+			sourceTree = "<group>";
+		};
+		74C7621B18AC94360028342B /* BaseGuiElements */ = {
+			isa = PBXGroup;
+			children = (
+				33BED5DC1E0C6B630042FF58 /* ConnectButtonTemplate.h */,
+				33BED5D81E0C6B520042FF58 /* CoreGuiScrollbar.cpp */,
+				33BED5D91E0C6B520042FF58 /* CoreGuiScrollbar.h */,
+				337316061A92A59500A664B6 /* CoreGuiRoundedImageView.cpp */,
+				337316071A92A59500A664B6 /* CoreGuiRoundedImageView.h */,
+				33023C9719A353FD00581803 /* CoreGuiXMLView.cpp */,
+				33023C9819A353FD00581803 /* CoreGuiXMLView.h */,
+				7438658E18C11C8D0036AD3F /* CoreGuiImageView.cpp */,
+				7438658F18C11C8D0036AD3F /* CoreGuiImageView.h */,
+				7438659018C11C8D0036AD3F /* CoreGuiInputfield.cpp */,
+				7438659118C11C8D0036AD3F /* CoreGuiInputfield.h */,
+				7438659218C11C8D0036AD3F /* CoreGuiTextfield.cpp */,
+				7438659318C11C8D0036AD3F /* CoreGuiTextfield.h */,
+				7425129218B57813009C9D43 /* CoreGuiFrame.cpp */,
+				7425129318B57813009C9D43 /* CoreGuiFrame.h */,
+				74C7621C18AC94540028342B /* CoreGuiBase.cpp */,
+				74C7621D18AC94540028342B /* CoreGuiBase.h */,
+				74C7621E18AC94540028342B /* CoreGuiButton.cpp */,
+				74C7621F18AC94540028342B /* CoreGuiButton.h */,
+			);
+			name = BaseGuiElements;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		33DC0DA11DA55FC4009D2738 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33DC0DA21DA55FC4009D2738 /* CoreGuiMenu.h in Headers */,
+				33DC0DA31DA55FC4009D2738 /* DebugGui.h in Headers */,
+				33DC0DA41DA55FC4009D2738 /* CoreGuiView.h in Headers */,
+				33DC0DA51DA55FC4009D2738 /* CoreGuiToolkit.h in Headers */,
+				33DC0DA61DA55FC4009D2738 /* GuiDialogHelper.h in Headers */,
+				33DC0DA71DA55FC4009D2738 /* CoreGuiXMLView.h in Headers */,
+				33DC0DA81DA55FC4009D2738 /* CoreGuiTextfield.h in Headers */,
+				33DC0DA91DA55FC4009D2738 /* CoreGuiTileView.h in Headers */,
+				33DC0DAA1DA55FC4009D2738 /* GuiButtonTemplate.h in Headers */,
+				33DC0DAB1DA55FC4009D2738 /* CoreGuiInputfield.h in Headers */,
+				33DC0DAC1DA55FC4009D2738 /* CoreGuiBase.h in Headers */,
+				33DC0DAD1DA55FC4009D2738 /* Precompile.h in Headers */,
+				33DC0DAE1DA55FC4009D2738 /* SlideGuiView.h in Headers */,
+				33DC0DAF1DA55FC4009D2738 /* CoreGuiButton.h in Headers */,
+				3300708D1E054C5600EA7BE6 /* GuiPropertyEditor.h in Headers */,
+				33DC0DB01DA55FC4009D2738 /* CoreGuiGridView.h in Headers */,
+				33DC0DB11DA55FC4009D2738 /* CoreGuiDialog.h in Headers */,
+				33DC0DB21DA55FC4009D2738 /* CoreGuiRoundedImageView.h in Headers */,
+				33DC0DB31DA55FC4009D2738 /* CoreGuiFrame.h in Headers */,
+				33DC0DB41DA55FC4009D2738 /* GuiResource.h in Headers */,
+				33DC0DB51DA55FC4009D2738 /* CoreGuiResources.h in Headers */,
+				33DC0DB61DA55FC4009D2738 /* DebugGuiResolutionDialog.h in Headers */,
+				33DC0DB71DA55FC4009D2738 /* CoreGuiImageView.h in Headers */,
+				33DC0DB81DA55FC4009D2738 /* GuiEditor.h in Headers */,
+				33DC0DB91DA55FC4009D2738 /* CoreGuiWindow.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74C7620B18AC93C50028342B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				747567AA193351580066E7BE /* CoreGuiMenu.h in Headers */,
+				33023C9E19A366C900581803 /* DebugGui.h in Headers */,
+				7438659D18C11CA50036AD3F /* CoreGuiView.h in Headers */,
+				74C7623318AC949D0028342B /* CoreGuiToolkit.h in Headers */,
+				33CEDB871D24ECC1007AF093 /* GuiDialogHelper.h in Headers */,
+				33023C9A19A353FD00581803 /* CoreGuiXMLView.h in Headers */,
+				7438659918C11C8D0036AD3F /* CoreGuiTextfield.h in Headers */,
+				33BED5DD1E0C6B630042FF58 /* ConnectButtonTemplate.h in Headers */,
+				74089F5D1926C114008B98DA /* CoreGuiTileView.h in Headers */,
+				33CEDB851D24ECC1007AF093 /* GuiButtonTemplate.h in Headers */,
+				7438659718C11C8D0036AD3F /* CoreGuiInputfield.h in Headers */,
+				33BED5DB1E0C6B520042FF58 /* CoreGuiScrollbar.h in Headers */,
+				74C7622118AC94540028342B /* CoreGuiBase.h in Headers */,
+				74C7623718AC94A60028342B /* Precompile.h in Headers */,
+				33D4922C1A5FE2ED008B2872 /* SlideGuiView.h in Headers */,
+				74C7622318AC94540028342B /* CoreGuiButton.h in Headers */,
+				33F79D231E0121D8000F200D /* GuiPropertyEditor.h in Headers */,
+				33023C9619A3509F00581803 /* CoreGuiGridView.h in Headers */,
+				74C7622918AC94720028342B /* CoreGuiDialog.h in Headers */,
+				337316091A92A59500A664B6 /* CoreGuiRoundedImageView.h in Headers */,
+				7425129518B57813009C9D43 /* CoreGuiFrame.h in Headers */,
+				336D283D196E079A00F98295 /* GuiResource.h in Headers */,
+				74C7622D18AC94920028342B /* CoreGuiResources.h in Headers */,
+				33023C9219A34F7600581803 /* DebugGuiResolutionDialog.h in Headers */,
+				7438659518C11C8D0036AD3F /* CoreGuiImageView.h in Headers */,
+				333AB7771E07F098002EA1EB /* GridRowData.h in Headers */,
+				33023C8D19A34F4400581803 /* GuiEditor.h in Headers */,
+				74C7622B18AC94720028342B /* CoreGuiWindow.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		33DC0D881DA55FC4009D2738 /* CoreGuiToolkit.OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33DC0DBA1DA55FC4009D2738 /* Build configuration list for PBXNativeTarget "CoreGuiToolkit.OSX" */;
+			buildPhases = (
+				33DC0D891DA55FC4009D2738 /* Sources */,
+				33DC0DA01DA55FC4009D2738 /* Frameworks */,
+				33DC0DA11DA55FC4009D2738 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoreGuiToolkit.OSX;
+			productName = CoreGuiToolkit;
+			productReference = 33DC0DBD1DA55FC4009D2738 /* libCoreGuiToolkit.OSX.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		74C7620C18AC93C50028342B /* CoreGuiToolkit.iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74C7621118AC93C50028342B /* Build configuration list for PBXNativeTarget "CoreGuiToolkit.iOS" */;
+			buildPhases = (
+				74C7620918AC93C50028342B /* Sources */,
+				74C7620A18AC93C50028342B /* Frameworks */,
+				74C7620B18AC93C50028342B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoreGuiToolkit.iOS;
+			productName = CoreGuiToolkit;
+			productReference = 74C7620D18AC93C50028342B /* libCoreGuiToolkit.iOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		74C7620518AC93C50028342B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Thor Hansen";
+			};
+			buildConfigurationList = 74C7620818AC93C50028342B /* Build configuration list for PBXProject "CoreGuiToolkit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 74C7620418AC93C50028342B;
+			productRefGroup = 74C7620E18AC93C50028342B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				74C7620C18AC93C50028342B /* CoreGuiToolkit.iOS */,
+				33DC0D881DA55FC4009D2738 /* CoreGuiToolkit.OSX */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		33DC0D891DA55FC4009D2738 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33DC0D8A1DA55FC4009D2738 /* CoreGuiTextfield.cpp in Sources */,
+				33DC0D8B1DA55FC4009D2738 /* CoreGuiXMLView.cpp in Sources */,
+				33DC0D8C1DA55FC4009D2738 /* CoreGuiFrame.cpp in Sources */,
+				33DC0D8D1DA55FC4009D2738 /* CoreGuiView.cpp in Sources */,
+				33DC0D8E1DA55FC4009D2738 /* CoreGuiImageView.cpp in Sources */,
+				33DC0D8F1DA55FC4009D2738 /* CoreGuiRoundedImageView.cpp in Sources */,
+				33DC0D901DA55FC4009D2738 /* CoreGuiWindow.cpp in Sources */,
+				33DC0D911DA55FC4009D2738 /* GuiDialogHelper.cpp in Sources */,
+				333AB7781E07F207002EA1EB /* GridRowData.cpp in Sources */,
+				33DC0D921DA55FC4009D2738 /* GuiEditor.cpp in Sources */,
+				33DC0D931DA55FC4009D2738 /* CoreGuiDialog.cpp in Sources */,
+				33DC0D941DA55FC4009D2738 /* DebugGui.cpp in Sources */,
+				33DC0D951DA55FC4009D2738 /* CoreGuiTileView.cpp in Sources */,
+				33DC0D961DA55FC4009D2738 /* CoreGuiButton.cpp in Sources */,
+				33DC0D971DA55FC4009D2738 /* CoreGuiMenu.cpp in Sources */,
+				33DC0D981DA55FC4009D2738 /* Precompile.cpp in Sources */,
+				33DC0D991DA55FC4009D2738 /* CoreGuiBase.cpp in Sources */,
+				33BED5DE1E0C6B680042FF58 /* CoreGuiScrollbar.cpp in Sources */,
+				33DC0D9A1DA55FC4009D2738 /* DebugGuiResolutionDialog.cpp in Sources */,
+				3300708C1E054C5600EA7BE6 /* GuiPropertyEditor.cpp in Sources */,
+				33DC0D9B1DA55FC4009D2738 /* GuiResource.cpp in Sources */,
+				33DC0D9C1DA55FC4009D2738 /* CoreGuiToolkit.cpp in Sources */,
+				33DC0D9D1DA55FC4009D2738 /* SlideGuiView.cpp in Sources */,
+				33DC0D9E1DA55FC4009D2738 /* CoreGuiInputfield.cpp in Sources */,
+				33DC0D9F1DA55FC4009D2738 /* CoreGuiGridView.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74C7620918AC93C50028342B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7438659818C11C8D0036AD3F /* CoreGuiTextfield.cpp in Sources */,
+				33023C9919A353FD00581803 /* CoreGuiXMLView.cpp in Sources */,
+				7425129418B57813009C9D43 /* CoreGuiFrame.cpp in Sources */,
+				7438659C18C11CA50036AD3F /* CoreGuiView.cpp in Sources */,
+				7438659418C11C8D0036AD3F /* CoreGuiImageView.cpp in Sources */,
+				337316081A92A59500A664B6 /* CoreGuiRoundedImageView.cpp in Sources */,
+				74C7622A18AC94720028342B /* CoreGuiWindow.cpp in Sources */,
+				33CEDB861D24ECC1007AF093 /* GuiDialogHelper.cpp in Sources */,
+				333AB7761E07F098002EA1EB /* GridRowData.cpp in Sources */,
+				33023C8C19A34F4400581803 /* GuiEditor.cpp in Sources */,
+				74C7622818AC94720028342B /* CoreGuiDialog.cpp in Sources */,
+				33023C9D19A366C900581803 /* DebugGui.cpp in Sources */,
+				74089F5C1926C114008B98DA /* CoreGuiTileView.cpp in Sources */,
+				74C7622218AC94540028342B /* CoreGuiButton.cpp in Sources */,
+				747567A9193351580066E7BE /* CoreGuiMenu.cpp in Sources */,
+				74C7623618AC94A60028342B /* Precompile.cpp in Sources */,
+				74C7622018AC94540028342B /* CoreGuiBase.cpp in Sources */,
+				33BED5DA1E0C6B520042FF58 /* CoreGuiScrollbar.cpp in Sources */,
+				33023C9119A34F7600581803 /* DebugGuiResolutionDialog.cpp in Sources */,
+				33F79D221E0121D8000F200D /* GuiPropertyEditor.cpp in Sources */,
+				336D283C196E079A00F98295 /* GuiResource.cpp in Sources */,
+				74C7623218AC949D0028342B /* CoreGuiToolkit.cpp in Sources */,
+				33D4922B1A5FE2ED008B2872 /* SlideGuiView.cpp in Sources */,
+				7438659618C11C8D0036AD3F /* CoreGuiInputfield.cpp in Sources */,
+				33023C9519A3509F00581803 /* CoreGuiGridView.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		33DC0DBB1DA55FC4009D2738 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					..,
+					../..,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		33DC0DBC1DA55FC4009D2738 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					..,
+					../..,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		74C7620F18AC93C50028342B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					CLIENT,
+					OPENGL,
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../../..,
+					../..,
+					..,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		74C7621018AC93C50028342B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					CLIENT,
+					OPENGL,
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../../..,
+					../..,
+					..,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		74C7621218AC93C50028342B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					..,
+					../..,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		74C7621318AC93C50028342B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					..,
+					../..,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		33DC0DBA1DA55FC4009D2738 /* Build configuration list for PBXNativeTarget "CoreGuiToolkit.OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33DC0DBB1DA55FC4009D2738 /* Debug */,
+				33DC0DBC1DA55FC4009D2738 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74C7620818AC93C50028342B /* Build configuration list for PBXProject "CoreGuiToolkit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74C7620F18AC93C50028342B /* Debug */,
+				74C7621018AC93C50028342B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74C7621118AC93C50028342B /* Build configuration list for PBXNativeTarget "CoreGuiToolkit.iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74C7621218AC93C50028342B /* Debug */,
+				74C7621318AC93C50028342B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 74C7620518AC93C50028342B /* Project object */;
+}

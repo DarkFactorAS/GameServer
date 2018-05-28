@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="GameEngine">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="CoreEffectSystem">
+      <UniqueIdentifier>{cc6a56e2-84f2-45d5-b73b-ff7099f9eb7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CoreScreenModule">
+      <UniqueIdentifier>{f99cf20f-a8c3-4022-9cbe-029c4faa492f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CoreEffectSystem\Effects">
+      <UniqueIdentifier>{f0b7f39d-1b65-4204-a386-42042b4f4773}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{90ed1ab6-15d3-4cd3-b69d-6442bae7b3ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CoreGameGui">
+      <UniqueIdentifier>{487a4884-e8af-4bad-9ab5-00f3efcca208}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CoreGameGui\CoreGameDebugGui">
+      <UniqueIdentifier>{5a14fd5f-0129-4de4-83d9-9d738bcd0e1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CoreGameGui\DebugGuiResolutionDialog">
+      <UniqueIdentifier>{e21be2d4-8b0e-4d51-8499-70529ef348f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network\Packets">
+      <UniqueIdentifier>{ecec5993-1dd5-405e-bec9-15df89c99304}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Unittests">
+      <UniqueIdentifier>{08306fe1-6721-4dfa-aa4a-b1b72382d622}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Unittests\UnittestFramework">
+      <UniqueIdentifier>{bfa275eb-1c0f-4be6-81f2-95bf0fbcae2d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CoreGameEngine.cpp">
+      <Filter>GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Precompile.cpp" />
+    <ClCompile Include="CoreScreenModule\CoreScreenModule.cpp">
+      <Filter>CoreScreenModule</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreEffectSystem\CoreEffectSystem.cpp">
+      <Filter>CoreEffectSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreEffectSystem\Effects\RotateEffect.cpp">
+      <Filter>CoreEffectSystem\Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreEffectSystem\Effects\MoveEffect.cpp">
+      <Filter>CoreEffectSystem\Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreEffectSystem\Effects\BallisticMoveEffect.cpp">
+      <Filter>CoreEffectSystem\Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreEffectSystem\Effects\CameraFollowObjectEffect.cpp">
+      <Filter>CoreEffectSystem\Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreEffectSystem\Effects\MoveCameraToPosEffect.cpp">
+      <Filter>CoreEffectSystem\Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreEffectSystem\Effects\CameraRotateAroundObjectEffect.cpp">
+      <Filter>CoreEffectSystem\Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreGameGui\DebugGuiResolutionDialog\DebugGuiResolutionDialog.cpp">
+      <Filter>CoreGameGui\DebugGuiResolutionDialog</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreGameGui\CoreGameDebugGui\CoreGameDebugGui.cpp">
+      <Filter>CoreGameGui\CoreGameDebugGui</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreGameNetwork\Packets\BaseNetworkPacket.cpp">
+      <Filter>Network\Packets</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreGameNetwork\Packets\ServerErrorNetworkPacket.cpp">
+      <Filter>Network\Packets</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreGameNetwork\Packets\RequestServerVersionNetworkPacket.cpp">
+      <Filter>Network\Packets</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreGameNetwork\Packets\ReceiveServerVersionNetworkPacket.cpp">
+      <Filter>Network\Packets</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreGameEngineModule.cpp">
+      <Filter>GameEngine</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CoreGameEngine.h">
+      <Filter>GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Precompile.h" />
+    <ClInclude Include="CoreScreenModule\CoreScreenModule.h">
+      <Filter>CoreScreenModule</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEffectSystem\CoreEffectSystem.h">
+      <Filter>CoreEffectSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEffectSystem\Effects\RotateEffect.h">
+      <Filter>CoreEffectSystem\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEffectSystem\Effects\MoveEffect.h">
+      <Filter>CoreEffectSystem\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEffectSystem\Effects\BallisticMoveEffect.h">
+      <Filter>CoreEffectSystem\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEffectSystem\Effects\CameraFollowObjectEffect.h">
+      <Filter>CoreEffectSystem\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEffectSystem\Effects\MoveCameraToPosEffect.h">
+      <Filter>CoreEffectSystem\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEffectSystem\Effects\CameraRotateAroundObjectEffect.h">
+      <Filter>CoreEffectSystem\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreGameGui\DebugGuiResolutionDialog\DebugGuiResolutionDialog.h">
+      <Filter>CoreGameGui\DebugGuiResolutionDialog</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreGameGui\CoreGameDebugGui\CoreGameDebugGui.h">
+      <Filter>CoreGameGui\CoreGameDebugGui</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreGameNetwork\GameEnginePacketData.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreGameNetwork\Packets\BaseNetworkPacket.h">
+      <Filter>Network\Packets</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreGameNetwork\Packets\ServerErrorNetworkPacket.h">
+      <Filter>Network\Packets</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreGameNetwork\Packets\RequestServerVersionNetworkPacket.h">
+      <Filter>Network\Packets</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreGameNetwork\Packets\ReceiveServerVersionNetworkPacket.h">
+      <Filter>Network\Packets</Filter>
+    </ClInclude>
+    <ClInclude Include="Unittests\UnittestFramework\UnittestGameEngineServer.hpp">
+      <Filter>Unittests\UnittestFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="Unittests\UnittestFramework\UnittestGameEngineClient.hpp">
+      <Filter>Unittests\UnittestFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreGameEngineModule.h">
+      <Filter>GameEngine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Android.mk" />
+    <None Include="Makefile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\..\ProjectVA\Data\Resources\Gui\DebugGuiResolutionDialog.xml">
+      <Filter>CoreGameGui\DebugGuiResolutionDialog</Filter>
+    </Xml>
+  </ItemGroup>
+</Project>

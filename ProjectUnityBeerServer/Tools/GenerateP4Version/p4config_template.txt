@@ -1,0 +1,3 @@
+P4PORT=perforce.conanchat.com:1666
+P4USER=myP4username
+P4CLIENT=myWorkspace

@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Playfield">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Playfield\Tiles">
+      <UniqueIdentifier>{c72bc98e-3264-427e-8048-a9acc52d70ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{8521f513-abaf-4da3-9034-970b1968f1e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameLogic">
+      <UniqueIdentifier>{a4822139-3358-4e16-8fe5-448e94822aaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameLogic\Game">
+      <UniqueIdentifier>{c78b0107-3c18-45b8-9480-e9844c229691}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameLogic\Player">
+      <UniqueIdentifier>{1b765609-a2a4-4e6d-83bf-bbcaeb9d759b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine">
+      <UniqueIdentifier>{27c77b88-6e6b-477a-bec6-c84fa3942696}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Playfield\PlayfieldInfo">
+      <UniqueIdentifier>{108c2be4-c65f-4856-81fc-4daff3cb1785}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameLogic\Character">
+      <UniqueIdentifier>{f7380e93-1c59-437e-954e-53278c7268e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameLogic\GameObject">
+      <UniqueIdentifier>{daa9e408-3ec6-4595-84b3-540a29f991b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameLogic\Effects">
+      <UniqueIdentifier>{b2f12423-1e7a-429b-886f-05d9e814207b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameLogic\XPTable">
+      <UniqueIdentifier>{febc8ec1-a23a-444e-86e1-595ba1eb9389}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Playfield\Pathfinding">
+      <UniqueIdentifier>{14d794c3-2fb4-4a2a-96c1-593657957be9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network\GameNetworkPackets">
+      <UniqueIdentifier>{2103560a-ba5e-484c-922b-f56f961f7e36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network\PlayfieldNetworkPackets">
+      <UniqueIdentifier>{2564c50b-4507-4519-8a2d-7041c8a081f5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Playfield\Tiles\BaseTile.cpp">
+      <Filter>Playfield\Tiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Playfield\Tiles\HexTile.cpp">
+      <Filter>Playfield\Tiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Playfield\Tiles\QuadTile.cpp">
+      <Filter>Playfield\Tiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Precompile.cpp" />
+    <ClCompile Include="GameLogic\Player\Player.cpp">
+      <Filter>GameLogic\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngine\BoardGameEngine.cpp">
+      <Filter>GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLogic\Game\BoardGame.cpp">
+      <Filter>GameLogic\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Playfield\PlayfieldInfo.cpp">
+      <Filter>Playfield\PlayfieldInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="Playfield\PlayfieldInfoManager.cpp">
+      <Filter>Playfield\PlayfieldInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngine\CoreBaseRenderObject.cpp">
+      <Filter>GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLogic\Character\Character.cpp">
+      <Filter>GameLogic\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLogic\GameObject\GameObject.cpp">
+      <Filter>GameLogic\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLogic\GameObject\Item.cpp">
+      <Filter>GameLogic\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLogic\Effects\SetGridpositionEffect.cpp">
+      <Filter>GameLogic\Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLogic\XPTable\XPTable.cpp">
+      <Filter>GameLogic\XPTable</Filter>
+    </ClCompile>
+    <ClCompile Include="Playfield\GridTilePlayfield.cpp">
+      <Filter>Playfield</Filter>
+    </ClCompile>
+    <ClCompile Include="Playfield\Pathfinding\GridTilePathfinding.cpp">
+      <Filter>Playfield\Pathfinding</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\GameNetworkPackets\BaseGameNetworkPacket.cpp">
+      <Filter>Network\GameNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\GameNetworkPackets\DeleteGameNetworkPacket.cpp">
+      <Filter>Network\GameNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLogic\Game\BoardGameServer.cpp">
+      <Filter>GameLogic\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\GameNetworkPackets\CreateGameWithPlayerNetworkPacket.cpp">
+      <Filter>Network\GameNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\GameNetworkPackets\NewGameNetworkPacket.cpp">
+      <Filter>Network\GameNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\GameNetworkPackets\SearchForPlayerWithNickNetworkPacket.cpp">
+      <Filter>Network\GameNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\GameNetworkPackets\CreateGameWithRandomPlayerNetworkPacket.cpp">
+      <Filter>Network\GameNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\PlayfieldNetworkPackets\LoadPlayfieldNetworkPacket.cpp">
+      <Filter>Network\PlayfieldNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\PlayfieldNetworkPackets\SavePlayfieldNetworkPacket.cpp">
+      <Filter>Network\PlayfieldNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\PlayfieldNetworkPackets\DeletePlayfieldNetworkPacket.cpp">
+      <Filter>Network\PlayfieldNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\PlayfieldNetworkPackets\PlayfieldListNetworkPacket.cpp">
+      <Filter>Network\PlayfieldNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\GameNetworkPackets\GameListNetworkPacket.cpp">
+      <Filter>Network\GameNetworkPackets</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Playfield\Tiles\BaseTile.h">
+      <Filter>Playfield\Tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Playfield\Tiles\HexTile.h">
+      <Filter>Playfield\Tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Playfield\Tiles\QuadTile.h">
+      <Filter>Playfield\Tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Precompile.h" />
+    <ClInclude Include="GameLogic\Player\Player.h">
+      <Filter>GameLogic\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngine\BoardGameEngine.h">
+      <Filter>GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Game\BoardGame.h">
+      <Filter>GameLogic\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Playfield\PlayfieldInfo.h">
+      <Filter>Playfield\PlayfieldInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="Playfield\PlayfieldInfoManager.h">
+      <Filter>Playfield\PlayfieldInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngine\CoreBaseRenderObject.h">
+      <Filter>GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Character\Character.h">
+      <Filter>GameLogic\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\GameObject\GameObject.h">
+      <Filter>GameLogic\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\GameObject\Item.h">
+      <Filter>GameLogic\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Effects\SetGridpositionEffect.h">
+      <Filter>GameLogic\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\XPTable\XPTable.h">
+      <Filter>GameLogic\XPTable</Filter>
+    </ClInclude>
+    <ClInclude Include="Playfield\GridTilePlayfield.h">
+      <Filter>Playfield</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\BoardGamePacketData.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Playfield\Pathfinding\GridTilePathfinding.h">
+      <Filter>Playfield\Pathfinding</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\GameNetworkPackets\BaseGameNetworkPacket.h">
+      <Filter>Network\GameNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\GameNetworkPackets\DeleteGameNetworkPacket.h">
+      <Filter>Network\GameNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Game\BoardGameServer.h">
+      <Filter>GameLogic\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\GameNetworkPackets\CreateGameWithPlayerNetworkPacket.h">
+      <Filter>Network\GameNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\GameNetworkPackets\NewGameNetworkPacket.h">
+      <Filter>Network\GameNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\GameNetworkPackets\SearchForPlayerWithNickNetworkPacket.h">
+      <Filter>Network\GameNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\GameNetworkPackets\CreateGameWithRandomPlayerNetworkPacket.h">
+      <Filter>Network\GameNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\PlayfieldNetworkPackets\LoadPlayfieldNetworkPacket.h">
+      <Filter>Network\PlayfieldNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\PlayfieldNetworkPackets\SavePlayfieldNetworkPacket.h">
+      <Filter>Network\PlayfieldNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\PlayfieldNetworkPackets\DeletePlayfieldNetworkPacket.h">
+      <Filter>Network\PlayfieldNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\PlayfieldNetworkPackets\PlayfieldListNetworkPacket.h">
+      <Filter>Network\PlayfieldNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\GameNetworkPackets\GameListNetworkPacket.h">
+      <Filter>Network\GameNetworkPackets</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
+  </ItemGroup>
+</Project>
