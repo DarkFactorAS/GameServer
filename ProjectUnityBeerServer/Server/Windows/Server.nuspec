@@ -13,8 +13,8 @@
     <releaseNotes>This release contains the following changes...</releaseNotes>
   </metadata>
   <files>
-    <file src="..\..\..\Build\UnityBeerServer.VS2015.Release.Win32\Bin\*.exe" target="" />
-    <file src="..\..\..\Build\UnityBeerServer.VS2015.Release.Win32\Bin\*.pdb" target="" />
-    <file src="..\..\..\Build\UnityBeerServer.VS2015.Release.Win32\Bin\*.dll" target="" />
+    <file src="..\..\..\..\Build\UnityBeerServer.VS2015.Release.Win32\Bin\*.exe" target="" />
+    <file src="..\..\..\..\Build\UnityBeerServer.VS2015.Release.Win32\Bin\*.pdb" target="" />
+    <file src="..\..\..\..\Build\UnityBeerServer.VS2015.Release.Win32\Bin\*.dll" target="" />
   </files>
 </package>
