@@ -3,10 +3,14 @@
 
 #include "ProjectUnityBeerServer/ProjectModules/ProjectGameManagementModule/NetworkPackets/BaseGameManagementNetworkPacket.h"
 
-#include "ProjectUnityBeerServer/ProjectModules/ProjectWorldBuilderModule/Data/Playfield.h"
-#include "ProjectUnityBeerServer/ProjectModules/ProjectWorldBuilderModule/WorldBuilderModule/ProjectWorldBuilderServerModule.h"
+#include "ProjectUnityBeerServer/ProjectModules/ProjectOnlineGameModule/NetworkPackets/ServerNetworkPackets/ServerBaseOnlineGameNetworkPacket.h"
 
-class ServerRequestGameDataNetworkPacket : public BaseAuthentcatedNetworkPacket
+//#include "ProjectUnityBeerServer/ProjectModules/ProjectWorldBuilderModule/Data/Playfield.h"
+//#include "ProjectUnityBeerServer/ProjectModules/ProjectWorldBuilderModule/WorldBuilderModule/ProjectWorldBuilderServerModule.h"
+
+
+
+class ServerRequestGameDataNetworkPacket : public ServerBaseOnlineGameNetworkPacket
 {
 public:
 

@@ -11,35 +11,40 @@
 #include "ServerRequestGameDataNetworkPacket.h"
 
 #include "ProjectModules/ProjectOnlineGameModule/Data/OnlineGamePacketData.h"
-//#include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ClientNetworkPackets/ClientLobbyGameListNetworkPacket.h"
+#include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ClientNetworkPackets/ClientReceivedGameDataNetworkPacket.h"
+#include "ProjectModules/ProjectOnlineGameModule/Module/ProjectOnlineGameServerModule.h"
 
 ServerRequestGameDataNetworkPacket::ServerRequestGameDataNetworkPacket(uint32 gameId) :
-  BaseAuthentcatedNetworkPacket(OnlineGamePacketData::PacketData_ServerRequestGameData),
+  ServerBaseOnlineGameNetworkPacket(OnlineGamePacketData::PacketData_ServerRequestGameData),
   m_GameId(gameId)
 {
 }
 
 ServerRequestGameDataNetworkPacket::ServerRequestGameDataNetworkPacket(const BinaryStream* datastream) :
-  BaseAuthentcatedNetworkPacket(OnlineGamePacketData::PacketData_ServerRequestGameData, datastream)
+  ServerBaseOnlineGameNetworkPacket(OnlineGamePacketData::PacketData_ServerRequestGameData, datastream)
 {
   m_GameId = datastream->ReadUInt32();
 }
 
 BinaryStream* ServerRequestGameDataNetworkPacket::GetDataStream()
 {
-  BinaryStream* datastream = BaseAuthentcatedNetworkPacket::GetDataStream();
+  BinaryStream* datastream = ServerBaseOnlineGameNetworkPacket::GetDataStream();
   datastream->WriteUInt32(m_GameId);
   return datastream;
 }
 
 void ServerRequestGameDataNetworkPacket::Execute()
 {
-  //Account* account = GetAccount();
-  //ProjectGameManagementServerModule* module = GetModule();
-  //if (module != NULL && account != NULL)
-  //{
-  //  module->JoinQuickGame(account->GetAccountId());
-  //}
+  Account* account = GetAccount();
+  ProjectOnlineGameServerModule* module = GetModule();
+  if (module != NULL && account != NULL ) 
+  {
+    OnlineGameData* onlineGame = module->GetOnlineGame(account->GetAccountId(), m_GameId);
+    if (onlineGame != NULL)
+    {
+      SendPacketToClient( new ClientReceivedGameDataNetworkPacket( onlineGame ) );
+    }
+  }
   //else
   //{
   //  SendGameErrorToClient(OnlineGamePacketData2::ErrorCode_FailedToCreateGame);

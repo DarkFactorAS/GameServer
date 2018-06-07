@@ -7,6 +7,8 @@
 #include "EvilGameEngine/CoreGameEngine/CoreGameEngine.h"
 #include "EvilGameEngine/CoreGameEngine/CoreGameEngineModule.h"
 
+#include "ProjectModules/ProjectOnlineGameModule/Data/OnlineGameData.hpp"
+
 class ProjectOnlineGameServerModule : public CoreGameEngineModule
 {
 public:
@@ -20,6 +22,15 @@ public:
 
   virtual void                FrameProcess(float /*deltaTime*/) {};
   virtual String              GetModuleName() DF_OVERRIDE { return StaticStr("ProjectOnlineGameServerModule"); }
+  static ProjectOnlineGameServerModule* GetModule(CoreGameEngine* gameEngine);
+
+  void                        AddOnlineGame(OnlineGameData* game);
+  OnlineGameData*             GetOnlineGame(uint32 accountId, uint32 gameId);
+  OnlineGameData*             GetOnlineGame(uint32 gameId);
+
+private:
+
+  std::map< uint32, OnlineGameData* > m_OnlineGameMap;
 
 };
 

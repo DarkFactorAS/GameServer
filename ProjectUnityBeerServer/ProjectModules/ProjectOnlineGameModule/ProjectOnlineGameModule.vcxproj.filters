@@ -8,6 +8,12 @@
     <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerRequestGameDataNetworkPacket.cpp">
       <Filter>NetworkPackets\ServerNetworkPackets</Filter>
     </ClCompile>
+    <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientReceivedGameDataNetworkPacket.cpp">
+      <Filter>NetworkPackets\ClientNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerBaseOnlineGameNetworkPacket.cpp">
+      <Filter>NetworkPackets\ServerNetworkPackets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -19,6 +25,18 @@
     </ClInclude>
     <ClInclude Include="Data\OnlineGamePacketData.h">
       <Filter>Data</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ClientNetworkPackets\ClientReceivedGameDataNetworkPacket.h">
+      <Filter>NetworkPackets\ClientNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\OnlineGameData.hpp">
+      <Filter>Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\OnlineGamePlayer.hpp">
+      <Filter>Data</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerBaseOnlineGameNetworkPacket.h">
+      <Filter>NetworkPackets\ServerNetworkPackets</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -33,6 +51,9 @@
     </Filter>
     <Filter Include="Data">
       <UniqueIdentifier>{efc39c8b-69d9-4059-880f-7eb9602f6a0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NetworkPackets\ClientNetworkPackets">
+      <UniqueIdentifier>{80698d24-ecff-4a0f-8d99-c208bfc953aa}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

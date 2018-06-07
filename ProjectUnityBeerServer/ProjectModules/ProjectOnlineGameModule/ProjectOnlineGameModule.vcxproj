@@ -132,6 +132,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Module\ProjectOnlineGameServerModule.cpp" />
+    <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientReceivedGameDataNetworkPacket.cpp" />
+    <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerBaseOnlineGameNetworkPacket.cpp" />
     <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerRequestGameDataNetworkPacket.cpp" />
     <ClCompile Include="PreCompile.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -140,8 +142,12 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Data\OnlineGameData.hpp" />
     <ClInclude Include="Data\OnlineGamePacketData.h" />
+    <ClInclude Include="Data\OnlineGamePlayer.hpp" />
     <ClInclude Include="Module\ProjectOnlineGameServerModule.h" />
+    <ClInclude Include="NetworkPackets\ClientNetworkPackets\ClientReceivedGameDataNetworkPacket.h" />
+    <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerBaseOnlineGameNetworkPacket.h" />
     <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerRequestGameDataNetworkPacket.h" />
     <ClInclude Include="PreCompile.h" />
   </ItemGroup>

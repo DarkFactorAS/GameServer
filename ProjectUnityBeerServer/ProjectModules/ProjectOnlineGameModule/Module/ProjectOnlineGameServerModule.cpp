@@ -19,3 +19,46 @@ ProjectOnlineGameServerModule::ProjectOnlineGameServerModule() :
 {
   RegisterPacketType(OnlineGamePacketData::PacketData_ServerRequestGameData, ServerRequestGameDataNetworkPacket::Create);
 }
+
+ProjectOnlineGameServerModule* ProjectOnlineGameServerModule::GetModule(CoreGameEngine* gameEngine)
+{
+  if (gameEngine != NULL)
+  {
+    return safe_cast<ProjectOnlineGameServerModule*> (gameEngine->GetEngineModule(ProjectOnlineGameServerModule::PROJECT_MODULETYPE_ONLINEGAME));
+  }
+  return NULL;
+}
+
+
+void ProjectOnlineGameServerModule::AddOnlineGame(OnlineGameData* game)
+{
+  // TODO > Check for duplicates
+  m_OnlineGameMap[ game->GetGameId() ] = game;
+}
+
+//
+// TODO > Add load and save
+//
+
+OnlineGameData* ProjectOnlineGameServerModule::GetOnlineGame(uint32 accountId, uint32 gameId)
+{
+  OnlineGameData* onlineGame = GetOnlineGame(gameId);
+  if (onlineGame != NULL && onlineGame->HasPlayer(accountId))
+  {
+    return onlineGame;
+  }
+  return NULL;
+}
+
+OnlineGameData* ProjectOnlineGameServerModule::GetOnlineGame(uint32 gameId)
+{
+  for (uint32 index = 0; index < m_OnlineGameMap.size(); index++)
+  {
+    OnlineGameData* lobbyGame = m_OnlineGameMap[index];
+    if (lobbyGame != NULL && lobbyGame->GetGameId() == gameId)
+    {
+      return lobbyGame;
+    }
+  }
+  return NULL;
+}
