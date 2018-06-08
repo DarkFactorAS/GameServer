@@ -1,13 +1,13 @@
 #ifndef PROJECT_ONLINEGAME_NETWORKPACKETS_CLIENTRECEIVEDGAMEDATA_NETWORKPACKET
 #define PROJECT_ONLINEGAME_NETWORKPACKETS_CLIENTRECEIVEDGAMEDATA_NETWORKPACKET 1
 
-#include "ProjectUnityBeerServer/ProjectModules/ProjectGameManagementModule/NetworkPackets/BaseGameManagementNetworkPacket.h"
+#include "EvilGameEngine/CoreGameEngine/CoreGameNetwork/Packets/BaseNetworkPacket.h"
 #include "ProjectUnityBeerServer/ProjectModules/ProjectWorldBuilderModule/Data/Playfield.h"
 #include "ProjectUnityBeerServer/ProjectModules/ProjectWorldBuilderModule/WorldBuilderModule/ProjectWorldBuilderServerModule.h"
 
 #include "ProjectUnityBeerServer/ProjectModules/ProjectOnlineGameModule/Data/OnlineGameData.hpp"
 
-class ClientReceivedGameDataNetworkPacket : public BaseAuthentcatedNetworkPacket
+class ClientReceivedGameDataNetworkPacket : public BaseNetworkPacket
 {
 public:
 

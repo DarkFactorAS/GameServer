@@ -1,7 +1,7 @@
 #ifndef PROJECT_ONLINEGAME_NETWORKPACKETS_SERVERREQUESTGAMEDATA
 #define PROJECT_ONLINEGAME_NETWORKPACKETS_SERVERREQUESTGAMEDATA 1
 
-#include "ProjectUnityBeerServer/ProjectModules/ProjectGameManagementModule/NetworkPackets/BaseGameManagementNetworkPacket.h"
+//#include "ProjectUnityBeerServer/ProjectModules/ProjectGameManagementModule/NetworkPackets/BaseGameManagementNetworkPacket.h"
 
 #include "ProjectUnityBeerServer/ProjectModules/ProjectOnlineGameModule/NetworkPackets/ServerNetworkPackets/ServerBaseOnlineGameNetworkPacket.h"
 

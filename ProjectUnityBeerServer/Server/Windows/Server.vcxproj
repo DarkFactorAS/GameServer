@@ -186,7 +186,7 @@ xcopy $(OPENSSL)\lib\libeay32.dll /I /Y "$(OutDir)"
     <ProjectReference Include="..\..\..\EvilGameEngine\CorePatcherModule\CorePatcherModule.vcxproj">
       <Project>{3e652816-3e72-4e08-a2d3-643bb72eb534}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\ProjectModules\ProjectGameManagementModule\ProjectGameManagementModule.vcxproj">
+    <ProjectReference Include="..\..\ProjectModules\ProjectLobbyGameModule\ProjectLobbyGameModule.vcxproj">
       <Project>{3a1cb0f1-7396-4195-9331-92c19231cf69}</Project>
     </ProjectReference>
     <ProjectReference Include="..\..\ProjectModules\ProjectOnlineGameModule\ProjectOnlineGameModule.vcxproj">

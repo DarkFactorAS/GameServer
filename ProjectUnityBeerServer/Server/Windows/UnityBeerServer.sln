@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EvilEngine", "EvilEngine", "{7CBF7C6C-36DD-4CD8-B2D6-BFAC870E4504}"
 EndProject
@@ -41,11 +41,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CorePatcherModule", "..\..\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProjectWorldBuilderModule", "..\..\ProjectModules\ProjectWorldBuilderModule\ProjectWorldBuilderModule.vcxproj", "{BE2DD673-332B-4D64-AD2D-4964C1A800FB}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProjectGameManagementModule", "..\..\ProjectModules\ProjectGameManagementModule\ProjectGameManagementModule.vcxproj", "{3A1CB0F1-7396-4195-9331-92C19231CF69}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProjectOnlineGameModule", "..\..\ProjectModules\ProjectOnlineGameModule\ProjectOnlineGameModule.vcxproj", "{EEE97DAF-A97F-448F-AEFB-1B7AFF6B38CB}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CoreGameLoginUnittest", "..\..\..\EvilGameEngine\CoreGameLogin\CoreGameLoginUnittest\CoreGameLoginUnittest.vcxproj", "{9EFB8B22-B822-441F-A7F8-4F7DF5200FEE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProjectLobbyGameModule", "..\..\ProjectModules\ProjectLobbyGameModule\ProjectLobbyGameModule.vcxproj", "{3A1CB0F1-7396-4195-9331-92C19231CF69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -250,22 +250,6 @@ Global
 		{BE2DD673-332B-4D64-AD2D-4964C1A800FB}.Server-Debug|Win32.ActiveCfg = Server-Debug|Win32
 		{BE2DD673-332B-4D64-AD2D-4964C1A800FB}.Server-Debug|Win32.Build.0 = Server-Debug|Win32
 		{BE2DD673-332B-4D64-AD2D-4964C1A800FB}.Server-Debug|x64.ActiveCfg = Server-Debug|Win32
-		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Debug|Tegra-Android.ActiveCfg = Debug|Win32
-		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Debug|Win32.ActiveCfg = Debug|Win32
-		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Debug|Win32.Build.0 = Debug|Win32
-		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Debug|x64.ActiveCfg = Debug|x64
-		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Debug|x64.Build.0 = Debug|x64
-		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Release|Tegra-Android.ActiveCfg = Release|Win32
-		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Release|Win32.ActiveCfg = Release|Win32
-		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Release|Win32.Build.0 = Release|Win32
-		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Release|x64.ActiveCfg = Release|x64
-		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Release|x64.Build.0 = Release|x64
-		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Server-Debug|Tegra-Android.ActiveCfg = Release|x64
-		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Server-Debug|Tegra-Android.Build.0 = Release|x64
-		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Server-Debug|Win32.ActiveCfg = Debug|Win32
-		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Server-Debug|Win32.Build.0 = Debug|Win32
-		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Server-Debug|x64.ActiveCfg = Debug|x64
-		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Server-Debug|x64.Build.0 = Debug|x64
 		{EEE97DAF-A97F-448F-AEFB-1B7AFF6B38CB}.Debug|Tegra-Android.ActiveCfg = Debug|Win32
 		{EEE97DAF-A97F-448F-AEFB-1B7AFF6B38CB}.Debug|Win32.ActiveCfg = Debug|Win32
 		{EEE97DAF-A97F-448F-AEFB-1B7AFF6B38CB}.Debug|Win32.Build.0 = Debug|Win32
@@ -298,6 +282,22 @@ Global
 		{9EFB8B22-B822-441F-A7F8-4F7DF5200FEE}.Server-Debug|Win32.Build.0 = Debug|Win32
 		{9EFB8B22-B822-441F-A7F8-4F7DF5200FEE}.Server-Debug|x64.ActiveCfg = Debug|x64
 		{9EFB8B22-B822-441F-A7F8-4F7DF5200FEE}.Server-Debug|x64.Build.0 = Debug|x64
+		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Debug|Tegra-Android.ActiveCfg = Debug|Win32
+		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Debug|Win32.Build.0 = Debug|Win32
+		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Debug|x64.ActiveCfg = Debug|x64
+		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Debug|x64.Build.0 = Debug|x64
+		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Release|Tegra-Android.ActiveCfg = Release|Win32
+		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Release|Win32.ActiveCfg = Release|Win32
+		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Release|Win32.Build.0 = Release|Win32
+		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Release|x64.ActiveCfg = Release|x64
+		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Release|x64.Build.0 = Release|x64
+		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Server-Debug|Tegra-Android.ActiveCfg = Release|x64
+		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Server-Debug|Tegra-Android.Build.0 = Release|x64
+		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Server-Debug|Win32.ActiveCfg = Debug|Win32
+		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Server-Debug|Win32.Build.0 = Debug|Win32
+		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Server-Debug|x64.ActiveCfg = Debug|x64
+		{3A1CB0F1-7396-4195-9331-92C19231CF69}.Server-Debug|x64.Build.0 = Debug|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -315,8 +315,8 @@ Global
 		{3CA7D2A2-115C-4932-B31B-A8C4DB8901B1} = {7CBF7C6C-36DD-4CD8-B2D6-BFAC870E4504}
 		{3E652816-3E72-4E08-A2D3-643BB72EB534} = {40DD5C91-C0E8-490E-86B5-8E3642F8AF1F}
 		{BE2DD673-332B-4D64-AD2D-4964C1A800FB} = {7EC11E2C-7A76-4D32-A8DC-FA5B184C92D3}
-		{3A1CB0F1-7396-4195-9331-92C19231CF69} = {7EC11E2C-7A76-4D32-A8DC-FA5B184C92D3}
 		{EEE97DAF-A97F-448F-AEFB-1B7AFF6B38CB} = {7EC11E2C-7A76-4D32-A8DC-FA5B184C92D3}
 		{9EFB8B22-B822-441F-A7F8-4F7DF5200FEE} = {40DD5C91-C0E8-490E-86B5-8E3642F8AF1F}
+		{3A1CB0F1-7396-4195-9331-92C19231CF69} = {7EC11E2C-7A76-4D32-A8DC-FA5B184C92D3}
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Unittests">
+      <UniqueIdentifier>{c35b1aff-231b-4857-a9b1-3d7afd09ea59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NetworkPackets">
+      <UniqueIdentifier>{8adbd6ef-e6a9-4b0b-ab37-7b27cff1719b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NetworkPackets\ServerNetworkPackets">
+      <UniqueIdentifier>{d0b5a19b-c424-4acf-b900-c63061294fcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data">
+      <UniqueIdentifier>{8c82599d-bfa2-4590-92e0-a23cf2c78455}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NetworkPackets\ClientNetworkPackets">
+      <UniqueIdentifier>{941171c3-749c-4532-8dee-dcda8aec61d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logic">
+      <UniqueIdentifier>{fd8e1013-4e88-4ec0-8336-bd12cca319f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logic\GameManagementModule">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Unittests\AsyncUnittest">
+      <UniqueIdentifier>{bcb0b9b3-f09d-4fa7-9946-756be35a7dc0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PreCompile.h" />
+    <ClInclude Include="Unittests\GameManagementAsyncUnittestmRuner.hpp">
+      <Filter>Unittests</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\BaseGameManagementNetworkPacket.h">
+      <Filter>NetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerCreateGameNetworkPacket.h">
+      <Filter>NetworkPackets\ServerNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\GameManagementPacketData.h">
+      <Filter>Data</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ClientNetworkPackets\ClientGameErrorNetworkPacket.h">
+      <Filter>NetworkPackets\ClientNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="Logic\GameManagementModule\ProjectGameManagementClientModule.h">
+      <Filter>Logic\GameManagementModule</Filter>
+    </ClInclude>
+    <ClInclude Include="Logic\GameManagementModule\ProjectGameManagementServerModule.h">
+      <Filter>Logic\GameManagementModule</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\LobbyGameData.hpp">
+      <Filter>Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\LobbyGamePlayer.hpp">
+      <Filter>Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Unittests\AsyncUnittest\BaseGameUnittest.hpp">
+      <Filter>Unittests\AsyncUnittest</Filter>
+    </ClInclude>
+    <ClInclude Include="Unittests\AsyncUnittest\CreateNewGameUnittest.hpp">
+      <Filter>Unittests\AsyncUnittest</Filter>
+    </ClInclude>
+    <ClInclude Include="Unittests\UnittestGameManagementServerModule.hpp" />
+    <ClInclude Include="NetworkPackets\ClientNetworkPackets\ClientCreatedLobbyGameNetworkPacket.h">
+      <Filter>NetworkPackets\ClientNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerGameListNetworkPacket.h">
+      <Filter>NetworkPackets\ServerNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ClientNetworkPackets\ClientLobbyGameListNetworkPacket.h">
+      <Filter>NetworkPackets\ClientNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ClientNetworkPackets\ClientPlayerJoinedLobbyGameNetworkPacket.h">
+      <Filter>NetworkPackets\ClientNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ClientNetworkPackets\ClientPlayerLeftLobbyGameNetworkPacket.h">
+      <Filter>NetworkPackets\ClientNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerPlayerLeaveLobbyGameNetworkPacket.h">
+      <Filter>NetworkPackets\ServerNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerPlayerJoinLobbyGameNetworkPacket.h">
+      <Filter>NetworkPackets\ServerNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerJoinQuickGameNetworkPacket.h">
+      <Filter>NetworkPackets\ServerNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerLeaveQuickGameNetworkPacket.h">
+      <Filter>NetworkPackets\ServerNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ClientNetworkPackets\ClientCreatedQuickGameNetworkPacket.h">
+      <Filter>NetworkPackets\ClientNetworkPackets</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PreCompile.cpp" />
+    <ClCompile Include="NetworkPackets\BaseGameManagementNetworkPacket.cpp">
+      <Filter>NetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerCreateGameNetworkPacket.cpp">
+      <Filter>NetworkPackets\ServerNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientGameErrorNetworkPacket.cpp">
+      <Filter>NetworkPackets\ClientNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="Logic\GameManagementModule\ProjectGameManagementClientModule.cpp">
+      <Filter>Logic\GameManagementModule</Filter>
+    </ClCompile>
+    <ClCompile Include="Logic\GameManagementModule\ProjectGameManagementServerModule.cpp">
+      <Filter>Logic\GameManagementModule</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientCreatedLobbyGameNetworkPacket.cpp">
+      <Filter>NetworkPackets\ClientNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerGameListNetworkPacket.cpp">
+      <Filter>NetworkPackets\ServerNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientLobbyGameListNetworkPacket.cpp">
+      <Filter>NetworkPackets\ClientNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientPlayerLeftLobbyGameNetworkPacket.cpp">
+      <Filter>NetworkPackets\ClientNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientPlayerJoinedLobbyGameNetworkPacket.cpp">
+      <Filter>NetworkPackets\ClientNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerPlayerLeaveLobbyGameNetworkPacket.cpp">
+      <Filter>NetworkPackets\ServerNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerPlayerJoinLobbyGameNetworkPacket.cpp">
+      <Filter>NetworkPackets\ServerNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerJoinQuickGameNetworkPacket.cpp">
+      <Filter>NetworkPackets\ServerNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerLeaveQuickGameNetworkPacket.cpp">
+      <Filter>NetworkPackets\ServerNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientCreatedQuickGameNetworkPacket.cpp">
+      <Filter>NetworkPackets\ClientNetworkPackets</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

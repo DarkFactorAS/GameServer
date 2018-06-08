@@ -4,13 +4,13 @@
 #include "ProjectUnityBeerServer/ProjectModules/ProjectOnlineGameModule/Data/OnlineGamePacketData.h"
 
 ClientReceivedGameDataNetworkPacket::ClientReceivedGameDataNetworkPacket(const OnlineGameData* gameData) :
-  BaseAuthentcatedNetworkPacket(OnlineGamePacketData::PacketData_ClientReceiveGameData),
+  BaseNetworkPacket(OnlineGamePacketData::PacketData_ClientReceiveGameData),
   m_GameData(gameData)
 {
 }
 
 ClientReceivedGameDataNetworkPacket::ClientReceivedGameDataNetworkPacket(const BinaryStream* /*datastream*/) :
-  BaseAuthentcatedNetworkPacket(OnlineGamePacketData::PacketData_ClientReceiveGameData)
+  BaseNetworkPacket(OnlineGamePacketData::PacketData_ClientReceiveGameData)
 {
 }
 
