@@ -19,18 +19,23 @@ BinaryStream* ClientReceivedGameDataNetworkPacket::GetDataStream()
   BinaryStream* datastream = BaseNetworkPacket::GetDataStream();
   datastream->WriteUInt32(m_GameData->GetGameId());
 
+  uint playfieldId = datastream->ReadUInt32();
+
+
   // Write players
   const std::vector<OnlineGamePlayer*> playerList = m_GameData->GetPlayerList();
+  datastream->WriteUInt16(playfieldId.size());
+
   for (std::vector<OnlineGamePlayer*>::const_iterator itPlayer = playerList.begin(); itPlayer != playerList.end(); ++itPlayer)
   {
     OnlineGamePlayer* onlinePlayer = *itPlayer;
 
     datastream->WriteUInt32(onlinePlayer->GetAccountId());
-
-    //datastream->WriteString(onlinePlayer->GetName());
-    //datastream->WriteUInt16(onlinePlayer->GetBoardPositionX());
-    //datastream->WriteUInt16(onlinePlayer->GetBoardPositionY());
-    //datastream->WriteUInt16(onlinePlayer->GetLives());
+    datastream->WriteString(onlinePlayer->GetPlayerName());
+    datastream->WriteUInt16(onlinePlayer->GetRobotID());
+    datastream->WriteUInt8(onlinePlayer->GetLives());
+    datastream->WriteUInt16(onlinePlayer->GetPositionX());
+    datastream->WriteUInt16(onlinePlayer->GetPositionY());
   }
 
   // Read players
