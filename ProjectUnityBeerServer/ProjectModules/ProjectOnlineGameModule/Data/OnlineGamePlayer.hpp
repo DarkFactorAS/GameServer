@@ -7,17 +7,20 @@ public:
   OnlineGamePlayer(uint32 acccountId, const String& playerName, uint32 robotId) :
     m_AccountId(acccountId),
     m_PlayerName(playerName),
-    m_RobotId(robotId)
+    m_RobotId(robotId),
+    m_SpawnPointId(0)
   {
   }
 
   uint32 GetAccountId() const{ return m_AccountId; }
-  uint16 GetRobotID() const{ return m_RobotId; }
+  uint32 GetRobotID() const{ return m_RobotId; }
   uint8 GetLives() const{ return m_Lives; }
   String GetPlayerName() const { return m_PlayerName; }
 
-  uint16 GetPositionX() const{ return m_Position.x; }
-  uint16 GetPositionY() const { return m_Position.y; }
+  uint16 GetPositionX() const{ return m_Position.GetUInt16X(); }
+  uint16 GetPositionY() const { return m_Position.GetUInt16Y(); }
+  uint16 GetSpawnPointId() const{ return m_SpawnPointId; }
+  void SetSpawnpointId( uint16 spawnpointId ){ m_SpawnPointId = spawnpointId; }
 
 private:
 
@@ -25,6 +28,7 @@ private:
   String m_PlayerName;
   uint32 m_RobotId;
   uint8 m_Lives;
+  uint16 m_SpawnPointId;
 
   Vector2 m_Position;
 

@@ -26,6 +26,14 @@ public:
 
   Playfield* GetPlayfield() const { return m_Playfield; }
   void   SetPlayfield(Playfield* playfield) { m_Playfield = playfield; }
+  uint32 GetPlayfieldId() const
+  {
+    if (m_Playfield != NULL)
+    {
+      return m_Playfield->GetPlayfieldId();
+    }
+    return 0;
+  }
 
   void AddPlayer(uint32 acccountId, const String& playerName, uint32 robotId)
   {

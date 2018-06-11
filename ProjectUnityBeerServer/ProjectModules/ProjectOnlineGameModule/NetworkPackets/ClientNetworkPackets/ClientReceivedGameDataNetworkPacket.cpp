@@ -18,13 +18,11 @@ BinaryStream* ClientReceivedGameDataNetworkPacket::GetDataStream()
 {
   BinaryStream* datastream = BaseNetworkPacket::GetDataStream();
   datastream->WriteUInt32(m_GameData->GetGameId());
-
-  uint playfieldId = datastream->ReadUInt32();
-
+  datastream->WriteUInt32(m_GameData->GetPlayfieldId());
 
   // Write players
   const std::vector<OnlineGamePlayer*> playerList = m_GameData->GetPlayerList();
-  datastream->WriteUInt16(playfieldId.size());
+  datastream->WriteUInt16((uint16)playerList.size());
 
   for (std::vector<OnlineGamePlayer*>::const_iterator itPlayer = playerList.begin(); itPlayer != playerList.end(); ++itPlayer)
   {
@@ -32,18 +30,13 @@ BinaryStream* ClientReceivedGameDataNetworkPacket::GetDataStream()
 
     datastream->WriteUInt32(onlinePlayer->GetAccountId());
     datastream->WriteString(onlinePlayer->GetPlayerName());
-    datastream->WriteUInt16(onlinePlayer->GetRobotID());
+    datastream->WriteUInt32(onlinePlayer->GetRobotID());
     datastream->WriteUInt8(onlinePlayer->GetLives());
     datastream->WriteUInt16(onlinePlayer->GetPositionX());
     datastream->WriteUInt16(onlinePlayer->GetPositionY());
-  }
 
-  // Read players
-  // - Id, name, position, lives
-  // - Playerhand/card
-  // Game status
-  // - Hm think about this
-  // Read playfield id
+    datastream->WriteUInt16(onlinePlayer->GetSpawnPointId());
+  }
 
   return datastream;
 }
