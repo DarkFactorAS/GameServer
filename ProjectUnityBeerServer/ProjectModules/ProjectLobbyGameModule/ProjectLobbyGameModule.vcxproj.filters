@@ -93,6 +93,9 @@
     <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerCreateLobbyGameNetworkPacket.h">
       <Filter>NetworkPackets\ServerNetworkPackets</Filter>
     </ClInclude>
+    <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerStartLobbyGameNetworkPackett.h">
+      <Filter>NetworkPackets\ServerNetworkPackets</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PreCompile.cpp" />
@@ -139,6 +142,9 @@
       <Filter>NetworkPackets\ClientNetworkPackets</Filter>
     </ClCompile>
     <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerCreateLobbyGameNetworkPacket.cpp">
+      <Filter>NetworkPackets\ServerNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerStartLobbyGameNetworkPacket.cpp">
       <Filter>NetworkPackets\ServerNetworkPackets</Filter>
     </ClCompile>
   </ItemGroup>

@@ -27,6 +27,11 @@ public:
   Playfield* GetPlayfield() const { return m_Playfield; }
   void   SetPlayfield(Playfield* playfield) { m_Playfield = playfield; }
 
+  uint32 GetPlayfieldId() const 
+  {
+    return ( m_Playfield != NULL ) ? : m_Playfield->GetPlayfieldId() : 0;
+  }
+
   bool HasPlayer(uint32 accountId)
   {
     for (std::vector<LobbyGamePlayer*>::iterator itPlayer = m_PlayerList.begin(); itPlayer != m_PlayerList.end(); itPlayer++)
