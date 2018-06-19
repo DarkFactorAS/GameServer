@@ -54,7 +54,7 @@ public:
     UnittestGameEngineClient* gameClient = UnittestGameEngineClient::GetInstanceIfAny();
     if (gameClient != NULL)
     {
-      gameClient->SendPacketToServer(new ServerCreateGameNetworkPacket(playfieldId, m_Player1->GetRobotId() ));
+      gameClient->SendPacketToServer(new ServerCreateLobbyGameNetworkPacket(playfieldId, m_Player1->GetRobotId() ));
       return true;
     }
     return false;

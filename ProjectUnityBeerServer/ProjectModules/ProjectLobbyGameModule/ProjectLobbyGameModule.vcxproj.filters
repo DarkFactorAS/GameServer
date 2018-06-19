@@ -35,9 +35,6 @@
     <ClInclude Include="NetworkPackets\BaseGameManagementNetworkPacket.h">
       <Filter>NetworkPackets</Filter>
     </ClInclude>
-    <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerCreateGameNetworkPacket.h">
-      <Filter>NetworkPackets\ServerNetworkPackets</Filter>
-    </ClInclude>
     <ClInclude Include="Data\GameManagementPacketData.h">
       <Filter>Data</Filter>
     </ClInclude>
@@ -93,14 +90,14 @@
     <ClInclude Include="NetworkPackets\ClientNetworkPackets\ClientCreatedQuickGameNetworkPacket.h">
       <Filter>NetworkPackets\ClientNetworkPackets</Filter>
     </ClInclude>
+    <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerCreateLobbyGameNetworkPacket.h">
+      <Filter>NetworkPackets\ServerNetworkPackets</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PreCompile.cpp" />
     <ClCompile Include="NetworkPackets\BaseGameManagementNetworkPacket.cpp">
       <Filter>NetworkPackets</Filter>
-    </ClCompile>
-    <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerCreateGameNetworkPacket.cpp">
-      <Filter>NetworkPackets\ServerNetworkPackets</Filter>
     </ClCompile>
     <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientGameErrorNetworkPacket.cpp">
       <Filter>NetworkPackets\ClientNetworkPackets</Filter>
@@ -140,6 +137,9 @@
     </ClCompile>
     <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientCreatedQuickGameNetworkPacket.cpp">
       <Filter>NetworkPackets\ClientNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerCreateLobbyGameNetworkPacket.cpp">
+      <Filter>NetworkPackets\ServerNetworkPackets</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

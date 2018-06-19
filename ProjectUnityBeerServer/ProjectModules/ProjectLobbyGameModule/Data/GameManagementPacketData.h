@@ -7,7 +7,7 @@ namespace GameEnginePacketData
   enum PacketData
   {
     // 300-399 Game management data
-    PacketData_ServerCreateGame = 500,
+    PacketData_ServerCreateLobbyGame = 500,
     PacketData_ServerGameList = 501,
     PacketData_ServerJoinLobbyGame = 502,
     PacketData_ServerLeaveLobbyGame = 503,

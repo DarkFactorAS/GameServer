@@ -11,7 +11,7 @@
 
 #include "ProjectLobbyGameModule/NetworkPackets/ClientNetworkPackets/ClientCreatedQuickGameNetworkPacket.h"
 
-#include "ProjectLobbyGameModule/NetworkPackets/ServerNetworkPackets/ServerCreateGameNetworkPacket.h"
+#include "ProjectLobbyGameModule/NetworkPackets/ServerNetworkPackets/ServerCreateLobbyGameNetworkPacket.h"
 #include "ProjectLobbyGameModule/NetworkPackets/ServerNetworkPackets/ServerGameListNetworkPacket.h"
 #include "ProjectLobbyGameModule/NetworkPackets/ServerNetworkPackets/ServerPlayerJoinLobbyGameNetworkPacket.h"
 #include "ProjectLobbyGameModule/NetworkPackets/ServerNetworkPackets/ServerPlayerLeaveLobbyGameNetworkPacket.h"
@@ -27,7 +27,7 @@ ProjectGameManagementServerModule::ProjectGameManagementServerModule() :
   CoreGameEngineModule(PROJECT_MODULETYPE_GAMEMANAGEMENT),
   m_LastError(0)
 {
-  RegisterPacketType(GameEnginePacketData::PacketData_ServerCreateGame, ServerCreateGameNetworkPacket::Create);
+  RegisterPacketType(GameEnginePacketData::PacketData_ServerCreateLobbyGame, ServerCreateLobbyGameNetworkPacket::Create);
   RegisterPacketType(GameEnginePacketData::PacketData_ServerGameList, ServerGameListNetworkPacket::Create);
   RegisterPacketType(GameEnginePacketData::PacketData_ServerJoinLobbyGame, ServerPlayerJoinLobbyGameNetworkPacket::Create);
   RegisterPacketType(GameEnginePacketData::PacketData_ServerLeaveLobbyGame, ServerPlayerLeaveLobbyGameNetworkPacket::Create);

@@ -8,27 +8,27 @@
 *************************************************************************************************/
 
 #include "Precompile.h"
-#include "ServerCreateGameNetworkPacket.h"
+#include "ServerCreateLobbyGameNetworkPacket.h"
 
 #include "ProjectLobbyGameModule/Data/GameManagementPacketData.h"
 #include "ProjectLobbyGameModule/NetworkPackets/ClientNetworkPackets/ClientCreatedLobbyGameNetworkPacket.h"
 #include "ProjectLobbyGameModule/Data/LobbyGameData.hpp"
 
-ServerCreateGameNetworkPacket::ServerCreateGameNetworkPacket(uint32 playfieldId, uint32 robotId) :
-  BaseGameManagementNetworkPacket(GameEnginePacketData::PacketData_ServerCreateGame),
+ServerCreateLobbyGameNetworkPacket::ServerCreateLobbyGameNetworkPacket(uint32 playfieldId, uint32 robotId) :
+  BaseGameManagementNetworkPacket(GameEnginePacketData::PacketData_ServerCreateLobbyGame),
   m_PlayfieldId(playfieldId),
   m_RobotId(robotId)
 {
 }
 
-ServerCreateGameNetworkPacket::ServerCreateGameNetworkPacket(const BinaryStream* datastream) :
-  BaseGameManagementNetworkPacket(GameEnginePacketData::PacketData_ServerCreateGame, datastream)
+ServerCreateLobbyGameNetworkPacket::ServerCreateLobbyGameNetworkPacket(const BinaryStream* datastream) :
+  BaseGameManagementNetworkPacket(GameEnginePacketData::PacketData_ServerCreateLobbyGame, datastream)
 {
   m_PlayfieldId = datastream->ReadUInt32();
   m_RobotId = datastream->ReadUInt32();
 }
 
-BinaryStream* ServerCreateGameNetworkPacket::GetDataStream()
+BinaryStream* ServerCreateLobbyGameNetworkPacket::GetDataStream()
 {
   BinaryStream* datastream = BaseGameManagementNetworkPacket::GetDataStream();
   datastream->WriteUInt32(m_PlayfieldId);
@@ -36,7 +36,7 @@ BinaryStream* ServerCreateGameNetworkPacket::GetDataStream()
   return datastream;
 }
 
-ProjectWorldBuilderServerModule* ServerCreateGameNetworkPacket::GetWorldBuilderModule()
+ProjectWorldBuilderServerModule* ServerCreateLobbyGameNetworkPacket::GetWorldBuilderModule()
 {
   CoreGameEngine* gameEngine = GetGameEngine();
   if (gameEngine != NULL)
@@ -47,7 +47,7 @@ ProjectWorldBuilderServerModule* ServerCreateGameNetworkPacket::GetWorldBuilderM
 }
 
 
-void ServerCreateGameNetworkPacket::Execute()
+void ServerCreateLobbyGameNetworkPacket::Execute()
 {
   Account* account = GetAccount();
 

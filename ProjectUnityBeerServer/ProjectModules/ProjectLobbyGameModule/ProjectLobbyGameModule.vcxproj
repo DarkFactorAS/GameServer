@@ -141,7 +141,7 @@
     <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientPlayerJoinedLobbyGameNetworkPacket.cpp" />
     <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientPlayerLeftLobbyGameNetworkPacket.cpp" />
     <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientLobbyGameListNetworkPacket.cpp" />
-    <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerCreateGameNetworkPacket.cpp" />
+    <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerCreateLobbyGameNetworkPacket.cpp" />
     <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerGameListNetworkPacket.cpp" />
     <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerJoinQuickGameNetworkPacket.cpp" />
     <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerLeaveQuickGameNetworkPacket.cpp" />
@@ -165,7 +165,7 @@
     <ClInclude Include="NetworkPackets\ClientNetworkPackets\ClientPlayerJoinedLobbyGameNetworkPacket.h" />
     <ClInclude Include="NetworkPackets\ClientNetworkPackets\ClientPlayerLeftLobbyGameNetworkPacket.h" />
     <ClInclude Include="NetworkPackets\ClientNetworkPackets\ClientLobbyGameListNetworkPacket.h" />
-    <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerCreateGameNetworkPacket.h" />
+    <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerCreateLobbyGameNetworkPacket.h" />
     <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerGameListNetworkPacket.h" />
     <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerJoinQuickGameNetworkPacket.h" />
     <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerLeaveQuickGameNetworkPacket.h" />

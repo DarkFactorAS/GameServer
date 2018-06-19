@@ -6,14 +6,14 @@
 #include "ProjectUnityBeerServer/ProjectModules/ProjectWorldBuilderModule/Data/Playfield.h"
 #include "ProjectUnityBeerServer/ProjectModules/ProjectWorldBuilderModule/WorldBuilderModule/ProjectWorldBuilderServerModule.h"
 
-class ServerCreateGameNetworkPacket : public BaseGameManagementNetworkPacket
+class ServerCreateLobbyGameNetworkPacket : public BaseGameManagementNetworkPacket
 {
 public:
 
-  ServerCreateGameNetworkPacket(uint32 playfieldId, uint32 robotId);
-  ServerCreateGameNetworkPacket(const BinaryStream* datastream);
+  ServerCreateLobbyGameNetworkPacket(uint32 playfieldId, uint32 robotId);
+  ServerCreateLobbyGameNetworkPacket(const BinaryStream* datastream);
 
-  static  BaseNetworkPacket*    Create(const BinaryStream* datastream) { return new ServerCreateGameNetworkPacket(datastream); }
+  static  BaseNetworkPacket*    Create(const BinaryStream* datastream) { return new ServerCreateLobbyGameNetworkPacket(datastream); }
 
   virtual String                GetPacketName()   DF_OVERRIDE { return StaticStr("ServerCreateGame"); }
   virtual void                  Execute()         DF_OVERRIDE;
