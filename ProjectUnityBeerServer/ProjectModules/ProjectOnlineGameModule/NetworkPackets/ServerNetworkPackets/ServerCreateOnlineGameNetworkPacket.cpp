@@ -1,6 +1,6 @@
 /*************************************************************************************************
-* Project     : EvilEngine Multi-platform 2014-2016
-* File        : LoginAccountNetworkPacket
+* Project     : EvilEngine Multi-platform 2014-2019
+* File        : ServerCreateOnlineGameNetworkPacket
 *
 * Description : Network packet save playfield on the server
 *
@@ -8,32 +8,34 @@
 *************************************************************************************************/
 
 #include "Precompile.h"
-#include "ServerStartLobbyGameNetworkPackett.h"
+#include "ServerCreateOnlineGameNetworkPacket.h"
 
 #include "ProjectLobbyGameModule/Data/GameManagementPacketData.h"
 #include "ProjectLobbyGameModule/NetworkPackets/ClientNetworkPackets/ClientCreatedLobbyGameNetworkPacket.h"
 #include "ProjectLobbyGameModule/Data/LobbyGameData.hpp"
 
-ServerStartLobbyGameNetworkPackett::ServerStartLobbyGameNetworkPackett(uint32 lobbyGameId) :
-  BaseGameManagementNetworkPacket(GameEnginePacketData::PacketData_ServerStartLobbyGame),
+#include "ProjectOnlineGameModule/Data/OnlineGamePacketData.h"
+
+ServerCreateOnlineGameNetworkPacket::ServerCreateOnlineGameNetworkPacket(uint32 lobbyGameId) :
+  BaseGameManagementNetworkPacket(OnlineGamePacketData::PacketData_ServerStartLobbyGame),
   m_LobbyGameId(lobbyGameId)
 {
 }
 
-ServerStartLobbyGameNetworkPackett::ServerStartLobbyGameNetworkPackett(const BinaryStream* datastream) :
+ServerCreateOnlineGameNetworkPacket::ServerCreateOnlineGameNetworkPacket(const BinaryStream* datastream) :
   BaseGameManagementNetworkPacket(GameEnginePacketData::PacketData_ServerStartLobbyGame, datastream)
 {
   m_LobbyGameId = datastream->ReadUInt32();
 }
 
-BinaryStream* ServerStartLobbyGameNetworkPackett::GetDataStream()
+BinaryStream* ServerCreateOnlineGameNetworkPacket::GetDataStream()
 {
   BinaryStream* datastream = BaseGameManagementNetworkPacket::GetDataStream();
   datastream->WriteUInt32(m_LobbyGameId);
   return datastream;
 }
 
-ProjectOnlineGameServerModule* ServerStartLobbyGameNetworkPackett::GetOnlineGameModule()
+ProjectOnlineGameServerModule* ServerCreateOnlineGameNetworkPacket::GetOnlineGameModule()
 {
   CoreGameEngine* gameEngine = GetGameEngine();
   if (gameEngine != NULL)
@@ -44,7 +46,7 @@ ProjectOnlineGameServerModule* ServerStartLobbyGameNetworkPackett::GetOnlineGame
 }
 
 
-void ServerStartLobbyGameNetworkPackett::Execute()
+void ServerCreateOnlineGameNetworkPacket::Execute()
 {
   //Account* account = GetAccount();
 

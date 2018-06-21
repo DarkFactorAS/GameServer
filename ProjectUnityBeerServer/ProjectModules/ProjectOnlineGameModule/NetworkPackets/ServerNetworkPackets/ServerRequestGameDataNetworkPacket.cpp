@@ -11,17 +11,17 @@
 #include "ServerRequestGameDataNetworkPacket.h"
 
 #include "ProjectModules/ProjectOnlineGameModule/Data/OnlineGamePacketData.h"
-#include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ClientNetworkPackets/ClientReceivedGameDataNetworkPacket.h"
+//#include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ClientNetworkPackets/ClientReceivedGameDataNetworkPacket.h"
 #include "ProjectModules/ProjectOnlineGameModule/Module/ProjectOnlineGameServerModule.h"
 
 ServerRequestGameDataNetworkPacket::ServerRequestGameDataNetworkPacket(uint32 gameId) :
-  ServerBaseOnlineGameNetworkPacket(OnlineGamePacketData::PacketData_ServerRequestGameData),
+  ServerBaseOnlineGameNetworkPacket(OnlineGamePacketData::PacketData_ServerCreateOnlineGame),
   m_GameId(gameId)
 {
 }
 
 ServerRequestGameDataNetworkPacket::ServerRequestGameDataNetworkPacket(const BinaryStream* datastream) :
-  ServerBaseOnlineGameNetworkPacket(OnlineGamePacketData::PacketData_ServerRequestGameData, datastream)
+  ServerBaseOnlineGameNetworkPacket(OnlineGamePacketData::PacketData_ServerCreateOnlineGame, datastream)
 {
   m_GameId = datastream->ReadUInt32();
 }

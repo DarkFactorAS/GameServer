@@ -29,6 +29,40 @@ ProjectOnlineGameServerModule* ProjectOnlineGameServerModule::GetModule(CoreGame
   return NULL;
 }
 
+OnlineGameData* ProjectOnlineGameServerModule::CreateOnlineGame(uint32 /*accountId*/, uint32 /*lobbyGameId*/)
+{
+  //Account* account = GetAccount();
+
+  //ProjectGameManagementServerModule* module = GetModule();
+  //ProjectOnlineGameServerModule* onlineGameModule = GetOnlineGameModule();
+
+  //if (module != NULL && account != NULL && onlineGameModule != NULL)
+  //{
+  //  LobbyGameData* lobbyGame = module->GetLobbyGameWithAccountId(account->GetAccountId());
+  //  if (lobbyGame != NULL && lobbyGame->GetGameId() == m_LobbyGameId)
+  //  {
+  //    OnlineGameData* onlineGame = onlineGameModule->CreateOnlineGame(lobbyGame->GetPlayfieldId());
+  //    if (onlineGame != NULL)
+  //    {
+  //      // Add players
+  //      const std::vector<LobbyGamePlayer*> playerList = lobbyGame->GetPlayerList();
+  //      for (std::vector<LobbyGamePlayer*>::const_iterator itLobbyPlayer = playerList.begin(); itLobbyPlayer != playerList.end(); ++itLobbyPlayer)
+  //      {
+  //        const LobbyGamePlayer* lobbyPlayer = *itLobbyPlayer;
+  //        onlineGame->AddPlayer(lobbyPlayer->GetAccountId(), lobbyPlayer->GetPlayerName(), lobbyPlayer->GetRobotId());
+  //      }
+
+  //      // Notify clients
+  //      // Broadcast to all game players
+  //      SendPacketToClient(new ClientCreatedLobbyGameNetworkPacket(newGame));
+
+  //      return;
+  //    }
+  //  }
+  //}
+
+  return NULL;
+}
 
 void ProjectOnlineGameServerModule::AddOnlineGame(OnlineGameData* game)
 {

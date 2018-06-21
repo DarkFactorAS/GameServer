@@ -7,7 +7,8 @@ namespace OnlineGamePacketData
   enum PacketData
   {
     // 300-399 Game management data
-    PacketData_ServerRequestGameData = 600,
+    PacketData_ServerCreateOnlineGame = 600,
+    PacketData_ServerRequestGameData = 601,
 
     PacketData_ClientReceiveGameData = 650,
   };

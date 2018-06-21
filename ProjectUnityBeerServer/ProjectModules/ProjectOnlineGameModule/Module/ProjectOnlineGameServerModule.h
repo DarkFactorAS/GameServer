@@ -24,6 +24,8 @@ public:
   virtual String              GetModuleName() DF_OVERRIDE { return StaticStr("ProjectOnlineGameServerModule"); }
   static ProjectOnlineGameServerModule* GetModule(CoreGameEngine* gameEngine);
 
+  OnlineGameData*             CreateOnlineGame(uint32 accountId, uint32 lobbyGameId);
+
   void                        AddOnlineGame(OnlineGameData* game);
   OnlineGameData*             GetOnlineGame(uint32 accountId, uint32 gameId);
   OnlineGameData*             GetOnlineGame(uint32 gameId);
