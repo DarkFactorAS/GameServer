@@ -39,11 +39,15 @@ public:
 
   virtual void                FrameProcess(float /*deltaTime*/) {};
   virtual String              GetModuleName() DF_OVERRIDE { return StaticStr("ProjectWorldBuilderServerModule"); }
+  static ProjectWorldBuilderServerModule*    GetModule(CoreEngine* gameEngine);
 
   std::vector< Playfield* >   LoadPlayfieldList(uint32 accountId, bool loadPublic);
   virtual Playfield*          LoadPlayfield(uint32 /*accountId*/, uint32 /*playfieldId*/);
   uint32                      SavePlayfieldToDb(uint32 accountId, Playfield* playfield );
   uint32                      DeletePlayfield(uint32 accountId, uint32 playfieldId);
+
+  Playfield*                  LoadPlayfield(uint32 playfield);
+  Playfield*                  GetPlayfield(uint32 playfield);
 
   const String&               GetLoginError(uint32 errorCode);
   static uint32               VerifyPlayfieldData(Playfield* playfield);
@@ -59,6 +63,7 @@ private:
   void                        LoadPlayfieldSQL(const String& sql, std::vector<Playfield*>& playfieldList);
   void                        SetLastPlayfieldError(uint32 errorCode);
 
+  std::map<uint32,Playfield*> m_PlayfieldCache;
 };
 
 #endif /// PROJECT_PROJECTWORLDBUILDERMODULE_WORLDBUULDERMODULE

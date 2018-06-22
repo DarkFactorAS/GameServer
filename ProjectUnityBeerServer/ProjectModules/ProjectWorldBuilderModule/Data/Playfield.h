@@ -52,6 +52,8 @@ public:
   void                          SetFlags(uint32 flags){ m_Flags = flags; }
   uint32                        GetFlags() const { return m_Flags; }
 
+  bool                          HasFlag(uint32 flags);
+
   void                          SetNumPlayers(uint8 numPlayers){ m_NumPlayers = numPlayers; }
   uint8                         GetNumPlayers() const{ return m_NumPlayers; }
 

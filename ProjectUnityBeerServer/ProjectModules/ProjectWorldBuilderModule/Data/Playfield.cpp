@@ -22,6 +22,12 @@ void Playfield::SetPlayfieldId(uint32 playfieldId)
   m_PlayfieldId = playfieldId;
 }
 
+bool Playfield::HasFlag(uint32 flags)
+{
+  return ( m_Flags & flags ) == flags;
+}
+
+
 void Playfield::AddTile(PlayfieldTile* tile)
 {
   m_Tiles.push_back(tile);

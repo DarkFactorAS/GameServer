@@ -33,6 +33,15 @@ ProjectWorldBuilderServerModule::ProjectWorldBuilderServerModule() :
   AddLoginError(WorldBuilderPacketData::ErrorCode_PlayfieldnameTooLong, "Playfieldname too long");
 }
 
+ProjectWorldBuilderServerModule* ProjectWorldBuilderServerModule::GetModule(CoreEngine* gameEngine)
+{
+  if (gameEngine != NULL)
+  {
+    return safe_cast<ProjectWorldBuilderServerModule*> (gameEngine->GetEngineModule(ProjectWorldBuilderServerModule::PROJECT_MODULETYPE_WORLDBUILDER));
+  }
+  return NULL;
+}
+
 void ProjectWorldBuilderServerModule::LoadPlayfieldSQL(const String& sql, std::vector<Playfield*>& playfieldList)
 {
   const SQLResultSet& result = CoreDatabase::GetInstance()->ExecuteSelect(sql);
@@ -93,7 +102,25 @@ void ProjectWorldBuilderServerModule::SetLastPlayfieldError(uint32 /*errorCode*/
 
 }
 
-Playfield* ProjectWorldBuilderServerModule::LoadPlayfield(uint32 accountId, uint32 playfieldId)
+Playfield* ProjectWorldBuilderServerModule::GetPlayfield(uint32 playfieldId)
+{
+  // Find in cache first
+  std::map<uint32,Playfield*>::iterator itPlayfield = m_PlayfieldCache.find(playfieldId);
+  if ( itPlayfield != m_PlayfieldCache.end() )
+  {
+    return itPlayfield->second;
+  }
+
+  Playfield* playfield = LoadPlayfield(playfieldId);
+  if ( playfield != NULL)
+  {
+    m_PlayfieldCache[playfieldId] = playfield;
+  }
+
+  return playfield;
+}
+
+Playfield* ProjectWorldBuilderServerModule::LoadPlayfield(uint32 playfieldId)
 {
   Playfield* playfield = NULL;
 #ifdef DATABASE
@@ -105,34 +132,34 @@ Playfield* ProjectWorldBuilderServerModule::LoadPlayfield(uint32 accountId, uint
     return NULL;
   }
 
-  String sql = "Select Id,OwnerAccountId, Name, Description, Flags, NumPlayers, NumGoals, BoardSizeX, BoardSizeY, Data from playfield where ( OwnerAccountId=%u or Flags = %u ) and Id = %u";
-  const SQLResultSet& result = database->ExecuteSelect(sql, accountId, Playfield::PlayfieldFlag_Open, playfieldId);
+  String sql = "Select Id,OwnerAccountId, Name, Description, Flags, NumPlayers, NumGoals, BoardSizeX, BoardSizeY, Data from playfield where Id = %u";
+  const SQLResultSet& result = database->ExecuteSelect(sql, playfieldId);
   if (result.Next())
   {
     playfield = new Playfield();
 
-    playfield->SetPlayfieldId( result.GetUInt32() );
-    playfield->SetOwnerAccountId( result.GetUInt32() );
-    playfield->SetPlayfieldName( result.GetString() );
-    playfield->SetPlayfieldDescription( result.GetString() );
-    playfield->SetFlags( result.GetUInt32() );
-    playfield->SetNumPlayers( result.GetUInt8() );
-    playfield->SetNumGoals( result.GetUInt8() );
-    playfield->SetBoardSizeX( result.GetUInt8() );
+    playfield->SetPlayfieldId(result.GetUInt32());
+    playfield->SetOwnerAccountId(result.GetUInt32());
+    playfield->SetPlayfieldName(result.GetString());
+    playfield->SetPlayfieldDescription(result.GetString());
+    playfield->SetFlags(result.GetUInt32());
+    playfield->SetNumPlayers(result.GetUInt8());
+    playfield->SetNumGoals(result.GetUInt8());
+    playfield->SetBoardSizeX(result.GetUInt8());
     playfield->SetBoardSizeY(result.GetUInt8());
 
     // Data tiles from datablob
     String base64data = result.GetString();
-    std::string unencodedData = Base64Util::Decode( base64data.c_str() );
-    BinaryStream* binaryStreamData = new BinaryStream(unencodedData.c_str(), unencodedData.length() );
-    for (uint32 x = 0; x < Playfield::PlayBoardXSize; x++ )
+    std::string unencodedData = Base64Util::Decode(base64data.c_str());
+    BinaryStream* binaryStreamData = new BinaryStream(unencodedData.c_str(), unencodedData.length());
+    for (uint32 x = 0; x < Playfield::PlayBoardXSize; x++)
     {
       for (uint32 y = 0; y < Playfield::PlayBoardYSize; y++)
       {
         uint16 tileType = binaryStreamData->ReadUInt16();
         uint16 rotation = binaryStreamData->ReadUInt16();
 
-        playfield->AddTile( new PlayfieldTile(tileType, rotation, new Vector2((float)x,(float)y)));
+        playfield->AddTile(new PlayfieldTile(tileType, rotation, new Vector2((float)x, (float)y)));
       }
     }
 
@@ -148,6 +175,18 @@ Playfield* ProjectWorldBuilderServerModule::LoadPlayfield(uint32 accountId, uint
 #endif
 
   return playfield;
+}
+
+Playfield* ProjectWorldBuilderServerModule::LoadPlayfield(uint32 accountId, uint32 playfieldId)
+{
+  Playfield* playfield = LoadPlayfield(playfieldId);
+  if ( playfield != NULL && ( playfield->GetOwnerAccountId() == accountId || playfield->HasFlag(Playfield::PlayfieldFlag_Open) ) )
+  {
+    return playfield;  
+  }
+
+  delete playfield;
+  return NULL;
 }
 
 uint32 ProjectWorldBuilderServerModule::VerifyPlayfieldData(Playfield* playfield)

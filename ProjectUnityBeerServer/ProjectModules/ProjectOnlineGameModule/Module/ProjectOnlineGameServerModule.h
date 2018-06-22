@@ -31,9 +31,8 @@ public:
   OnlineGameData*             GetOnlineGame(uint32 gameId);
 
 private:
-
+  
   std::map< uint32, OnlineGameData* > m_OnlineGameMap;
-
 };
 
 #endif /// PROJECT_PROJECTONLINEGAMEMODULE_ONLINEGAMESERVErMODULE

@@ -16,6 +16,7 @@
 #include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ServerNetworkPackets/ServerRequestGameDataNetworkPacket.h"
 
 #include "ProjectModules/ProjectLobbyGameModule/Module/ProjectServerLobbyGameModule.h"
+#include "ProjectModules/ProjectWorldBuilderModule/WorldBuilderModule/ProjectWorldBuilderServerModule.h"
 
 #include "ProjectLobbyGameModule/Data/LobbyGameData.hpp"
 #include "ProjectLobbyGameModule/Data/LobbyGamePlayer.hpp"
@@ -36,31 +37,39 @@ ProjectOnlineGameServerModule* ProjectOnlineGameServerModule::GetModule(CoreGame
   return NULL;
 }
 
-OnlineGameData* ProjectOnlineGameServerModule::CreateOnlineGame(uint32 /*accountId*/, uint32 /*lobbyGameId*/)
+OnlineGameData* ProjectOnlineGameServerModule::CreateOnlineGame(uint32 accountId, uint32 lobbyGameId)
 {
-  //ProjectGameManagementServerModule* lobbyModule = safe_cast<ProjectGameManagementServerModule*> (gameEngine->GetEngineModule(ProjectGameManagementServerModule::PROJECT_MODULETYPE_GAMEMANAGEMENT));
-  //if (lobbyModule != NULL)
-  //{
-  //  LobbyGameData* lobbyGame = lobbyModule->GetLobbyGameWithAccountId(accountId);
-  //  if (lobbyGame != NULL && lobbyGame->GetGameId() == m_LobbyGameId)
-  //  {
-  //    OnlineGameData* onlineGame = new OnlineGameData();
-  //    if (onlineGame != NULL)
-  //    {
-  //      onlineGame->SetPlayfield( lobbyGame->GetPlayfieldId() );
+  ProjectGameManagementServerModule* lobbyModule = ProjectGameManagementServerModule::GetModule( m_CoreEngine );
+  ProjectWorldBuilderServerModule* worldbuilderModule = ProjectWorldBuilderServerModule::GetModule( m_CoreEngine );
+  if (lobbyModule != NULL && worldbuilderModule != NULL )
+  {
+    LobbyGameData* lobbyGame = lobbyModule->GetLobbyGameWithAccountId(accountId);
+    if (lobbyGame != NULL && lobbyGame->GetGameId() == lobbyGameId)
+    {
+      Playfield* playfield = worldbuilderModule->GetPlayfield(lobbyGame->GetPlayfieldId());
+      if (playfield == NULL)
+      {
+        /// Notify client about missing playfield
+        return NULL;
+      }
 
-  //      // Add players
-  //      const std::vector<LobbyGamePlayer*> playerList = lobbyGame->GetPlayerList();
-  //      for (std::vector<LobbyGamePlayer*>::const_iterator itLobbyPlayer = playerList.begin(); itLobbyPlayer != playerList.end(); ++itLobbyPlayer)
-  //      {
-  //        const LobbyGamePlayer* lobbyPlayer = *itLobbyPlayer;
-  //        onlineGame->AddPlayer(lobbyPlayer->GetAccountId(), lobbyPlayer->GetPlayerName(), lobbyPlayer->GetRobotId());
-  //      }
+      OnlineGameData* onlineGame = new OnlineGameData();
+      if (onlineGame != NULL)
+      {
+        onlineGame->SetPlayfield( playfield );
 
-  //      return onlineGame;
-  //    }
-  //  }
-  //}
+        // Add players
+        const std::vector<LobbyGamePlayer*> playerList = lobbyGame->GetPlayerList();
+        for (std::vector<LobbyGamePlayer*>::const_iterator itLobbyPlayer = playerList.begin(); itLobbyPlayer != playerList.end(); ++itLobbyPlayer)
+        {
+          const LobbyGamePlayer* lobbyPlayer = *itLobbyPlayer;
+          onlineGame->AddPlayer(lobbyPlayer->GetAccountId(), lobbyPlayer->GetPlayerName(), lobbyPlayer->GetRobotId());
+        }
+
+        return onlineGame;
+      }
+    }
+  }
 
   return NULL;
 }

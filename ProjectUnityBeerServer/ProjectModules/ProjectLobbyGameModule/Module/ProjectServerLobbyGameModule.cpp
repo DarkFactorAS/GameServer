@@ -42,6 +42,15 @@ ProjectGameManagementServerModule::~ProjectGameManagementServerModule()
 {
 }
 
+ProjectGameManagementServerModule* ProjectGameManagementServerModule::GetModule(CoreEngine* gameEngine)
+{
+  if (gameEngine != NULL)
+  {
+    return safe_cast<ProjectGameManagementServerModule*> (gameEngine->GetEngineModule(ProjectGameManagementServerModule::PROJECT_MODULETYPE_GAMEMANAGEMENT));
+  }
+  return NULL;
+}
+
 void ProjectGameManagementServerModule::AddGameError(GameEnginePacketData::PacketError errorCode, const String& errorMessage)
 {
   AddGameError((uint32)errorCode, errorMessage);
