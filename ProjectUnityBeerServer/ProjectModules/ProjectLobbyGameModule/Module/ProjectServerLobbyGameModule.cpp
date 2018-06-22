@@ -1,6 +1,6 @@
 
 #include "PreCompile.h"
-#include "ProjectGameManagementServerModule.h"
+#include "ProjectServerLobbyGameModule.h"
 
 #include "EvilGameEngine/CoreGameLogin/LoginModule/CoreGameServerLoginModule.h"
 #include "EvilGameEngine/CoreGameEngine/CoreGameNetwork/Packets/BaseNetworkPacket.h"

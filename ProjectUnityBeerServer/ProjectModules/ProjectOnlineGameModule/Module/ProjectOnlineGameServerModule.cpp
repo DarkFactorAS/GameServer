@@ -15,7 +15,7 @@
 #include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ServerNetworkPackets/ServerCreateOnlineGameNetworkPacket.h"
 #include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ServerNetworkPackets/ServerRequestGameDataNetworkPacket.h"
 
-#include "ProjectModules/ProjectLobbyGameModule/Logic/GameManagementModule/ProjectGameManagementServerModule.h"
+#include "ProjectModules/ProjectLobbyGameModule/Module/ProjectServerLobbyGameModule.h"
 
 #include "ProjectLobbyGameModule/Data/LobbyGameData.hpp"
 #include "ProjectLobbyGameModule/Data/LobbyGamePlayer.hpp"

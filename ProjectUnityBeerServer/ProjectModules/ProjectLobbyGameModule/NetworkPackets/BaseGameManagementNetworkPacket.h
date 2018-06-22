@@ -7,7 +7,7 @@
 #include "EvilGameEngine/CoreGameLogin/Network/BaseAuthentcatedNetworkPacket.h"
 
 #include "ProjectUnityBeerServer/ProjectModules/ProjectLobbyGameModule/Data/GameManagementPacketData.h"
-#include "ProjectUnityBeerServer/ProjectModules/ProjectLobbyGameModule/Logic/GameManagementModule/ProjectGameManagementServerModule.h"
+#include "ProjectUnityBeerServer/ProjectModules/ProjectLobbyGameModule/Module/ProjectServerLobbyGameModule.h"
 
 class BaseGameManagementNetworkPacket : public BaseAuthentcatedNetworkPacket
 {

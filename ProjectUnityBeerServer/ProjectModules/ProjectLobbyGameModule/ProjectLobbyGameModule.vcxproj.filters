@@ -16,15 +16,11 @@
     <Filter Include="NetworkPackets\ClientNetworkPackets">
       <UniqueIdentifier>{941171c3-749c-4532-8dee-dcda8aec61d5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Logic">
-      <UniqueIdentifier>{fd8e1013-4e88-4ec0-8336-bd12cca319f6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Logic\GameManagementModule">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="Unittests\AsyncUnittest">
       <UniqueIdentifier>{bcb0b9b3-f09d-4fa7-9946-756be35a7dc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Module">
+      <UniqueIdentifier>{fd8e1013-4e88-4ec0-8336-bd12cca319f6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -40,12 +36,6 @@
     </ClInclude>
     <ClInclude Include="NetworkPackets\ClientNetworkPackets\ClientGameErrorNetworkPacket.h">
       <Filter>NetworkPackets\ClientNetworkPackets</Filter>
-    </ClInclude>
-    <ClInclude Include="Logic\GameManagementModule\ProjectGameManagementClientModule.h">
-      <Filter>Logic\GameManagementModule</Filter>
-    </ClInclude>
-    <ClInclude Include="Logic\GameManagementModule\ProjectGameManagementServerModule.h">
-      <Filter>Logic\GameManagementModule</Filter>
     </ClInclude>
     <ClInclude Include="Data\LobbyGameData.hpp">
       <Filter>Data</Filter>
@@ -93,6 +83,12 @@
     <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerCreateLobbyGameNetworkPacket.h">
       <Filter>NetworkPackets\ServerNetworkPackets</Filter>
     </ClInclude>
+    <ClInclude Include="Module\ProjectServerLobbyGameModule.h">
+      <Filter>Module</Filter>
+    </ClInclude>
+    <ClInclude Include="Module\ProjectClientLobbyGameModule.h">
+      <Filter>Module</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PreCompile.cpp" />
@@ -101,12 +97,6 @@
     </ClCompile>
     <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientGameErrorNetworkPacket.cpp">
       <Filter>NetworkPackets\ClientNetworkPackets</Filter>
-    </ClCompile>
-    <ClCompile Include="Logic\GameManagementModule\ProjectGameManagementClientModule.cpp">
-      <Filter>Logic\GameManagementModule</Filter>
-    </ClCompile>
-    <ClCompile Include="Logic\GameManagementModule\ProjectGameManagementServerModule.cpp">
-      <Filter>Logic\GameManagementModule</Filter>
     </ClCompile>
     <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientCreatedLobbyGameNetworkPacket.cpp">
       <Filter>NetworkPackets\ClientNetworkPackets</Filter>
@@ -140,6 +130,12 @@
     </ClCompile>
     <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerCreateLobbyGameNetworkPacket.cpp">
       <Filter>NetworkPackets\ServerNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="Module\ProjectClientLobbyGameModule.cpp">
+      <Filter>Module</Filter>
+    </ClCompile>
+    <ClCompile Include="Module\ProjectServerLobbyGameModule.cpp">
+      <Filter>Module</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

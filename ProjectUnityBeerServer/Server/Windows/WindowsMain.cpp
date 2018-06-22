@@ -21,7 +21,7 @@
 #include "EvilGameEngine/CoreGameLogin/LoginModule/CoreGameServerLoginModule.h"
 
 #include "ProjectModules/ProjectWorldBuilderModule/WorldBuilderModule/ProjectWorldBuilderServerModule.h"
-#include "ProjectModules/ProjectLobbyGameModule/Logic/GameManagementModule/ProjectGameManagementServerModule.h"
+#include "ProjectModules/ProjectLobbyGameModule/Module/ProjectServerLobbyGameModule.h"
 #include "ProjectModules/ProjectOnlineGameModule/Module/ProjectOnlineGameServerModule.h"
 #include "EvilEngine/CoreEngine/CoreEventLogger/CoreEventLogger.h"
 #include "EvilEngine/CoreVersion/version.h"

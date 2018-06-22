@@ -14,7 +14,7 @@
 #include "ProjectLobbyGameModule/Data/GameManagementPacketData.h"
 #include "ProjectLobbyGameModule/Data/LobbyGameData.hpp"
 #include "ProjectLobbyGameModule/Data/LobbyGamePlayer.hpp"
-#include "ProjectLobbyGameModule/Logic/GameManagementModule/ProjectGameManagementClientModule.h"
+#include "ProjectLobbyGameModule/Module/ProjectClientLobbyGameModule.h"
 
 #include "ProjectUnityBeerServer/ProjectModules/ProjectWorldBuilderModule/Data/Playfield.h"
 

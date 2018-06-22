@@ -132,8 +132,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Logic\GameManagementModule\ProjectGameManagementClientModule.cpp" />
-    <ClCompile Include="Logic\GameManagementModule\ProjectGameManagementServerModule.cpp" />
+    <ClCompile Include="Module\ProjectClientLobbyGameModule.cpp" />
+    <ClCompile Include="Module\ProjectServerLobbyGameModule.cpp" />
     <ClCompile Include="NetworkPackets\BaseGameManagementNetworkPacket.cpp" />
     <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientCreatedLobbyGameNetworkPacket.cpp" />
     <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientCreatedQuickGameNetworkPacket.cpp" />
@@ -156,8 +156,8 @@
     <ClInclude Include="Data\GameManagementPacketData.h" />
     <ClInclude Include="Data\LobbyGameData.hpp" />
     <ClInclude Include="Data\LobbyGamePlayer.hpp" />
-    <ClInclude Include="Logic\GameManagementModule\ProjectGameManagementClientModule.h" />
-    <ClInclude Include="Logic\GameManagementModule\ProjectGameManagementServerModule.h" />
+    <ClInclude Include="Module\ProjectClientLobbyGameModule.h" />
+    <ClInclude Include="Module\ProjectServerLobbyGameModule.h" />
     <ClInclude Include="NetworkPackets\BaseGameManagementNetworkPacket.h" />
     <ClInclude Include="NetworkPackets\ClientNetworkPackets\ClientCreatedLobbyGameNetworkPacket.h" />
     <ClInclude Include="NetworkPackets\ClientNetworkPackets\ClientCreatedQuickGameNetworkPacket.h" />

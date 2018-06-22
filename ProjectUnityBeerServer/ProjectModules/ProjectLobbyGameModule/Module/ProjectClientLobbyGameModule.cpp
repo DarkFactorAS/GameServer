@@ -1,6 +1,6 @@
 
 #include "PreCompile.h"
-#include "ProjectGameManagementClientModule.h"
+#include "ProjectClientLobbyGameModule.h"
 
 #include "EvilEngine/CoreLib/Utils/Base64Util.h"
 #include "EvilEngine/CoreDatabase/CoreDatabase.h"
