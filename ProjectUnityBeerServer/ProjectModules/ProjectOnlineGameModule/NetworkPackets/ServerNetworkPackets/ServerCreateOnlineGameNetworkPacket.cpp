@@ -11,52 +11,43 @@
 #include "ServerCreateOnlineGameNetworkPacket.h"
 
 #include "ProjectLobbyGameModule/Data/GameManagementPacketData.h"
-#include "ProjectLobbyGameModule/NetworkPackets/ClientNetworkPackets/ClientCreatedLobbyGameNetworkPacket.h"
-#include "ProjectLobbyGameModule/Data/LobbyGameData.hpp"
+#include "ProjectOnlineGameModule/NetworkPackets/ClientNetworkPackets/ClientCreatedOnlineGameNetworkPacket.h"
 
 #include "ProjectOnlineGameModule/Data/OnlineGamePacketData.h"
 
 ServerCreateOnlineGameNetworkPacket::ServerCreateOnlineGameNetworkPacket(uint32 lobbyGameId) :
-  BaseGameManagementNetworkPacket(OnlineGamePacketData::PacketData_ServerStartLobbyGame),
+  ServerBaseOnlineGameNetworkPacket(OnlineGamePacketData::PacketData_ServerCreateOnlineGame),
   m_LobbyGameId(lobbyGameId)
 {
 }
 
 ServerCreateOnlineGameNetworkPacket::ServerCreateOnlineGameNetworkPacket(const BinaryStream* datastream) :
-  BaseGameManagementNetworkPacket(GameEnginePacketData::PacketData_ServerStartLobbyGame, datastream)
+  ServerBaseOnlineGameNetworkPacket(OnlineGamePacketData::PacketData_ServerCreateOnlineGame, datastream)
 {
   m_LobbyGameId = datastream->ReadUInt32();
 }
 
 BinaryStream* ServerCreateOnlineGameNetworkPacket::GetDataStream()
 {
-  BinaryStream* datastream = BaseGameManagementNetworkPacket::GetDataStream();
+  BinaryStream* datastream = ServerBaseOnlineGameNetworkPacket::GetDataStream();
   datastream->WriteUInt32(m_LobbyGameId);
   return datastream;
 }
 
-ProjectOnlineGameServerModule* ServerCreateOnlineGameNetworkPacket::GetOnlineGameModule()
-{
-  CoreGameEngine* gameEngine = GetGameEngine();
-  if (gameEngine != NULL)
-  {
-    return safe_cast<ProjectOnlineGameServerModule*> (gameEngine->GetEngineModule(ProjectOnlineGameServerModule::PROJECT_MODULETYPE_ONLINEGAME));
-  }
-  return NULL;
-}
-
-
 void ServerCreateOnlineGameNetworkPacket::Execute()
 {
-  //Account* account = GetAccount();
+  Account* account = GetAccount();
+  ProjectOnlineGameServerModule* module = GetModule();
 
-  //ProjectGameManagementServerModule* module = GetModule();
-  //ProjectOnlineGameServerModule* onlineGameModule = GetOnlineGameModule();
-
-  //if (onlineGameModule != NULL && account != NULL)
-  //{
-  //  onlineGameModule->CreateOnlineGame();
-  //}
+  if (module != NULL && account != NULL)
+  {
+    OnlineGameData* newGame = module->CreateOnlineGame( account->GetAccountId(), m_LobbyGameId);
+    if (newGame != NULL)
+    {
+      SendPacketToClient(new ClientCreatedOnlineGameNetworkPacket( m_LobbyGameId, newGame->GetGameId()));
+      return;
+    }
+  }
 
   SendGameErrorToClient(GameEnginePacketData::ErrorCode_FailedToCreateGame);
 }

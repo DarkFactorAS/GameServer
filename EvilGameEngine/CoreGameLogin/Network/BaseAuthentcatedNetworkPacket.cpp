@@ -4,7 +4,6 @@
 #include "GameLoginPacketData.h"
 
 #include "EvilGameEngine/CoreGameLogin/Account/AccountManager.h"
-#include "EvilGameEngine/CoreGameLogin/Account/Account.h"
 
 BaseAuthentcatedNetworkPacket::BaseAuthentcatedNetworkPacket( uint32 packetType, const BinaryStream* datastream ) :
   BaseLoginModuleNetworkPacket(packetType, datastream),

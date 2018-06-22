@@ -1,14 +1,9 @@
 #ifndef PROJECT_ONLINEGAME_NETWORKPACKETS_SERVERCREATEONLINEGAMENETWORKPACKET
 #define PROJECT_ONLINEGAME_NETWORKPACKETS_SERVERCREATEONLINEGAMENETWORKPACKET 1
 
-#include "ProjectUnityBeerServer/ProjectModules/ProjectLobbyGameModule/NetworkPackets/BaseGameManagementNetworkPacket.h"
+#include "ServerBaseOnlineGameNetworkPacket.h"
 
-#include "ProjectUnityBeerServer/ProjectModules/ProjectWorldBuilderModule/Data/Playfield.h"
-#include "ProjectUnityBeerServer/ProjectModules/ProjectWorldBuilderModule/WorldBuilderModule/ProjectWorldBuilderServerModule.h"
-
-#include "ProjectUnityBeerServer/ProjectModules/ProjectOnlineGameModule/Module/ProjectOnlineGameServerModule.h"
-
-class ServerCreateOnlineGameNetworkPacket : public BaseGameManagementNetworkPacket
+class ServerCreateOnlineGameNetworkPacket : public ServerBaseOnlineGameNetworkPacket
 {
 public:
 
@@ -22,8 +17,6 @@ public:
   virtual BinaryStream*         GetDataStream()   DF_OVERRIDE;
 
 private:
-
-  ProjectOnlineGameServerModule* GetOnlineGameModule();
 
   uint32                        m_LobbyGameId;
 

@@ -29,7 +29,7 @@ public:
 
   uint32 GetPlayfieldId() const 
   {
-    return ( m_Playfield != NULL ) ? : m_Playfield->GetPlayfieldId() : 0;
+    return ( m_Playfield != NULL ) ? m_Playfield->GetPlayfieldId() : 0;
   }
 
   bool HasPlayer(uint32 accountId)

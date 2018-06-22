@@ -4,10 +4,9 @@
 #include "EvilEngine/CoreLib/BasicTypes/BinaryStream/BinaryStream.h"
 #include "EvilGameEngine/CoreGameEngine/CoreGameEngine.h"
 #include "EvilGameEngine/CoreGameEngine/CoreGameNetwork/Packets/BaseNetworkPacket.h"
+#include "EvilGameEngine/CoreGameLogin/Account/Account.h"
 
 #include "BaseLoginModuleNetworkPacket.h"
-
-class Account;
 
 class BaseAuthentcatedNetworkPacket : public BaseLoginModuleNetworkPacket
 {

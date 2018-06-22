@@ -53,10 +53,11 @@ public:
 
 protected:
 
-  void                        AddGameError(GameEnginePacketData::PacketError errorCode, const String& errorMessage);
-  void                        AddGameError(uint32 errorCode, const String& errorDescription);
-  std::map<uint32, String>    m_ErrorMessages;
-  uint32                      m_LastError;
+  void                                  AddGameError(GameEnginePacketData::PacketError errorCode, const String& errorMessage);
+  void                                  AddGameError(uint32 errorCode, const String& errorDescription);
+
+  std::map<uint32, String>              m_ErrorMessages;
+  uint32                                m_LastError;
 
 private:
 
