@@ -26,7 +26,7 @@ class CoreGameClientLoginModule : public CoreGameBaseLoginModule
 {
 public:
   
-  CoreGameClientLoginModule();
+  CoreGameClientLoginModule(bool isLive);
 
   virtual bool                AddOnlineAccount(Account* account, uint32 connectionId) DF_OVERRIDE;
   virtual void                RemoveOnlineAccount(uint32 /*connectionId*/) DF_OVERRIDE;

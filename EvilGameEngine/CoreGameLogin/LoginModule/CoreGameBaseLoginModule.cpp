@@ -34,7 +34,7 @@
 #include "EvilGameEngine/CoreGameLogin/NetworkPackets/ItemShopPackets/PurchaseItemFromAppleNetworkPacket.h"
 #include "EvilGameEngine/CoreGameLogin/NetworkPackets/ItemShopPackets/PurchaseItemFromDarkfactorNetworkPacket.h"
 
-CoreGameBaseLoginModule::CoreGameBaseLoginModule(int moduleId) : CoreGameEngineModule(moduleId)
+CoreGameBaseLoginModule::CoreGameBaseLoginModule(int moduleId, bool isLive) : CoreGameEngineModule(moduleId)
 {
   // Network error messages
   AddLoginError(GameLoginPacketData::ErrorCode_NotLoggedIn, "User is not logged in");
@@ -51,18 +51,21 @@ CoreGameBaseLoginModule::CoreGameBaseLoginModule(int moduleId) : CoreGameEngineM
   AddLoginError(GameLoginPacketData::ErrorCode_PasswordTooShort, "Password too short");
   AddLoginError(GameLoginPacketData::ErrorCode_PasswordTooLong, "Password too long");
 
-#ifdef DEBUG
-  AddLoginError(GameLoginPacketData::ErrorCode_WrongPassword, "Wrong password");
-  AddLoginError(GameLoginPacketData::ErrorCode_LoginNoSuchUser, "No such user");
-  AddLoginError(GameLoginPacketData::ErrorCode_BrokenAccountData, "Broken account data");
-  AddLoginError(GameLoginPacketData::ErrorCode_RequiresGM, "You must be GM to do this");
-#else
-  AddLoginError(GameLoginPacketData::ErrorCode_WrongPassword, "Unknown user/password");
-  AddLoginError(GameLoginPacketData::ErrorCode_LoginNoSuchUser, "Unknown user/password");
-  AddLoginError(GameLoginPacketData::ErrorCode_BrokenAccountData, "Unknown error. \nPlease contact support");
-  AddLoginError(GameLoginPacketData::ErrorCode_RequiresGM, "You must be GM to do this");
-#endif
+  if (!isLive)
+  {
+    AddLoginError(GameLoginPacketData::ErrorCode_WrongPassword, "Wrong password");
+    AddLoginError(GameLoginPacketData::ErrorCode_LoginNoSuchUser, "No such user");
+    AddLoginError(GameLoginPacketData::ErrorCode_BrokenAccountData, "Broken account data");
+    AddLoginError(GameLoginPacketData::ErrorCode_RequiresGM, "You must be GM to do this");
 
+  }
+  else
+  {
+    AddLoginError(GameLoginPacketData::ErrorCode_WrongPassword, "Unknown user/password");
+    AddLoginError(GameLoginPacketData::ErrorCode_LoginNoSuchUser, "Unknown user/password");
+    AddLoginError(GameLoginPacketData::ErrorCode_BrokenAccountData, "Unknown error. \nPlease contact support");
+    AddLoginError(GameLoginPacketData::ErrorCode_RequiresGM, "You must be GM to do this");
+  }
 }
 
 void CoreGameBaseLoginModule::AddLoginError(uint32 errorCode, const String& errorMessage)

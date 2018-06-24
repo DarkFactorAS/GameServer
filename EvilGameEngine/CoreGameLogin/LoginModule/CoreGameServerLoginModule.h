@@ -36,7 +36,7 @@ class CoreGameServerLoginModule : public CoreGameBaseLoginModule
 {
 public:
   
-  CoreGameServerLoginModule();
+  CoreGameServerLoginModule(bool isLive);
   
   static CoreGameServerLoginModule* GetModule(CoreGameEngine* engine);
 

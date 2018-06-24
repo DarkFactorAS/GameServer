@@ -38,7 +38,7 @@ class CoreGameBaseLoginModule : public CoreGameEngineModule
 {
 public:
   
-  CoreGameBaseLoginModule(int moduleId);
+  CoreGameBaseLoginModule(int moduleId, bool isLive);
   
   virtual void                FrameProcess( float /*deltaTime*/ ){};
   virtual String              GetModuleName() DF_OVERRIDE { return StaticStr("CoreGameLoginModule"); }

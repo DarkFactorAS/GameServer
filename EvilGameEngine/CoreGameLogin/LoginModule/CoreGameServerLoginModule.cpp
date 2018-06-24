@@ -46,8 +46,8 @@
 
 uint32          CoreGameServerLoginModule::s_AccountId = PLAYER_START_ACCOUNT;
 
-CoreGameServerLoginModule::CoreGameServerLoginModule() :
-  CoreGameBaseLoginModule(EngineModule::COREMODULETYPE_SERVERLOGIN)
+CoreGameServerLoginModule::CoreGameServerLoginModule(bool isLive) :
+  CoreGameBaseLoginModule(EngineModule::COREMODULETYPE_SERVERLOGIN, isLive)
 {
   // Server account packets
   RegisterPacketType( GameLoginPacketData::PacketData_CreateServerAccount, CreateServerAccountNetworkPacket::Create );

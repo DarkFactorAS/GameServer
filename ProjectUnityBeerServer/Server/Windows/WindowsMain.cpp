@@ -93,11 +93,13 @@ int main(int argc, char* argv[] )
     return -1;
   }
 
+  bool isLive = config->GetBoolKey("IsLive", false);
+
   // Create the engine with the wanted modules
   CoreGameEngine* gameEngine = new CoreGameEngine();
   gameEngine->SetGameKey("UnityBeer");
   gameEngine->SetNetworkBase( new NetworkServer("GameNetwork", serverPort, true ) );
-  gameEngine->AddEngineModule( new CoreGameServerLoginModule() );
+  gameEngine->AddEngineModule( new CoreGameServerLoginModule(isLive) );
   gameEngine->AddEngineModule( new ProjectWorldBuilderServerModule() );
   gameEngine->AddEngineModule( new ProjectGameManagementServerModule() );
   gameEngine->AddEngineModule( new ProjectOnlineGameServerModule());

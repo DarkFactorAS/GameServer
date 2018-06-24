@@ -24,8 +24,8 @@
 #include "EvilGameEngine/CoreGameLogin/NetworkPackets/ClientAccountNetworkPackets/ClientAccountLoggedOffNetworkPacket.h"
 #include "EvilGameEngine/CoreGameLogin/NetworkPackets/ClientAccountNetworkPackets/ClientAccountErrorNetworkPacket.h"
 
-CoreGameClientLoginModule::CoreGameClientLoginModule() :
-  CoreGameBaseLoginModule(EngineModule::COREMODULETYPE_CLIENTLOGIN),
+CoreGameClientLoginModule::CoreGameClientLoginModule(bool isLive) :
+  CoreGameBaseLoginModule(EngineModule::COREMODULETYPE_CLIENTLOGIN, isLive), 
   m_ClientAccount(NULL)
 {
   RegisterPacketType(GameLoginPacketData::PacketData_CreateClientAccount, ClientAccountCreatedNetworkPacket::Create);
