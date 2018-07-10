@@ -30,6 +30,10 @@ bool CoreGameEngineModule::SendPacketToClientConnection(uint32 connectionId, Bas
   CoreGameEngine* gameEngine = safe_cast<CoreGameEngine*> (GetEngine());
   if (gameEngine != NULL)
   {
+#ifdef DEBUG
+    LogDebugFMT("CoreGameEngineModule", "SendPacketToClientConnection: %s", packet->GetPacketName().c_str());
+#endif
+
     return gameEngine->SendPacketToEndpoint(connectionId, packet);
   }
   return false;
@@ -52,15 +56,25 @@ bool CoreGameEngineModule::ReceivePacket(uint32 packetTypeId, uint32 connectionI
         packet->SetGameEngineModule( this );
         packet->SetConnectionId(connectionInstance);
 
+        #ifdef DEBUG
+          LogDebugFMT("CoreGameEngineModule", "ReceivePacket: %s", packet->GetPacketName().c_str());
+        #endif
+
         // Handle packet right away. TODO. queue it for the right thread.
         if (packet->CanExecute())
         {
           packet->Execute();
         }
+#ifdef DEBUG
+        else
+        {
+          LogDebugFMT("CoreGameEngineModule", "ReceivePacket: %s::CanExecute() is false", packet->GetPacketName().c_str());
+        }
+#endif
       }
       else
       {
-        LogFatalFMT("CoreGameEngineModule", "Failed to read binarystream for packet %d/%s", packetTypeId, packet->GetPacketName().c_str());
+        LogErrorFMT("CoreGameEngineModule", "Failed to read binarystream for packet %d/%s", packetTypeId, packet->GetPacketName().c_str());
       }
 
       delete packet;

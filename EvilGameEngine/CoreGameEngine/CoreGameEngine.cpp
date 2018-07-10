@@ -463,6 +463,10 @@ bool CoreGameEngine::SendPacketToEndpoint(uint32 connectionId, BaseNetworkPacket
 {
   if (packet != NULL)
   {
+#ifdef DEBUG
+    LogDebugFMT("CoreGameEngine", "SendPacketToEndpoint: %s", packet->GetPacketName().c_str());
+#endif
+
     return CoreNetworkEngine::SendPacket(connectionId, packet->GetDataStream());
   }
   return false;
@@ -531,6 +535,9 @@ bool CoreGameEngine::ReceivePacket( uint32 packetTypeId, uint32 connectionInstan
     BaseNetworkPacket* packet = itFind->second( dataStream );
     if (packet != NULL)
     {
+#ifdef DEBUG
+      LogDebugFMT("CoreGameEngine", "ReceivePacket: %s", packet->GetPacketName().c_str());
+#endif
       if ( packet->ReadDataStream(dataStream) )
       {
         packet->SetGameEngine( this );
