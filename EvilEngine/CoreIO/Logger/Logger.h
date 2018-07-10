@@ -11,9 +11,9 @@ public:
   enum LogLevel
   {
     e_LogDevNull,
-    e_LogDebug,
     e_LogInformation,
     e_LogWarning,
+    e_LogDebug,
     e_LogError,
     e_LogUnittest,
     e_LogFatal,
