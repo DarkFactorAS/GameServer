@@ -30,7 +30,7 @@ public:
   ProjectGameManagementClientModule();
 
   virtual void                FrameProcess(float /*deltaTime*/) {};
-  virtual String              GetModuleName() DF_OVERRIDE { return StaticStr("ProjectGameManagementClientModule"); }
+  virtual String              GetModuleName() DF_OVERRIDE { return StaticStr("ProjectClientLobbyGameModule"); }
 
   void                        CreatedGame(LobbyGameData* lobbyGame);
   void                        GameNetworkError(uint32 packetType, uint32 errorCode, const String& errorMessage);

@@ -32,7 +32,7 @@ public:
   ~ProjectGameManagementServerModule();
 
   virtual void                          FrameProcess(float /*deltaTime*/) {};
-  virtual String                        GetModuleName() DF_OVERRIDE { return StaticStr("ProjectGameManagementServerModule"); }
+  virtual String                        GetModuleName() DF_OVERRIDE { return StaticStr("ProjectServerLobbyGameModule"); }
   static ProjectGameManagementServerModule*    GetModule(CoreEngine* gameEngine);
 
   virtual void                          OnAccountDisconnected(uint32 accountId) DF_OVERRIDE;

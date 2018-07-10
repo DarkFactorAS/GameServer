@@ -25,16 +25,16 @@ void CoreGameEngineModule::DisconnectConnectionId(uint32 connectionId)
   }
 }
 
-bool CoreGameEngineModule::SendPacketToClientConnection(uint32 connectionId, BaseNetworkPacket* packet)
+bool CoreGameEngineModule::SendPacketToClient(uint32 connectionId, BaseNetworkPacket* packet)
 {
   CoreGameEngine* gameEngine = safe_cast<CoreGameEngine*> (GetEngine());
   if (gameEngine != NULL)
   {
 #ifdef DEBUG
-    LogDebugFMT("CoreGameEngineModule", "SendPacketToClientConnection: %s", packet->GetPacketName().c_str());
+    LogDebugFMT(GetModuleName().c_str(), "[NetId:%d] SendPacketToClient: %s", connectionId, packet->GetPacketName().c_str());
 #endif
 
-    return gameEngine->SendPacketToEndpoint(connectionId, packet);
+    return gameEngine->SendPacketToClient(connectionId, packet);
   }
   return false;
 }
@@ -57,7 +57,7 @@ bool CoreGameEngineModule::ReceivePacket(uint32 packetTypeId, uint32 connectionI
         packet->SetConnectionId(connectionInstance);
 
         #ifdef DEBUG
-          LogDebugFMT("CoreGameEngineModule", "ReceivePacket: %s", packet->GetPacketName().c_str());
+          LogDebugFMT(GetModuleName().c_str(), "[NetId:%d] ReceivePacket: %s", connectionInstance, packet->GetPacketName().c_str());
         #endif
 
         // Handle packet right away. TODO. queue it for the right thread.
@@ -68,13 +68,13 @@ bool CoreGameEngineModule::ReceivePacket(uint32 packetTypeId, uint32 connectionI
 #ifdef DEBUG
         else
         {
-          LogDebugFMT("CoreGameEngineModule", "ReceivePacket: %s::CanExecute() is false", packet->GetPacketName().c_str());
+          LogDebugFMT(GetModuleName().c_str(), "[NetId:%d] ReceivePacket: %s::CanExecute() is false", connectionInstance, packet->GetPacketName().c_str());
         }
 #endif
       }
       else
       {
-        LogErrorFMT("CoreGameEngineModule", "Failed to read binarystream for packet %d/%s", packetTypeId, packet->GetPacketName().c_str());
+        LogErrorFMT(GetModuleName().c_str(), "[NetId:%d] Failed to read binarystream for packet %d/%s", connectionInstance, packetTypeId, packet->GetPacketName().c_str());
       }
 
       delete packet;

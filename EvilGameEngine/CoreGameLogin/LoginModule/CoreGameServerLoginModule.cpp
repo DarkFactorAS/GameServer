@@ -317,7 +317,7 @@ bool CoreGameServerLoginModule::SendPacketToClientAccount(uint32 accountId, Base
       Account* account = loginModule->GetCachedAccount(accountId);
       if (account != NULL && account->GetConnectionId() != 0)
       {
-        return SendPacketToClientConnection(account->GetConnectionId(), packet);
+        return SendPacketToClient(account->GetConnectionId(), packet);
       }
     }
   }

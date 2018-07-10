@@ -30,10 +30,7 @@ public:
   virtual bool                          ReceivePacket(uint32 packetTypeId, uint32 connectionInstance, const BinaryStream* dataStream);
   std::map< uint32, NetworkPacket_fp* > m_PacketCreator;
 
-protected:
-
-  bool                                  SendPacketToClientConnection(uint32 connectionId, BaseNetworkPacket* packet);
-
+  bool                                  SendPacketToClient(uint32 connectionId, BaseNetworkPacket* packet);
 
 };
 

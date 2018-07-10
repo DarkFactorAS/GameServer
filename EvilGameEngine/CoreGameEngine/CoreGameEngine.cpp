@@ -459,6 +459,16 @@ bool CoreGameEngine::SendBinaryStreamToServer(BinaryStream* data)
   }
   return false;
 }
+
+bool CoreGameEngine::SendPacketToClient(uint32 connectionId, BaseNetworkPacket* packet)
+{
+  if (packet != NULL)
+  {
+    return CoreNetworkEngine::SendPacket(connectionId, packet->GetDataStream());
+  }
+  return false;
+}
+
 bool CoreGameEngine::SendPacketToEndpoint(uint32 connectionId, BaseNetworkPacket* packet)
 {
   if (packet != NULL)
@@ -471,6 +481,7 @@ bool CoreGameEngine::SendPacketToEndpoint(uint32 connectionId, BaseNetworkPacket
   }
   return false;
 }
+
 bool CoreGameEngine::SendBinaryStreamToEndpoint(uint32 connectionId, BinaryStream* data)
 {
   return CoreNetworkEngine::SendPacket(connectionId, data);

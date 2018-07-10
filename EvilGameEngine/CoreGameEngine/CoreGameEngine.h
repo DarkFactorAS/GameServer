@@ -73,10 +73,12 @@ public:
   void                              ChangeScreenModule( int newScreenModule );
   void                              AddModuleParameter( const String& name, const Variant& val );
 
+  bool                              SendPacketToClient(uint32 connectionId, BaseNetworkPacket* packet);
   bool                              SendPacketToServer( BaseNetworkPacket* packet);
   bool                              SendBinaryStreamToServer(BinaryStream* data);
-  bool                              SendPacketToEndpoint(uint32 connectionId, BaseNetworkPacket* packet);
   bool                              SendBinaryStreamToEndpoint(uint32 connectionId, BinaryStream* data);
+  // Depricated
+  bool                              SendPacketToEndpoint(uint32 connectionId, BaseNetworkPacket* packet);
 
   void                              AddErrorPacket(uint32 connectionId, uint32 packetTypeId, uint32 errorCodeId );
   void                              RemoveConnection( uint32 connectionId );

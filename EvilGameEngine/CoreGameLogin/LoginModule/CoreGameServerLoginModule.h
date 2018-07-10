@@ -40,6 +40,7 @@ public:
   
   static CoreGameServerLoginModule* GetModule(CoreGameEngine* engine);
 
+  virtual String                GetModuleName() DF_OVERRIDE { return StaticStr("CoreGameServerLoginModule"); }
   virtual void                  OnConnectionDisconnected(uint32 connectionId) DF_OVERRIDE;
 
   virtual bool                  AddOnlineAccount(Account* account, uint32 connectionId) DF_OVERRIDE;

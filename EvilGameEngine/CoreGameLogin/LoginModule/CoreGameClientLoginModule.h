@@ -28,10 +28,11 @@ public:
   
   CoreGameClientLoginModule(bool isLive);
 
-  virtual bool                AddOnlineAccount(Account* account, uint32 connectionId) DF_OVERRIDE;
-  virtual void                RemoveOnlineAccount(uint32 /*connectionId*/) DF_OVERRIDE;
+  virtual String                GetModuleName() DF_OVERRIDE { return StaticStr("CoreGameClientLoginModule"); }
+  virtual bool                  AddOnlineAccount(Account* account, uint32 connectionId) DF_OVERRIDE;
+  virtual void                  RemoveOnlineAccount(uint32 /*connectionId*/) DF_OVERRIDE;
 
-  void                        SendSignalAccountLoggedOn( Account* account );
+  void                          SendSignalAccountLoggedOn( Account* account );
 
   Signal1<void, Account*>                       SignalAccountLoggedOn;
   Signal1<void, Account*>                       SignalCreatedAccount;

@@ -59,19 +59,20 @@ void BaseNetworkPacket::SendErrorToClient(uint32 errorId )
 
 void BaseNetworkPacket::SendPacketToClient(BaseNetworkPacket* packet)
 {
-  CoreGameEngine* gameEngine = GetGameEngine();
-  if (gameEngine != NULL && packet != NULL )
+  if (m_GameEngineModule != NULL && packet != NULL )
   {
-    if (!gameEngine->SendPacketToEndpoint(m_ConnectionId, packet))
+    if (!m_GameEngineModule->SendPacketToClient(m_ConnectionId, packet))
     {
-      LogFatalFMT("BaseNetworkPacket", "Failed to send packet [%s] to endpoint. Code error", packet->GetPacketName().c_str());
+      LogFatalFMT("BaseNetworkPacket", "Failed to send packet [%s] to client. Code error", packet->GetPacketName().c_str());
     }
   }
 }
+
 void BaseNetworkPacket::SendPacketToServer(CoreGameEngine& /*engine*/, BaseNetworkPacket* packet)
 {
   SendPacketToServer(packet);
 }
+
 void BaseNetworkPacket::SendPacketToServer(BaseNetworkPacket* packet)
 {
   CoreGameEngine* gameEngine = GetGameEngine();
