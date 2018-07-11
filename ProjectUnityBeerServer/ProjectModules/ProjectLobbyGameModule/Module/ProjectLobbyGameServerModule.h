@@ -19,6 +19,8 @@
 class Playfield;
 class BaseNetworkPacket;
 
+class CoreGameServerLoginModule;
+
 class ProjectLobbyGameServerModule : public CoreGameEngineModule
 {
 public:
@@ -34,6 +36,8 @@ public:
   virtual void                          FrameProcess(float /*deltaTime*/) {};
   virtual String                        GetModuleName() DF_OVERRIDE { return StaticStr("ProjectLobbyGameServerModule"); }
   static ProjectLobbyGameServerModule*    GetModule(CoreEngine* gameEngine);
+
+  CoreGameServerLoginModule*            GetLoginModule();
 
   virtual void                          OnAccountDisconnected(uint32 accountId) DF_OVERRIDE;
 
@@ -51,6 +55,9 @@ public:
   const String&                         GetGameError(uint32 errorCode);
   uint32                                GetLastError(){ return m_LastError; }
   std::vector< LobbyGameData* >         GetLobbyGames() { return m_LobbyGames; }
+
+  bool                                  SendPacketToClientAccount(uint32 accountId, BaseNetworkPacket* packet);
+  bool                                  SendPacketToLobbyGamePlayers(LobbyGameData* lobbyGame, BaseNetworkPacket* packet);
 
 protected:
 
@@ -73,10 +80,6 @@ private:
   bool                                  RemoveLobbyGameWithId(uint32 gameId);
   bool                                  RemoveAccountFromLobbyGame(uint32 accountId, uint32 lobbyGameId);
   
-  // Move this to a seperate class
-  bool                                  SendPacketToClientAccount(uint32 accountId, BaseNetworkPacket* packet);
-  bool                                  SendPacketToLobbyGamePlayers(LobbyGameData* lobbyGame, BaseNetworkPacket* packet);
-
 };
 
 #endif /// PROJECT_PROJECTGAMEMANAGEMENTMODULE_SERVERMODULE

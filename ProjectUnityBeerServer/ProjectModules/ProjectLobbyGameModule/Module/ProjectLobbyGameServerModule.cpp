@@ -51,6 +51,12 @@ ProjectLobbyGameServerModule* ProjectLobbyGameServerModule::GetModule(CoreEngine
   return NULL;
 }
 
+CoreGameServerLoginModule* ProjectLobbyGameServerModule::GetLoginModule()
+{
+  CoreGameEngine* gameEngine = safe_cast<CoreGameEngine*> (GetEngine());
+  return CoreGameServerLoginModule::GetModule(gameEngine);
+}
+
 void ProjectLobbyGameServerModule::AddGameError(GameEnginePacketData::PacketError errorCode, const String& errorMessage)
 {
   AddGameError((uint32)errorCode, errorMessage);
@@ -245,27 +251,26 @@ bool ProjectLobbyGameServerModule::SendPacketToClientAccount(uint32 accountId, B
 
 bool ProjectLobbyGameServerModule::SendPacketToLobbyGamePlayers(LobbyGameData* lobbyGame, BaseNetworkPacket* packet)
 {
-  CoreGameEngine* gameEngine = safe_cast<CoreGameEngine*> (GetEngine());
-  if (gameEngine != NULL)
+  CoreGameServerLoginModule* loginModule = GetLoginModule();
+  if (loginModule != NULL)
   {
-    CoreGameServerLoginModule* loginModule = CoreGameServerLoginModule::GetModule(gameEngine);
-    if (loginModule != NULL)
+    const std::vector<LobbyGamePlayer*> playerList = lobbyGame->GetPlayerList();
+    for (std::vector<LobbyGamePlayer*>::const_iterator itPlayer = playerList.begin(); itPlayer != playerList.end(); ++itPlayer)
     {
-      const std::vector<LobbyGamePlayer*> playerList = lobbyGame->GetPlayerList();
-      for (std::vector<LobbyGamePlayer*>::const_iterator itPlayer = playerList.begin(); itPlayer != playerList.end(); ++itPlayer)
-      {
-        LobbyGamePlayer* lobbyPlayer = *itPlayer;
+      LobbyGamePlayer* lobbyPlayer = *itPlayer;
 
-        Account* account = loginModule->GetCachedAccount(lobbyPlayer->GetAccountId());
-        if (account != NULL)
-        {
-          gameEngine->SendPacketToEndpoint(account->GetConnectionId(), packet);
-        }
+      Account* account = loginModule->GetCachedAccount(lobbyPlayer->GetAccountId());
+      if (account != NULL)
+      {
+        SendPacketToClient(account->GetConnectionId(), packet);
       }
-      return true;
+      else
+      {
+        return false;
+      }
     }
   }
-  return false;
+  return true;
 }
 
 // TODO : create a lobby player for this ?

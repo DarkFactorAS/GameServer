@@ -3,7 +3,6 @@
 #include "BaseGameManagementNetworkPacket.h"
 
 #include "EvilGameEngine/CoreGameEngine/CoreGameEngine.h"
-#include "EvilGameEngine/CoreGameLogin/LoginModule/CoreGameServerLoginModule.h"
 
 #include "ProjectLobbyGameModule/Data/LobbyGameData.hpp"
 #include "ProjectLobbyGameModule/Data/LobbyGamePlayer.hpp"
@@ -21,12 +20,7 @@ BaseGameManagementNetworkPacket::BaseGameManagementNetworkPacket(GameEnginePacke
 
 ProjectLobbyGameServerModule* BaseGameManagementNetworkPacket::GetModule()
 {
-  CoreGameEngine* gameEngine = GetGameEngine();
-  if (gameEngine != NULL)
-  {
-    return safe_cast<ProjectLobbyGameServerModule*> (gameEngine->GetEngineModule(ProjectLobbyGameServerModule::PROJECT_MODULETYPE_GAMEMANAGEMENT));
-  }
-  return NULL;
+  return safe_cast<ProjectLobbyGameServerModule*> ( m_GameEngineModule );
 }
 
 void BaseGameManagementNetworkPacket::SendGameErrorToClient(GameEnginePacketData::PacketError errorId)
@@ -59,27 +53,9 @@ void BaseGameManagementNetworkPacket::SendGameErrorToClient(uint32 errorCodeId)
 
 void BaseGameManagementNetworkPacket::SendPacketToLobbyGamePlayers(LobbyGameData* lobbyGame, BaseNetworkPacket* packet)
 {
-  CoreGameEngine* gameEngine = GetGameEngine();
-  if (gameEngine != NULL)
+  ProjectLobbyGameServerModule* lobbyGameModule = GetModule();
+  if (lobbyGameModule != NULL)
   {
-    CoreGameServerLoginModule* loginModule = CoreGameServerLoginModule::GetModule(gameEngine);
-    if (loginModule != NULL)
-    {
-      const std::vector<LobbyGamePlayer*> playerList = lobbyGame->GetPlayerList();
-      for (std::vector<LobbyGamePlayer*>::const_iterator itPlayer = playerList.begin(); itPlayer != playerList.end(); ++itPlayer)
-      {
-        LobbyGamePlayer* lobbyPlayer = *itPlayer;
-
-        Account* account = loginModule->GetCachedAccount(lobbyPlayer->GetAccountId());
-        if (account != NULL)
-        {
-          gameEngine->SendPacketToEndpoint(account->GetConnectionId(), packet);
-        }
-      }
-      return;
-    }
-    gameEngine->SendPacketToEndpoint(m_ConnectionId, packet);
-    return;
+    lobbyGameModule->SendPacketToLobbyGamePlayers(lobbyGame, packet);
   }
-  // Show error
 }
