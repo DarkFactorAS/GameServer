@@ -14,7 +14,7 @@
 #include "ProjectLobbyGameModule/Data/GameManagementPacketData.h"
 #include "ProjectLobbyGameModule/Data/LobbyGameData.hpp"
 #include "ProjectLobbyGameModule/Data/LobbyGamePlayer.hpp"
-#include "ProjectLobbyGameModule/Module/ProjectClientLobbyGameModule.h"
+#include "ProjectLobbyGameModule/Module/ProjectLobbyGameClientModule.h"
 
 #include "ProjectUnityBeerServer/ProjectModules/ProjectWorldBuilderModule/Data/Playfield.h"
 
@@ -78,7 +78,7 @@ BinaryStream* ClientCreatedLobbyGameNetworkPacket::GetDataStream()
 
 void ClientCreatedLobbyGameNetworkPacket::Execute()
 {
-  ProjectGameManagementClientModule* module = safe_cast<ProjectGameManagementClientModule*> (GetEngineModule(ProjectGameManagementClientModule::PROJECT_MODULETYPE_CLIENTGAMEMANAGEMENT));
+  ProjectLobbyGameClientModule* module = safe_cast<ProjectLobbyGameClientModule*> (GetEngineModule(ProjectLobbyGameClientModule::PROJECT_MODULETYPE_CLIENTGAMEMANAGEMENT));
   if (module != NULL)
   {
     module->CreatedGame(m_LobbyGame);

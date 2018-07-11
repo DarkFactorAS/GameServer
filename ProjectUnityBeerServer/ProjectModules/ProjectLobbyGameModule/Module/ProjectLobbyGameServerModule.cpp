@@ -1,6 +1,6 @@
 
 #include "PreCompile.h"
-#include "ProjectServerLobbyGameModule.h"
+#include "ProjectLobbyGameServerModule.h"
 
 #include "EvilGameEngine/CoreGameLogin/LoginModule/CoreGameServerLoginModule.h"
 #include "EvilGameEngine/CoreGameEngine/CoreGameNetwork/Packets/BaseNetworkPacket.h"
@@ -21,9 +21,9 @@
 #include "ProjectUnityBeerServer/ProjectModules/ProjectWorldBuilderModule/Data/Playfield.h"
 #include "ProjectUnityBeerServer/ProjectModules/ProjectLobbyGameModule/NetworkPackets/ClientNetworkPackets/ClientPlayerLeftLobbyGameNetworkPacket.h"
 
-uint32 ProjectGameManagementServerModule::s_LobbyGameId = 0;
+uint32 ProjectLobbyGameServerModule::s_LobbyGameId = 0;
 
-ProjectGameManagementServerModule::ProjectGameManagementServerModule() :
+ProjectLobbyGameServerModule::ProjectLobbyGameServerModule() :
   CoreGameEngineModule(PROJECT_MODULETYPE_GAMEMANAGEMENT),
   m_LastError(0)
 {
@@ -38,25 +38,25 @@ ProjectGameManagementServerModule::ProjectGameManagementServerModule() :
   AddGameError(GameEnginePacketData::ErrorCode_NotLoggedIn, "User not logged in");
 }
 
-ProjectGameManagementServerModule::~ProjectGameManagementServerModule()
+ProjectLobbyGameServerModule::~ProjectLobbyGameServerModule()
 {
 }
 
-ProjectGameManagementServerModule* ProjectGameManagementServerModule::GetModule(CoreEngine* gameEngine)
+ProjectLobbyGameServerModule* ProjectLobbyGameServerModule::GetModule(CoreEngine* gameEngine)
 {
   if (gameEngine != NULL)
   {
-    return safe_cast<ProjectGameManagementServerModule*> (gameEngine->GetEngineModule(ProjectGameManagementServerModule::PROJECT_MODULETYPE_GAMEMANAGEMENT));
+    return safe_cast<ProjectLobbyGameServerModule*> (gameEngine->GetEngineModule(ProjectLobbyGameServerModule::PROJECT_MODULETYPE_GAMEMANAGEMENT));
   }
   return NULL;
 }
 
-void ProjectGameManagementServerModule::AddGameError(GameEnginePacketData::PacketError errorCode, const String& errorMessage)
+void ProjectLobbyGameServerModule::AddGameError(GameEnginePacketData::PacketError errorCode, const String& errorMessage)
 {
   AddGameError((uint32)errorCode, errorMessage);
 }
 
-void ProjectGameManagementServerModule::AddGameError(uint32 errorCode, const String& errorMessage)
+void ProjectLobbyGameServerModule::AddGameError(uint32 errorCode, const String& errorMessage)
 {
   // TODO > Check if the string is the same as well If it is different assert here!
   std::map< uint32, String >::iterator itFound = m_ErrorMessages.find(errorCode);
@@ -67,7 +67,7 @@ void ProjectGameManagementServerModule::AddGameError(uint32 errorCode, const Str
   m_ErrorMessages[errorCode] = errorMessage;
 }
 
-const String& ProjectGameManagementServerModule::GetGameError(uint32 errorCode)
+const String& ProjectLobbyGameServerModule::GetGameError(uint32 errorCode)
 {
   std::map< uint32, String >::iterator itFound = m_ErrorMessages.find(errorCode);
   if (itFound != m_ErrorMessages.end())
@@ -78,7 +78,7 @@ const String& ProjectGameManagementServerModule::GetGameError(uint32 errorCode)
   return String::zero;
 }
 
-void ProjectGameManagementServerModule::OnAccountDisconnected(uint32 accountId)
+void ProjectLobbyGameServerModule::OnAccountDisconnected(uint32 accountId)
 {
   LobbyGameData* lobbyGame = GetLobbyGameWithAccountId(accountId);
   if (lobbyGame != NULL)
@@ -87,7 +87,7 @@ void ProjectGameManagementServerModule::OnAccountDisconnected(uint32 accountId)
   }
 }
 
-LobbyGameData* ProjectGameManagementServerModule::CreateNewGame(uint32 accountOwnerId, const String& playerName, Playfield* playfield, uint32 robotId)
+LobbyGameData* ProjectLobbyGameServerModule::CreateNewGame(uint32 accountOwnerId, const String& playerName, Playfield* playfield, uint32 robotId)
 {
   m_LastError = 0;
 
@@ -115,7 +115,7 @@ LobbyGameData* ProjectGameManagementServerModule::CreateNewGame(uint32 accountOw
   return newGame;
 }
 
-std::vector< LobbyGameData* > ProjectGameManagementServerModule::GetOpenGameList()
+std::vector< LobbyGameData* > ProjectLobbyGameServerModule::GetOpenGameList()
 {
   // Filter away banned players
   // Sort friends first, then LAN, then other games by date/time.
@@ -123,7 +123,7 @@ std::vector< LobbyGameData* > ProjectGameManagementServerModule::GetOpenGameList
   return GetLobbyGames();
 }
 
-LobbyGameData* ProjectGameManagementServerModule::GetLobbyGameWithGameId(uint32 gameId)
+LobbyGameData* ProjectLobbyGameServerModule::GetLobbyGameWithGameId(uint32 gameId)
 {
   for (uint32 index = 0; index < m_LobbyGames.size(); index++)
   {
@@ -136,7 +136,7 @@ LobbyGameData* ProjectGameManagementServerModule::GetLobbyGameWithGameId(uint32 
   return NULL;
 }
 
-LobbyGameData* ProjectGameManagementServerModule::GetLobbyGameWithAccountId(uint32 accountId)
+LobbyGameData* ProjectLobbyGameServerModule::GetLobbyGameWithAccountId(uint32 accountId)
 {
   std::map< uint32, uint32 >::iterator itGame = m_AccountLobbyGameMap.find(accountId);
   if (itGame != m_AccountLobbyGameMap.end())
@@ -146,7 +146,7 @@ LobbyGameData* ProjectGameManagementServerModule::GetLobbyGameWithAccountId(uint
   return NULL;
 }
 
-LobbyGameData* ProjectGameManagementServerModule::JoinLobbyGame(uint32 gameId, uint32 accountId, const String& playerName, uint32 robotId)
+LobbyGameData* ProjectLobbyGameServerModule::JoinLobbyGame(uint32 gameId, uint32 accountId, const String& playerName, uint32 robotId)
 {
   LobbyGameData* lobbyGame = GetLobbyGameWithGameId( gameId );
   if (lobbyGame != NULL )
@@ -160,7 +160,7 @@ LobbyGameData* ProjectGameManagementServerModule::JoinLobbyGame(uint32 gameId, u
   return lobbyGame;
 }
 
-LobbyGameData* ProjectGameManagementServerModule::LeaveLobbyGame(uint32 gameId, uint32 accountId)
+LobbyGameData* ProjectLobbyGameServerModule::LeaveLobbyGame(uint32 gameId, uint32 accountId)
 {
   LobbyGameData* lobbyGame = GetLobbyGameWithGameId(gameId);
   if (lobbyGame != NULL)
@@ -190,7 +190,7 @@ LobbyGameData* ProjectGameManagementServerModule::LeaveLobbyGame(uint32 gameId, 
   return lobbyGame;
 }
 
-bool ProjectGameManagementServerModule::RemoveAccountFromLobbyGame(uint32 accountId, uint32 lobbyGameId)
+bool ProjectLobbyGameServerModule::RemoveAccountFromLobbyGame(uint32 accountId, uint32 lobbyGameId)
 {
   // ToDO : Remove all players
 
@@ -206,7 +206,7 @@ bool ProjectGameManagementServerModule::RemoveAccountFromLobbyGame(uint32 accoun
   return false;
 }
 
-bool ProjectGameManagementServerModule::RemoveLobbyGameWithId(uint32 gameId)
+bool ProjectLobbyGameServerModule::RemoveLobbyGameWithId(uint32 gameId)
 {
   for (std::vector<LobbyGameData*>::iterator itGame = m_LobbyGames.begin(); itGame != m_LobbyGames.end(); ++itGame)
   {
@@ -229,7 +229,7 @@ bool ProjectGameManagementServerModule::RemoveLobbyGameWithId(uint32 gameId)
   return false;
 }
 
-bool ProjectGameManagementServerModule::SendPacketToClientAccount(uint32 accountId, BaseNetworkPacket* packet)
+bool ProjectLobbyGameServerModule::SendPacketToClientAccount(uint32 accountId, BaseNetworkPacket* packet)
 {
   CoreGameEngine* gameEngine = safe_cast<CoreGameEngine*> (GetEngine());
   if (gameEngine != NULL)
@@ -243,7 +243,7 @@ bool ProjectGameManagementServerModule::SendPacketToClientAccount(uint32 account
   return false;
 }
 
-bool ProjectGameManagementServerModule::SendPacketToLobbyGamePlayers(LobbyGameData* lobbyGame, BaseNetworkPacket* packet)
+bool ProjectLobbyGameServerModule::SendPacketToLobbyGamePlayers(LobbyGameData* lobbyGame, BaseNetworkPacket* packet)
 {
   CoreGameEngine* gameEngine = safe_cast<CoreGameEngine*> (GetEngine());
   if (gameEngine != NULL)
@@ -269,7 +269,7 @@ bool ProjectGameManagementServerModule::SendPacketToLobbyGamePlayers(LobbyGameDa
 }
 
 // TODO : create a lobby player for this ?
-void ProjectGameManagementServerModule::JoinQuickGame(uint32 accountId)
+void ProjectLobbyGameServerModule::JoinQuickGame(uint32 accountId)
 {
   // Check if we have a free slot in an open game ?
   // Add to quick list
@@ -292,7 +292,7 @@ void ProjectGameManagementServerModule::JoinQuickGame(uint32 accountId)
   }
 }
 
-void ProjectGameManagementServerModule::LeaveQuickGame(uint32 accountId)
+void ProjectLobbyGameServerModule::LeaveQuickGame(uint32 accountId)
 {
   if (m_QuickGameAccountId == accountId)
   {

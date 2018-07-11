@@ -19,12 +19,12 @@ BaseGameManagementNetworkPacket::BaseGameManagementNetworkPacket(GameEnginePacke
 {
 }
 
-ProjectGameManagementServerModule* BaseGameManagementNetworkPacket::GetModule()
+ProjectLobbyGameServerModule* BaseGameManagementNetworkPacket::GetModule()
 {
   CoreGameEngine* gameEngine = GetGameEngine();
   if (gameEngine != NULL)
   {
-    return safe_cast<ProjectGameManagementServerModule*> (gameEngine->GetEngineModule(ProjectGameManagementServerModule::PROJECT_MODULETYPE_GAMEMANAGEMENT));
+    return safe_cast<ProjectLobbyGameServerModule*> (gameEngine->GetEngineModule(ProjectLobbyGameServerModule::PROJECT_MODULETYPE_GAMEMANAGEMENT));
   }
   return NULL;
 }
@@ -47,7 +47,7 @@ void BaseGameManagementNetworkPacket::SendGameErrorToClient(uint32 errorCodeId)
     }
 
     String errorMessage = String::zero;
-    ProjectGameManagementServerModule* module = GetModule();
+    ProjectLobbyGameServerModule* module = GetModule();
     if (module != NULL)
     {
       errorMessage = module->GetGameError(errorCodeId);

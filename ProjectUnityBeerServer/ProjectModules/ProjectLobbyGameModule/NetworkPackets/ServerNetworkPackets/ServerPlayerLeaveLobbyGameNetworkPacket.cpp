@@ -37,7 +37,7 @@ void ServerPlayerLeaveLobbyGameNetworkPacket::Execute()
 {
   Account* account = GetAccount();
 
-  ProjectGameManagementServerModule* module = GetModule();
+  ProjectLobbyGameServerModule* module = GetModule();
   if (module != NULL && account != NULL)
   {
     // Have to notify players first since player and game might be removed and deleted

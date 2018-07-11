@@ -33,7 +33,7 @@ BinaryStream* ServerLeaveQuickGameNetworkPacket::GetDataStream()
 void ServerLeaveQuickGameNetworkPacket::Execute()
 {
   Account* account = GetAccount();
-  ProjectGameManagementServerModule* module = GetModule();
+  ProjectLobbyGameServerModule* module = GetModule();
   if (module != NULL && account != NULL)
   {
     module->LeaveQuickGame( account->GetAccountId() );

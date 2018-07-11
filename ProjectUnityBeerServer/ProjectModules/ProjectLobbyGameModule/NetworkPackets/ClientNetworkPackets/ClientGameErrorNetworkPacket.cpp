@@ -13,7 +13,7 @@
 #include "EvilGameEngine/CoreGameLogin/Network/BaseAuthentcatedNetworkPacket.h"
 
 #include "ProjectLobbyGameModule/Data/GameManagementPacketData.h"
-#include "ProjectLobbyGameModule/Module/ProjectClientLobbyGameModule.h"
+#include "ProjectLobbyGameModule/Module/ProjectLobbyGameClientModule.h"
 
 ClientGameErrorNetworkPacket::ClientGameErrorNetworkPacket(const BinaryStream* datastream) :
   BaseNetworkPacket(GameEnginePacketData::PacketData_ClientGameError, datastream)
@@ -44,7 +44,7 @@ BinaryStream* ClientGameErrorNetworkPacket::GetDataStream()
 
 void ClientGameErrorNetworkPacket::Execute()
 {
-  ProjectGameManagementClientModule* module = safe_cast<ProjectGameManagementClientModule*> (GetEngineModule(ProjectGameManagementClientModule::PROJECT_MODULETYPE_CLIENTGAMEMANAGEMENT));
+  ProjectLobbyGameClientModule* module = safe_cast<ProjectLobbyGameClientModule*> (GetEngineModule(ProjectLobbyGameClientModule::PROJECT_MODULETYPE_CLIENTGAMEMANAGEMENT));
   if (module != NULL)
   {
     module->GameNetworkError(m_PacketType, m_ErrorCode, m_Message);

@@ -37,7 +37,7 @@ public:
     UnittestGameEngineClient* engineClient = UnittestGameEngineClient::CreateInstance("GameEngineUTRunner", 1);
     engineClient->SetNetworkBase(networkClient);
     engineClient->AddEngineModule(new CoreGameClientLoginModule());
-    engineClient->AddEngineModule(new ProjectGameManagementClientModule());
+    engineClient->AddEngineModule(new ProjectLobbyGameClientModule());
 
     //
     // Setup server

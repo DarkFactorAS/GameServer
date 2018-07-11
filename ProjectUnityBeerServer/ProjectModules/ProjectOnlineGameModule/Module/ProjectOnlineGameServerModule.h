@@ -9,6 +9,8 @@
 
 #include "ProjectModules/ProjectOnlineGameModule/Data/OnlineGameData.hpp"
 
+class ProjectLobbyGameServerModule;
+
 class ProjectOnlineGameServerModule : public CoreGameEngineModule
 {
 public:
@@ -23,6 +25,8 @@ public:
   virtual void                FrameProcess(float /*deltaTime*/) {};
   virtual String              GetModuleName() DF_OVERRIDE { return StaticStr("ProjectOnlineGameServerModule"); }
   static ProjectOnlineGameServerModule* GetModule(CoreGameEngine* gameEngine);
+
+  ProjectLobbyGameServerModule*         GetServerLobbyGameModule();
 
   OnlineGameData*             CreateOnlineGame(uint32 accountId, uint32 lobbyGameId);
 

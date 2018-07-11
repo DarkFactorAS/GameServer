@@ -7,7 +7,7 @@
 #include "EvilGameEngine/CoreGameLogin/Network/BaseAuthentcatedNetworkPacket.h"
 
 #include "ProjectUnityBeerServer/ProjectModules/ProjectLobbyGameModule/Data/GameManagementPacketData.h"
-#include "ProjectUnityBeerServer/ProjectModules/ProjectLobbyGameModule/Module/ProjectServerLobbyGameModule.h"
+#include "ProjectUnityBeerServer/ProjectModules/ProjectLobbyGameModule/Module/ProjectLobbyGameServerModule.h"
 
 class BaseGameManagementNetworkPacket : public BaseAuthentcatedNetworkPacket
 {
@@ -21,7 +21,7 @@ public:
 
   void                          SendPacketToLobbyGamePlayers(LobbyGameData* lobbyGame, BaseNetworkPacket* packet);
 
-  ProjectGameManagementServerModule* GetModule();
+  ProjectLobbyGameServerModule* GetModule();
 };
 
 #endif /// PROJECT_GAMEMANAMANGEMENT_NETWORKPACKETS_BASEGAMEMANAGEMENTNETWORKPACKET#pragma once

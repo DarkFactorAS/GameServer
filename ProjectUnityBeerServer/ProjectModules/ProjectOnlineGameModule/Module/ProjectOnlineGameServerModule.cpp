@@ -15,7 +15,7 @@
 #include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ServerNetworkPackets/ServerCreateOnlineGameNetworkPacket.h"
 #include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ServerNetworkPackets/ServerRequestGameDataNetworkPacket.h"
 
-#include "ProjectModules/ProjectLobbyGameModule/Module/ProjectServerLobbyGameModule.h"
+#include "ProjectModules/ProjectLobbyGameModule/Module/ProjectLobbyGameServerModule.h"
 #include "ProjectModules/ProjectWorldBuilderModule/WorldBuilderModule/ProjectWorldBuilderServerModule.h"
 
 #include "ProjectLobbyGameModule/Data/LobbyGameData.hpp"
@@ -37,9 +37,14 @@ ProjectOnlineGameServerModule* ProjectOnlineGameServerModule::GetModule(CoreGame
   return NULL;
 }
 
+ProjectLobbyGameServerModule* ProjectOnlineGameServerModule::GetServerLobbyGameModule()
+{
+  return ProjectLobbyGameServerModule::GetModule(m_CoreEngine);
+}
+
 OnlineGameData* ProjectOnlineGameServerModule::CreateOnlineGame(uint32 accountId, uint32 lobbyGameId)
 {
-  ProjectGameManagementServerModule* lobbyModule = ProjectGameManagementServerModule::GetModule( m_CoreEngine );
+  ProjectLobbyGameServerModule* lobbyModule = GetServerLobbyGameModule();
   ProjectWorldBuilderServerModule* worldbuilderModule = ProjectWorldBuilderServerModule::GetModule( m_CoreEngine );
   if (lobbyModule != NULL && worldbuilderModule != NULL )
   {

@@ -33,7 +33,7 @@ BinaryStream* ServerJoinQuickGameNetworkPacket::GetDataStream()
 void ServerJoinQuickGameNetworkPacket::Execute()
 {
   Account* account = GetAccount();
-  ProjectGameManagementServerModule* module = GetModule();
+  ProjectLobbyGameServerModule* module = GetModule();
   if (module != NULL && account != NULL)
   {
     module->JoinQuickGame( account->GetAccountId() );

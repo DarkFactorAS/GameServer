@@ -33,22 +33,22 @@ public:
 
 protected:
 
-  ProjectGameManagementClientModule* GetClientModule()
+  ProjectLobbyGameClientModule* GetClientModule()
   {
     UnittestGameEngineClient* gameClient = UnittestGameEngineClient::GetInstanceIfAny();
     if (gameClient != NULL)
     {
-      return safe_cast<ProjectGameManagementClientModule*> (gameClient->GetEngineModule(ProjectGameManagementClientModule::PROJECT_MODULETYPE_CLIENTGAMEMANAGEMENT));
+      return safe_cast<ProjectLobbyGameClientModule*> (gameClient->GetEngineModule(ProjectLobbyGameClientModule::PROJECT_MODULETYPE_CLIENTGAMEMANAGEMENT));
     }
     return NULL;
   }
 
-  ProjectGameManagementServerModule* GetServerModule()
+  ProjectLobbyGameServerModule* GetServerModule()
   {
     UnittestGameEngineServer* gameServer = UnittestGameEngineServer::GetInstanceIfAny();
     if (gameServer != NULL)
     {
-      return safe_cast<ProjectGameManagementServerModule*> (gameServer->GetEngineModule(ProjectGameManagementServerModule::PROJECT_MODULETYPE_GAMEMANAGEMENT));
+      return safe_cast<ProjectLobbyGameServerModule*> (gameServer->GetEngineModule(ProjectLobbyGameServerModule::PROJECT_MODULETYPE_GAMEMANAGEMENT));
     }
     return NULL;
   }

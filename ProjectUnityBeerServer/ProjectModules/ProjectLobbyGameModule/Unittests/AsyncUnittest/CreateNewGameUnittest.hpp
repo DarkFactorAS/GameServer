@@ -31,7 +31,7 @@ public:
       return false;
     }
 
-    ProjectGameManagementClientModule* clientModule = GetClientModule();
+    ProjectLobbyGameClientModule* clientModule = GetClientModule();
     if (clientModule == NULL)
     {
       Failed("ProjectGameManagementClientModule is NULL");

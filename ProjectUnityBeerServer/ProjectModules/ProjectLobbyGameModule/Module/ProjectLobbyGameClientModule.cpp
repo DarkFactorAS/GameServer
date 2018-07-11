@@ -1,6 +1,6 @@
 
 #include "PreCompile.h"
-#include "ProjectClientLobbyGameModule.h"
+#include "ProjectLobbyGameClientModule.h"
 
 #include "EvilEngine/CoreLib/Utils/Base64Util.h"
 #include "EvilEngine/CoreDatabase/CoreDatabase.h"
@@ -10,7 +10,7 @@
 #include "ProjectLobbyGameModule/NetworkPackets/ClientNetworkPackets/ClientCreatedLobbyGameNetworkPacket.h"
 #include "ProjectLobbyGameModule/NetworkPackets/ClientNetworkPackets/ClientCreatedQuickGameNetworkPacket.h"
 
-ProjectGameManagementClientModule::ProjectGameManagementClientModule() :
+ProjectLobbyGameClientModule::ProjectLobbyGameClientModule() :
   CoreGameEngineModule(PROJECT_MODULETYPE_CLIENTGAMEMANAGEMENT)
 {
   // Client network packets
@@ -19,12 +19,12 @@ ProjectGameManagementClientModule::ProjectGameManagementClientModule() :
   RegisterPacketType(GameEnginePacketData::PacketData_ClientCreatedQuickGame, ClientCreatedQuickGameNetworkPacket::Create);
 }
 
-void ProjectGameManagementClientModule::CreatedGame(LobbyGameData* lobbyGame)
+void ProjectLobbyGameClientModule::CreatedGame(LobbyGameData* lobbyGame)
 {
   SignalCreatedGame(lobbyGame);
 }
 
-void ProjectGameManagementClientModule::GameNetworkError(uint32 packetType, uint32 errorCode, const String& errorMessage)
+void ProjectLobbyGameClientModule::GameNetworkError(uint32 packetType, uint32 errorCode, const String& errorMessage)
 {
   SignalGameNetworkError(packetType, errorCode, errorMessage);
 }

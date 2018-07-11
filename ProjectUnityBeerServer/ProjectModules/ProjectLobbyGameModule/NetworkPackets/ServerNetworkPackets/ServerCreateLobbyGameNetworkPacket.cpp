@@ -52,7 +52,7 @@ void ServerCreateLobbyGameNetworkPacket::Execute()
   Account* account = GetAccount();
 
   // TODO : move playfield into its own module
-  ProjectGameManagementServerModule* module = GetModule();
+  ProjectLobbyGameServerModule* module = GetModule();
   ProjectWorldBuilderServerModule* worldbuilderModule = GetWorldBuilderModule();
 
   if (module != NULL && account != NULL && worldbuilderModule != NULL)

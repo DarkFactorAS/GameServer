@@ -33,7 +33,7 @@ BinaryStream* ServerGameListNetworkPacket::GetDataStream()
 void ServerGameListNetworkPacket::Execute()
 {
   Account* account = GetAccount();
-  ProjectGameManagementServerModule* module = GetModule();
+  ProjectLobbyGameServerModule* module = GetModule();
   if (module != NULL && account != NULL)
   {
     std::vector< LobbyGameData* > gameList = module->GetOpenGameList();

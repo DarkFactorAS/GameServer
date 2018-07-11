@@ -19,7 +19,7 @@
 class Playfield;
 class BaseNetworkPacket;
 
-class ProjectGameManagementServerModule : public CoreGameEngineModule
+class ProjectLobbyGameServerModule : public CoreGameEngineModule
 {
 public:
 
@@ -28,12 +28,12 @@ public:
     PROJECT_MODULETYPE_GAMEMANAGEMENT = 102,
   };
 
-  ProjectGameManagementServerModule();
-  ~ProjectGameManagementServerModule();
+  ProjectLobbyGameServerModule();
+  ~ProjectLobbyGameServerModule();
 
   virtual void                          FrameProcess(float /*deltaTime*/) {};
-  virtual String                        GetModuleName() DF_OVERRIDE { return StaticStr("ProjectServerLobbyGameModule"); }
-  static ProjectGameManagementServerModule*    GetModule(CoreEngine* gameEngine);
+  virtual String                        GetModuleName() DF_OVERRIDE { return StaticStr("ProjectLobbyGameServerModule"); }
+  static ProjectLobbyGameServerModule*    GetModule(CoreEngine* gameEngine);
 
   virtual void                          OnAccountDisconnected(uint32 accountId) DF_OVERRIDE;
 

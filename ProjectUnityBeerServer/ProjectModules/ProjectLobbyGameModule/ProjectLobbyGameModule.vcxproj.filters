@@ -83,10 +83,10 @@
     <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerCreateLobbyGameNetworkPacket.h">
       <Filter>NetworkPackets\ServerNetworkPackets</Filter>
     </ClInclude>
-    <ClInclude Include="Module\ProjectServerLobbyGameModule.h">
+    <ClInclude Include="Module\ProjectLobbyGameServerModule.h">
       <Filter>Module</Filter>
     </ClInclude>
-    <ClInclude Include="Module\ProjectClientLobbyGameModule.h">
+    <ClInclude Include="Module\ProjectLobbyGameClientModule.h">
       <Filter>Module</Filter>
     </ClInclude>
   </ItemGroup>
@@ -131,10 +131,10 @@
     <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerCreateLobbyGameNetworkPacket.cpp">
       <Filter>NetworkPackets\ServerNetworkPackets</Filter>
     </ClCompile>
-    <ClCompile Include="Module\ProjectClientLobbyGameModule.cpp">
+    <ClCompile Include="Module\ProjectLobbyGameServerModule.cpp">
       <Filter>Module</Filter>
     </ClCompile>
-    <ClCompile Include="Module\ProjectServerLobbyGameModule.cpp">
+    <ClCompile Include="Module\ProjectLobbyGameClientModule.cpp">
       <Filter>Module</Filter>
     </ClCompile>
   </ItemGroup>

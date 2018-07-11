@@ -13,7 +13,7 @@
 #include "EvilGameEngine/CoreGameLogin/LoginModule/CoreGameClientLoginModule.h"
 #include "EvilGameEngine/CoreGameLogin/Unittests/UnittestFramework/UnittestGameServerLoginModule.hpp"
 
-class UnittestGameManagementServerModule : public ProjectGameManagementServerModule
+class UnittestGameManagementServerModule : public ProjectLobbyGameServerModule
 {
 public:
 
@@ -24,7 +24,7 @@ public:
 
   virtual LobbyGameData* CreateNewGame(uint32 accountId, const String& playerName, Playfield* playfield, uint32 robotId) DF_OVERRIDE
   {
-    LobbyGameData* newGame = ProjectGameManagementServerModule::CreateNewGame(accountId, playerName, playfield, robotId);
+    LobbyGameData* newGame = ProjectLobbyGameServerModule::CreateNewGame(accountId, playerName, playfield, robotId);
     if ( newGame != NULL && m_TestGame != NULL)
     {
       newGame->SetGameId(m_TestGame->GetGameId());

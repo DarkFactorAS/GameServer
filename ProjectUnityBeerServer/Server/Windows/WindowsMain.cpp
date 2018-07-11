@@ -21,7 +21,7 @@
 #include "EvilGameEngine/CoreGameLogin/LoginModule/CoreGameServerLoginModule.h"
 
 #include "ProjectModules/ProjectWorldBuilderModule/WorldBuilderModule/ProjectWorldBuilderServerModule.h"
-#include "ProjectModules/ProjectLobbyGameModule/Module/ProjectServerLobbyGameModule.h"
+#include "ProjectModules/ProjectLobbyGameModule/Module/ProjectLobbyGameServerModule.h"
 #include "ProjectModules/ProjectOnlineGameModule/Module/ProjectOnlineGameServerModule.h"
 #include "EvilEngine/CoreEngine/CoreEventLogger/CoreEventLogger.h"
 #include "EvilEngine/CoreVersion/version.h"
@@ -101,7 +101,7 @@ int main(int argc, char* argv[] )
   gameEngine->SetNetworkBase( new NetworkServer("GameNetwork", serverPort, true ) );
   gameEngine->AddEngineModule( new CoreGameServerLoginModule(isLive) );
   gameEngine->AddEngineModule( new ProjectWorldBuilderServerModule() );
-  gameEngine->AddEngineModule( new ProjectGameManagementServerModule() );
+  gameEngine->AddEngineModule( new ProjectLobbyGameServerModule() );
   gameEngine->AddEngineModule( new ProjectOnlineGameServerModule());
 
   windowServer->SetEngine(gameEngine);

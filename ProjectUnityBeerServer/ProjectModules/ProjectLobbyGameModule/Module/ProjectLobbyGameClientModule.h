@@ -18,7 +18,7 @@
 
 class Playfield;
 
-class ProjectGameManagementClientModule : public CoreGameEngineModule
+class ProjectLobbyGameClientModule : public CoreGameEngineModule
 {
 public:
 
@@ -27,10 +27,10 @@ public:
     PROJECT_MODULETYPE_CLIENTGAMEMANAGEMENT = 103,
   };
 
-  ProjectGameManagementClientModule();
+  ProjectLobbyGameClientModule();
 
   virtual void                FrameProcess(float /*deltaTime*/) {};
-  virtual String              GetModuleName() DF_OVERRIDE { return StaticStr("ProjectClientLobbyGameModule"); }
+  virtual String              GetModuleName() DF_OVERRIDE { return StaticStr("ProjectLobbyGameClientModule"); }
 
   void                        CreatedGame(LobbyGameData* lobbyGame);
   void                        GameNetworkError(uint32 packetType, uint32 errorCode, const String& errorMessage);

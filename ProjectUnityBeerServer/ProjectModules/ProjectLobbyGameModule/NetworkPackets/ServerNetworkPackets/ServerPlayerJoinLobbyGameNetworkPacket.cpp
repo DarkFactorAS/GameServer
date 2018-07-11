@@ -39,7 +39,7 @@ void ServerPlayerJoinLobbyGameNetworkPacket::Execute()
 {
   Account* account = GetAccount();
 
-  ProjectGameManagementServerModule* module = GetModule();
+  ProjectLobbyGameServerModule* module = GetModule();
   if (module != NULL && account != NULL)
   {
     LobbyGameData* lobbyGame = module->JoinLobbyGame(m_GameId, account->GetAccountId(), account->GetName(), m_RobotId);
