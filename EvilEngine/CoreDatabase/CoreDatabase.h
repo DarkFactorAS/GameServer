@@ -44,6 +44,9 @@ public:
   static void           SetOfflineMode(){ s_Offline = true; }
   static bool           IsInOfflineMode(){ return s_Offline; }
 
+  bool                  IsConnected(){ return m_Connection != NULL; }
+  void                  FrameProcess(float deltaTime);
+
   bool                  Connect( String serverAddress, String username, String passowrd, String schema );
   void                  Disconnect();
 
@@ -91,6 +94,7 @@ private:
   String                m_Schema;
   sql::Connection*      m_Connection;
   uint32                m_DisplayFlags;
+  float                 m_OfflineTimer;
 };
 
 #endif /// EVILENGINE_COREDATABASE_COREDATABASE_H

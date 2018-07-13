@@ -22,6 +22,7 @@
 #include "EvilEngine/CoreEngine/CoreEngine/EngineModule.h"
 #include "EvilEngine/CoreGuiToolkit/CoreGuiToolkit.h"
 #include "EvilEngine/CoreVersion/version.h"
+#include "EvilEngine/CoreDatabase/CoreDatabase.h"
 
 #ifdef CLIENT
   #include "EvilEngine/CoreRendering/OpenGLRender/CoreOpenGLRender.h"
@@ -308,6 +309,8 @@ bool CoreGameEngine::FrameProcess( float deltaTime )
 #ifdef CLIENT
   long preTime    = CoreUtils::GetTime();
 #endif
+
+  CoreDatabase::GetInstance()->FrameProcess(deltaTime);
 
   // Process network
   CoreNetworkEngine::Run();

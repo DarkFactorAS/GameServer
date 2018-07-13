@@ -89,8 +89,7 @@ int main(int argc, char* argv[] )
   bool hasdbserver = database->Connect( dbAddress, dbUsername, dbPassword, dbSchema );
   if ( !hasdbserver )
   {
-    LogFatal("Main","could not connect to db");
-    return -1;
+    LogFatalFMT("Main","Could not connect to db : %s:%s", dbAddress.c_str(), dbSchema.c_str());
   }
 
   bool isLive = config->GetBoolKey("IsLive", false);

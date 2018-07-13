@@ -69,6 +69,19 @@ void CoreDatabase::Destroy()
   delete s_Instance;
 }
 
+void CoreDatabase::FrameProcess(float deltaTime)
+{
+  if (m_Connection == NULL )
+  {
+    m_OfflineTimer -= deltaTime;
+    if (m_OfflineTimer <= 0.0f)
+    {
+      m_OfflineTimer = 60.0f;
+      Connect(m_Servername, m_Username, m_Password, m_Schema );
+    }
+  }
+}
+
 bool CoreDatabase::Connect( String serverAddress, String username, String password, String schema )
 {
   if ( !s_Offline)
