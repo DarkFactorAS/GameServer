@@ -84,6 +84,7 @@ CoreGameEngine::CoreGameEngine() :
   NetworkBase::RegisterNetworkErrorMessage(GameEnginePacketData::ErrorCode_WrongGameKey, "Cannot connect to server.\nWrong game key");
   NetworkBase::RegisterNetworkErrorMessage(GameEnginePacketData::ErrorCode_ConnectionFailed, "Cannot connect to server.\nConnection failed.");
   NetworkBase::RegisterNetworkErrorMessage(GameEnginePacketData::ErrorCode_CodeError, "Code error");
+  NetworkBase::RegisterNetworkErrorMessage(GameEnginePacketData::ErrorCode_DatabaseOffline, "Server is offline. Error #1");
 }
 
 CoreGameEngine::~CoreGameEngine()
@@ -236,6 +237,13 @@ void CoreGameEngine::OnReceivedNetworkPacket(uint32 connectionInstance, const Bi
 
   uint32 readPtr  = dataStream->GetReadPos();
   uint32 methodId = dataStream->ReadUInt32();
+
+  // Check if db server is offline
+  if (!CoreDatabase::GetInstance()->IsConnected())
+  {
+    AddErrorPacket(connectionInstance, methodId, GameEnginePacketData::ErrorCode_DatabaseOffline, "Server is offline");
+    return;
+  }
 
   // Check if any of the modules will handle this packet.
   for (std::vector< EngineModule* >::const_iterator itModule = m_EngineModules.begin(); itModule != m_EngineModules.end(); ++itModule)
@@ -512,10 +520,10 @@ void CoreGameEngine::DisconnectAccountId(uint32 accountId)
  *
  * @author Thor Richard Hansen
  *************************************************************************************************/
-void CoreGameEngine::AddErrorPacket(uint32 connectionId, uint32 packetTypeId, uint32 errorCodeId)
+void CoreGameEngine::AddErrorPacket(uint32 connectionId, uint32 packetTypeId, uint32 errorCodeId, const String errorMessage)
 {
-  LogInfoFMT( "CoreGameEngine", "AddErrorPacket::Received error => %d/%d", packetTypeId, errorCodeId );
-  SendPacketToEndpoint( connectionId, new ServerErrorNetworkPacket( packetTypeId, errorCodeId ) );
+  LogInfoFMT( "CoreGameEngine", "AddErrorPacket::Received error => PacketType:%d / ErrorCode:%d", packetTypeId, errorCodeId );
+  SendPacketToEndpoint( connectionId, new ServerErrorNetworkPacket( packetTypeId, errorCodeId, errorMessage) );
   //SignalServerError( packetTypeId, errorCodeId );
 }
 

@@ -13,10 +13,11 @@ ServerErrorNetworkPacket::ServerErrorNetworkPacket( const BinaryStream* datastre
   m_ErrorCodeId  = datastream->ReadUInt32();
 }
 
-ServerErrorNetworkPacket::ServerErrorNetworkPacket(uint32 packetTypeId, uint32 errorCodeId) :
+ServerErrorNetworkPacket::ServerErrorNetworkPacket(uint32 packetTypeId, uint32 errorCodeId, const String errorMessage) :
   BaseNetworkPacket(GameEnginePacketData::PacketData_ErrorMessage),
   m_PacketTypeId( packetTypeId ),
-  m_ErrorCodeId( errorCodeId )
+  m_ErrorCodeId( errorCodeId ),
+  m_ErrorMessage( errorMessage )
 {
 }
 
@@ -25,6 +26,7 @@ BinaryStream* ServerErrorNetworkPacket::GetDataStream()
   BinaryStream* datastream = BaseNetworkPacket::GetDataStream();
   datastream->WriteUInt32( m_PacketTypeId );
   datastream->WriteUInt32( m_ErrorCodeId );
+  datastream->WriteString(m_ErrorMessage);
   return datastream;
 }
 

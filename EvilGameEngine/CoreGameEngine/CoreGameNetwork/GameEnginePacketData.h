@@ -20,6 +20,7 @@ namespace GameEnginePacketData
     ErrorCode_WrongGameKey            = 3,
     ErrorCode_ConnectionFailed        = 5,
     ErrorCode_CodeError               = 6,
+    ErrorCode_DatabaseOffline         = 7,
   };
 }
 

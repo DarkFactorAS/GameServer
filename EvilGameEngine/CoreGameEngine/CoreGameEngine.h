@@ -80,7 +80,7 @@ public:
   // Depricated
   bool                              SendPacketToEndpoint(uint32 connectionId, BaseNetworkPacket* packet);
 
-  void                              AddErrorPacket(uint32 connectionId, uint32 packetTypeId, uint32 errorCodeId );
+  void                              AddErrorPacket(uint32 connectionId, uint32 packetTypeId, uint32 errorCodeId, const String errorMessage);
   void                              RemoveConnection( uint32 connectionId );
 
   typedef BaseNetworkPacket*        NetworkPacket_fp( const BinaryStream* );

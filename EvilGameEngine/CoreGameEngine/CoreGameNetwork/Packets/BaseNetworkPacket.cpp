@@ -53,7 +53,7 @@ void BaseNetworkPacket::SendErrorToClient(uint32 errorId )
   CoreGameEngine* gameEngine = GetGameEngine();
   if (gameEngine != NULL )
   {
-    gameEngine->AddErrorPacket(m_ConnectionId, m_PacketType, errorId);
+    gameEngine->AddErrorPacket(m_ConnectionId, m_PacketType, errorId, "Unknown server error");
   }
 }
 

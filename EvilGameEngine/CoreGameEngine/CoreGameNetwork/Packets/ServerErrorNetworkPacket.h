@@ -7,7 +7,7 @@ class ServerErrorNetworkPacket : public BaseNetworkPacket
 public:
 
   ServerErrorNetworkPacket( const BinaryStream* datastream);
-  ServerErrorNetworkPacket( uint32 packetTypeId, uint32 errorCodeId);
+  ServerErrorNetworkPacket( uint32 packetTypeId, uint32 errorCodeId, const String errorMessage);
     
   static  BaseNetworkPacket*    Create( const BinaryStream* datastream ){ return new ServerErrorNetworkPacket( datastream ); }
     
@@ -21,5 +21,6 @@ private:
 
   uint32 m_PacketTypeId;
   uint32 m_ErrorCodeId;
+  String m_ErrorMessage;
 
 };

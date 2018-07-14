@@ -174,7 +174,7 @@ void BaseGameNetworkPacket::SendNotMyTurnError()
   CoreGameEngine* gameEngine = GetGameEngine();
   if ( gameEngine != NULL )
   {
-    gameEngine->AddErrorPacket(m_ConnectionId, m_PacketType, BoardGamePacketData::ErrorCode_NotActivePlayer);
+    gameEngine->AddErrorPacket(m_ConnectionId, m_PacketType, BoardGamePacketData::ErrorCode_NotActivePlayer, "Not active player" );
   }
 }
 
