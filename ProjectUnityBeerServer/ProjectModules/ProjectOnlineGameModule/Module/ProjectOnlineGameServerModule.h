@@ -36,7 +36,11 @@ public:
 
 private:
   
+  uint32                      GetNexGameId();
+
   std::map< uint32, OnlineGameData* > m_OnlineGameMap;
+
+  uint32                      m_CurrentGameId;
 };
 
 #endif /// PROJECT_PROJECTONLINEGAMEMODULE_ONLINEGAMESERVErMODULE

@@ -11,6 +11,8 @@
 #include "PreCompile.h"
 #include "ProjectOnlineGameServerModule.h"
 
+#include "EvilEngine/CoreDatabase/CoreDatabase.h"
+
 #include "ProjectModules/ProjectOnlineGameModule/Data/OnlineGamePacketData.h"
 #include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ServerNetworkPackets/ServerCreateOnlineGameNetworkPacket.h"
 #include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ServerNetworkPackets/ServerRequestGameDataNetworkPacket.h"
@@ -24,6 +26,8 @@
 ProjectOnlineGameServerModule::ProjectOnlineGameServerModule() :
   CoreGameEngineModule(PROJECT_MODULETYPE_ONLINEGAME)
 {
+  m_CurrentGameId = 0;
+
   RegisterPacketType(OnlineGamePacketData::PacketData_ServerCreateOnlineGame, ServerCreateOnlineGameNetworkPacket::Create);
   RegisterPacketType(OnlineGamePacketData::PacketData_ServerRequestGameData, ServerRequestGameDataNetworkPacket::Create);
 }
@@ -42,6 +46,26 @@ ProjectLobbyGameServerModule* ProjectOnlineGameServerModule::GetServerLobbyGameM
   return ProjectLobbyGameServerModule::GetModule(m_CoreEngine);
 }
 
+uint32 ProjectOnlineGameServerModule::GetNexGameId()
+{
+#if DATABASE
+  if (m_CurrentGameId == 0)
+  {
+    CoreDatabase* database = CoreDatabase::GetInstance();
+    if (database != NULL)
+    {
+      const SQLResultSet& result = CoreDatabase::GetInstance()->ExecuteSelect("select max(gameid) as m from games");
+      while (result.Next())
+      {
+        m_CurrentGameId = result.GetUInt32();
+      }
+    }
+  }
+#endif
+
+  return ++m_CurrentGameId;
+}
+
 OnlineGameData* ProjectOnlineGameServerModule::CreateOnlineGame(uint32 accountId, uint32 lobbyGameId)
 {
   ProjectLobbyGameServerModule* lobbyModule = GetServerLobbyGameModule();
@@ -58,7 +82,9 @@ OnlineGameData* ProjectOnlineGameServerModule::CreateOnlineGame(uint32 accountId
         return NULL;
       }
 
-      OnlineGameData* onlineGame = new OnlineGameData();
+      uint32 nextGameId = GetNexGameId();
+
+      OnlineGameData* onlineGame = new OnlineGameData(nextGameId);
       if (onlineGame != NULL)
       {
         onlineGame->SetPlayfield( playfield );
