@@ -54,7 +54,7 @@ uint32 ProjectOnlineGameServerModule::GetNexGameId()
     CoreDatabase* database = CoreDatabase::GetInstance();
     if (database != NULL)
     {
-      const SQLResultSet& result = CoreDatabase::GetInstance()->ExecuteSelect("select max(gameid) as m from games");
+      const SQLResultSet& result = CoreDatabase::GetInstance()->ExecuteSelect("select COALESCE(max(gameid),0) as m from game");
       while (result.Next())
       {
         m_CurrentGameId = result.GetUInt32();
@@ -82,30 +82,94 @@ OnlineGameData* ProjectOnlineGameServerModule::CreateOnlineGame(uint32 accountId
         return NULL;
       }
 
-      uint32 nextGameId = GetNexGameId();
+      OnlineGameData* onlineGame = new OnlineGameData();
+      onlineGame->SetPlayfield( playfield );
 
-      OnlineGameData* onlineGame = new OnlineGameData(nextGameId);
-      if (onlineGame != NULL)
+      // Add players
+      const std::vector<LobbyGamePlayer*> playerList = lobbyGame->GetPlayerList();
+      for (std::vector<LobbyGamePlayer*>::const_iterator itLobbyPlayer = playerList.begin(); itLobbyPlayer != playerList.end(); ++itLobbyPlayer)
       {
-        onlineGame->SetPlayfield( playfield );
+        const LobbyGamePlayer* lobbyPlayer = *itLobbyPlayer;
+        onlineGame->AddPlayer(lobbyPlayer->GetAccountId(), lobbyPlayer->GetPlayerName(), lobbyPlayer->GetRobotId());
+      }
 
-        // Add players
-        const std::vector<LobbyGamePlayer*> playerList = lobbyGame->GetPlayerList();
-        for (std::vector<LobbyGamePlayer*>::const_iterator itLobbyPlayer = playerList.begin(); itLobbyPlayer != playerList.end(); ++itLobbyPlayer)
-        {
-          const LobbyGamePlayer* lobbyPlayer = *itLobbyPlayer;
-          onlineGame->AddPlayer(lobbyPlayer->GetAccountId(), lobbyPlayer->GetPlayerName(), lobbyPlayer->GetRobotId());
-        }
-
+      if (SaveGameInDatabase(onlineGame))
+      {
+        AddOnlineGameToCache(onlineGame);
         return onlineGame;
       }
+
+      delete onlineGame;
     }
   }
 
   return NULL;
 }
 
-void ProjectOnlineGameServerModule::AddOnlineGame(OnlineGameData* game)
+bool ProjectOnlineGameServerModule::SaveGameInDatabase(OnlineGameData* onlineGame)
+{
+  if (onlineGame != NULL)
+  {
+    if (onlineGame->GetGameId() != 0)
+    {
+      // Update some stuff
+      int numRows = CoreDatabase::GetInstance()->ExecuteUpdate("update game set GameStatus = %d, WinningPlayerId = %d where GameId = %d ",
+        0,
+        0,
+        onlineGame->GetGameId() );
+
+      // Save players
+      const std::vector<OnlineGamePlayer*> playerList = onlineGame->GetPlayerList();
+      for (std::vector<OnlineGamePlayer*>::const_iterator itOnlinePlayer = playerList.begin(); itOnlinePlayer != playerList.end(); ++itOnlinePlayer)
+      {
+        OnlineGamePlayer* onlinePlayer = *itOnlinePlayer;
+        if (onlinePlayer != NULL)
+        {
+          numRows += CoreDatabase::GetInstance()->ExecuteInsert("update game_player set PlayerPosX=%d, PlayerPosY=%d, SpawnPointId=%d where GameId=%d and PlayerId=%d ",
+            onlinePlayer->GetPositionX(),
+            onlinePlayer->GetPositionY(),
+            onlinePlayer->GetSpawnPointId(),
+            onlineGame->GetGameId(),
+            onlinePlayer->GetAccountId()
+            );
+        }
+      }
+
+      return ( numRows > 1 );
+    }
+    else
+    {
+      uint32 gameId = GetNexGameId();
+      onlineGame->SetGameId(gameId);
+
+      bool didInsert = CoreDatabase::GetInstance()->ExecuteInsert("insert into game (GameId,PlayfieldId,GameStatus,WinningPlayerId) values(%d,%d,0,0) ",
+        gameId,
+        onlineGame->GetPlayfieldId() );
+
+      // Save players
+      const std::vector<OnlineGamePlayer*> playerList = onlineGame->GetPlayerList();
+      for (std::vector<OnlineGamePlayer*>::const_iterator itOnlinePlayer = playerList.begin(); itOnlinePlayer != playerList.end(); ++itOnlinePlayer)
+      {
+        OnlineGamePlayer* onlinePlayer = *itOnlinePlayer;
+        if (didInsert && onlinePlayer != NULL )
+        {
+          didInsert = CoreDatabase::GetInstance()->ExecuteInsert("insert into game_player (GameId,PlayerId,PlayerPosX, PlayerPosY, SpawnPointId) values(%d,%d,%d,%d, %d) ",
+            gameId,
+            onlinePlayer->GetAccountId(),
+            onlinePlayer->GetPositionX(),
+            onlinePlayer->GetPositionY(),
+            onlinePlayer->GetSpawnPointId()
+            );
+        }
+      }
+
+      return didInsert;
+    }
+  }
+  return false;
+}
+
+void ProjectOnlineGameServerModule::AddOnlineGameToCache(OnlineGameData* game)
 {
   // TODO > Check for duplicates
   m_OnlineGameMap[ game->GetGameId() ] = game;

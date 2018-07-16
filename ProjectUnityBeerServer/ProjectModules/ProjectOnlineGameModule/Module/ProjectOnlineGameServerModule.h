@@ -30,13 +30,14 @@ public:
 
   OnlineGameData*             CreateOnlineGame(uint32 accountId, uint32 lobbyGameId);
 
-  void                        AddOnlineGame(OnlineGameData* game);
+  void                        AddOnlineGameToCache(OnlineGameData* game);
   OnlineGameData*             GetOnlineGame(uint32 accountId, uint32 gameId);
   OnlineGameData*             GetOnlineGame(uint32 gameId);
 
 private:
   
   uint32                      GetNexGameId();
+  bool                        SaveGameInDatabase(OnlineGameData* game);
 
   std::map< uint32, OnlineGameData* > m_OnlineGameMap;
 
