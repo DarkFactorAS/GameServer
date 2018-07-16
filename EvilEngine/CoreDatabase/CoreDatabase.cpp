@@ -149,11 +149,22 @@ void CoreDatabase::ThrowDBException(sql::SQLException &e)
 
 void CoreDatabase::ShowErrorCode( sql::SQLException &e, String sqlString )
 {
+  const char* what = e.what();
+
   LogError   ( "CoreDataBase", "###### ERR: SQLException ###############################");
   LogErrorFMT( "CoreDataBase", "File: %s ", String(__FILE__).c_str() );
   LogErrorFMT( "CoreDataBase", "Func: %s ( line %d )", __FUNCTION__, __LINE__ );
   LogErrorFMT( "CoreDataBase", "SQL : %s", sqlString.c_str());
-  LogErrorFMT( "CoreDataBase", "ERR : (code:%d) %s ( State : %s )", e.getErrorCode(), e.what(), e.getSQLState().c_str() );
+
+  if (what != NULL)
+  {
+    LogErrorFMT("CoreDataBase", "ERR : (code:%d) %s ( State : %s )", e.getErrorCode(), e.what(), e.getSQLState().c_str());
+  }
+  else
+  {
+    LogErrorFMT("CoreDataBase", "ERR : (code:%d) ( State : %s )", e.getErrorCode(), e.getSQLState().c_str());
+  }
+
   LogError   ( "CoreDataBase", "########################################################");
 }
 
