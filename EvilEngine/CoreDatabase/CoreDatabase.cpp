@@ -95,13 +95,12 @@ bool CoreDatabase::Connect( String serverAddress, String username, String passwo
       {
         String mysqlServerAddress = String::FormatString("tcp://%s", serverAddress.c_str());
 
-        //m_Servername = serverAddress;
-        m_Servername = mysqlServerAddress;
+        m_Servername = serverAddress;
         m_Username = username;
         m_Password = password;
         m_Schema = schema;
 
-        m_Connection = driver->connect(m_Servername.c_str(), m_Username.c_str(), m_Password.c_str());
+        m_Connection = driver->connect(mysqlServerAddress.c_str(), m_Username.c_str(), m_Password.c_str());
         if (m_Connection != NULL)
         {
           m_Connection->setSchema(m_Schema.c_str());
