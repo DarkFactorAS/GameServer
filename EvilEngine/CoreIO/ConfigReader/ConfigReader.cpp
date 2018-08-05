@@ -42,6 +42,8 @@ int ConfigReader::ReadConfig( String& line, int startPos, String keyPath, String
     key = String::FormatString("%s/%s",keyPath.c_str(),tagName.c_str());
   }
 
+  key.ToLower();
+
   int failSafe = 100;
 
   while( failSafe > 0 )
@@ -172,7 +174,8 @@ void ConfigReader::AddError(const String& reason)
 
 const String& ConfigReader::GetFullKey( const String& key )
 {
-  std::map<String,String>::const_iterator it = m_KeyMap.find( key );
+  String lowerKey = key.GetLower();
+  std::map<String,String>::const_iterator it = m_KeyMap.find(lowerKey);
   if ( it != m_KeyMap.end() )
   {
     const String& fullKey = it->second;
@@ -224,7 +227,7 @@ bool ConfigReader::GetBoolKey(const String& key, bool defaultValue)
   if (it != m_Keys.end())
   {
     const String& str = it->second;
-    return ( !str.CompareNoCase("false") );
+    return ( str.CompareNoCase("true") == 0 );
   }
   return defaultValue;
 }
