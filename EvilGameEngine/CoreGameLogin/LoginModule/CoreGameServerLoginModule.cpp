@@ -155,14 +155,22 @@ int CoreGameServerLoginModule::LoginAccount(Account* account)
         RemoveOnlineAccount(cachedAccount->GetConnectionId());
       }
 
+      String token = "1";
+
       account->Copy(existingAccount);
       account->SetLoginMethod(loginMethod);
+      account->SetToken(token);
 
       RemoveAccountFromCache(existingAccount);
       delete existingAccount;
 
 #ifdef DATABASE
       CoreDatabase::GetInstance()->ExecuteUpdate("update account set LastLogin=now() where AccountId=%d", account->GetAccountId());
+      //CoreDatabase::GetInstance()->ExecuteUpdate("delete from accounttoken where AccountId=%d", account->GetAccountId());
+      //CoreDatabase::GetInstance()->ExecuteUpdate("insert into accounttoken(AccountId, Username, Token) values(%d,'%s','%s')", 
+      //  account->GetAccountId(),
+      //  account->GetUsername(),
+      //  account->GetToken());
 #endif
 
       if (AddAccountToCache(account))
@@ -186,6 +194,45 @@ int CoreGameServerLoginModule::LoginAccount(Account* account)
     return CreateAccount(account);
   }
   return GameLoginPacketData::ErrorCode_LoginNoSuchUser;
+}
+
+Account* CoreGameServerLoginModule::LoginAccountToken(uint32 connectionId, const String& username, const String& token)
+{
+  Account* account = GetLoginAccount(username, Account::LOGIN_METHOD_DARKFACTOR);
+  if (account != NULL)
+  {
+    if (account->GetToken().CompareWithCase(token) == 0)
+    {
+      return NULL;
+    }
+
+    // Disconnect already logged in account
+    Account* cachedAccount = GetCachedAccount(account->GetAccountId());
+    if ( cachedAccount == NULL )
+    {
+      AddAccountToCache(account);
+    }
+    else if (cachedAccount->GetConnectionId() != connectionId)
+    {
+      // Notify client that login status have been revoked
+      SendPacketToClientAccount(cachedAccount->GetAccountId(), new ClientAccountLoggedOffNetworkPacket(cachedAccount->GetAccountId()));
+      // Remove the online status on this connection
+      RemoveOnlineAccount(cachedAccount->GetConnectionId());
+      // Removed cached account
+      RemoveAccountFromCache(cachedAccount);
+      // Add newly logged in account to cache
+      AddAccountToCache(account);
+    }
+    else
+    {
+      delete account;
+      account = cachedAccount;
+    }
+
+    return account;
+  }
+
+  return NULL;
 }
 
 int CoreGameServerLoginModule::CreateAccount(Account* account)

@@ -244,6 +244,7 @@
     <ClCompile Include="NetworkPackets\ServerAccountNetworkPackets\CreateServerAccountNetworkPacket.cpp" />
     <ClCompile Include="NetworkPackets\ServerAccountNetworkPackets\LoginServerAccountNetworkPacket.cpp" />
     <ClCompile Include="NetworkPackets\ServerAccountNetworkPackets\LoginGMNetworkPacket.cpp" />
+    <ClCompile Include="NetworkPackets\ServerAccountNetworkPackets\LoginTokenServerAccountNetworkPacket.cpp" />
     <ClCompile Include="NetworkPackets\ServerAccountNetworkPackets\SwitchLoggedInAccountNetworkPacket.cpp" />
     <ClCompile Include="NetworkPackets\ServerAccountNetworkPackets\UpdatedAccountFlagsNetworkPacket.cpp" />
     <ClCompile Include="Network\BaseAuthentcatedNetworkPacket.cpp" />
@@ -269,6 +270,7 @@
     <ClInclude Include="NetworkPackets\ServerAccountNetworkPackets\CreateServerAccountNetworkPacket.h" />
     <ClInclude Include="NetworkPackets\ServerAccountNetworkPackets\LoginServerAccountNetworkPacket.h" />
     <ClInclude Include="NetworkPackets\ServerAccountNetworkPackets\LoginGMNetworkPacket.h" />
+    <ClInclude Include="NetworkPackets\ServerAccountNetworkPackets\LoginTokenServerAccountNetworkPacket.h" />
     <ClInclude Include="NetworkPackets\ServerAccountNetworkPackets\SwitchLoggedInAccountNetworkPacket.h" />
     <ClInclude Include="NetworkPackets\ServerAccountNetworkPackets\UpdatedAccountFlagsNetworkPacket.h" />
     <ClInclude Include="Network\BaseAuthentcatedNetworkPacket.h" />

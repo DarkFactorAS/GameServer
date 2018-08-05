@@ -34,7 +34,7 @@ const char* s_AccountConfigName = "Account_Debug";
 const char* s_AccountConfigName = "Account";
 #endif
 
-#define ACCOUNT_VERSION 6
+#define ACCOUNT_VERSION 7
 
 Account::Account() :
   m_Id( 0 ),

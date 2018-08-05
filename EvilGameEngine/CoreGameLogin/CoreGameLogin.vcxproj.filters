@@ -118,6 +118,9 @@
     <ClCompile Include="NetworkPackets\ClientAccountNetworkPackets\ClientAccountLoggedOffNetworkPacket.cpp">
       <Filter>NetworkPackets\ClientAccountNetworkPackets</Filter>
     </ClCompile>
+    <ClCompile Include="NetworkPackets\ServerAccountNetworkPackets\LoginTokenServerAccountNetworkPacket.cpp">
+      <Filter>NetworkPackets\ServerAccountNetworkPackets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Account\Account.h">
@@ -213,6 +216,9 @@
     </ClInclude>
     <ClInclude Include="NetworkPackets\ClientAccountNetworkPackets\ClientAccountLoggedOffNetworkPacket.h">
       <Filter>NetworkPackets\ClientAccountNetworkPackets</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ServerAccountNetworkPackets\LoginTokenServerAccountNetworkPacket.h">
+      <Filter>NetworkPackets\ServerAccountNetworkPackets</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

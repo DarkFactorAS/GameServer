@@ -92,6 +92,7 @@ public:
   void                      SetName( const String& name ){ m_Name = name; }
   void                      SetUsername( const String& username ){ m_Username = username; }
   void                      SetPassword( const String& password ){ m_Password = password; }
+  void                      SetToken( const String& token ){ m_Token = token; }
   void                      SetConnectionId( uint32 connectionID );
   void                      ResetConnectionId();
   void                      SetIconId( uint32 iconId ){ m_IconId = iconId; }

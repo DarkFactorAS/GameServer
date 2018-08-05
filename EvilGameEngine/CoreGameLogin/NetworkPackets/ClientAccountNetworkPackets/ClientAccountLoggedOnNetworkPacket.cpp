@@ -27,6 +27,7 @@ ClientAccountLoggedOnNetworkPacket::ClientAccountLoggedOnNetworkPacket( const Bi
 
   m_Account = new Account();
   m_Account->SetAccountId( datastream->ReadUInt32() );
+  m_Account->SetToken(datastream->ReadString());
   m_Account->SetPurchaseFlags( datastream->ReadUInt32() );
   m_Account->SetIconId( datastream->ReadUInt32() );
 }
@@ -43,6 +44,7 @@ BinaryStream* ClientAccountLoggedOnNetworkPacket::GetDataStream()
 
   datastream->WriteUInt8(Account::GetAccountVersion());
   datastream->WriteUInt32(m_Account->GetAccountId());
+  datastream->WriteString(m_Account->GetToken());
   datastream->WriteUInt32(m_Account->GetPurchaseFlags());
   datastream->WriteUInt32(m_Account->GetIconId());
 

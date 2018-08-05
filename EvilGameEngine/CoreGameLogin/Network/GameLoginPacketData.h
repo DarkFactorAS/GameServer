@@ -10,6 +10,7 @@ namespace GameLoginPacketData
     PacketData_AccountList            = 300,
     PacketData_CreateServerAccount    = 301,
     PacketData_LoginServerAccount     = 302,
+    PacketData_LoginTokenServerAccount = 303,
     PacketData_AccountDelete          = 304,
     PacketData_AccountUpdate          = 305,
     PacketData_WindowsItemPurchase    = 306,
@@ -51,6 +52,8 @@ namespace GameLoginPacketData
     ErrorCode_AccountAlreadyLoggedIn        = 318,
     ErrorCode_PasswordTooShort              = 319,
     ErrorCode_PasswordTooLong               = 320,
+    ErrorCode_TokenExpired                  = 321,
+    ErrorCode_WrongAccountVersion           = 322,
   };
 
   //static const String           GetErrorString( uint8 errorCode );

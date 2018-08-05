@@ -46,6 +46,7 @@ public:
   virtual bool                  AddOnlineAccount(Account* account, uint32 connectionId) DF_OVERRIDE;
   virtual void                  RemoveOnlineAccount(uint32 /*connectionId*/) DF_OVERRIDE;
   int                           LoginAccount(Account* account);
+  Account*                      LoginAccountToken(uint32 connectionId, const String& username, const String& token);
 
   bool                          AddAccountToCache(Account* account);
   bool                          RemoveAccountFromCache(Account* account);
