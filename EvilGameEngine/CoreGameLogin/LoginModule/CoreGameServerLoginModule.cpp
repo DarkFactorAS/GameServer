@@ -31,6 +31,7 @@
 #include "EvilGameEngine/CoreGameLogin/NetworkPackets/ServerAccountNetworkPackets/LoginGMNetworkPacket.h"
 #include "EvilGameEngine/CoreGameLogin/NetworkPackets/ServerAccountNetworkPackets/UpdatedAccountFlagsNetworkPacket.h"
 #include "EvilGameEngine/CoreGameLogin/NetworkPackets/ServerAccountNetworkPackets/SwitchLoggedInAccountNetworkPacket.h"
+#include "EvilGameEngine/CoreGameLogin/NetworkPackets/ServerAccountNetworkPackets/LoginTokenServerAccountNetworkPacket.h"
 
 #include "EvilGameEngine/CoreGameLogin/NetworkPackets/ClientAccountNetworkPackets/ClientAccountLoggedOffNetworkPacket.h"
 
@@ -55,6 +56,7 @@ CoreGameServerLoginModule::CoreGameServerLoginModule(bool isLive) :
   RegisterPacketType( GameLoginPacketData::PacketData_LoginGM, LoginGMNetworkPacket::Create );
   RegisterPacketType( GameLoginPacketData::PacketData_SwitchUser, SwitchLoggedInAccountNetworkPacket::Create);
   RegisterPacketType( GameLoginPacketData::PacketData_UpdatedAccountFlags, UpdatedAccountFlagsNetworkPacket::Create );
+  RegisterPacketType(GameLoginPacketData::PacketData_LoginTokenServerAccount, LoginTokenServerAccountNetworkPacket::Create);
 
   // Itemshop packets
   RegisterPacketType( GameLoginPacketData::PacketData_AmazonItemPurchase, PurchaseItemFromAmazonNetworkPacket::Create);
