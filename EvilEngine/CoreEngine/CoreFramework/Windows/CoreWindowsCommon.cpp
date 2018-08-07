@@ -123,13 +123,19 @@ bool CoreWindowsCommon::CreateAsService(int argc, char* argv[])
 
       wchar_t* wConfigPath = CoreUtils::ConvertCharArrayToLPCWSTR(configPath);
 
+      wchar_t* wServiceName = serviceName;
+      if (argc > 2)
+      {
+        wServiceName = CoreUtils::ConvertCharArrayToLPCWSTR(argv[2]);
+      }
+
       // Always remove service first
-      ServiceInstaller::UninstallService(serviceName);
+      ServiceInstaller::UninstallService(wServiceName);
 
       // Install the service when the command is  
       // "-install" or "/install". 
       ServiceInstaller::InstallService(
-        serviceName,                // Name of service 
+        wServiceName,                // Name of service 
         serviceDisplayName,         // Name to display 
         wConfigPath,                 // Path of the config file
         SERVICE_START_TYPE,         // Service start type 
@@ -142,7 +148,14 @@ bool CoreWindowsCommon::CreateAsService(int argc, char* argv[])
     {
       // Uninstall the service when the command is  
       // "-remove" or "/remove". 
-      ServiceInstaller::UninstallService(serviceName);
+
+      wchar_t* wServiceName = serviceName;
+      if (argc > 2)
+      {
+        wServiceName = CoreUtils::ConvertCharArrayToLPCWSTR(argv[2]);
+      }
+
+      ServiceInstaller::UninstallService(wServiceName);
     }
     else if (strcmp("path", argv[1] + 1) == 0)
     {
@@ -159,7 +172,10 @@ bool CoreWindowsCommon::CreateAsService(int argc, char* argv[])
     }
     else if (argv[1][0] == '-')
     {
-      printf("failed to trigger console\n");
+      printf("failed to install/remove service\n");
+      printf("-Install [servicename] : Install service. If blank name of .exe is servicenmae");
+      printf("-Remove [servicename] : Remove service. If blank name of .exe is servicename");
+      printf("-Path <path> : Run folder for service (to find config files)");
     }
     return false;
   }
