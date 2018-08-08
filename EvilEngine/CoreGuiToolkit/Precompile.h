@@ -1,9 +1,0 @@
-#pragma once
-#include "CoreLib/BasicTypes/Definitions/PlatformDefinition.h"
-#include "CoreLib/BasicTypes/Definitions/BasicTypes.h"
-#include "CoreLib/CoreMath/CoreMath.h"
-#include "CoreLib/Assert/DFAssert.h"
-#include "CoreRendering/PlatformRenderDefinitions.h"
-#include "CoreGuiResources.h"
-#include <vector>
-#include <algorithm>
