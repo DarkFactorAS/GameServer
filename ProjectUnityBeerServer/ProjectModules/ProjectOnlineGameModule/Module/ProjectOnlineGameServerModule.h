@@ -31,6 +31,7 @@ public:
   OnlineGameData*             CreateOnlineGame(uint32 accountId, uint32 lobbyGameId);
 
   void                        AddOnlineGameToCache(OnlineGameData* game);
+  std::vector< OnlineGameData* > GetOnlineGamesWithAccount(uint32 accountId);
   OnlineGameData*             GetOnlineGame(uint32 accountId, uint32 gameId);
   OnlineGameData*             GetOnlineGame(uint32 gameId);
 

@@ -89,6 +89,9 @@
     <ClInclude Include="Module\ProjectLobbyGameClientModule.h">
       <Filter>Module</Filter>
     </ClInclude>
+    <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerRequestActiveOnlineGameNetworkPacket.h">
+      <Filter>NetworkPackets\ServerNetworkPackets</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PreCompile.cpp" />
@@ -136,6 +139,9 @@
     </ClCompile>
     <ClCompile Include="Module\ProjectLobbyGameClientModule.cpp">
       <Filter>Module</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerRequestActiveOnlineGameNetworkPacket.cpp">
+      <Filter>NetworkPackets\ServerNetworkPackets</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

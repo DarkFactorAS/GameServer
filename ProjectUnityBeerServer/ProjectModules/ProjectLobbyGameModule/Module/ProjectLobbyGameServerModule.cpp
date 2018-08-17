@@ -2,7 +2,6 @@
 #include "PreCompile.h"
 #include "ProjectLobbyGameServerModule.h"
 
-#include "EvilGameEngine/CoreGameLogin/LoginModule/CoreGameServerLoginModule.h"
 #include "EvilGameEngine/CoreGameEngine/CoreGameNetwork/Packets/BaseNetworkPacket.h"
 #include "EvilGameEngine/CoreGameEngine/CoreGameEngine.h"
 
@@ -17,9 +16,14 @@
 #include "ProjectLobbyGameModule/NetworkPackets/ServerNetworkPackets/ServerPlayerLeaveLobbyGameNetworkPacket.h"
 #include "ProjectLobbyGameModule/NetworkPackets/ServerNetworkPackets/ServerJoinQuickGameNetworkPacket.h"
 #include "ProjectLobbyGameModule/NetworkPackets/ServerNetworkPackets/ServerLeaveQuickGameNetworkPacket.h"
+#include "ProjectLobbyGameModule/NetworkPackets/ServerNetworkPackets/ServerRequestActiveOnlineGameNetworkPacket.h"
 
 #include "ProjectUnityBeerServer/ProjectModules/ProjectWorldBuilderModule/Data/Playfield.h"
 #include "ProjectUnityBeerServer/ProjectModules/ProjectLobbyGameModule/NetworkPackets/ClientNetworkPackets/ClientPlayerLeftLobbyGameNetworkPacket.h"
+
+// Module dependencies
+#include "EvilGameEngine/CoreGameLogin/LoginModule/CoreGameServerLoginModule.h"
+#include "ProjectOnlineGameModule/Module/ProjectOnlineGameServerModule.h"
 
 uint32 ProjectLobbyGameServerModule::s_LobbyGameId = 0;
 
@@ -33,6 +37,7 @@ ProjectLobbyGameServerModule::ProjectLobbyGameServerModule() :
   RegisterPacketType(GameEnginePacketData::PacketData_ServerLeaveLobbyGame, ServerPlayerLeaveLobbyGameNetworkPacket::Create);
   RegisterPacketType(GameEnginePacketData::PacketData_ServerJoinQuickGame, ServerJoinQuickGameNetworkPacket::Create);
   RegisterPacketType(GameEnginePacketData::PacketData_ServerLeaveQuickGame, ServerLeaveQuickGameNetworkPacket::Create);
+  RegisterPacketType(GameEnginePacketData::PacketData_ServerActiveGameList, ServerRequestActiveOnlineGameNetworkPacket::Create);
 
   AddGameError(GameEnginePacketData::ErrorCode_CodeError, "Code Error");
   AddGameError(GameEnginePacketData::ErrorCode_NotLoggedIn, "User not logged in");
@@ -55,6 +60,12 @@ CoreGameServerLoginModule* ProjectLobbyGameServerModule::GetLoginModule()
 {
   CoreGameEngine* gameEngine = safe_cast<CoreGameEngine*> (GetEngine());
   return CoreGameServerLoginModule::GetModule(gameEngine);
+}
+
+ProjectOnlineGameServerModule* ProjectLobbyGameServerModule::GetOnlineGameModule()
+{
+  CoreGameEngine* gameEngine = safe_cast<CoreGameEngine*> (GetEngine());
+  return ProjectOnlineGameServerModule::GetModule(gameEngine);
 }
 
 void ProjectLobbyGameServerModule::AddGameError(GameEnginePacketData::PacketError errorCode, const String& errorMessage)

@@ -14,6 +14,7 @@ namespace GameEnginePacketData
     PacketData_ServerJoinQuickGame = 504,
     PacketData_ServerLeaveQuickGame = 505,
     PacketData_ServerStartLobbyGame = 506,
+    PacketData_ServerActiveGameList = 507,
 
     PacketData_ClientGameError = 550,
     PacketData_ClientCreatedLobbyGame = 551,

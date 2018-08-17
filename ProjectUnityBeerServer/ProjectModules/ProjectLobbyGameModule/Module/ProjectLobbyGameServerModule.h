@@ -20,6 +20,7 @@ class Playfield;
 class BaseNetworkPacket;
 
 class CoreGameServerLoginModule;
+class ProjectOnlineGameServerModule;
 
 class ProjectLobbyGameServerModule : public CoreGameEngineModule
 {
@@ -37,6 +38,7 @@ public:
   virtual String                        GetModuleName() DF_OVERRIDE { return StaticStr("ProjectLobbyGameServerModule"); }
   static ProjectLobbyGameServerModule*    GetModule(CoreEngine* gameEngine);
 
+  ProjectOnlineGameServerModule*        GetOnlineGameModule();
   CoreGameServerLoginModule*            GetLoginModule();
 
   virtual void                          OnAccountDisconnected(uint32 accountId) DF_OVERRIDE;

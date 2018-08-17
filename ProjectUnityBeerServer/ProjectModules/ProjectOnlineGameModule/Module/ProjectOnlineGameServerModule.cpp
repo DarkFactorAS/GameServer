@@ -178,6 +178,19 @@ void ProjectOnlineGameServerModule::AddOnlineGameToCache(OnlineGameData* game)
 //
 // TODO > Add load and save
 //
+std::vector< OnlineGameData* > ProjectOnlineGameServerModule::GetOnlineGamesWithAccount(uint32 accountId)
+{
+  std::vector< OnlineGameData* > gameList;
+  for (uint32 index = 0; index < m_OnlineGameMap.size(); index++)
+  {
+    OnlineGameData* onlineGame = m_OnlineGameMap[index];
+    if (onlineGame != NULL && onlineGame->HasPlayer(accountId))
+    {
+      gameList.push_back( onlineGame );
+    }
+  }
+  return gameList;
+}
 
 OnlineGameData* ProjectOnlineGameServerModule::GetOnlineGame(uint32 accountId, uint32 gameId)
 {
@@ -191,13 +204,19 @@ OnlineGameData* ProjectOnlineGameServerModule::GetOnlineGame(uint32 accountId, u
 
 OnlineGameData* ProjectOnlineGameServerModule::GetOnlineGame(uint32 gameId)
 {
-  for (uint32 index = 0; index < m_OnlineGameMap.size(); index++)
+  std::map< uint32, OnlineGameData* >::iterator itOnlineGame = m_OnlineGameMap.find(gameId);
+  if (itOnlineGame != m_OnlineGameMap.end())
   {
-    OnlineGameData* lobbyGame = m_OnlineGameMap[index];
-    if (lobbyGame != NULL && lobbyGame->GetGameId() == gameId)
-    {
-      return lobbyGame;
-    }
+    return itOnlineGame->second;
   }
+
+  //for (uint32 index = 0; index < m_OnlineGameMap.size(); index++)
+  //{
+  //  OnlineGameData* lobbyGame = m_OnlineGameMap[index];
+  //  if (lobbyGame != NULL && lobbyGame->GetGameId() == gameId)
+  //  {
+  //    return lobbyGame;
+  //  }
+  //}
   return NULL;
 }
