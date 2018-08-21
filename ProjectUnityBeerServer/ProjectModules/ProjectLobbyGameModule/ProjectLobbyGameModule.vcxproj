@@ -135,6 +135,7 @@
     <ClCompile Include="Module\ProjectLobbyGameClientModule.cpp" />
     <ClCompile Include="Module\ProjectLobbyGameServerModule.cpp" />
     <ClCompile Include="NetworkPackets\BaseGameManagementNetworkPacket.cpp" />
+    <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientActiveOnlineGameListNetworkPacket.cpp" />
     <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientCreatedLobbyGameNetworkPacket.cpp" />
     <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientCreatedQuickGameNetworkPacket.cpp" />
     <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientGameErrorNetworkPacket.cpp" />
@@ -160,6 +161,7 @@
     <ClInclude Include="Module\ProjectLobbyGameClientModule.h" />
     <ClInclude Include="Module\ProjectLobbyGameServerModule.h" />
     <ClInclude Include="NetworkPackets\BaseGameManagementNetworkPacket.h" />
+    <ClInclude Include="NetworkPackets\ClientNetworkPackets\ClientActiveOnlineGameListNetworkPacket.h" />
     <ClInclude Include="NetworkPackets\ClientNetworkPackets\ClientCreatedLobbyGameNetworkPacket.h" />
     <ClInclude Include="NetworkPackets\ClientNetworkPackets\ClientCreatedQuickGameNetworkPacket.h" />
     <ClInclude Include="NetworkPackets\ClientNetworkPackets\ClientGameErrorNetworkPacket.h" />

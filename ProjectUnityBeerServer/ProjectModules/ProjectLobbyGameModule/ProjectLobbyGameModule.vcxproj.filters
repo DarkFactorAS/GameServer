@@ -92,6 +92,9 @@
     <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerRequestActiveOnlineGameNetworkPacket.h">
       <Filter>NetworkPackets\ServerNetworkPackets</Filter>
     </ClInclude>
+    <ClInclude Include="NetworkPackets\ClientNetworkPackets\ClientActiveOnlineGameListNetworkPacket.h">
+      <Filter>NetworkPackets\ClientNetworkPackets</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PreCompile.cpp" />
@@ -142,6 +145,9 @@
     </ClCompile>
     <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerRequestActiveOnlineGameNetworkPacket.cpp">
       <Filter>NetworkPackets\ServerNetworkPackets</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientActiveOnlineGameListNetworkPacket.cpp">
+      <Filter>NetworkPackets\ClientNetworkPackets</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

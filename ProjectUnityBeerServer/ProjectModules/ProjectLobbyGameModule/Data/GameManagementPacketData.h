@@ -13,8 +13,7 @@ namespace GameEnginePacketData
     PacketData_ServerLeaveLobbyGame = 503,
     PacketData_ServerJoinQuickGame = 504,
     PacketData_ServerLeaveQuickGame = 505,
-    PacketData_ServerStartLobbyGame = 506,
-    PacketData_ServerActiveGameList = 507,
+    PacketData_ServerActiveGameList = 506,
 
     PacketData_ClientGameError = 550,
     PacketData_ClientCreatedLobbyGame = 551,
@@ -22,6 +21,7 @@ namespace GameEnginePacketData
     PacketData_ClientPlayerJoinedLobbyGame = 553,
     PacketData_ClientPlayerLeftLobbyGame = 554,
     PacketData_ClientCreatedQuickGame = 555,
+    PacketData_ClientActiveGameList = 556,
   };
 
   enum PacketError

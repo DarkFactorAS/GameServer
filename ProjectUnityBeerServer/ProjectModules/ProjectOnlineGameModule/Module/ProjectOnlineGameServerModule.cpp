@@ -178,15 +178,15 @@ void ProjectOnlineGameServerModule::AddOnlineGameToCache(OnlineGameData* game)
 //
 // TODO > Add load and save
 //
-std::vector< OnlineGameData* > ProjectOnlineGameServerModule::GetOnlineGamesWithAccount(uint32 accountId)
+std::vector< uint32 > ProjectOnlineGameServerModule::GetOnlineGamesWithAccount(uint32 accountId)
 {
-  std::vector< OnlineGameData* > gameList;
+  std::vector< uint32 > gameList;
   for (uint32 index = 0; index < m_OnlineGameMap.size(); index++)
   {
     OnlineGameData* onlineGame = m_OnlineGameMap[index];
     if (onlineGame != NULL && onlineGame->HasPlayer(accountId))
     {
-      gameList.push_back( onlineGame );
+      gameList.push_back( onlineGame->GetGameId() );
     }
   }
   return gameList;

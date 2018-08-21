@@ -11,9 +11,8 @@
 #include "ServerRequestActiveOnlineGameNetworkPacket.h"
 
 #include "ProjectLobbyGameModule/Data/GameManagementPacketData.h"
-#include "ProjectLobbyGameModule/NetworkPackets/ClientNetworkPackets/ClientPlayerLeftLobbyGameNetworkPacket.h"
 #include "ProjectLobbyGameModule/Data/LobbyGameData.hpp"
-
+#include "ProjectLobbyGameModule/NetworkPackets/ClientNetworkPackets/ClientActiveOnlineGameListNetworkPacket.h"
 #include "ProjectOnlineGameModule/Module/ProjectOnlineGameServerModule.h"
 
 ServerRequestActiveOnlineGameNetworkPacket::ServerRequestActiveOnlineGameNetworkPacket() :
@@ -36,7 +35,8 @@ void ServerRequestActiveOnlineGameNetworkPacket::Execute()
     ProjectOnlineGameServerModule* onlineGameModule = lobbyModule->GetOnlineGameModule();
     if (onlineGameModule != NULL)
     {
-      std::vector< OnlineGameData* > gameList = onlineGameModule->GetOnlineGamesWithAccount(account->GetAccountId());
+      std::vector< uint32 > gameList = onlineGameModule->GetOnlineGamesWithAccount(account->GetAccountId());
+      SendPacketToClient(new ClientActiveOnlineGameListNetworkPacket(gameList));
     }
   }
   else
