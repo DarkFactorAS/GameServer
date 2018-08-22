@@ -148,6 +148,7 @@
     <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerLeaveQuickGameNetworkPacket.cpp" />
     <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerPlayerJoinLobbyGameNetworkPacket.cpp" />
     <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerPlayerLeaveLobbyGameNetworkPacket.cpp" />
+    <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerRandomPlayerJoinLobbyGameNetworkPacket.cpp" />
     <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerRequestActiveOnlineGameNetworkPacket.cpp" />
     <ClCompile Include="PreCompile.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -174,6 +175,7 @@
     <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerLeaveQuickGameNetworkPacket.h" />
     <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerPlayerJoinLobbyGameNetworkPacket.h" />
     <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerPlayerLeaveLobbyGameNetworkPacket.h" />
+    <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerRandomPlayerJoinLobbyGameNetworkPacket.h" />
     <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerRequestActiveOnlineGameNetworkPacket.h" />
     <ClInclude Include="PreCompile.h" />
     <ClInclude Include="Unittests\AsyncUnittest\BaseGameUnittest.hpp" />

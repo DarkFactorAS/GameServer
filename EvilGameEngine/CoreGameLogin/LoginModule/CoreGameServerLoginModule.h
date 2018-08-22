@@ -51,6 +51,7 @@ public:
   bool                          AddAccountToCache(Account* account);
   bool                          RemoveAccountFromCache(Account* account);
   Account*                      GetCachedAccount(AccountID accountId);
+  Account*                      GetRandomAccount(AccountID accountId);
 
   int                           CreateAccount(Account* account);
 

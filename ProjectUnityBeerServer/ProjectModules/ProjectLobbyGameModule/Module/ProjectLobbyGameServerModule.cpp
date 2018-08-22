@@ -17,6 +17,7 @@
 #include "ProjectLobbyGameModule/NetworkPackets/ServerNetworkPackets/ServerJoinQuickGameNetworkPacket.h"
 #include "ProjectLobbyGameModule/NetworkPackets/ServerNetworkPackets/ServerLeaveQuickGameNetworkPacket.h"
 #include "ProjectLobbyGameModule/NetworkPackets/ServerNetworkPackets/ServerRequestActiveOnlineGameNetworkPacket.h"
+#include "ProjectLobbyGameModule/NetworkPackets/ServerNetworkPackets/ServerRandomPlayerJoinLobbyGameNetworkPacket.h"
 
 #include "ProjectUnityBeerServer/ProjectModules/ProjectWorldBuilderModule/Data/Playfield.h"
 #include "ProjectUnityBeerServer/ProjectModules/ProjectLobbyGameModule/NetworkPackets/ClientNetworkPackets/ClientPlayerLeftLobbyGameNetworkPacket.h"
@@ -38,6 +39,9 @@ ProjectLobbyGameServerModule::ProjectLobbyGameServerModule() :
   RegisterPacketType(GameEnginePacketData::PacketData_ServerJoinQuickGame, ServerJoinQuickGameNetworkPacket::Create);
   RegisterPacketType(GameEnginePacketData::PacketData_ServerLeaveQuickGame, ServerLeaveQuickGameNetworkPacket::Create);
   RegisterPacketType(GameEnginePacketData::PacketData_ServerActiveGameList, ServerRequestActiveOnlineGameNetworkPacket::Create);
+  RegisterPacketType(GameEnginePacketData::PacketData_ServerRandomJoinLobbyGame, ServerRandomPlayerJoinLobbyGameNetworkPacket::Create);
+
+  
 
   AddGameError(GameEnginePacketData::ErrorCode_CodeError, "Code Error");
   AddGameError(GameEnginePacketData::ErrorCode_NotLoggedIn, "User not logged in");

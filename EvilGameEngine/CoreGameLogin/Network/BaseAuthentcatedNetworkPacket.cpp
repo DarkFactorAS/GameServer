@@ -45,7 +45,6 @@ Account* BaseAuthentcatedNetworkPacket::GetAccount()
   return m_Account;
 }
 
-
 /************************************************************************************************
 * CanExecute:
 * Check if the account is logged on to the server. If it isn't, refuse to execute the packet and

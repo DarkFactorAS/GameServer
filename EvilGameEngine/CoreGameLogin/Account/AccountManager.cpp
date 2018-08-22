@@ -562,39 +562,6 @@ Account* AccountManager::GetRandomAccount( const StringList& accountList )
 
 #endif
 
-#if defined DEBUG
-
-  if ( CoreDatabase::IsInOfflineMode() )
-  {
-    // First entry is the player itself
-    String thisAccount = accountList.at( 0 );
-    uint32 accountId = (uint32) thisAccount.ToInt();
-
-    // Check if we have an online player
-    for ( std::map< uint32, Account* >::iterator it = m_AccountList.begin(); it != m_AccountList.end(); ++it )
-    {
-      Account* account = it->second;
-      if ( account->GetAccountId() != accountId )
-      {
-        return account;
-      }
-    }
-
-    if (dfAssertHandler::AmIBeingDebugged())
-    {
-      Account* account = new Account();
-      account->SetAccountId(AccountManager::s_FakeAccountId);
-      account->SetName("Random Dude");
-      account->SetIconId(30061);
-      account->SetLevel(5);
-      AddAccountToCache(account);
-      return account;
-    }
-
-  }
-
-#endif
-
   return NULL;
 }
 #endif

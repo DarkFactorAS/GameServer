@@ -114,6 +114,14 @@ Account* CoreGameServerLoginModule::GetCachedAccount(AccountID accountId)
   return AccountManager::GetInstance()->GetCachedAccount(accountId);
 }
 
+Account* CoreGameServerLoginModule::GetRandomAccount(AccountID excludeAccountId)
+{
+  StringList accountList;
+  accountList.push_back(String::FromInt(excludeAccountId));
+
+  return AccountManager::GetInstance()->GetRandomAccount(accountList);
+}
+
 bool CoreGameServerLoginModule::VerifyLoginMetod(Account* account, uint8 loginMethod)
 {
   // Only verify iOS Game Center data for now
