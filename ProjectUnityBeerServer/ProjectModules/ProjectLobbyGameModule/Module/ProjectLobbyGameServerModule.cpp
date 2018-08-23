@@ -279,10 +279,6 @@ bool ProjectLobbyGameServerModule::SendPacketToLobbyGamePlayers(LobbyGameData* l
       {
         SendPacketToClient(account->GetConnectionId(), packet);
       }
-      else
-      {
-        return false;
-      }
     }
   }
   return true;
