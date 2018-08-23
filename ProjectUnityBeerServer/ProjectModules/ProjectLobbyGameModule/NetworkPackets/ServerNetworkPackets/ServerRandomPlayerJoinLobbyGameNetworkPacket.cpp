@@ -16,10 +16,9 @@
 
 #include "EvilGameEngine/CoreGameLogin/LoginModule/CoreGameServerLoginModule.h"
 
-ServerRandomPlayerJoinLobbyGameNetworkPacket::ServerRandomPlayerJoinLobbyGameNetworkPacket(uint32 gameId, uint32 robotId) :
+ServerRandomPlayerJoinLobbyGameNetworkPacket::ServerRandomPlayerJoinLobbyGameNetworkPacket(uint32 gameId) :
   BaseGameManagementNetworkPacket(GameEnginePacketData::PacketData_ServerRandomJoinLobbyGame),
-  m_GameId(gameId),
-  m_RobotId(robotId)
+  m_GameId(gameId)
 {
 }
 
@@ -27,7 +26,6 @@ ServerRandomPlayerJoinLobbyGameNetworkPacket::ServerRandomPlayerJoinLobbyGameNet
   BaseGameManagementNetworkPacket(GameEnginePacketData::PacketData_ServerRandomJoinLobbyGame, datastream)
 {
   m_GameId = datastream->ReadUInt32();
-  m_RobotId = datastream->ReadUInt32();
 }
 
 BinaryStream* ServerRandomPlayerJoinLobbyGameNetworkPacket::GetDataStream()

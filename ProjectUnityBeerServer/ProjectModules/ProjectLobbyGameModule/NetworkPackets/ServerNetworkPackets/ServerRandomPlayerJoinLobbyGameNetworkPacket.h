@@ -10,7 +10,7 @@ class ServerRandomPlayerJoinLobbyGameNetworkPacket : public BaseGameManagementNe
 {
 public:
 
-  ServerRandomPlayerJoinLobbyGameNetworkPacket(uint32 gameId, uint32 robotId);
+  ServerRandomPlayerJoinLobbyGameNetworkPacket(uint32 gameId);
   ServerRandomPlayerJoinLobbyGameNetworkPacket(const BinaryStream* datastream);
 
   static  BaseNetworkPacket*    Create(const BinaryStream* datastream) { return new ServerRandomPlayerJoinLobbyGameNetworkPacket(datastream); }
@@ -22,7 +22,6 @@ public:
 private:
 
   uint32                        m_GameId;
-  uint32                        m_RobotId;
 
 };
 
