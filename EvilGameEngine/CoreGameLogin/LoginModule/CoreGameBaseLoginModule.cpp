@@ -50,6 +50,7 @@ CoreGameBaseLoginModule::CoreGameBaseLoginModule(int moduleId, bool isLive) : Co
   AddLoginError(GameLoginPacketData::ErrorCode_AccountAlreadyLoggedIn, "You are already logged on the server");
   AddLoginError(GameLoginPacketData::ErrorCode_PasswordTooShort, "Password too short");
   AddLoginError(GameLoginPacketData::ErrorCode_PasswordTooLong, "Password too long");
+  AddLoginError(GameLoginPacketData::ErrorCode_TokenExpired, "Login token expired");
 
   if (!isLive)
   {
