@@ -16,6 +16,7 @@
 #include "ProjectModules/ProjectOnlineGameModule/Data/OnlineGamePacketData.h"
 #include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ServerNetworkPackets/ServerCreateOnlineGameNetworkPacket.h"
 #include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ServerNetworkPackets/ServerRequestGameDataNetworkPacket.h"
+#include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ServerNetworkPackets/ServerPlayerLeaveOnlineGameNetworkPacket.h"
 
 #include "ProjectModules/ProjectLobbyGameModule/Module/ProjectLobbyGameServerModule.h"
 #include "ProjectModules/ProjectWorldBuilderModule/WorldBuilderModule/ProjectWorldBuilderServerModule.h"
@@ -30,6 +31,9 @@ ProjectOnlineGameServerModule::ProjectOnlineGameServerModule() :
 
   RegisterPacketType(OnlineGamePacketData::PacketData_ServerCreateOnlineGame, ServerCreateOnlineGameNetworkPacket::Create);
   RegisterPacketType(OnlineGamePacketData::PacketData_ServerRequestGameData, ServerRequestGameDataNetworkPacket::Create);
+  RegisterPacketType(OnlineGamePacketData::PacketData_ServerLeaveOnlineGame, ServerPlayerLeaveOnlineGameNetworkPacket::Create);
+
+  
 }
 
 ProjectOnlineGameServerModule* ProjectOnlineGameServerModule::GetModule(CoreGameEngine* gameEngine)
@@ -209,14 +213,15 @@ OnlineGameData* ProjectOnlineGameServerModule::GetOnlineGame(uint32 gameId)
   {
     return itOnlineGame->second;
   }
-
-  //for (uint32 index = 0; index < m_OnlineGameMap.size(); index++)
-  //{
-  //  OnlineGameData* lobbyGame = m_OnlineGameMap[index];
-  //  if (lobbyGame != NULL && lobbyGame->GetGameId() == gameId)
-  //  {
-  //    return lobbyGame;
-  //  }
-  //}
   return NULL;
+}
+
+bool ProjectOnlineGameServerModule::LeaveOnlineGame(uint32 gameId, uint32 accountId)
+{
+  OnlineGameData* onlineGame = GetOnlineGame(gameId);
+  if (onlineGame != NULL)
+  {
+    return onlineGame->Removelayer(accountId);
+  }
+  return false;
 }

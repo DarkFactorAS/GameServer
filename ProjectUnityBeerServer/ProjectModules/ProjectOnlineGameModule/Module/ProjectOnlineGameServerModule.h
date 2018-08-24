@@ -34,6 +34,7 @@ public:
   std::vector< uint32 >       GetOnlineGamesWithAccount(uint32 accountId);
   OnlineGameData*             GetOnlineGame(uint32 accountId, uint32 gameId);
   OnlineGameData*             GetOnlineGame(uint32 gameId);
+  bool                        LeaveOnlineGame(uint32 gameId, uint32 accountId);
 
 private:
   

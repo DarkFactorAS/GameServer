@@ -45,6 +45,20 @@ public:
     m_PlayerList.push_back(player);
   }
 
+  bool Removelayer(uint32 accountId)
+  {
+    for (std::vector<OnlineGamePlayer*>::iterator itPlayer = m_PlayerList.begin(); itPlayer != m_PlayerList.end(); itPlayer++)
+    {
+      OnlineGamePlayer* onlinePlayer = *itPlayer;
+      if (onlinePlayer->GetAccountId() == accountId)
+      {
+        m_PlayerList.erase(itPlayer);
+        return true;
+      }
+    }
+    return false;
+  }
+
   bool HasPlayer(uint32 accountId)
   {
     for (std::vector<OnlineGamePlayer*>::iterator itPlayer = m_PlayerList.begin(); itPlayer != m_PlayerList.end(); itPlayer++)

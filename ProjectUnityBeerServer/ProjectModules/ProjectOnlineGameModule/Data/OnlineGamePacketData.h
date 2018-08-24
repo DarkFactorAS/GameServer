@@ -9,6 +9,7 @@ namespace OnlineGamePacketData
     // 300-399 Game management data
     PacketData_ServerCreateOnlineGame = 600,
     PacketData_ServerRequestGameData = 601,
+    PacketData_ServerLeaveOnlineGame = 602,
 
     PacketData_ClientCreatedOnlineGame = 650,
     PacketData_ClientReceiveGameData = 651,
