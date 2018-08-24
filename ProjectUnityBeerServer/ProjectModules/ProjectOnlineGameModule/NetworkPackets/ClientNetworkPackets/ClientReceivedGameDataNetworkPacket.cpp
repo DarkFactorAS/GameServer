@@ -19,6 +19,7 @@ BinaryStream* ClientReceivedGameDataNetworkPacket::GetDataStream()
   BinaryStream* datastream = BaseNetworkPacket::GetDataStream();
   datastream->WriteUInt32(m_GameData->GetGameId());
   datastream->WriteUInt32(m_GameData->GetPlayfieldId());
+  datastream->WriteUInt32(m_GameData->GetOwnerAccountId());
 
   // Write players
   const std::vector<OnlineGamePlayer*> playerList = m_GameData->GetPlayerList();

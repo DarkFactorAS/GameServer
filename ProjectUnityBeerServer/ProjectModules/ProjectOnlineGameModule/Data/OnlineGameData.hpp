@@ -42,7 +42,25 @@ public:
 
   void AddPlayer(OnlineGamePlayer* player)
   {
+    if (m_OwnerAccountId == 0)
+    {
+      m_OwnerAccountId = player->GetAccountId();
+    }
     m_PlayerList.push_back(player);
+  }
+
+  void AssignOwnerId(uint32 excludeAccountId)
+  {
+    m_OwnerAccountId = 0;
+    for (std::vector<OnlineGamePlayer*>::iterator itPlayer = m_PlayerList.begin(); itPlayer != m_PlayerList.end(); itPlayer++)
+    {
+      OnlineGamePlayer* onlinePlayer = *itPlayer;
+      if (onlinePlayer->GetAccountId() != excludeAccountId)
+      {
+        m_OwnerAccountId = onlinePlayer->GetAccountId();
+        return;
+      }
+    }
   }
 
   bool Removelayer(uint32 accountId)
@@ -53,6 +71,13 @@ public:
       if (onlinePlayer->GetAccountId() == accountId)
       {
         m_PlayerList.erase(itPlayer);
+
+        // Assign a new owner if needed
+        if (accountId == m_OwnerAccountId)
+        {
+          AssignOwnerId( accountId );
+        }
+
         return true;
       }
     }
@@ -72,11 +97,17 @@ public:
     return false;
   }
 
+  uint32 GetOwnerAccountId() const
+  {
+    return m_OwnerAccountId;
+  }
+
   const std::vector<OnlineGamePlayer*> GetPlayerList() const { return m_PlayerList; }
 
 private:
 
   uint32 m_GameId;
+  uint32 m_OwnerAccountId;
 
   Playfield* m_Playfield;
   std::vector< OnlineGamePlayer* > m_PlayerList;
