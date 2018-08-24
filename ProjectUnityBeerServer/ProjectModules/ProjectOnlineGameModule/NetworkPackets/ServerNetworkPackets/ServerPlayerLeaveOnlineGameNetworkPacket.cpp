@@ -11,7 +11,7 @@
 #include "ServerPlayerLeaveOnlineGameNetworkPacket.h"
 
 #include "ProjectModules/ProjectOnlineGameModule/Data/OnlineGamePacketData.h"
-#include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ClientNetworkPackets/ClientReceivedGameDataNetworkPacket.h"
+//#include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ClientNetworkPackets/ClientReceivedGameDataNetworkPacket.h"
 #include "ProjectModules/ProjectOnlineGameModule/Module/ProjectOnlineGameServerModule.h"
 
 ServerPlayerLeaveOnlineGameNetworkPacket::ServerPlayerLeaveOnlineGameNetworkPacket(uint32 gameId) :
