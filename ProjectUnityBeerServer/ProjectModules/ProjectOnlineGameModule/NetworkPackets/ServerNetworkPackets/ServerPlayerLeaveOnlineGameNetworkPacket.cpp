@@ -15,13 +15,13 @@
 #include "ProjectModules/ProjectOnlineGameModule/Module/ProjectOnlineGameServerModule.h"
 
 ServerPlayerLeaveOnlineGameNetworkPacket::ServerPlayerLeaveOnlineGameNetworkPacket(uint32 gameId) :
-  ServerBaseOnlineGameNetworkPacket(OnlineGamePacketData::PacketData_ServerCreateOnlineGame),
+  ServerBaseOnlineGameNetworkPacket(OnlineGamePacketData::PacketData_ServerLeaveOnlineGame),
   m_GameId(gameId)
 {
 }
 
 ServerPlayerLeaveOnlineGameNetworkPacket::ServerPlayerLeaveOnlineGameNetworkPacket(const BinaryStream* datastream) :
-  ServerBaseOnlineGameNetworkPacket(OnlineGamePacketData::PacketData_ServerCreateOnlineGame, datastream)
+  ServerBaseOnlineGameNetworkPacket(OnlineGamePacketData::PacketData_ServerLeaveOnlineGame, datastream)
 {
   m_GameId = datastream->ReadUInt32();
 }
