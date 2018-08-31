@@ -262,6 +262,7 @@
     <ClInclude Include="Data\PlayfieldSource.h" />
     <ClInclude Include="Data\PlayfieldTile.h" />
     <ClInclude Include="Data\Playfield.h" />
+    <ClInclude Include="Data\TileType.h" />
     <ClInclude Include="Data\WorldBuilderPacketData.h" />
     <ClInclude Include="NetworkPackets\BaseWorldBuilderNetworkPacket.h" />
     <ClInclude Include="NetworkPackets\ClientNetworkPackets\ClientPlayfieldDeletedNetworkPacket.h" />

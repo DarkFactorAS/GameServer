@@ -122,6 +122,9 @@
     <ClInclude Include="Unittests\SyncUnittest\VerifyPlayfieldDataUnittest.hpp">
       <Filter>Unittests\SyncUnittest</Filter>
     </ClInclude>
+    <ClInclude Include="Data\TileType.h">
+      <Filter>Data</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="WorldbuilderModule">

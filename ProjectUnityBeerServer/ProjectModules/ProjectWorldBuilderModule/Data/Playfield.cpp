@@ -10,6 +10,7 @@
 #include "Precompile.h"
 #include "Playfield.h"
 #include "PlayfieldTile.h"
+#include "TileType.h"
 
 uint16 Playfield::PLAYFIELD_VERSION = 1;
 
@@ -141,3 +142,45 @@ BinaryStream* Playfield::CreateBinaryStream(BinaryStream* outData, bool writeDat
 
   return outData;
 }
+
+bool Playfield::HasSpawnpoint(std::vector<uint32> excludeSpawnpoints, uint32 spawnId)
+{
+  for (uint32 index = 0; index < (uint32)excludeSpawnpoints.size(); index++)
+  {
+    if (excludeSpawnpoints[index] == spawnId)
+    {
+      return true;
+    }
+  }
+  return false;
+}
+
+uint32 Playfield::GetRandomSpawnpoint(uint32 numSpawnpoints, std::vector<uint32> excludeSpawnpoints)
+{
+  // Add spawnpoints
+  std::vector<uint32> spawnpointList;
+  if (!HasSpawnpoint(excludeSpawnpoints, FloorTile_SpawnPoint1))
+  {
+    spawnpointList.push_back(FloorTile_SpawnPoint1);
+  }
+  if (!HasSpawnpoint(excludeSpawnpoints, FloorTile_SpawnPoint2))
+  {
+    spawnpointList.push_back(FloorTile_SpawnPoint2);
+  }
+  if (numSpawnpoints > 2 && !HasSpawnpoint(excludeSpawnpoints, FloorTile_SpawnPoint3))
+  {
+    spawnpointList.push_back(FloorTile_SpawnPoint3);
+  }
+  if (numSpawnpoints > 3 && !HasSpawnpoint(excludeSpawnpoints, FloorTile_SpawnPoint4))
+  {
+    spawnpointList.push_back(FloorTile_SpawnPoint4);
+  }
+
+  // Return random, but for now just return first.
+  if (spawnpointList.size() > 0)
+  {
+    return spawnpointList[0];
+  }
+  return FloorTile_SpawnPoint1;
+}
+

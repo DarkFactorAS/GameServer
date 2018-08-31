@@ -4,11 +4,11 @@
 class OnlineGamePlayer
 {
 public:
-  OnlineGamePlayer(uint32 acccountId, const String& playerName, uint32 robotId) :
+  OnlineGamePlayer(uint32 acccountId, const String& playerName, uint32 robotId, uint32 spawnpointId) :
     m_AccountId(acccountId),
     m_PlayerName(playerName),
     m_RobotId(robotId),
-    m_SpawnPointId(0)
+    m_SpawnPointId(spawnpointId)
   {
   }
 
@@ -19,16 +19,15 @@ public:
 
   uint16 GetPositionX() const{ return m_Position.GetUInt16X(); }
   uint16 GetPositionY() const { return m_Position.GetUInt16Y(); }
-  uint16 GetSpawnPointId() const{ return m_SpawnPointId; }
-  void SetSpawnpointId( uint16 spawnpointId ){ m_SpawnPointId = spawnpointId; }
+  uint32 GetSpawnPointId() const{ return m_SpawnPointId; }
 
 private:
 
   uint32 m_AccountId;
   String m_PlayerName;
   uint32 m_RobotId;
-  uint8 m_Lives;
-  uint16 m_SpawnPointId;
+  uint8  m_Lives;
+  uint32 m_SpawnPointId;
 
   Vector2 m_Position;
 

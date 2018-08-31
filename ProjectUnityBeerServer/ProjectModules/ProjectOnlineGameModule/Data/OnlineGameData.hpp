@@ -35,9 +35,9 @@ public:
     return 0;
   }
 
-  void AddPlayer(uint32 acccountId, const String& playerName, uint32 robotId)
+  void AddPlayer(uint32 acccountId, const String& playerName, uint32 robotId, uint32 spawnpointId)
   {
-    AddPlayer(new OnlineGamePlayer(acccountId, playerName, robotId));
+    AddPlayer(new OnlineGamePlayer(acccountId, playerName, robotId, spawnpointId));
   }
 
   void AddPlayer(OnlineGamePlayer* player)

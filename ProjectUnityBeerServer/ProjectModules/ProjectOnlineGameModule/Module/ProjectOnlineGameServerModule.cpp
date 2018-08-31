@@ -89,12 +89,18 @@ OnlineGameData* ProjectOnlineGameServerModule::CreateOnlineGame(uint32 accountId
       OnlineGameData* onlineGame = new OnlineGameData();
       onlineGame->SetPlayfield( playfield );
 
+      std::vector<uint32> spawnpointList;
+
       // Add players
       const std::vector<LobbyGamePlayer*> playerList = lobbyGame->GetPlayerList();
+      uint32 numPlayers = (uint32) playerList.size();
       for (std::vector<LobbyGamePlayer*>::const_iterator itLobbyPlayer = playerList.begin(); itLobbyPlayer != playerList.end(); ++itLobbyPlayer)
       {
+        uint32 spawnpointId = playfield->GetRandomSpawnpoint(numPlayers, spawnpointList);
+        spawnpointList.push_back(spawnpointId);
+
         const LobbyGamePlayer* lobbyPlayer = *itLobbyPlayer;
-        onlineGame->AddPlayer(lobbyPlayer->GetAccountId(), lobbyPlayer->GetPlayerName(), lobbyPlayer->GetRobotId());
+        onlineGame->AddPlayer(lobbyPlayer->GetAccountId(), lobbyPlayer->GetPlayerName(), lobbyPlayer->GetRobotId(), spawnpointId);
       }
 
       if (SaveGameInDatabase(onlineGame))

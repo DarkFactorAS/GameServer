@@ -1,6 +1,7 @@
 #ifndef PROJECT_WORLDBUILDERMODULE_DATA_PLAYFIELD
 #define PROJECT_WORLDBUILDERMODULE_DATA_PLAYFIELD 1
 
+#include <vector>
 #include "EvilEngine/CoreLib/BasicTypes/BinaryStream/BinaryStream.h"
 
 class PlayfieldTile;
@@ -74,6 +75,9 @@ public:
 
   static Playfield*             CreatePlayfieldFromStream(const BinaryStream* binaryStream);
   BinaryStream*                 CreateBinaryStream(BinaryStream* outData, bool writeData);
+
+  bool                          HasSpawnpoint(std::vector<uint32> excludeSpawnpoints, uint32 spawnId);
+  uint32                        GetRandomSpawnpoint(uint32 numSpawnpoints, std::vector<uint32> excludeSpawnpoints );
 
 private:
 

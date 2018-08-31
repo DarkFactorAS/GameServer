@@ -35,8 +35,7 @@ BinaryStream* ClientReceivedGameDataNetworkPacket::GetDataStream()
     datastream->WriteUInt8(onlinePlayer->GetLives());
     datastream->WriteUInt16(onlinePlayer->GetPositionX());
     datastream->WriteUInt16(onlinePlayer->GetPositionY());
-
-    datastream->WriteUInt16(onlinePlayer->GetSpawnPointId());
+    datastream->WriteUInt32(onlinePlayer->GetSpawnPointId());
   }
 
   return datastream;
