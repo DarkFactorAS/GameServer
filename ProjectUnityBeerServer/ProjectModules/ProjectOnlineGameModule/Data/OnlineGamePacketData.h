@@ -10,9 +10,11 @@ namespace OnlineGamePacketData
     PacketData_ServerCreateOnlineGame = 600,
     PacketData_ServerRequestGameData = 601,
     PacketData_ServerLeaveOnlineGame = 602,
+    PacketData_ServerPlayerStartRound = 603,
 
     PacketData_ClientCreatedOnlineGame = 650,
     PacketData_ClientReceiveGameData = 651,
+    PacketData_ClientReceiveActionCards = 652,
   };
 
   enum PacketError
