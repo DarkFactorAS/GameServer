@@ -11,12 +11,14 @@ public:
 
   OnlineGameData() :
     m_GameId(0),
+    m_OwnerAccountId(0),
     m_Playfield(NULL)
   {
   }
 
   OnlineGameData(uint32 gameId) :
     m_GameId(gameId),
+    m_OwnerAccountId(0),
     m_Playfield(NULL)
   {
   }
@@ -100,6 +102,11 @@ public:
   uint32 GetOwnerAccountId() const
   {
     return m_OwnerAccountId;
+  }
+
+  void SetOwnerAccountId(uint32 accountId)
+  {
+    m_OwnerAccountId = accountId;
   }
 
   const std::vector<OnlineGamePlayer*> GetPlayerList() const { return m_PlayerList; }

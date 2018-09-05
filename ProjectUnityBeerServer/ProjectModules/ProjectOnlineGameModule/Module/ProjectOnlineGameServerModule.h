@@ -7,9 +7,9 @@
 #include "EvilGameEngine/CoreGameEngine/CoreGameEngine.h"
 #include "EvilGameEngine/CoreGameEngine/CoreGameEngineModule.h"
 
-#include "ProjectModules/ProjectOnlineGameModule/Data/OnlineGameData.hpp"
-
 class ProjectLobbyGameServerModule;
+class GameplayLogic;
+class OnlineGameData;
 
 class ProjectOnlineGameServerModule : public CoreGameEngineModule
 {
@@ -22,28 +22,22 @@ public:
 
   ProjectOnlineGameServerModule();
 
-  virtual void                FrameProcess(float /*deltaTime*/) {};
-  virtual String              GetModuleName() DF_OVERRIDE { return StaticStr("ProjectOnlineGameServerModule"); }
+  virtual void                          FrameProcess(float /*deltaTime*/) {};
+  virtual String                        GetModuleName() DF_OVERRIDE { return StaticStr("ProjectOnlineGameServerModule"); }
   static ProjectOnlineGameServerModule* GetModule(CoreGameEngine* gameEngine);
 
   ProjectLobbyGameServerModule*         GetServerLobbyGameModule();
 
-  OnlineGameData*             CreateOnlineGame(uint32 accountId, uint32 lobbyGameId);
+  OnlineGameData*                       CreateOnlineGame(uint32 accountId, uint32 lobbyGameId);
+  bool                                  LeaveOnlineGame(uint32 gameId, uint32 accountId);
 
-  void                        AddOnlineGameToCache(OnlineGameData* game);
-  std::vector< uint32 >       GetOnlineGamesWithAccount(uint32 accountId);
-  OnlineGameData*             GetOnlineGame(uint32 accountId, uint32 gameId);
-  OnlineGameData*             GetOnlineGame(uint32 gameId);
-  bool                        LeaveOnlineGame(uint32 gameId, uint32 accountId);
+  std::vector< uint32 >                 GetOnlineGameListFromAccount(uint32 accountId);
+  OnlineGameData*                       GetOnlineGame(uint32 gameId);
+  OnlineGameData*                       GetOnlineGameWithAccount(uint32 gameId, uint32 accountId);
 
 private:
   
-  uint32                      GetNexGameId();
-  bool                        SaveGameInDatabase(OnlineGameData* game);
-
-  std::map< uint32, OnlineGameData* > m_OnlineGameMap;
-
-  uint32                      m_CurrentGameId;
+  GameplayLogic*                        m_GameplayLogic;
 };
 
 #endif /// PROJECT_PROJECTONLINEGAMEMODULE_ONLINEGAMESERVErMODULE

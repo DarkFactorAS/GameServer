@@ -29,6 +29,12 @@
     <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientReceivedActionCardsNetworkPacket.cpp">
       <Filter>NetworkPackets\ClientNetworkPackets</Filter>
     </ClCompile>
+    <ClCompile Include="GameplayLogic\GameplayLogic.cpp">
+      <Filter>GameplayLogic</Filter>
+    </ClCompile>
+    <ClCompile Include="GameplayLogic\GameLogic.cpp">
+      <Filter>GameplayLogic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -68,6 +74,12 @@
     <ClInclude Include="NetworkPackets\ClientNetworkPackets\ClientReceivedActionCardsNetworkPacket.h">
       <Filter>NetworkPackets\ClientNetworkPackets</Filter>
     </ClInclude>
+    <ClInclude Include="GameplayLogic\GameplayLogic.h">
+      <Filter>GameplayLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="GameplayLogic\GameLogic.h">
+      <Filter>GameplayLogic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Module">
@@ -84,6 +96,9 @@
     </Filter>
     <Filter Include="NetworkPackets\ClientNetworkPackets">
       <UniqueIdentifier>{80698d24-ecff-4a0f-8d99-c208bfc953aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameplayLogic">
+      <UniqueIdentifier>{46b0ab65-f68f-4396-ab3a-c580e523c77a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

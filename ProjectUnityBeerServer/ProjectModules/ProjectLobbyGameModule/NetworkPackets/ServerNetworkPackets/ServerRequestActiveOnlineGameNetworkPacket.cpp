@@ -35,7 +35,7 @@ void ServerRequestActiveOnlineGameNetworkPacket::Execute()
     ProjectOnlineGameServerModule* onlineGameModule = lobbyModule->GetOnlineGameModule();
     if (onlineGameModule != NULL)
     {
-      std::vector< uint32 > gameList = onlineGameModule->GetOnlineGamesWithAccount(account->GetAccountId());
+      std::vector< uint32 > gameList = onlineGameModule->GetOnlineGameListFromAccount(account->GetAccountId());
       SendPacketToClient(new ClientActiveOnlineGameListNetworkPacket(gameList));
     }
   }

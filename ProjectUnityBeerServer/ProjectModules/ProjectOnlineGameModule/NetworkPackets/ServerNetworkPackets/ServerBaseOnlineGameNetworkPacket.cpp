@@ -13,8 +13,10 @@
 #include "EvilGameEngine/CoreGameLogin/LoginModule/CoreGameServerLoginModule.h"
 
 #include "ProjectModules/ProjectOnlineGameModule/Data/OnlineGamePacketData.h"
-//#include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ClientNetworkPackets/ClientReceivedGameDataNetworkPacket.h"
 #include "ProjectModules/ProjectOnlineGameModule/Module/ProjectOnlineGameServerModule.h"
+
+#include "ProjectModules/ProjectOnlineGameModule/Data/OnlineGameData.hpp"
+#include "ProjectModules/ProjectOnlineGameModule/Data/OnlineGamePlayer.hpp"
 
 ServerBaseOnlineGameNetworkPacket::ServerBaseOnlineGameNetworkPacket(OnlineGamePacketData::PacketData packetType, const BinaryStream* datastream) :
   BaseAuthentcatedNetworkPacket((uint32)packetType,datastream)
@@ -65,9 +67,9 @@ void ServerBaseOnlineGameNetworkPacket::SendPacketToOnlineGamePlayers(OnlineGame
       const std::vector<OnlineGamePlayer*> playerList = onlineGame->GetPlayerList();
       for (std::vector<OnlineGamePlayer*>::const_iterator itPlayer = playerList.begin(); itPlayer != playerList.end(); ++itPlayer)
       {
-        OnlineGamePlayer* lobbyPlayer = *itPlayer;
+        OnlineGamePlayer* onlinePlayer = *itPlayer;
 
-        Account* account = loginModule->GetCachedAccount(lobbyPlayer->GetAccountId());
+        Account* account = loginModule->GetCachedAccount(onlinePlayer->GetAccountId());
         if (account != NULL)
         {
           gameEngine->SendPacketToEndpoint(account->GetConnectionId(), packet);

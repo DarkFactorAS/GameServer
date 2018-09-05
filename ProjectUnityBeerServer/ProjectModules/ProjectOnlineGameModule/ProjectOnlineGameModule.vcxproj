@@ -131,6 +131,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameplayLogic\GameLogic.cpp" />
+    <ClCompile Include="GameplayLogic\GameplayLogic.cpp" />
     <ClCompile Include="Module\ProjectOnlineGameServerModule.cpp" />
     <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientCreatedOnlineGameNetworkPacket.cpp" />
     <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientReceivedActionCardsNetworkPacket.cpp" />
@@ -150,6 +152,8 @@
     <ClInclude Include="Data\OnlineGameData.hpp" />
     <ClInclude Include="Data\OnlineGamePacketData.h" />
     <ClInclude Include="Data\OnlineGamePlayer.hpp" />
+    <ClInclude Include="GameplayLogic\GameLogic.h" />
+    <ClInclude Include="GameplayLogic\GameplayLogic.h" />
     <ClInclude Include="Module\ProjectOnlineGameServerModule.h" />
     <ClInclude Include="NetworkPackets\ClientNetworkPackets\ClientCreatedOnlineGameNetworkPacket.h" />
     <ClInclude Include="NetworkPackets\ClientNetworkPackets\ClientReceivedActionCardsNetworkPacket.h" />

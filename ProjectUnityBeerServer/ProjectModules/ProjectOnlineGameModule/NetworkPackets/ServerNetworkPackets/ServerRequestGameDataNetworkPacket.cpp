@@ -39,7 +39,7 @@ void ServerRequestGameDataNetworkPacket::Execute()
   ProjectOnlineGameServerModule* module = GetModule();
   if (module != NULL && account != NULL ) 
   {
-    OnlineGameData* onlineGame = module->GetOnlineGame(account->GetAccountId(), m_GameId);
+    OnlineGameData* onlineGame = module->GetOnlineGameWithAccount(m_GameId, account->GetAccountId());
     if (onlineGame != NULL)
     {
       SendPacketToClient( new ClientReceivedGameDataNetworkPacket( onlineGame ) );
