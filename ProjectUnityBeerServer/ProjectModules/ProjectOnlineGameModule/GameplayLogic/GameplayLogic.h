@@ -8,6 +8,7 @@
 #include "EvilGameEngine/CoreGameEngine/CoreGameEngineModule.h"
 
 #include "ProjectModules/ProjectOnlineGameModule/Data/OnlineGameData.hpp"
+#include "ProjectModules/ProjectOnlineGameModule/Data/ActionCard.hpp"
 
 class ProjectOnlineGameServerModule;
 
@@ -29,6 +30,8 @@ public:
   OnlineGameData*                       GetOnlineGame(uint32 gameId);
   OnlineGameData*                       GetOnlineGameWithAccount(uint32 gameId, uint32 accountId);
   std::vector< uint32 >                 GetOnlineGameListFromAccount(uint32 accountId);
+
+  std::vector<ActionCard*>              GetActionCards(uint32 gameId, uint32 accountId);
 
 private:
 

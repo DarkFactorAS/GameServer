@@ -2,16 +2,18 @@
 #define PROJECT_ONLINEGAME_NETWORKPACKETS_CLIENT_RECEIVEDACTIONCARD_NETWORKPACKET 1
 
 #include "EvilGameEngine/CoreGameEngine/CoreGameNetwork/Packets/BaseNetworkPacket.h"
-#include "ProjectUnityBeerServer/ProjectModules/ProjectWorldBuilderModule/Data/Playfield.h"
-#include "ProjectUnityBeerServer/ProjectModules/ProjectWorldBuilderModule/WorldBuilderModule/ProjectWorldBuilderServerModule.h"
 
 #include "ProjectUnityBeerServer/ProjectModules/ProjectOnlineGameModule/Data/OnlineGameData.hpp"
+#include "ProjectUnityBeerServer/ProjectModules/ProjectOnlineGameModule/Data/ActionCard.hpp"
+
+#include "ProjectUnityBeerServer/ProjectModules/ProjectWorldBuilderModule/Data/Playfield.h"
+#include "ProjectUnityBeerServer/ProjectModules/ProjectWorldBuilderModule/WorldBuilderModule/ProjectWorldBuilderServerModule.h"
 
 class ClientReceivedActionCardsNetworkPacket : public BaseNetworkPacket
 {
 public:
 
-  ClientReceivedActionCardsNetworkPacket(uint32 gameId, std::vector<uint32> actionCardList);
+  ClientReceivedActionCardsNetworkPacket(uint32 gameId, std::vector<ActionCard*> actionCardList);
   ClientReceivedActionCardsNetworkPacket(const BinaryStream* datastream);
 
   static  BaseNetworkPacket*    Create(const BinaryStream* datastream) { return new ClientReceivedActionCardsNetworkPacket(datastream); }
@@ -23,7 +25,7 @@ public:
 private:
 
   uint32  m_GameId;
-  std::vector<uint32> m_ActionCardList;
+  std::vector<ActionCard*> m_ActionCardList;
 };
 
 #endif /// PROJECT_ONLINEGAME_NETWORKPACKETS_CLIENT_RECEIVEDACTIONCARD_NETWORKPACKET#pragma once

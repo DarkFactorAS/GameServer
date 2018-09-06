@@ -11,10 +11,11 @@
 #include "Precompile.h"
 #include "ServerPlayerStartRoundNetworkPacket.h"
 
-#include "ProjectLobbyGameModule/Data/GameManagementPacketData.h"
 #include "ProjectOnlineGameModule/NetworkPackets/ClientNetworkPackets/ClientReceivedActionCardsNetworkPacket.h"
-
 #include "ProjectOnlineGameModule/Data/OnlineGamePacketData.h"
+#include "ProjectOnlineGameModule/Data/ActionCard.hpp"
+
+#include "ProjectLobbyGameModule/Data/GameManagementPacketData.h"
 
 ServerPlayerStartRoundNetworkPacket::ServerPlayerStartRoundNetworkPacket(uint32 lobbyGameId) :
   ServerBaseOnlineGameNetworkPacket(OnlineGamePacketData::PacketData_ServerPlayerStartRound),
@@ -46,15 +47,7 @@ void ServerPlayerStartRoundNetworkPacket::Execute()
     //        If all players are ready - broadcast cards to all
     //        Start timer after first enters this state ?
 
-    std::vector<uint32> actionCardList;
-    actionCardList.push_back(1);
-    actionCardList.push_back(1);
-    actionCardList.push_back(1);
-    actionCardList.push_back(1);
-    actionCardList.push_back(1);
-    actionCardList.push_back(1);
-    actionCardList.push_back(1);
-
+    std::vector<ActionCard*> actionCardList = module->GetActionCards(m_GameId, account->GetAccountId() );
     SendPacketToClient( new ClientReceivedActionCardsNetworkPacket(m_GameId, actionCardList) );
   }
 

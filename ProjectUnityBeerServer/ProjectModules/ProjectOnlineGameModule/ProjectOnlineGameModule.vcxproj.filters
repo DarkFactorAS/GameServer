@@ -35,6 +35,9 @@
     <ClCompile Include="GameplayLogic\GameLogic.cpp">
       <Filter>GameplayLogic</Filter>
     </ClCompile>
+    <ClCompile Include="GameplayLogic\ActionCardDeck.cpp">
+      <Filter>GameplayLogic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -79,6 +82,15 @@
     </ClInclude>
     <ClInclude Include="GameplayLogic\GameLogic.h">
       <Filter>GameplayLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="GameplayLogic\ActionCardDeck.h">
+      <Filter>GameplayLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\ActionCardType.h">
+      <Filter>Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\ActionCard.hpp">
+      <Filter>Data</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

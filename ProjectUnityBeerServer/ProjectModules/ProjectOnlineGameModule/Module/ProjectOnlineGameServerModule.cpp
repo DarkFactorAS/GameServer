@@ -89,3 +89,7 @@ bool ProjectOnlineGameServerModule::LeaveOnlineGame(uint32 gameId, uint32 accoun
 {
   return m_GameplayLogic->LeaveOnlineGame(gameId,accountId);
 }
+std::vector<ActionCard*> ProjectOnlineGameServerModule::GetActionCards(uint32 gameId, uint32 accountId)
+{
+  return m_GameplayLogic->GetActionCards(gameId, accountId);
+}

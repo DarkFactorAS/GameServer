@@ -10,6 +10,7 @@
 class ProjectLobbyGameServerModule;
 class GameplayLogic;
 class OnlineGameData;
+class ActionCard;
 
 class ProjectOnlineGameServerModule : public CoreGameEngineModule
 {
@@ -34,6 +35,8 @@ public:
   std::vector< uint32 >                 GetOnlineGameListFromAccount(uint32 accountId);
   OnlineGameData*                       GetOnlineGame(uint32 gameId);
   OnlineGameData*                       GetOnlineGameWithAccount(uint32 gameId, uint32 accountId);
+
+  std::vector<ActionCard*>              GetActionCards( uint32 gameId, uint32 accountId);
 
 private:
   

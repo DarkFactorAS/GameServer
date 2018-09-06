@@ -116,3 +116,19 @@ bool GameplayLogic::LeaveOnlineGame(uint32 gameId, uint32 accountId)
   }
   return false;
 }
+
+std::vector<ActionCard*> GameplayLogic::GetActionCards(uint32 gameId, uint32 /*accountId*/)
+{
+  OnlineGameData* onlineGame = GetOnlineGame(gameId);
+  if (onlineGame != NULL)
+  {
+    ActionCardDeck* actionCardDeck = onlineGame->GetActionCardDeck();
+    if (actionCardDeck != NULL)
+    {
+      return actionCardDeck->GetCards(9);
+    }
+  }
+
+  std::vector< ActionCard* > deck;
+  return deck;
+}

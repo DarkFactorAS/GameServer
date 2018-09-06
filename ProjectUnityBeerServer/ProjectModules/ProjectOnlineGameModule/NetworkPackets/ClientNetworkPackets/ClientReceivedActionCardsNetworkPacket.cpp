@@ -3,7 +3,7 @@
 #include "ClientReceivedActionCardsNetworkPacket.h"
 #include "ProjectUnityBeerServer/ProjectModules/ProjectOnlineGameModule/Data/OnlineGamePacketData.h"
 
-ClientReceivedActionCardsNetworkPacket::ClientReceivedActionCardsNetworkPacket(uint32 gameId,std::vector<uint32> actionCardList) :
+ClientReceivedActionCardsNetworkPacket::ClientReceivedActionCardsNetworkPacket(uint32 gameId,std::vector<ActionCard*> actionCardList) :
   BaseNetworkPacket(OnlineGamePacketData::PacketData_ClientReceiveActionCards),
   m_GameId(gameId),
   m_ActionCardList(actionCardList)
@@ -24,7 +24,9 @@ BinaryStream* ClientReceivedActionCardsNetworkPacket::GetDataStream()
   datastream->WriteUInt16(numCards);
   for (uint16 index = 0; index < numCards; index++)
   {
-    datastream->WriteUInt32( m_ActionCardList[index] );
+    ActionCard* actionCard = m_ActionCardList[index];
+    datastream->WriteUInt32(actionCard->GetCardType());
+    datastream->WriteUInt32(actionCard->GetInitiative());
   }
 
   return datastream;

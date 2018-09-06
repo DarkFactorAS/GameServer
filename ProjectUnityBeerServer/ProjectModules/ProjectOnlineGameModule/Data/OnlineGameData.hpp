@@ -4,6 +4,7 @@
 #include "OnlineGamePlayer.hpp"
 
 #include "ProjectUnityBeerServer/ProjectModules/ProjectWorldBuilderModule/Data/Playfield.h"
+#include "ProjectUnityBeerServer/ProjectModules/ProjectOnlineGameModule/GameplayLogic/ActionCardDeck.h"
 
 class OnlineGameData
 {
@@ -12,8 +13,10 @@ public:
   OnlineGameData() :
     m_GameId(0),
     m_OwnerAccountId(0),
-    m_Playfield(NULL)
+    m_Playfield(NULL),
+    m_ActionCardDeck(NULL)
   {
+    m_ActionCardDeck = new ActionCardDeck();
   }
 
   OnlineGameData(uint32 gameId) :
@@ -21,13 +24,9 @@ public:
     m_OwnerAccountId(0),
     m_Playfield(NULL)
   {
+    m_ActionCardDeck = new ActionCardDeck();
   }
 
-  uint32 GetGameId() const { return m_GameId; }
-  void   SetGameId(uint32 gameId) { m_GameId = gameId; }
-
-  Playfield* GetPlayfield() const { return m_Playfield; }
-  void   SetPlayfield(Playfield* playfield) { m_Playfield = playfield; }
   uint32 GetPlayfieldId() const
   {
     if (m_Playfield != NULL)
@@ -99,25 +98,23 @@ public:
     return false;
   }
 
-  uint32 GetOwnerAccountId() const
-  {
-    return m_OwnerAccountId;
-  }
-
-  void SetOwnerAccountId(uint32 accountId)
-  {
-    m_OwnerAccountId = accountId;
-  }
-
-  const std::vector<OnlineGamePlayer*> GetPlayerList() const { return m_PlayerList; }
+  uint32                                GetGameId() const { return m_GameId; }
+  void                                  SetGameId(uint32 gameId) { m_GameId = gameId; }
+  Playfield*                            GetPlayfield() const { return m_Playfield; }
+  void                                  SetPlayfield(Playfield* playfield) { m_Playfield = playfield; }
+  uint32                                GetOwnerAccountId() const  { return m_OwnerAccountId; }
+  void                                  SetOwnerAccountId(uint32 accountId){ m_OwnerAccountId = accountId; }
+  const std::vector<OnlineGamePlayer*>  GetPlayerList() const { return m_PlayerList; }
+  ActionCardDeck*                       GetActionCardDeck() const { return m_ActionCardDeck; }
 
 private:
 
-  uint32 m_GameId;
-  uint32 m_OwnerAccountId;
+  uint32                                m_GameId;
+  uint32                                m_OwnerAccountId;
 
-  Playfield* m_Playfield;
-  std::vector< OnlineGamePlayer* > m_PlayerList;
+  Playfield*                            m_Playfield;
+  std::vector< OnlineGamePlayer* >      m_PlayerList;
+  ActionCardDeck*                       m_ActionCardDeck;
 };
 
 #endif /// PROJECT_ONLINEGAME_DATA_ONLINEGAMEDATA
