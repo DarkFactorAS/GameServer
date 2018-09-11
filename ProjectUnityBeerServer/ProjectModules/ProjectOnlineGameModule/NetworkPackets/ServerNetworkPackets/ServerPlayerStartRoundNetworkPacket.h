@@ -7,7 +7,7 @@ class ServerPlayerStartRoundNetworkPacket : public ServerBaseOnlineGameNetworkPa
 {
 public:
 
-  ServerPlayerStartRoundNetworkPacket(uint32 gameId);
+  ServerPlayerStartRoundNetworkPacket(uint32 accountId, uint32 gameId);
   ServerPlayerStartRoundNetworkPacket(const BinaryStream* datastream);
 
   static  BaseNetworkPacket*    Create(const BinaryStream* datastream) { return new ServerPlayerStartRoundNetworkPacket(datastream); }
@@ -19,7 +19,7 @@ public:
 private:
 
   uint32                        m_GameId;
-
+  uint32                        m_AccountId;
 };
 
 #endif /// PROJECT_ONLINEGAME_NETWORKPACKETS_SERVER_PLAYERSTARTROUND_NETWORKPACKET#pragma once

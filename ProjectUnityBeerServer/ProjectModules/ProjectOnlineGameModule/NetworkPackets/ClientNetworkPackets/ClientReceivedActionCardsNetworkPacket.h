@@ -13,7 +13,7 @@ class ClientReceivedActionCardsNetworkPacket : public BaseNetworkPacket
 {
 public:
 
-  ClientReceivedActionCardsNetworkPacket(uint32 gameId, std::vector<ActionCard*> actionCardList);
+  ClientReceivedActionCardsNetworkPacket(uint32 gameId, uint32 accountId, std::vector<ActionCard*> actionCardList);
   ClientReceivedActionCardsNetworkPacket(const BinaryStream* datastream);
 
   static  BaseNetworkPacket*    Create(const BinaryStream* datastream) { return new ClientReceivedActionCardsNetworkPacket(datastream); }
@@ -24,8 +24,9 @@ public:
 
 private:
 
-  uint32  m_GameId;
-  std::vector<ActionCard*> m_ActionCardList;
+  uint32                        m_GameId;
+  uint32                        m_AccountId;
+  std::vector<ActionCard*>      m_ActionCardList;
 };
 
 #endif /// PROJECT_ONLINEGAME_NETWORKPACKETS_CLIENT_RECEIVEDACTIONCARD_NETWORKPACKET#pragma once

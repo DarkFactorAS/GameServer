@@ -3,9 +3,10 @@
 #include "ClientReceivedActionCardsNetworkPacket.h"
 #include "ProjectUnityBeerServer/ProjectModules/ProjectOnlineGameModule/Data/OnlineGamePacketData.h"
 
-ClientReceivedActionCardsNetworkPacket::ClientReceivedActionCardsNetworkPacket(uint32 gameId,std::vector<ActionCard*> actionCardList) :
+ClientReceivedActionCardsNetworkPacket::ClientReceivedActionCardsNetworkPacket(uint32 gameId, uint32 accountId, std::vector<ActionCard*> actionCardList) :
   BaseNetworkPacket(OnlineGamePacketData::PacketData_ClientReceiveActionCards),
   m_GameId(gameId),
+  m_AccountId(accountId),
   m_ActionCardList(actionCardList)
 {
 }
@@ -13,12 +14,14 @@ ClientReceivedActionCardsNetworkPacket::ClientReceivedActionCardsNetworkPacket(u
 ClientReceivedActionCardsNetworkPacket::ClientReceivedActionCardsNetworkPacket(const BinaryStream* /*datastream*/) :
   BaseNetworkPacket(OnlineGamePacketData::PacketData_ClientReceiveActionCards)
 {
+  // TODO : Implement this for unittest
 }
 
 BinaryStream* ClientReceivedActionCardsNetworkPacket::GetDataStream()
 {
   BinaryStream* datastream = BaseNetworkPacket::GetDataStream();
   datastream->WriteUInt32(m_GameId);
+  datastream->WriteUInt32(m_AccountId);
 
   uint16 numCards = (uint16) m_ActionCardList.size();
   datastream->WriteUInt16(numCards);

@@ -17,27 +17,35 @@
 
 #include "ProjectLobbyGameModule/Data/GameManagementPacketData.h"
 
-ServerPlayerStartRoundNetworkPacket::ServerPlayerStartRoundNetworkPacket(uint32 lobbyGameId) :
+ServerPlayerStartRoundNetworkPacket::ServerPlayerStartRoundNetworkPacket(uint32 lobbyGameId, uint32 accountId) :
   ServerBaseOnlineGameNetworkPacket(OnlineGamePacketData::PacketData_ServerPlayerStartRound),
-  m_GameId(lobbyGameId)
+  m_GameId(lobbyGameId),
+  m_AccountId(accountId)
 {
 }
 
 ServerPlayerStartRoundNetworkPacket::ServerPlayerStartRoundNetworkPacket(const BinaryStream* datastream) :
   ServerBaseOnlineGameNetworkPacket(OnlineGamePacketData::PacketData_ServerPlayerStartRound, datastream)
 {
-  m_GameId = datastream->ReadUInt32();
+  m_GameId    = datastream->ReadUInt32();
+  m_AccountId = datastream->ReadUInt32();
 }
 
 BinaryStream* ServerPlayerStartRoundNetworkPacket::GetDataStream()
 {
   BinaryStream* datastream = ServerBaseOnlineGameNetworkPacket::GetDataStream();
   datastream->WriteUInt32(m_GameId);
+  datastream->WriteUInt32(m_AccountId);
   return datastream;
 }
 
 void ServerPlayerStartRoundNetworkPacket::Execute()
 {
+  if (!CanExecuteAsAccount(m_AccountId))
+  {
+    return;
+  }
+
   Account* account = GetAccount();
   ProjectOnlineGameServerModule* module = GetModule();
 
@@ -47,8 +55,8 @@ void ServerPlayerStartRoundNetworkPacket::Execute()
     //        If all players are ready - broadcast cards to all
     //        Start timer after first enters this state ?
 
-    std::vector<ActionCard*> actionCardList = module->GetActionCards(m_GameId, account->GetAccountId() );
-    SendPacketToClient( new ClientReceivedActionCardsNetworkPacket(m_GameId, actionCardList) );
+    std::vector<ActionCard*> actionCardList = module->GetActionCards(m_GameId, m_AccountId);
+    SendPacketToClient( new ClientReceivedActionCardsNetworkPacket(m_GameId, m_AccountId, actionCardList) );
   }
 
   //SendGameErrorToClient(GameEnginePacketData::ErrorCode_FailedToCreateGame);

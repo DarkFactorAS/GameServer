@@ -132,6 +132,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GameplayLogic\ActionCardDeck.cpp" />
+    <ClCompile Include="GameplayLogic\ActionCardInventory.cpp" />
     <ClCompile Include="GameplayLogic\GameLogic.cpp" />
     <ClCompile Include="GameplayLogic\GameplayLogic.cpp" />
     <ClCompile Include="Module\ProjectOnlineGameServerModule.cpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="Data\OnlineGamePacketData.h" />
     <ClInclude Include="Data\OnlineGamePlayer.hpp" />
     <ClInclude Include="GameplayLogic\ActionCardDeck.h" />
+    <ClInclude Include="GameplayLogic\ActionCardInventory.h" />
     <ClInclude Include="GameplayLogic\GameLogic.h" />
     <ClInclude Include="GameplayLogic\GameplayLogic.h" />
     <ClInclude Include="Module\ProjectOnlineGameServerModule.h" />

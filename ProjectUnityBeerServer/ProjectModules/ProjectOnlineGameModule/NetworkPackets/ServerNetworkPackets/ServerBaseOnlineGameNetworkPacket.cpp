@@ -86,3 +86,26 @@ ProjectOnlineGameServerModule* ServerBaseOnlineGameNetworkPacket::GetModule()
 {
   return ProjectOnlineGameServerModule::GetModule(GetGameEngine());
 }
+
+bool ServerBaseOnlineGameNetworkPacket::CanExecuteAsAccount( uint32 accountId )
+{
+  Account* loggedInAccount = GetAccount();
+  if (loggedInAccount == NULL)
+  {
+    return false;
+  }
+
+  if (loggedInAccount->GetAccountId() == accountId)
+  {
+    return true;
+  }
+
+  if (loggedInAccount->IsGMEnabled())
+  {
+    return true;
+  }
+
+  return false;
+}
+
+

@@ -24,6 +24,9 @@ public:
 
   ProjectOnlineGameServerModule*  GetModule();
 
+protected:
+
+  bool                            CanExecuteAsAccount(uint32 accountId);
 };
 
 #endif /// PROJECT_ONLINEGAME_NETWORKPACKETS_BASE

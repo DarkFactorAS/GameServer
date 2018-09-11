@@ -50,6 +50,19 @@ public:
     m_PlayerList.push_back(player);
   }
 
+  OnlineGamePlayer* GetPlayer(uint32 accountId)
+  {
+    for (std::vector<OnlineGamePlayer*>::iterator itPlayer = m_PlayerList.begin(); itPlayer != m_PlayerList.end(); itPlayer++)
+    {
+      OnlineGamePlayer* onlinePlayer = *itPlayer;
+      if (onlinePlayer->GetAccountId() == accountId)
+      {
+        return onlinePlayer;
+      }
+    }
+    return NULL;
+  }
+
   void AssignOwnerId(uint32 excludeAccountId)
   {
     m_OwnerAccountId = 0;

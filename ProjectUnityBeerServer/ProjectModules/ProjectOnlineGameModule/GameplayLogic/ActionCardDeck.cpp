@@ -27,6 +27,17 @@ void ActionCardDeck::CreateDeck()
   AddCard(ActionCards::UTurn, 8);
 
   // Shuffle deck
+  uint32 numCards = m_Deck.size();
+  for (uint32 index = 0; index < numCards; index++)
+  {
+    uint32 swpIndex = rand() % numCards;
+    if (index != swpIndex)
+    {
+      ActionCard* thisCard = m_Deck[index];
+      m_Deck[index] = m_Deck[swpIndex];
+      m_Deck[swpIndex] = thisCard;
+    }
+  }
 }
 
 void ActionCardDeck::AddCard(ActionCards::ActionCardType actioncardType, uint32 numCards)
