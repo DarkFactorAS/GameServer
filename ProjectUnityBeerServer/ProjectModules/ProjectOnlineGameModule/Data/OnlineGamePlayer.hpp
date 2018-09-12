@@ -10,6 +10,7 @@ public:
     m_AccountId(acccountId),
     m_PlayerName(playerName),
     m_RobotId(robotId),
+    m_Lives(9),
     m_SpawnPointId(spawnpointId)
   {
     m_Inventory = new ActionCardInventory();
