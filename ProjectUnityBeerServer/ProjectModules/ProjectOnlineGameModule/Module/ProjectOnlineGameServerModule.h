@@ -36,6 +36,7 @@ public:
   OnlineGameData*                       GetOnlineGame(uint32 gameId);
   OnlineGameData*                       GetOnlineGameWithAccount(uint32 gameId, uint32 accountId);
 
+  void                                  SetPlayerReady( uint32 gameId, uint32 accountId );
   std::vector<ActionCard*>              GetActionCards( uint32 gameId, uint32 accountId);
 
 private:

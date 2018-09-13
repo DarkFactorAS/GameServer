@@ -6,6 +6,14 @@
 class OnlineGamePlayer
 {
 public:
+
+  enum PlayerState
+  {
+    PlayerState_Idle,
+    PlayerState_Busy,
+    PlayerState_WaitingForWards,
+  };
+
   OnlineGamePlayer(uint32 acccountId, const String& playerName, uint32 robotId, uint32 spawnpointId) :
     m_AccountId(acccountId),
     m_PlayerName(playerName),
@@ -14,6 +22,7 @@ public:
     m_SpawnPointId(spawnpointId)
   {
     m_Inventory = new ActionCardInventory();
+    m_State = PlayerState_Idle;
   }
 
   uint32 GetAccountId() const{ return m_AccountId; }
@@ -25,6 +34,8 @@ public:
   uint16 GetPositionY() const { return m_Position.GetUInt16Y(); }
   uint32 GetSpawnPointId() const{ return m_SpawnPointId; }
 
+
+  void SetStatus(PlayerState playerState){ m_State = playerState; }
   ActionCardInventory*  GetInventory() const { return m_Inventory; }
 
 private:
@@ -35,6 +46,8 @@ private:
   uint8                 m_Lives;
   uint32                m_SpawnPointId;
   Vector2               m_Position;
+
+  PlayerState           m_State;
   ActionCardInventory*  m_Inventory;
 };
 

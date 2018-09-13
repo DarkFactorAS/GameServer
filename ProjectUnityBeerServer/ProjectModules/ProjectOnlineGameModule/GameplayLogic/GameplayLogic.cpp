@@ -117,6 +117,19 @@ bool GameplayLogic::LeaveOnlineGame(uint32 gameId, uint32 accountId)
   return false;
 }
 
+void GameplayLogic::SetPlayerReady(uint32 gameId, uint32 accountId)
+{
+  OnlineGameData* onlineGame = GetOnlineGame(gameId);
+  if (onlineGame != NULL)
+  {
+    OnlineGamePlayer* onlinePlayer = onlineGame->GetPlayer(accountId);
+    if (onlinePlayer != NULL)
+    {
+      onlinePlayer->SetStatus( OnlineGamePlayer::PlayerState_WaitingForWards );
+    }
+  }
+}
+
 std::vector<ActionCard*> GameplayLogic::GetActionCards(uint32 gameId, uint32 accountId)
 {
   OnlineGameData* onlineGame = GetOnlineGame(gameId);

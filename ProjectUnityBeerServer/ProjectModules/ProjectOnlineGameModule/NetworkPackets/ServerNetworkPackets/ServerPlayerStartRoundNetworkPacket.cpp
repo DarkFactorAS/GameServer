@@ -43,17 +43,22 @@ void ServerPlayerStartRoundNetworkPacket::Execute()
 {
   if (!CanExecuteAsAccount(m_AccountId))
   {
-    return;
+    Account* account = GetAccount();
+    if (account == NULL)
+    {
+      return;
+    }
+
+    m_AccountId = account->GetAccountId();
   }
 
-  Account* account = GetAccount();
   ProjectOnlineGameServerModule* module = GetModule();
-
-  if (module != NULL && account != NULL)
+  if (module != NULL)
   {
     // TODO : Flag player as ready.
     //        If all players are ready - broadcast cards to all
     //        Start timer after first enters this state ?
+    module->SetPlayerReady(m_GameId, m_AccountId );
 
     std::vector<ActionCard*> actionCardList = module->GetActionCards(m_GameId, m_AccountId);
     SendPacketToClient( new ClientReceivedActionCardsNetworkPacket(m_GameId, m_AccountId, actionCardList) );

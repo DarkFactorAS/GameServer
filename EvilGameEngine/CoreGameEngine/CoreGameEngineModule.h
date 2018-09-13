@@ -31,7 +31,6 @@ public:
   std::map< uint32, NetworkPacket_fp* > m_PacketCreator;
 
   bool                                  SendPacketToClient(uint32 connectionId, BaseNetworkPacket* packet);
-
 };
 
 #endif /// EVILENGINE_COREGAMEENGINE_COREGAMEENGINEMODULE
