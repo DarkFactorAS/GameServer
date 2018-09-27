@@ -21,6 +21,7 @@
 #include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ServerNetworkPackets/ServerRequestGameDataNetworkPacket.h"
 #include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ServerNetworkPackets/ServerPlayerLeaveOnlineGameNetworkPacket.h"
 #include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ServerNetworkPackets/ServerPlayerStartRoundNetworkPacket.h"
+#include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ServerNetworkPackets/GMServerStartRoundNetworkPacket.h"
 
 // Other modules
 #include "ProjectModules/ProjectLobbyGameModule/Module/ProjectLobbyGameServerModule.h"
@@ -42,6 +43,8 @@ ProjectOnlineGameServerModule::ProjectOnlineGameServerModule() :
   RegisterPacketType(OnlineGamePacketData::PacketData_ServerRequestGameData, ServerRequestGameDataNetworkPacket::Create);
   RegisterPacketType(OnlineGamePacketData::PacketData_ServerLeaveOnlineGame, ServerPlayerLeaveOnlineGameNetworkPacket::Create);
   RegisterPacketType(OnlineGamePacketData::PacketData_ServerPlayerStartRound, ServerPlayerStartRoundNetworkPacket::Create);
+
+  RegisterPacketType(OnlineGamePacketData::PacketData_ServerGMStartRound, GMServerStartRoundNetworkPacket::Create);
 }
 
 ProjectOnlineGameServerModule* ProjectOnlineGameServerModule::GetModule(CoreGameEngine* gameEngine)
@@ -103,7 +106,7 @@ void ProjectOnlineGameServerModule::SetPlayerReady(uint32 gameId, uint32 account
 }
 void ProjectOnlineGameServerModule::SetAllPlayersReady(uint32 gameId)
 {
-  m_GameplayLogic->SetStatusOnAllPlayers(gameId, OnlineGamePlayer::PlayerState::PlayerState_WaitingForWards);
+  m_GameplayLogic->SetStatusOnAllPlayers(gameId, OnlineGamePlayer::PlayerState::PlayerState_WaitingForCards);
 }
 bool ProjectOnlineGameServerModule::AreAllPlayersReady(uint32 gameId)
 {

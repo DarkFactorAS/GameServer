@@ -125,7 +125,7 @@ void GameplayLogic::SetPlayerReady(uint32 gameId, uint32 accountId)
     OnlineGamePlayer* onlinePlayer = onlineGame->GetPlayer(accountId);
     if (onlinePlayer != NULL)
     {
-      onlinePlayer->SetStatus( OnlineGamePlayer::PlayerState_WaitingForWards );
+      onlinePlayer->SetStatus( OnlineGamePlayer::PlayerState_WaitingForCards);
     }
   }
 }
@@ -156,7 +156,7 @@ bool GameplayLogic::AreAllPlayersReady(uint32 gameId)
     for (std::vector<OnlineGamePlayer*>::const_iterator itOnlinePlayer = playerList.begin(); itOnlinePlayer != playerList.end(); ++itOnlinePlayer)
     {
       const OnlineGamePlayer* onlinePlayer = *itOnlinePlayer;
-      if (onlinePlayer == NULL || onlinePlayer->GetStatus() != OnlineGamePlayer::PlayerState_WaitingToStart)
+      if (onlinePlayer == NULL || onlinePlayer->GetStatus() != OnlineGamePlayer::PlayerState_WaitingForCards)
       {
         return false;
       }

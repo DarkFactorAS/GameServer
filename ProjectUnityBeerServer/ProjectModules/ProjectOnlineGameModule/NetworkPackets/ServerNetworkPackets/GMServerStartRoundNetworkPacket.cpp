@@ -18,13 +18,13 @@
 #include "ProjectLobbyGameModule/Data/GameManagementPacketData.h"
 
 GMServerStartRoundNetworkPacket::GMServerStartRoundNetworkPacket(uint32 lobbyGameId) :
-  ServerBaseOnlineGameNetworkPacket(OnlineGamePacketData::PacketData_ServerPlayerStartRound),
+  ServerBaseOnlineGameNetworkPacket(OnlineGamePacketData::PacketData_ServerGMStartRound),
   m_GameId(lobbyGameId)
 {
 }
 
 GMServerStartRoundNetworkPacket::GMServerStartRoundNetworkPacket(const BinaryStream* datastream) :
-  ServerBaseOnlineGameNetworkPacket(OnlineGamePacketData::PacketData_ServerPlayerStartRound, datastream)
+  ServerBaseOnlineGameNetworkPacket(OnlineGamePacketData::PacketData_ServerGMStartRound, datastream)
 {
   m_GameId    = datastream->ReadUInt32();
 }
@@ -39,7 +39,7 @@ BinaryStream* GMServerStartRoundNetworkPacket::GetDataStream()
 void GMServerStartRoundNetworkPacket::Execute()
 {
   Account* account = GetAccount();
-  if (account == NULL || !account->IsServerGMEnabled())
+  if (account == NULL || !account->HasServerGMFlag())
   {
     return;
   }
