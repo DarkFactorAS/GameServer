@@ -38,7 +38,7 @@ public:
   
   CoreGameServerLoginModule(bool isLive);
   
-  static CoreGameServerLoginModule* GetModule(CoreGameEngine* engine);
+  static CoreGameServerLoginModule* GetModule(CoreEngine* engine);
 
   virtual String                GetModuleName() DF_OVERRIDE { return StaticStr("CoreGameServerLoginModule"); }
   virtual void                  OnConnectionDisconnected(uint32 connectionId) DF_OVERRIDE;

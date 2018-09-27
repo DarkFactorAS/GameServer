@@ -11,6 +11,7 @@ public:
   {
     PlayerState_Idle,
     PlayerState_Busy,
+    PlayerState_WaitingToStart,
     PlayerState_WaitingForWards,
   };
 
@@ -35,7 +36,8 @@ public:
   uint32 GetSpawnPointId() const{ return m_SpawnPointId; }
 
 
-  void SetStatus(PlayerState playerState){ m_State = playerState; }
+  void                  SetStatus(PlayerState playerState){ m_State = playerState; }
+  PlayerState           GetStatus() const{ return m_State; }
   ActionCardInventory*  GetInventory() const { return m_Inventory; }
 
 private:

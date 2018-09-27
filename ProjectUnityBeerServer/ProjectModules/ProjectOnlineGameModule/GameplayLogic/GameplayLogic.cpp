@@ -130,12 +130,46 @@ void GameplayLogic::SetPlayerReady(uint32 gameId, uint32 accountId)
   }
 }
 
-std::vector<ActionCard*> GameplayLogic::GetActionCards(uint32 gameId, uint32 accountId)
+void GameplayLogic::SetStatusOnAllPlayers(uint32 gameId, OnlineGamePlayer::PlayerState playerStatus)
 {
   OnlineGameData* onlineGame = GetOnlineGame(gameId);
   if (onlineGame != NULL)
   {
-    OnlineGamePlayer* player = onlineGame->GetPlayer(accountId);
+    const std::vector<OnlineGamePlayer*> playerList = onlineGame->GetPlayerList();
+    for (std::vector<OnlineGamePlayer*>::const_iterator itOnlinePlayer = playerList.begin(); itOnlinePlayer != playerList.end(); ++itOnlinePlayer)
+    {
+      OnlineGamePlayer* onlinePlayer = *itOnlinePlayer;
+      if (onlinePlayer != NULL)
+      {
+        onlinePlayer->SetStatus(playerStatus);
+      }
+    }
+  }
+}
+
+bool GameplayLogic::AreAllPlayersReady(uint32 gameId)
+{
+  OnlineGameData* onlineGame = GetOnlineGame(gameId);
+  if (onlineGame != NULL)
+  {
+    const std::vector<OnlineGamePlayer*> playerList = onlineGame->GetPlayerList();
+    for (std::vector<OnlineGamePlayer*>::const_iterator itOnlinePlayer = playerList.begin(); itOnlinePlayer != playerList.end(); ++itOnlinePlayer)
+    {
+      const OnlineGamePlayer* onlinePlayer = *itOnlinePlayer;
+      if (onlinePlayer == NULL || onlinePlayer->GetStatus() != OnlineGamePlayer::PlayerState_WaitingToStart)
+      {
+        return false;
+      }
+    }
+    return true;
+  }
+  return false;
+}
+
+std::vector<ActionCard*> GameplayLogic::GetActionCards(OnlineGameData* onlineGame, OnlineGamePlayer* player)
+{
+  if (onlineGame != NULL)
+  {
     ActionCardDeck* actionCardDeck = onlineGame->GetActionCardDeck();
     if (actionCardDeck != NULL && player != NULL )
     {

@@ -32,7 +32,10 @@ public:
   std::vector< uint32 >                 GetOnlineGameListFromAccount(uint32 accountId);
 
   void                                  SetPlayerReady(uint32 gameId, uint32 accountId);
-  std::vector<ActionCard*>              GetActionCards(uint32 gameId, uint32 accountId);
+  void                                  SetStatusOnAllPlayers(uint32 gameId, OnlineGamePlayer::PlayerState playerStatus);
+  bool                                  AreAllPlayersReady(uint32 gameID);
+
+  std::vector<ActionCard*>              GetActionCards(OnlineGameData* onlineGame, OnlineGamePlayer* player);
 
 private:
 

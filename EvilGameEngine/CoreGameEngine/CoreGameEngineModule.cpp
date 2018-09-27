@@ -3,6 +3,11 @@
 #include "CoreGameEngineModule.h"
 #include "EvilEngine/CoreNetwork/Common/NetworkConnection.h"
 
+CoreGameEngine* CoreGameEngineModule::GetGameEngine()
+{
+  return safe_cast<CoreGameEngine*>( GetEngine() );
+}
+
 void CoreGameEngineModule::RegisterPacketType(uint32 packetTypeId, NetworkPacket_fp* createInstance)
 {
   m_PacketCreator[packetTypeId] = createInstance;

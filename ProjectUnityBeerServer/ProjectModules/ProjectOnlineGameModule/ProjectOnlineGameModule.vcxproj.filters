@@ -41,6 +41,9 @@
     <ClCompile Include="GameplayLogic\ActionCardInventory.cpp">
       <Filter>GameplayLogic</Filter>
     </ClCompile>
+    <ClCompile Include="NetworkPackets\ServerNetworkPackets\GMServerStartRoundNetworkPacket.cpp">
+      <Filter>NetworkPackets\ServerNetworkPackets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -97,6 +100,9 @@
     </ClInclude>
     <ClInclude Include="GameplayLogic\ActionCardInventory.h">
       <Filter>GameplayLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkPackets\ServerNetworkPackets\GMServerStartRoundNetworkPacket.h">
+      <Filter>NetworkPackets\ServerNetworkPackets</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

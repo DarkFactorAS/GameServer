@@ -56,35 +56,18 @@ void ServerBaseOnlineGameNetworkPacket::SendGameErrorToClient(uint32 /*errorId*/
   //}
 }
 
-void ServerBaseOnlineGameNetworkPacket::SendPacketToOnlineGamePlayers(OnlineGameData* onlineGame, BaseNetworkPacket* packet)
-{
-  CoreGameEngine* gameEngine = GetGameEngine();
-  if (gameEngine != NULL)
-  {
-    CoreGameServerLoginModule* loginModule = CoreGameServerLoginModule::GetModule(gameEngine);
-    if (loginModule != NULL)
-    {
-      const std::vector<OnlineGamePlayer*> playerList = onlineGame->GetPlayerList();
-      for (std::vector<OnlineGamePlayer*>::const_iterator itPlayer = playerList.begin(); itPlayer != playerList.end(); ++itPlayer)
-      {
-        OnlineGamePlayer* onlinePlayer = *itPlayer;
-
-        Account* account = loginModule->GetCachedAccount(onlinePlayer->GetAccountId());
-        if (account != NULL)
-        {
-          gameEngine->SendPacketToEndpoint(account->GetConnectionId(), packet);
-        }
-      }
-      return;
-    }
-    gameEngine->SendPacketToEndpoint(m_ConnectionId, packet);
-    return;
-  }
-}
-
 ProjectOnlineGameServerModule* ServerBaseOnlineGameNetworkPacket::GetModule()
 {
   return ProjectOnlineGameServerModule::GetModule(GetGameEngine());
+}
+
+void ServerBaseOnlineGameNetworkPacket::SendPacketToOnlineGamePlayers(OnlineGameData* onlineGame, BaseNetworkPacket* packet)
+{
+  ProjectOnlineGameServerModule* module = GetModule();
+  if (module != NULL)
+  {
+    module->SendPacketToOnlineGamePlayers(onlineGame, packet);
+  }
 }
 
 bool ServerBaseOnlineGameNetworkPacket::CanExecuteAsAccount( uint32 accountId )

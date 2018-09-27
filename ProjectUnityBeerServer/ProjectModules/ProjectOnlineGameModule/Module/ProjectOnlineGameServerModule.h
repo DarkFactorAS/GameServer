@@ -8,6 +8,7 @@
 #include "EvilGameEngine/CoreGameEngine/CoreGameEngineModule.h"
 
 class ProjectLobbyGameServerModule;
+class CoreGameServerLoginModule;
 class GameplayLogic;
 class OnlineGameData;
 class ActionCard;
@@ -28,6 +29,10 @@ public:
   static ProjectOnlineGameServerModule* GetModule(CoreGameEngine* gameEngine);
 
   ProjectLobbyGameServerModule*         GetServerLobbyGameModule();
+  CoreGameServerLoginModule*            GetServerLoginModule();
+
+  bool                                  SendPacketToOnlineGamePlayers(uint32 gameId, BaseNetworkPacket* packet);
+  bool                                  SendPacketToOnlineGamePlayers(OnlineGameData* onlineGame, BaseNetworkPacket* packet);
 
   OnlineGameData*                       CreateOnlineGame(uint32 accountId, uint32 lobbyGameId);
   bool                                  LeaveOnlineGame(uint32 gameId, uint32 accountId);
@@ -37,7 +42,10 @@ public:
   OnlineGameData*                       GetOnlineGameWithAccount(uint32 gameId, uint32 accountId);
 
   void                                  SetPlayerReady( uint32 gameId, uint32 accountId );
-  std::vector<ActionCard*>              GetActionCards( uint32 gameId, uint32 accountId);
+  void                                  SetAllPlayersReady(uint32 gameId);
+  bool                                  AreAllPlayersReady(uint32 gameId);
+
+  void                                  DealActionCards(uint32 gameId);
 
 private:
   

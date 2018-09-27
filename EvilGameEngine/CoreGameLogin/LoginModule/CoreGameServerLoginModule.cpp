@@ -65,11 +65,11 @@ CoreGameServerLoginModule::CoreGameServerLoginModule(bool isLive) :
    
 }
 
-CoreGameServerLoginModule* CoreGameServerLoginModule::GetModule(CoreGameEngine* gameEngine)
+CoreGameServerLoginModule* CoreGameServerLoginModule::GetModule(CoreEngine* coreEngine)
 {
-  if (gameEngine != NULL )
+  if (coreEngine != NULL )
   {
-    return safe_cast<CoreGameServerLoginModule*> (gameEngine->GetEngineModule(EngineModule::COREMODULETYPE_SERVERLOGIN));
+    return safe_cast<CoreGameServerLoginModule*> (coreEngine->GetEngineModule(EngineModule::COREMODULETYPE_SERVERLOGIN));
   }
   return NULL;
 }

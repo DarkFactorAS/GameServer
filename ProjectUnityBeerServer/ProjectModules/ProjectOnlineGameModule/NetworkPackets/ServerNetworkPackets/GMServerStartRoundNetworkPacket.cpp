@@ -9,7 +9,7 @@
 *************************************************************************************************/
 
 #include "Precompile.h"
-#include "ServerPlayerStartRoundNetworkPacket.h"
+#include "GMServerStartRoundNetworkPacket.h"
 
 #include "ProjectOnlineGameModule/NetworkPackets/ClientNetworkPackets/ClientReceivedActionCardsNetworkPacket.h"
 #include "ProjectOnlineGameModule/Data/OnlineGamePacketData.h"
@@ -17,33 +17,37 @@
 
 #include "ProjectLobbyGameModule/Data/GameManagementPacketData.h"
 
-ServerPlayerStartRoundNetworkPacket::ServerPlayerStartRoundNetworkPacket(uint32 lobbyGameId) :
+GMServerStartRoundNetworkPacket::GMServerStartRoundNetworkPacket(uint32 lobbyGameId) :
   ServerBaseOnlineGameNetworkPacket(OnlineGamePacketData::PacketData_ServerPlayerStartRound),
   m_GameId(lobbyGameId)
 {
 }
 
-ServerPlayerStartRoundNetworkPacket::ServerPlayerStartRoundNetworkPacket(const BinaryStream* datastream) :
+GMServerStartRoundNetworkPacket::GMServerStartRoundNetworkPacket(const BinaryStream* datastream) :
   ServerBaseOnlineGameNetworkPacket(OnlineGamePacketData::PacketData_ServerPlayerStartRound, datastream)
 {
   m_GameId    = datastream->ReadUInt32();
 }
 
-BinaryStream* ServerPlayerStartRoundNetworkPacket::GetDataStream()
+BinaryStream* GMServerStartRoundNetworkPacket::GetDataStream()
 {
   BinaryStream* datastream = ServerBaseOnlineGameNetworkPacket::GetDataStream();
   datastream->WriteUInt32(m_GameId);
   return datastream;
 }
 
-void ServerPlayerStartRoundNetworkPacket::Execute()
+void GMServerStartRoundNetworkPacket::Execute()
 {
-  Account* authAccount = GetAccount();
-  ProjectOnlineGameServerModule* module = GetModule();
-  if (module != NULL && authAccount != NULL )
+  Account* account = GetAccount();
+  if (account == NULL || !account->IsServerGMEnabled())
   {
-    uint32 accountId = authAccount->GetAccountId();
-    module->SetPlayerReady(m_GameId, accountId );
+    return;
+  }
+
+  ProjectOnlineGameServerModule* module = GetModule();
+  if (module != NULL  )
+  {
+    module->SetAllPlayersReady(m_GameId);
     module->DealActionCards(m_GameId);
   }
 }

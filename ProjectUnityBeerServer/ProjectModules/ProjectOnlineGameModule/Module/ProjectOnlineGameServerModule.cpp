@@ -16,13 +16,17 @@
 #include "ProjectModules/ProjectOnlineGameModule/Data/OnlineGamePacketData.h"
 #include "ProjectModules/ProjectOnlineGameModule/Data/OnlineGameData.hpp"
 #include "ProjectModules/ProjectOnlineGameModule/GameplayLogic/GameplayLogic.h"
+#include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ClientNetworkPackets/ClientReceivedActionCardsNetworkPacket.h"
 #include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ServerNetworkPackets/ServerCreateOnlineGameNetworkPacket.h"
 #include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ServerNetworkPackets/ServerRequestGameDataNetworkPacket.h"
 #include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ServerNetworkPackets/ServerPlayerLeaveOnlineGameNetworkPacket.h"
 #include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ServerNetworkPackets/ServerPlayerStartRoundNetworkPacket.h"
 
+// Other modules
 #include "ProjectModules/ProjectLobbyGameModule/Module/ProjectLobbyGameServerModule.h"
 #include "ProjectModules/ProjectWorldBuilderModule/WorldBuilderModule/ProjectWorldBuilderServerModule.h"
+#include "ProjectModules/ProjectOnlineGameModule/Module/ProjectOnlineGameServerModule.h"
+#include "EvilGameEngine/CoreGameLogin/LoginModule/CoreGameServerLoginModule.h"
 
 #include "ProjectLobbyGameModule/Data/LobbyGameData.hpp"
 #include "ProjectLobbyGameModule/Data/LobbyGamePlayer.hpp"
@@ -52,6 +56,10 @@ ProjectOnlineGameServerModule* ProjectOnlineGameServerModule::GetModule(CoreGame
 ProjectLobbyGameServerModule* ProjectOnlineGameServerModule::GetServerLobbyGameModule()
 {
   return ProjectLobbyGameServerModule::GetModule(m_CoreEngine);
+}
+CoreGameServerLoginModule* ProjectOnlineGameServerModule::GetServerLoginModule()
+{
+  return CoreGameServerLoginModule::GetModule(m_CoreEngine);
 }
 
 OnlineGameData* ProjectOnlineGameServerModule::CreateOnlineGame(uint32 accountId, uint32 lobbyGameId)
@@ -93,7 +101,68 @@ void ProjectOnlineGameServerModule::SetPlayerReady(uint32 gameId, uint32 account
 {
   m_GameplayLogic->SetPlayerReady(gameId, accountId);
 }
-std::vector<ActionCard*> ProjectOnlineGameServerModule::GetActionCards(uint32 gameId, uint32 accountId)
+void ProjectOnlineGameServerModule::SetAllPlayersReady(uint32 gameId)
 {
-  return m_GameplayLogic->GetActionCards(gameId, accountId);
+  m_GameplayLogic->SetStatusOnAllPlayers(gameId, OnlineGamePlayer::PlayerState::PlayerState_WaitingForWards);
 }
+bool ProjectOnlineGameServerModule::AreAllPlayersReady(uint32 gameId)
+{
+  return m_GameplayLogic->AreAllPlayersReady(gameId);
+}
+
+void ProjectOnlineGameServerModule::DealActionCards(uint32 gameId)
+{
+  OnlineGameData* onlineGame = GetOnlineGame(gameId);
+  if (onlineGame == NULL)
+  {
+    return;
+  }
+
+  if (!AreAllPlayersReady(gameId))
+  {
+    return;
+  }
+
+  const std::vector<OnlineGamePlayer*> playerList = onlineGame->GetPlayerList();
+  for (std::vector<OnlineGamePlayer*>::const_iterator itPlayer = playerList.begin(); itPlayer != playerList.end(); ++itPlayer)
+  {
+    OnlineGamePlayer* onlinePlayer = *itPlayer;
+    std::vector<ActionCard*> actionCardList = m_GameplayLogic->GetActionCards(onlineGame, onlinePlayer);
+    ClientReceivedActionCardsNetworkPacket* networkPacket = new ClientReceivedActionCardsNetworkPacket(gameId, onlinePlayer->GetAccountId(), actionCardList);
+
+    SendPacketToOnlineGamePlayers(onlineGame, networkPacket);
+    //SendPacketToOnlineGamePlayer( onlinePlayer, networkPacket);
+  }
+}
+
+bool ProjectOnlineGameServerModule::SendPacketToOnlineGamePlayers(uint32 gameId, BaseNetworkPacket* packet)
+{
+  OnlineGameData* onlineGame = m_GameplayLogic->GetOnlineGame(gameId);
+  return SendPacketToOnlineGamePlayers( onlineGame, packet );
+}
+
+bool ProjectOnlineGameServerModule::SendPacketToOnlineGamePlayers(OnlineGameData* onlineGame, BaseNetworkPacket* packet)
+{
+  CoreGameEngine* gameEngine = GetGameEngine();
+  if (gameEngine != NULL)
+  {
+    CoreGameServerLoginModule* loginModule = GetServerLoginModule();
+    if (loginModule != NULL)
+    {
+      const std::vector<OnlineGamePlayer*> playerList = onlineGame->GetPlayerList();
+      for (std::vector<OnlineGamePlayer*>::const_iterator itPlayer = playerList.begin(); itPlayer != playerList.end(); ++itPlayer)
+      {
+        OnlineGamePlayer* onlinePlayer = *itPlayer;
+
+        Account* account = loginModule->GetCachedAccount(onlinePlayer->GetAccountId());
+        if (account != NULL)
+        {
+          gameEngine->SendPacketToEndpoint(account->GetConnectionId(), packet);
+        }
+      }
+      return true;
+    }
+  }
+  return false;
+}
+

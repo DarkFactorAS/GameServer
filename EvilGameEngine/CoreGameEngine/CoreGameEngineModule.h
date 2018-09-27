@@ -14,6 +14,8 @@
 #include "EvilEngine/CoreEngine/CoreEngine/EngineModule.h"
 #include "EvilGameEngine/CoreGameEngine/CoreGameNetwork/Packets/BaseNetworkPacket.h"
 
+class CoreGameEngine;
+
 class CoreGameEngineModule : public EngineModule
 {
 public:
@@ -29,6 +31,8 @@ public:
   void                                  DisconnectConnectionId(uint32 connectionId);
   virtual bool                          ReceivePacket(uint32 packetTypeId, uint32 connectionInstance, const BinaryStream* dataStream);
   std::map< uint32, NetworkPacket_fp* > m_PacketCreator;
+
+  CoreGameEngine*                       GetGameEngine();
 
   bool                                  SendPacketToClient(uint32 connectionId, BaseNetworkPacket* packet);
 };
