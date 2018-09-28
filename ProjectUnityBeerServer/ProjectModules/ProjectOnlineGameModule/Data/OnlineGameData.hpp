@@ -120,6 +120,8 @@ public:
   const std::vector<OnlineGamePlayer*>  GetPlayerList() const { return m_PlayerList; }
   ActionCardDeck*                       GetActionCardDeck() const { return m_ActionCardDeck; }
 
+  void                                  SetPlayerStatus(uint32 status){ m_PlayerStatus = status; }
+
 private:
 
   uint32                                m_GameId;
@@ -128,6 +130,7 @@ private:
   Playfield*                            m_Playfield;
   std::vector< OnlineGamePlayer* >      m_PlayerList;
   ActionCardDeck*                       m_ActionCardDeck;
+  uint32                                m_PlayerStatus;
 };
 
 #endif /// PROJECT_ONLINEGAME_DATA_ONLINEGAMEDATA

@@ -13,6 +13,7 @@ public:
     PlayerState_Busy,
     PlayerState_WaitingToStart,
     PlayerState_WaitingForCards,
+    PlayerState_PlaceCards,
   };
 
   OnlineGamePlayer(uint32 acccountId, const String& playerName, uint32 robotId, uint32 spawnpointId) :

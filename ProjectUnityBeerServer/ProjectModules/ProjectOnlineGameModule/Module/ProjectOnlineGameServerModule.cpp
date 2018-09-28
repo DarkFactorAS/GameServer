@@ -133,9 +133,28 @@ void ProjectOnlineGameServerModule::DealActionCards(uint32 gameId)
     std::vector<ActionCard*> actionCardList = m_GameplayLogic->GetActionCards(onlineGame, onlinePlayer);
     ClientReceivedActionCardsNetworkPacket* networkPacket = new ClientReceivedActionCardsNetworkPacket(gameId, onlinePlayer->GetAccountId(), actionCardList);
 
-    SendPacketToOnlineGamePlayers(onlineGame, networkPacket);
-    //SendPacketToOnlineGamePlayer( onlinePlayer, networkPacket);
+    //SendPacketToOnlineGamePlayers(onlineGame, networkPacket);
+    SendPacketToOnlineGamePlayer( onlinePlayer, networkPacket);
+
+    onlinePlayer->SetStatus( OnlineGamePlayer::PlayerState_PlaceCards );
   }
+
+  onlineGame->SetPlayerStatus(OnlineGamePlayer::PlayerState_PlaceCards);
+}
+
+bool ProjectOnlineGameServerModule::SendPacketToOnlineGamePlayer(OnlineGamePlayer* onlinePlayer, BaseNetworkPacket* packet)
+{
+  CoreGameEngine* gameEngine = GetGameEngine();
+  CoreGameServerLoginModule* loginModule = GetServerLoginModule();
+  if (onlinePlayer != NULL && loginModule != NULL )
+  {
+    Account* account = loginModule->GetCachedAccount(onlinePlayer->GetAccountId());
+    if (account != NULL)
+    {
+      return gameEngine->SendPacketToEndpoint(account->GetConnectionId(), packet);
+    }
+  }
+  return false;
 }
 
 bool ProjectOnlineGameServerModule::SendPacketToOnlineGamePlayers(uint32 gameId, BaseNetworkPacket* packet)

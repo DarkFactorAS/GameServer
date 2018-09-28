@@ -31,6 +31,7 @@ public:
   ProjectLobbyGameServerModule*         GetServerLobbyGameModule();
   CoreGameServerLoginModule*            GetServerLoginModule();
 
+  bool                                  SendPacketToOnlineGamePlayer(OnlineGamePlayer* onlinePlayer, BaseNetworkPacket* packet);
   bool                                  SendPacketToOnlineGamePlayers(uint32 gameId, BaseNetworkPacket* packet);
   bool                                  SendPacketToOnlineGamePlayers(OnlineGameData* onlineGame, BaseNetworkPacket* packet);
 
