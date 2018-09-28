@@ -11,6 +11,7 @@ class ProjectLobbyGameServerModule;
 class CoreGameServerLoginModule;
 class GameplayLogic;
 class OnlineGameData;
+class OnlineGamePlayer;
 class ActionCard;
 
 class ProjectOnlineGameServerModule : public CoreGameEngineModule
