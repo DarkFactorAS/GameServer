@@ -10,6 +10,16 @@ class OnlineGameData
 {
 public:
 
+  enum GameMode
+  {
+    GameStart,
+    StartRound,
+    DealCards,
+    CompletePlacement,
+    ExecuteCards,
+    GameCompleted,
+  };
+
   OnlineGameData() :
     m_GameId(0),
     m_OwnerAccountId(0),
@@ -120,8 +130,8 @@ public:
   const std::vector<OnlineGamePlayer*>  GetPlayerList() const { return m_PlayerList; }
   ActionCardDeck*                       GetActionCardDeck() const { return m_ActionCardDeck; }
 
-  void                                  SetPlayerStatus(uint32 status){ m_PlayerStatus = status; }
-  uint32                                GetPlayerStatus() const { return m_PlayerStatus; }
+  void                                  SetGamneMode(GameMode gameMode){ m_GameMode = gameMode; }
+  GameMode                              GetGameMode() const { return m_GameMode; }
 
 private:
 
@@ -131,7 +141,7 @@ private:
   Playfield*                            m_Playfield;
   std::vector< OnlineGamePlayer* >      m_PlayerList;
   ActionCardDeck*                       m_ActionCardDeck;
-  uint32                                m_PlayerStatus;
+  GameMode                              m_GameMode;
 };
 
 #endif /// PROJECT_ONLINEGAME_DATA_ONLINEGAMEDATA

@@ -113,7 +113,7 @@ bool ProjectOnlineGameServerModule::AreAllPlayersReady(uint32 gameId)
   return m_GameplayLogic->AreAllPlayersReady(gameId);
 }
 
-void ProjectOnlineGameServerModule::GMProgressPlayerStatus(uint32 gameId, uint32 playerStatusId)
+void ProjectOnlineGameServerModule::GMProgressPlayerStatus(uint32 gameId, uint32 gameMode)
 {
   OnlineGameData* onlineGame = GetOnlineGame(gameId);
   if (onlineGame == NULL)
@@ -121,14 +121,14 @@ void ProjectOnlineGameServerModule::GMProgressPlayerStatus(uint32 gameId, uint32
     return;
   }
 
-  if (onlineGame->GetPlayerStatus() != playerStatusId)
+  if ( (uint32)onlineGame->GetGameMode() != gameMode)
   {
     return;
   }
 
-  switch (onlineGame->GetPlayerStatus())
+  switch (onlineGame->GetGameMode())
   {
-    case OnlineGamePlayer::PlayerState_WaitingForCards:
+    case OnlineGameData::GameStart:
       {
         SetAllPlayersReady(gameId);
         DealActionCards(gameId);
@@ -163,7 +163,7 @@ void ProjectOnlineGameServerModule::DealActionCards(uint32 gameId)
     onlinePlayer->SetStatus( OnlineGamePlayer::PlayerState_PlaceCards );
   }
 
-  onlineGame->SetPlayerStatus(OnlineGamePlayer::PlayerState_PlaceCards);
+  onlineGame->SetGamneMode(OnlineGameData::DealCards);
 }
 
 bool ProjectOnlineGameServerModule::SendPacketToOnlineGamePlayer(OnlineGamePlayer* onlinePlayer, BaseNetworkPacket* packet)
