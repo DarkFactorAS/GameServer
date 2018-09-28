@@ -121,6 +121,7 @@ public:
   ActionCardDeck*                       GetActionCardDeck() const { return m_ActionCardDeck; }
 
   void                                  SetPlayerStatus(uint32 status){ m_PlayerStatus = status; }
+  uint32                                GetPlayerStatus() const { return m_PlayerStatus; }
 
 private:
 

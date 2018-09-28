@@ -21,7 +21,7 @@
 #include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ServerNetworkPackets/ServerRequestGameDataNetworkPacket.h"
 #include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ServerNetworkPackets/ServerPlayerLeaveOnlineGameNetworkPacket.h"
 #include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ServerNetworkPackets/ServerPlayerStartRoundNetworkPacket.h"
-#include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ServerNetworkPackets/GMServerStartRoundNetworkPacket.h"
+#include "ProjectModules/ProjectOnlineGameModule/NetworkPackets/ServerNetworkPackets/GMServerProgressPlayerStatusNetworkPacket.h"
 
 // Other modules
 #include "ProjectModules/ProjectLobbyGameModule/Module/ProjectLobbyGameServerModule.h"
@@ -44,7 +44,7 @@ ProjectOnlineGameServerModule::ProjectOnlineGameServerModule() :
   RegisterPacketType(OnlineGamePacketData::PacketData_ServerLeaveOnlineGame, ServerPlayerLeaveOnlineGameNetworkPacket::Create);
   RegisterPacketType(OnlineGamePacketData::PacketData_ServerPlayerStartRound, ServerPlayerStartRoundNetworkPacket::Create);
 
-  RegisterPacketType(OnlineGamePacketData::PacketData_ServerGMStartRound, GMServerStartRoundNetworkPacket::Create);
+  RegisterPacketType(OnlineGamePacketData::PacketData_ServerGMProgressPlayerStatus, GMServerProgressPlayerStatusNetworkPacket::Create);
 }
 
 ProjectOnlineGameServerModule* ProjectOnlineGameServerModule::GetModule(CoreGameEngine* gameEngine)
@@ -111,6 +111,30 @@ void ProjectOnlineGameServerModule::SetAllPlayersReady(uint32 gameId)
 bool ProjectOnlineGameServerModule::AreAllPlayersReady(uint32 gameId)
 {
   return m_GameplayLogic->AreAllPlayersReady(gameId);
+}
+
+void ProjectOnlineGameServerModule::GMProgressPlayerStatus(uint32 gameId, uint32 playerStatusId)
+{
+  OnlineGameData* onlineGame = GetOnlineGame(gameId);
+  if (onlineGame == NULL)
+  {
+    return;
+  }
+
+  if (onlineGame->GetPlayerStatus() != playerStatusId)
+  {
+    return;
+  }
+
+  switch (onlineGame->GetPlayerStatus())
+  {
+    case OnlineGamePlayer::PlayerState_WaitingForCards:
+      {
+        SetAllPlayersReady(gameId);
+        DealActionCards(gameId);
+      }
+      break;
+  }
 }
 
 void ProjectOnlineGameServerModule::DealActionCards(uint32 gameId)

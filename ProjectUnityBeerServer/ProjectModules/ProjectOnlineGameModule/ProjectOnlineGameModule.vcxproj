@@ -139,7 +139,7 @@
     <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientCreatedOnlineGameNetworkPacket.cpp" />
     <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientReceivedActionCardsNetworkPacket.cpp" />
     <ClCompile Include="NetworkPackets\ClientNetworkPackets\ClientReceivedGameDataNetworkPacket.cpp" />
-    <ClCompile Include="NetworkPackets\ServerNetworkPackets\GMServerStartRoundNetworkPacket.cpp" />
+    <ClCompile Include="NetworkPackets\ServerNetworkPackets\GMServerProgressPlayerStatusNetworkPacket.cpp" />
     <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerBaseOnlineGameNetworkPacket.cpp" />
     <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerCreateOnlineGameNetworkPacket.cpp" />
     <ClCompile Include="NetworkPackets\ServerNetworkPackets\ServerPlayerLeaveOnlineGameNetworkPacket.cpp" />
@@ -165,7 +165,7 @@
     <ClInclude Include="NetworkPackets\ClientNetworkPackets\ClientCreatedOnlineGameNetworkPacket.h" />
     <ClInclude Include="NetworkPackets\ClientNetworkPackets\ClientReceivedActionCardsNetworkPacket.h" />
     <ClInclude Include="NetworkPackets\ClientNetworkPackets\ClientReceivedGameDataNetworkPacket.h" />
-    <ClInclude Include="NetworkPackets\ServerNetworkPackets\GMServerStartRoundNetworkPacket.h" />
+    <ClInclude Include="NetworkPackets\ServerNetworkPackets\GMServerProgressPlayerStatusNetworkPacket.h" />
     <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerBaseOnlineGameNetworkPacket.h" />
     <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerCreateOnlineGameNetworkPacket.h" />
     <ClInclude Include="NetworkPackets\ServerNetworkPackets\ServerPlayerLeaveOnlineGameNetworkPacket.h" />

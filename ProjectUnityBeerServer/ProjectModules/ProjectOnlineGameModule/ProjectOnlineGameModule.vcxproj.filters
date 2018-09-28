@@ -41,7 +41,7 @@
     <ClCompile Include="GameplayLogic\ActionCardInventory.cpp">
       <Filter>GameplayLogic</Filter>
     </ClCompile>
-    <ClCompile Include="NetworkPackets\ServerNetworkPackets\GMServerStartRoundNetworkPacket.cpp">
+    <ClCompile Include="NetworkPackets\ServerNetworkPackets\GMServerProgressPlayerStatusNetworkPacket.cpp">
       <Filter>NetworkPackets\ServerNetworkPackets</Filter>
     </ClCompile>
   </ItemGroup>
@@ -101,7 +101,7 @@
     <ClInclude Include="GameplayLogic\ActionCardInventory.h">
       <Filter>GameplayLogic</Filter>
     </ClInclude>
-    <ClInclude Include="NetworkPackets\ServerNetworkPackets\GMServerStartRoundNetworkPacket.h">
+    <ClInclude Include="NetworkPackets\ServerNetworkPackets\GMServerProgressPlayerStatusNetworkPacket.h">
       <Filter>NetworkPackets\ServerNetworkPackets</Filter>
     </ClInclude>
   </ItemGroup>

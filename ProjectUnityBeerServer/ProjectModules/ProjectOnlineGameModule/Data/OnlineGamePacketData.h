@@ -12,7 +12,7 @@ namespace OnlineGamePacketData
     PacketData_ServerLeaveOnlineGame = 602,
     PacketData_ServerPlayerStartRound = 603,
 
-    PacketData_ServerGMStartRound = 623,
+    PacketData_ServerGMProgressPlayerStatus = 623,
 
     PacketData_ClientCreatedOnlineGame = 650,
     PacketData_ClientReceiveGameData = 651,

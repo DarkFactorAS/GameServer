@@ -9,7 +9,7 @@
 *************************************************************************************************/
 
 #include "Precompile.h"
-#include "GMServerStartRoundNetworkPacket.h"
+#include "GMServerProgressPlayerStatusNetworkPacket.h"
 
 #include "ProjectOnlineGameModule/NetworkPackets/ClientNetworkPackets/ClientReceivedActionCardsNetworkPacket.h"
 #include "ProjectOnlineGameModule/Data/OnlineGamePacketData.h"
@@ -17,26 +17,29 @@
 
 #include "ProjectLobbyGameModule/Data/GameManagementPacketData.h"
 
-GMServerStartRoundNetworkPacket::GMServerStartRoundNetworkPacket(uint32 lobbyGameId) :
-  ServerBaseOnlineGameNetworkPacket(OnlineGamePacketData::PacketData_ServerGMStartRound),
-  m_GameId(lobbyGameId)
+GMServerProgressPlayerStatusNetworkPacket::GMServerProgressPlayerStatusNetworkPacket(uint32 onlineGameId, uint32 thisStatus) :
+  ServerBaseOnlineGameNetworkPacket(OnlineGamePacketData::PacketData_ServerGMProgressPlayerStatus),
+  m_GameId(onlineGameId),
+  m_StatusId(thisStatus)
 {
 }
 
-GMServerStartRoundNetworkPacket::GMServerStartRoundNetworkPacket(const BinaryStream* datastream) :
-  ServerBaseOnlineGameNetworkPacket(OnlineGamePacketData::PacketData_ServerGMStartRound, datastream)
+GMServerProgressPlayerStatusNetworkPacket::GMServerProgressPlayerStatusNetworkPacket(const BinaryStream* datastream) :
+  ServerBaseOnlineGameNetworkPacket(OnlineGamePacketData::PacketData_ServerGMProgressPlayerStatus, datastream)
 {
   m_GameId    = datastream->ReadUInt32();
+  m_StatusId  = datastream->ReadUInt32();
 }
 
-BinaryStream* GMServerStartRoundNetworkPacket::GetDataStream()
+BinaryStream* GMServerProgressPlayerStatusNetworkPacket::GetDataStream()
 {
   BinaryStream* datastream = ServerBaseOnlineGameNetworkPacket::GetDataStream();
   datastream->WriteUInt32(m_GameId);
+  datastream->WriteUInt32(m_StatusId);
   return datastream;
 }
 
-void GMServerStartRoundNetworkPacket::Execute()
+void GMServerProgressPlayerStatusNetworkPacket::Execute()
 {
   Account* account = GetAccount();
   if (account == NULL || !account->HasServerGMFlag())
@@ -47,7 +50,6 @@ void GMServerStartRoundNetworkPacket::Execute()
   ProjectOnlineGameServerModule* module = GetModule();
   if (module != NULL  )
   {
-    module->SetAllPlayersReady(m_GameId);
-    module->DealActionCards(m_GameId);
+    module->GMProgressPlayerStatus(m_GameId, m_StatusId);
   }
 }

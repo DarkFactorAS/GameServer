@@ -43,6 +43,8 @@ public:
   OnlineGameData*                       GetOnlineGame(uint32 gameId);
   OnlineGameData*                       GetOnlineGameWithAccount(uint32 gameId, uint32 accountId);
 
+  void                                  GMProgressPlayerStatus(uint32 gameId, uint32 statusId);
+
   void                                  SetPlayerReady( uint32 gameId, uint32 accountId );
   void                                  SetAllPlayersReady(uint32 gameId);
   bool                                  AreAllPlayersReady(uint32 gameId);
