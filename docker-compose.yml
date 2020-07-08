@@ -1,0 +1,29 @@
+version: '3.6'
+services:
+  botserver:
+    build:
+      network: host
+      context: ./
+      dockerfile: ./BotWebServer/Dockerfile
+    ports:
+      - "8080:80"
+
+  database:
+    image: mariadb
+    container_name: botwebserver_database
+    user: root
+    restart: always
+    environment:
+      - "MYSQL_ROOT_PASSWORD=secret"
+      - "MYSQL_DATABASE=bots"
+      - "MYSQL_USER=botuser"
+      - "MYSQL_PASSWORD=23#219!28a"
+    volumes:
+      - botwebserver-mariadb:/var/lib/mysql
+    ports:
+      - "5306:3306"
+
+volumes:
+  # docker volume create botwebserver-mariadb
+  botwebserver-mariadb:
+    external: true  
