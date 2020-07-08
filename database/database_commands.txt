@@ -1,0 +1,7 @@
+
+# Import database
+docker exec -i botwebserver_database mysql -uroot -psecret < database/botwebserver_create.sql
+docker exec -i botwebserver_database mysql -uroot -psecret bots < database/botwebserver_data.sql
+
+# Export database
+docker exec -it botwebserver_database mysqldump --complete-insert --extended-insert=FALSE -uroot -psecret bots > database/botwebserver_data.sql 

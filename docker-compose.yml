@@ -17,7 +17,7 @@ services:
       - "MYSQL_ROOT_PASSWORD=secret"
       - "MYSQL_DATABASE=bots"
       - "MYSQL_USER=botuser"
-      - "MYSQL_PASSWORD=23#219!28a"
+      - "MYSQL_PASSWORD=pewpewpew"
     volumes:
       - botwebserver-mariadb:/var/lib/mysql
     ports:
