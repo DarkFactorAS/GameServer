@@ -7,7 +7,7 @@ namespace BGCommonLib.DataAccess
     {
     }
 
-    public class PagawebConnectionFactory : DbConnectionFactory, IPagawebConnectionFactory
+    public class PagawebConnectionFactory : OracleDbConnectionFactory, IPagawebConnectionFactory
     {
         public PagawebConnectionFactory(Customer customer) :
             base("PAGAWEB", customer)

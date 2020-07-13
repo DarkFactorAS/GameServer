@@ -7,7 +7,7 @@ namespace BGCommonLib.DataAccess
     /// <summary>
     /// Represents a Db-connection
     /// </summary>
-    public sealed class DbConnection :
+    public sealed class OracleDbConnection :
         IDbConnection,
         IDisposable
     {
@@ -24,7 +24,7 @@ namespace BGCommonLib.DataAccess
         /// 
         /// </summary>
         /// <param name="connectionString"></param>
-        public DbConnection(string connectionString)
+        public OracleDbConnection(string connectionString)
             : this(ConnectionState.Open, connectionString)
         {
         }
@@ -43,7 +43,7 @@ namespace BGCommonLib.DataAccess
         /// </summary>
         /// <param name="state"></param>
         /// <param name="connectionString"></param>
-        public DbConnection(ConnectionState state, string connectionString)
+        public OracleDbConnection(ConnectionState state, string connectionString)
         //: base()
         {
             conn = new OracleConnection(connectionString);

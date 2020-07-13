@@ -5,27 +5,27 @@ namespace BGCommonLib.DataAccess
 {
     public interface IDbConnectionFactory
     {
-        DbConnection CreateConnection();
+        OracleDbConnection CreateConnection();
         IBluDbCommand CreateCommand(string commandText);
-        IBluDbCommand CreateCommand(string commandText, DbConnection connection);
+        IBluDbCommand CreateCommand(string commandText, OracleDbConnection connection);
     }
 
-    public abstract class DbConnectionFactory : IDbConnectionFactory
+    public abstract class OracleDbConnectionFactory : IDbConnectionFactory
     {
         private readonly string _connectionType;
 
         private string _connectionString;
         private Customer _customer;
 
-        public DbConnectionFactory(string connectionType, Customer customer)
+        public OracleDbConnectionFactory(string connectionType, Customer customer)
         {
             _connectionType = connectionType;
             _customer = customer;
         }
 
-        public DbConnection CreateConnection()
+        public OracleDbConnection CreateConnection()
         {
-            return new DbConnection(GetConnectionString());
+            return new OracleDbConnection(GetConnectionString());
         }
 
         public IBluDbCommand CreateCommand(string commandText)
@@ -33,7 +33,7 @@ namespace BGCommonLib.DataAccess
             return new TimedDbCommand(commandText, CreateConnection(), true);
         }
 
-        public IBluDbCommand CreateCommand(string commandText, DbConnection connection)
+        public IBluDbCommand CreateCommand(string commandText, OracleDbConnection connection)
         {
             return new TimedDbCommand(commandText, connection, false);
         }

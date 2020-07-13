@@ -10,7 +10,7 @@ namespace BGCommonLib.DataAccess
     /// Represents an SQL function that is executed while connected to a data source.
     /// This class is not inheritable.
     /// </summary>
-    public class DbDataReader :
+    public class OracleDbDataReader :
         IDataReader,
         IDisposable,
         IEnumerable
@@ -21,7 +21,7 @@ namespace BGCommonLib.DataAccess
         /// Create reader using specified command.
         /// </summary>
         /// <param name="reader"></param>
-        public DbDataReader(IDataReader reader)
+        public OracleDbDataReader(IDataReader reader)
         {
             if (reader == null)
                 throw new ArgumentNullException("reader");
@@ -248,7 +248,7 @@ namespace BGCommonLib.DataAccess
     }
 
 
-    public class TimedDbDataReader : DbDataReader
+    public class TimedDbDataReader : OracleDbDataReader
     {
         private readonly IDataReader _reader;
         private readonly string _commandText;
