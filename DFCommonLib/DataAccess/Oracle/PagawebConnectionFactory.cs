@@ -1,7 +1,7 @@
-﻿using BGCommonLib.Config;
+﻿using DFCommonLib.Config;
 using System;
 
-namespace BGCommonLib.DataAccess
+namespace DFCommonLib.DataAccess
 {
     public interface IPagawebConnectionFactory : IDbConnectionFactory
     {

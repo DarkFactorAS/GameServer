@@ -4,7 +4,7 @@ using System.Data;
 using System.Diagnostics;
 using Oracle.ManagedDataAccess.Client;
 
-namespace BGCommonLib.DataAccess
+namespace DFCommonLib.DataAccess
 {
     /// <summary>
     /// Represents an SQL function that is executed while connected to a data source.

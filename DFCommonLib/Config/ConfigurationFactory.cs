@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using Microsoft.Extensions.Configuration;
 
-namespace BGCommonLib.Config
+namespace DFCommonLib.Config
 {
     public class ConfigurationFactory
     {

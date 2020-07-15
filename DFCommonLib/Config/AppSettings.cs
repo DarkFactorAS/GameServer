@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BGCommonLib.Config
+namespace DFCommonLib.Config
 {
     public class AppSettings
     {

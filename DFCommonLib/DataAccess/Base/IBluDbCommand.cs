@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 
-namespace BGCommonLib.DataAccess
+namespace DFCommonLib.DataAccess
 {
     public interface IBluDbCommand : IDisposable
     {

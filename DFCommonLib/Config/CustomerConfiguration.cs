@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
-namespace BGCommonLib.Config
+namespace DFCommonLib.Config
 {
     public class CustomerConfiguration
     {

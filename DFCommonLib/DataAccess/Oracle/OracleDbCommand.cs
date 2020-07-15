@@ -2,7 +2,7 @@
 using System.Data;
 using Oracle.ManagedDataAccess.Client;
 
-namespace BGCommonLib.DataAccess
+namespace DFCommonLib.DataAccess
 {
     public interface IOracleBluDbCommand : IBluDbCommand
     {

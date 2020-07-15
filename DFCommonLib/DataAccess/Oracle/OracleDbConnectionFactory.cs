@@ -1,7 +1,7 @@
 ﻿using System;
-using BGCommonLib.Config;
+using DFCommonLib.Config;
 
-namespace BGCommonLib.DataAccess
+namespace DFCommonLib.DataAccess
 {
     public interface IDbConnectionFactory
     {
