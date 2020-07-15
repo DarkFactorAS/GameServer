@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using BotWebServer.Model;
+using BotWebServer.Repository;
 
 namespace BotWebServer.Controllers
 {
@@ -13,16 +14,18 @@ namespace BotWebServer.Controllers
     public class PlayfieldController : ControllerBase
     {
         ILogger<PlayfieldController> _logger;
+        IPlayfieldRepository _repository;
 
-        public PlayfieldController(ILogger<PlayfieldController> logger)
+        public PlayfieldController(ILogger<PlayfieldController> logger, IPlayfieldRepository repository)
         {
             _logger = logger;
+            _repository = repository;
         }
 
         [HttpGet]
         public PlayfieldData GetPlayfield(int playfieldId)
         {
-            return null;
+            return _repository.GetPlayfield(playfieldId);
         }
 
         [HttpPost]
@@ -31,6 +34,7 @@ namespace BotWebServer.Controllers
             if ( playfieldData != null )
             {
                 _logger.LogDebug("Save playfield ...", playfieldData.id);
+                _repository.SavePlayfield(playfieldData);
             }
             else
             {

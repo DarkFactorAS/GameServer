@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Model\" />
+    <Folder Include="Config\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.5.1" />

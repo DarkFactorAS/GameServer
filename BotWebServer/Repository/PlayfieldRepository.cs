@@ -6,7 +6,13 @@ using System.Linq;
 
 namespace BotWebServer.Repository
 {
-    public class PlayfieldRepository
+    public interface IPlayfieldRepository
+    {
+        PlayfieldData GetPlayfield(int playfieldId);
+        void SavePlayfield(PlayfieldData playfieldData);
+    }
+
+    public class PlayfieldRepository : IPlayfieldRepository
     {
         private IDbConnectionFactory _connection;
 
@@ -18,14 +24,11 @@ namespace BotWebServer.Repository
 
         public PlayfieldData GetPlayfield(int playfieldId)
         {
-            // Get new notifications
-            var sql = @"SELECT id,name,data FROM playfield                    
-                    WHERE id = :id
-                    ORDER BY CREATEDTIME DESC";
-
+            // Get specific playfield
+            var sql = @"SELECT id,name,data FROM playfield WHERE id = @id";
             using (var cmd = _connection.CreateCommand(sql))
             {
-                cmd.AddParameter(":id", playfieldId);
+                cmd.AddParameter("@id", playfieldId);
                 using (var reader = cmd.ExecuteReader())
                 {
                     if (reader.Read())
@@ -40,6 +43,18 @@ namespace BotWebServer.Repository
                 }
             }
             return null;
+        }
+
+        public void SavePlayfield(PlayfieldData playfieldData)
+        {
+            var sql = @"INSERT INTO playfield(id,name,data) VALUES(@id,@name,@data)";
+            using (var cmd = _connection.CreateCommand(sql))
+            {
+                cmd.AddParameter("@id", playfieldData.id);
+                cmd.AddParameter("@name", playfieldData.name);
+                cmd.AddParameter("@data", playfieldData.data);
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }

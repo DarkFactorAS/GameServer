@@ -5,6 +5,7 @@ namespace BotWebServer.Model
     {
         public int id { get; set; }
         public string name { get; set; }
+        public byte[] data { get; set; }
 
         public PlayfieldData()
         {
