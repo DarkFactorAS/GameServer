@@ -1,18 +1,19 @@
-﻿using System;
+﻿
+using System;
 using System.Collections;
 using System.Data;
 using System.Diagnostics;
-using Oracle.ManagedDataAccess.Client;
+using MySql.Data.MySqlClient;
 
 namespace DFCommonLib.DataAccess
 {
-    public class OracleDbDataReader : BaseDbDataReader
+    public class MySQLDbDataReader : BaseDbDataReader
     {
         private readonly IDataReader _reader;
         private readonly string _commandText;
         private readonly Stopwatch _stopwatch;
 
-        public OracleDbDataReader(IDataReader reader, string commandText) : base(reader)
+        public MySQLDbDataReader(IDataReader reader, string commandText) : base(reader)
         {
             _reader = reader;
             _commandText = commandText;
@@ -25,21 +26,24 @@ namespace DFCommonLib.DataAccess
         {
             get
             {
-                var oracleReader = _reader as OracleDataReader;
-                if (oracleReader != null)
+                /*
+                var mySqlReader = _reader as MySqlDataReader;
+                if (mySqlReader != null)
                 {
-                    return oracleReader.FetchSize;
+                    return mySqlReader.RowCount;
                 }
+                */
                 return 0;
-
             }
             set
             {
-                var oracleReader = _reader as OracleDataReader;
-                if (oracleReader != null)
+                /*
+                var mySqlReader = _reader as MySqlDataReader;
+                if (mySqlReader != null)
                 {
-                    oracleReader.FetchSize = value;
+                    mySqlReader.RowCount = value;
                 }
+                */
             }
         }
 

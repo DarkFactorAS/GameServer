@@ -1,41 +1,35 @@
 ﻿using System;
+using System.Data;
 using DFCommonLib.Config;
 
 namespace DFCommonLib.DataAccess
 {
-    public interface IDbConnectionFactory
-    {
-        OracleDbConnection CreateConnection();
-        IBluDbCommand CreateCommand(string commandText);
-        IBluDbCommand CreateCommand(string commandText, OracleDbConnection connection);
-    }
-
-    public abstract class OracleDbConnectionFactory : IDbConnectionFactory
+    public abstract class MySQLDbConnectionFactory
     {
         private readonly string _connectionType;
 
         private string _connectionString;
         private Customer _customer;
 
-        public OracleDbConnectionFactory(string connectionType, Customer customer)
+        public MySQLDbConnectionFactory(string connectionType, Customer customer)
         {
             _connectionType = connectionType;
             _customer = customer;
         }
 
-        public OracleDbConnection CreateConnection()
+        public MySQLDbConnection CreateConnection()
         {
-            return new OracleDbConnection(GetConnectionString());
+            return new MySQLDbConnection(GetConnectionString());
         }
 
         public IBluDbCommand CreateCommand(string commandText)
         {
-            return new TimedOracleDbCommand(commandText, CreateConnection(), true);
+            return new TimedMySQLDbCommand(commandText, CreateConnection(), true);
         }
 
-        public IBluDbCommand CreateCommand(string commandText, OracleDbConnection connection)
+        public IBluDbCommand CreateCommand(string commandText, MySQLDbConnection connection)
         {
-            return new TimedOracleDbCommand(commandText, connection, false);
+            return new TimedMySQLDbCommand(commandText, connection, false);
         }
 
         private string GetConnectionString()

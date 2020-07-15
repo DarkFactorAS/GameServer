@@ -1,160 +1,41 @@
 ﻿using System;
 using System.Data;
-using Oracle.ManagedDataAccess.Client;
+using MySql.Data.MySqlClient;
 
 namespace DFCommonLib.DataAccess
 {
-    public interface IOracleBluDbCommand : IBluDbCommand
-    {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="value"></param>
-        /// <param name="dbType"></param>
-        /// <param name="direction"></param>
-        [Obsolete("Use AddParameter(string, object, DbType, ParameterDirection")]
-        void AddOracleParameter(
-            string name,
-            object value,
-            OracleDbType dbType,
-            ParameterDirection direction);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="value"></param>
-        /// <param name="dbType"></param>
-        [Obsolete("Use AddParameter(string, object, DbType")]
-        void AddOracleParameter(
-            string name,
-            object value,
-            OracleDbType dbType
-            );
-
-        /// <summary>
-        /// Adds an output parameter to the collection of parameters for this DbProcedure.
-        /// </summary>
-        /// <param name="name"> Specifies the parameter name. </param>
-        /// <param name="dbType"> Specifies the data type. </param>
-        [Obsolete("Bruk AddParameter istedet")]
-        void AddOracleOutputParameter(
-            string name,
-            OracleDbType dbType);
-
-        /// <summary>
-        /// Adds an output parameter to the collection of parameters for this DbProcedure.
-        /// Use this for VARCHAR2 output variables.
-        /// </summary>
-        /// <param name="name"> Specifies the parameter name. </param>
-        /// <param name="dbType"> Specifies the data type. </param>
-        /// <param name="size"> Specifies the size of the parameter. </param>
-        [Obsolete("Bruk AddParameter istedet")]
-        void AddOracleOutputParameter(
-            string name,
-            OracleDbType dbType,
-            int size);
-    }
-
     /// <summary>
     /// Represents an SQL statement that is executed while connected to a data source.
     /// </summary>
-    public class OracleDbCommand : IDbCommand, IOracleBluDbCommand
+    public class MySQLDbCommand : IDbCommand, IBluDbCommand
     {
         private readonly int _fetchRowCount;
-        private readonly OracleCommand _command;
-        private readonly OracleDbConnection _connection;
+        private readonly MySqlCommand _command;
+        private readonly MySQLDbConnection _connection;
         private readonly bool _disposeConnection;
         private bool _disposed;
-
-        //        /// <summary>
-        //        /// Creates a new instance of DbCommand using default connection. 
-        //        /// After the execution the connection is automaticly disposed.
-        //        /// </summary>
-        //        /// <param name="commandText"> Specifies the command text. </param>
-        //        public DbCommand(
-        //            string commandText)
-        //            : this(commandText, (CommandType)CommandType.Text)
-        //        {
-        //            disposeConnection = true;
-        //#if _ConnectionSpy
-        //      Trace.Write(" DbCommand Constructor - dispose:" + disposeConnection.ToString() + Environment.NewLine);
-        //#endif
-        //        }
-
-        ///// <summary>
-        ///// Creates a new instance of DbCommand using default connection.
-        ///// After the execution the connection is automaticly disposed.
-        ///// </summary>
-        ///// <param name="commandText"> Specifies the command text. </param>
-        ///// <param name="commandType"> Specifies the command type. </param>
-        //public DbCommand(
-        //    string commandText,
-        //    CommandType commandType)
-        //    : this(commandText, commandType, new DbConnection())
-        //{
-        //    disposeConnection = true;
-        //}
 
         /// <summary>
         /// Creates a new instance of DbCommand. The connection is not changed or disposed
         /// </summary>
         /// <param name="commandText"> Specifies the command text. </param>
         /// <param name="connection"> Specifies the data connection. </param>
-        public OracleDbCommand(
+        public MySQLDbCommand(
             string commandText,
-            OracleDbConnection connection, bool disposeConnectionAfterExecute)
+            MySQLDbConnection connection, bool disposeConnectionAfterExecute)
             : this(commandText, CommandType.Text, connection)
         {
             _disposeConnection = disposeConnectionAfterExecute;
         }
 
-
-        public OracleDbCommand(
+        public MySQLDbCommand(
           string commandText,
-          OracleDbConnection connection, bool disposeConnectionAfterExecute, int fetchRowCount)
+          MySQLDbConnection connection, bool disposeConnectionAfterExecute, int fetchRowCount)
             : this(commandText, CommandType.Text, connection)
         {
             _disposeConnection = disposeConnectionAfterExecute;
             _fetchRowCount = fetchRowCount;
         }
-
-
-
-        /// <summary>
-        /// Creates a new instance of DbCommand. The connection is not changed or disposed
-        /// </summary>
-        /// <param name="commandText"> Specifies the command text. </param>
-        /// <param name="connection"> Specifies the data connection. </param>
-        /// <param name="readerFetchRowCount">Specifies the number of rows to get from DB in one fetch</param>
-        //public DbCommand(
-        //    string commandText,
-        //    DbConnection connection,
-        //    int readerFetchRowCount)
-        //    : this(commandText, CommandType.Text, connection)
-        //{
-        //    _fetchRowCount = readerFetchRowCount;
-        //    _disposeConnection = false;
-        //}
-
-        /// <summary>
-        /// Creates a new instance of DbCommand using a given connection string.
-        /// </summary>
-        /// <param name="commandText"></param>
-        /// <param name="connectionString"></param>
-        /// <param name="readerFetchRowCount"></param>
-        /// <param name="killConnection"></param>
-        //public DbCommand(
-        //    string commandText,
-        //    string connectionString,
-        //    int readerFetchRowCount,
-        //    bool killConnection = true)
-        //    : this(commandText, CommandType.Text, new DbConnection(connectionString))
-        //{
-        //    _fetchRowCount = readerFetchRowCount;
-        //    _disposeConnection = killConnection;
-        //}
 
         /// <summary>
         /// Creates a new instance of DbCommand.
@@ -162,10 +43,10 @@ namespace DFCommonLib.DataAccess
         /// <param name="commandText"> Specifies the command text. </param>
         /// <param name="commandType"> Specifies the command type. </param>
         /// <param name="connection"> Specifies the data connection. </param>
-        public OracleDbCommand(
+        public MySQLDbCommand(
             string commandText,
             CommandType commandType,
-            OracleDbConnection connection)
+            MySQLDbConnection connection)
         {
             _disposed = false;
             if (connection == null)
@@ -175,7 +56,7 @@ namespace DFCommonLib.DataAccess
 
             _connection = connection;
 
-            _command = new OracleCommand(commandText, _connection.OracleConnection);
+            _command = new MySqlCommand(commandText, _connection.MySQLConnection);
             _command.CommandType = commandType;
         }
 
@@ -185,8 +66,8 @@ namespace DFCommonLib.DataAccess
         /// </summary>
         public bool BindByName
         {
-            get { return _command.BindByName; }
-            set { _command.BindByName = value; }
+            get { throw new NotImplementedException("BindByName"); }
+            set { throw new NotImplementedException("BindByName"); }
         }
 
         /// <summary>
@@ -195,8 +76,8 @@ namespace DFCommonLib.DataAccess
         /// 
         public int ArrayBindCount
         {
-            get { return _command.ArrayBindCount; }
-            set { _command.ArrayBindCount = value; }
+            get { throw new NotImplementedException("ArrayBindCount"); }
+            set { throw new NotImplementedException("ArrayBindCount"); }
         }
 
         ///// <summary>
@@ -214,7 +95,7 @@ namespace DFCommonLib.DataAccess
         /// </summary>
         IDbConnection IDbCommand.Connection
         {
-            get { return _connection.OracleConnection; }
+            get { return _connection.MySQLConnection; }
             set { throw new NotImplementedException("Can only be set on creationtime"); }
         }
 
@@ -229,10 +110,11 @@ namespace DFCommonLib.DataAccess
             if (_command.Connection.State != ConnectionState.Open)
                 throw new InvalidOperationException("Cannot call ExecuteReader while connection is closed.");
 
-            OracleDataReader reader = _command.ExecuteReader(behavior);
+            MySqlDataReader reader = _command.ExecuteReader(behavior);
             if (_fetchRowCount > 0)
             {
-                reader.FetchSize = _command.RowSize * _fetchRowCount;
+                // TODO : Not supported by MySQL
+                //reader.FetchSize = _command.RowSize * _fetchRowCount;
             }
 
             return reader;
@@ -461,8 +343,8 @@ namespace DFCommonLib.DataAccess
             string name,
             object value)
         {
-            var p = new OracleParameter();
-            p.OracleDbType = OracleDbType.Clob;
+            var p = new MySqlParameter();
+            p.MySqlDbType = MySqlDbType.Blob;
             p.Value = value;
             p.ParameterName = name;
             p.Direction = ParameterDirection.Input;
@@ -477,14 +359,14 @@ namespace DFCommonLib.DataAccess
         /// <param name="dbType"></param>
         /// <param name="direction"></param>
         [Obsolete("Use AddParameter(string, object, DbType, ParameterDirection")]
-        public void AddOracleParameter(
+        public void AddMySQLParameter(
             string name,
             object value,
-            OracleDbType dbType,
+            MySqlDbType dbType,
             ParameterDirection direction)
         {
-            var p = new OracleParameter();
-            p.OracleDbType = dbType;
+            var p = new MySqlParameter();
+            p.MySqlDbType = dbType;
 
             AddParameter(name, value, p.DbType, direction);
         }
@@ -499,10 +381,10 @@ namespace DFCommonLib.DataAccess
         public void AddOracleParameter(
             string name,
             object value,
-            OracleDbType dbType
+            MySqlDbType dbType
             )
         {
-            AddOracleParameter(name, value, dbType, ParameterDirection.Input);
+            AddMySQLParameter(name, value, dbType, ParameterDirection.Input);
         }
 
 
@@ -512,9 +394,9 @@ namespace DFCommonLib.DataAccess
         /// <param name="name"> Specifies the parameter name. </param>
         /// <param name="dbType"> Specifies the data type. </param>
         [Obsolete("Bruk AddParameter istedet")]
-        public void AddOracleOutputParameter(
+        public void AddMySQLOutputParameter(
             string name,
-            OracleDbType dbType)
+            MySqlDbType dbType)
         {
             int size;
             switch (dbType.ToString())
@@ -541,7 +423,7 @@ namespace DFCommonLib.DataAccess
                     break;
             }
 
-            AddOracleOutputParameter(name, dbType, size);
+            AddMySQLOutputParameter(name, dbType, size);
         }
 
         /// <summary>
@@ -552,15 +434,15 @@ namespace DFCommonLib.DataAccess
         /// <param name="dbType"> Specifies the data type. </param>
         /// <param name="size"> Specifies the size of the parameter. </param>
         [Obsolete("Bruk AddParameter istedet")]
-        public void AddOracleOutputParameter(
+        public void AddMySQLOutputParameter(
             string name,
-            OracleDbType dbType,
+            MySqlDbType dbType,
             int size)
         {
-            var p = new OracleParameter();
+            var p = new MySqlParameter();
             p.ParameterName = name;
             p.Direction = ParameterDirection.Output;
-            p.OracleDbType = dbType;
+            p.MySqlDbType = dbType;
             p.Size = size;
 
             _command.Parameters.Add(p);
@@ -601,24 +483,24 @@ namespace DFCommonLib.DataAccess
         /// <param name="fetchSize"></param>
         public void SetInitialLOBFetchSize(int fetchSize)
         {
-            _command.InitialLOBFetchSize = fetchSize;
+            // TODO : Mysql does not support this
+            //_command.InitialLOBFetchSize = fetchSize;
         }
     }
 
-    public class TimedOracleDbCommand : OracleDbCommand
+    public class TimedMySQLDbCommand : MySQLDbCommand
     {
-        public TimedOracleDbCommand(string commandText, OracleDbConnection connection, bool disposeConnectionAfterExecute) : base(commandText, connection, disposeConnectionAfterExecute)
+        public TimedMySQLDbCommand(string commandText, MySQLDbConnection connection, bool disposeConnectionAfterExecute) : base(commandText, connection, disposeConnectionAfterExecute)
         {
         }
 
-        public TimedOracleDbCommand(string commandText, OracleDbConnection connection, bool disposeConnectionAfterExecute, int fetchRowCount) : base(commandText, connection, disposeConnectionAfterExecute, fetchRowCount)
+        public TimedMySQLDbCommand(string commandText, MySQLDbConnection connection, bool disposeConnectionAfterExecute, int fetchRowCount) : base(commandText, connection, disposeConnectionAfterExecute, fetchRowCount)
         {
         }
 
-        public TimedOracleDbCommand(string commandText, CommandType commandType, OracleDbConnection connection) : base(commandText, commandType, connection)
+        public TimedMySQLDbCommand(string commandText, CommandType commandType, MySQLDbConnection connection) : base(commandText, commandType, connection)
         {
         }
-
 
         public override TReturnType ExecuteScalar<TReturnType>()
         {
@@ -648,7 +530,7 @@ namespace DFCommonLib.DataAccess
         {
             //using (new ActivityTracingContext("ExecuteReader: ", CommandText))
             {
-                return new OracleDbDataReader(((IDbCommand)this).ExecuteReader(), CommandText);
+                return new MySQLDbDataReader(((IDbCommand)this).ExecuteReader(), CommandText);
             }
         }
 

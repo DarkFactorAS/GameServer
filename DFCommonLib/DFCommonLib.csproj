@@ -15,9 +15,11 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="3.1.5" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.5" />
     <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="2.19.70" />
+    <PackageReference Include="MySql.Data" Version="8.0.21" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataAccess\Base\" />
+    <Folder Include="DataAccess\MySQL\" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="dotnet pack" />
