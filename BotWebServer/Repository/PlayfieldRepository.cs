@@ -13,7 +13,7 @@ namespace BotWebServer.Repository
         public PlayfieldRepository(IConfigurationHelper configuration)
         {
             Customer customer = configuration.ConfigurationSettings.CustomerSettings.Customers.FirstOrDefault();
-            _connection = new PagawebConnectionFactory(customer);
+            _connection = new LocalMysqlConnectionFactory(customer);
         }
 
         public PlayfieldData GetPlayfield(int playfieldId)
