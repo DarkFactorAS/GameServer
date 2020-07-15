@@ -1,15 +1,9 @@
 ﻿using System;
+using System.Data;
 using DFCommonLib.Config;
 
 namespace DFCommonLib.DataAccess
 {
-    public interface IDbConnectionFactory
-    {
-        OracleDbConnection CreateConnection();
-        IBluDbCommand CreateCommand(string commandText);
-        IBluDbCommand CreateCommand(string commandText, OracleDbConnection connection);
-    }
-
     public abstract class OracleDbConnectionFactory : IDbConnectionFactory
     {
         private readonly string _connectionType;
@@ -23,19 +17,20 @@ namespace DFCommonLib.DataAccess
             _customer = customer;
         }
 
-        public OracleDbConnection CreateConnection()
+        public IDbConnection CreateConnection()
         {
             return new OracleDbConnection(GetConnectionString());
         }
 
         public IBluDbCommand CreateCommand(string commandText)
         {
-            return new TimedOracleDbCommand(commandText, CreateConnection(), true);
+            var connection = CreateConnection();
+            return new TimedOracleDbCommand(commandText, connection as OracleDbConnection, true);
         }
 
-        public IBluDbCommand CreateCommand(string commandText, OracleDbConnection connection)
+        public IBluDbCommand CreateCommand(string commandText, IDbConnection connection)
         {
-            return new TimedOracleDbCommand(commandText, connection, false);
+            return new TimedOracleDbCommand(commandText, connection as OracleDbConnection, false);
         }
 
         private string GetConnectionString()

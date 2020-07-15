@@ -4,7 +4,7 @@ using DFCommonLib.Config;
 
 namespace DFCommonLib.DataAccess
 {
-    public abstract class MySQLDbConnectionFactory
+    public abstract class MySQLDbConnectionFactory : IDbConnectionFactory
     {
         private readonly string _connectionType;
 
@@ -17,19 +17,20 @@ namespace DFCommonLib.DataAccess
             _customer = customer;
         }
 
-        public MySQLDbConnection CreateConnection()
+        public IDbConnection CreateConnection()
         {
             return new MySQLDbConnection(GetConnectionString());
         }
 
         public IBluDbCommand CreateCommand(string commandText)
         {
-            return new TimedMySQLDbCommand(commandText, CreateConnection(), true);
+            var connection = CreateConnection();
+            return new TimedMySQLDbCommand(commandText, connection as MySQLDbConnection, true);
         }
 
-        public IBluDbCommand CreateCommand(string commandText, MySQLDbConnection connection)
+        public IBluDbCommand CreateCommand(string commandText, IDbConnection connection)
         {
-            return new TimedMySQLDbCommand(commandText, connection, false);
+            return new TimedMySQLDbCommand(commandText, connection as MySQLDbConnection, false);
         }
 
         private string GetConnectionString()

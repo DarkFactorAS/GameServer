@@ -1,5 +1,5 @@
-﻿using DFCommonLib.Config;
-using System;
+﻿using System;
+using DFCommonLib.Config;
 
 namespace DFCommonLib.DataAccess
 {
