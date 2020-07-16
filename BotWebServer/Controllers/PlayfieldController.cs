@@ -28,7 +28,7 @@ namespace BotWebServer.Controllers
             return _repository.GetPlayfield(playfieldId);
         }
 
-        [HttpPost]
+        [HttpPut]
         public void SavePlayfield( PlayfieldData playfieldData )
         {
             if ( playfieldData != null )

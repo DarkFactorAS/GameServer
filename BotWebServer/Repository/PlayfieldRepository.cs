@@ -47,13 +47,28 @@ namespace BotWebServer.Repository
 
         public void SavePlayfield(PlayfieldData playfieldData)
         {
-            var sql = @"INSERT INTO playfield(id,name,data) VALUES(@id,@name,@data)";
-            using (var cmd = _connection.CreateCommand(sql))
+            var playfield = GetPlayfield(playfieldData.id);
+            if ( playfield != null )
             {
-                cmd.AddParameter("@id", playfieldData.id);
-                cmd.AddParameter("@name", playfieldData.name);
-                cmd.AddParameter("@data", playfieldData.data);
-                cmd.ExecuteNonQuery();
+                var sql = @"UPDATE playfield set name = @name, data=@data where id = @id";
+                using (var cmd = _connection.CreateCommand(sql))
+                {
+                    cmd.AddParameter("@id", playfieldData.id);
+                    cmd.AddParameter("@name", playfieldData.name);
+                    cmd.AddParameter("@data", playfieldData.data);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            else
+            {
+                var sql = @"INSERT INTO playfield(id,name,data) VALUES(@id,@name,@data)";
+                using (var cmd = _connection.CreateCommand(sql))
+                {
+                    cmd.AddParameter("@id", playfieldData.id);
+                    cmd.AddParameter("@name", playfieldData.name);
+                    cmd.AddParameter("@data", playfieldData.data);
+                    cmd.ExecuteNonQuery();
+                }
             }
         }
     }
