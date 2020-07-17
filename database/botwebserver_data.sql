@@ -24,8 +24,15 @@ DROP TABLE IF EXISTS `playfield`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `playfield` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `updated` datetime NOT NULL,
   `ownerid` varchar(30) NOT NULL DEFAULT '',
-  `name` varchar(128) NOT NULL DEFAULT '',
+  `name` varchar(30) NOT NULL DEFAULT '',
+  `description` varchar(128) NOT NULL DEFAULT '',
+  `playfieldFlags` int(11) NOT NULL,
+  `numPlayers` int(11) NOT NULL,
+  `numGoals` int(11) NOT NULL,
+  `boardSizeX` int(11) NOT NULL,
+  `boardSizeY` int(11) NOT NULL,
   `data` mediumblob DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=143 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;

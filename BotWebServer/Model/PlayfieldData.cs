@@ -3,8 +3,14 @@ namespace BotWebServer.Model
 {
     public class PlayfieldData
     {
-        public int id { get; set; }
+        public uint id { get; set; }
         public string name { get; set; }
+        public string description { get; set; }
+        public uint playfieldFlags { get; set; }
+        public uint numPlayers { get; set; }
+        public uint numGoals { get; set; }
+        public uint boardSizeX { get; set; }
+        public uint boardSizeY { get; set; }
         public byte[] data { get; set; }
 
         public PlayfieldData()

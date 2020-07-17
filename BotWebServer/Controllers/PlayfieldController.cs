@@ -23,7 +23,7 @@ namespace BotWebServer.Controllers
         }
 
         [HttpGet]
-        public PlayfieldData GetPlayfield(int playfieldId)
+        public PlayfieldData GetPlayfield(uint playfieldId)
         {
             return _repository.GetPlayfield(playfieldId);
         }
