@@ -1,15 +1,10 @@
 version: '3.6'
 services:
-  botserver:
-    build:
-      network: host
-      context: ./
-      dockerfile: ./BotWebServer/Dockerfile
-    ports:
-      - "8080:80"
 
   database:
     image: mariadb
+    networks: 
+      - prod
     container_name: botwebserver_database
     user: root
     restart: always
@@ -22,6 +17,32 @@ services:
       - botwebserver-mariadb:/var/lib/mysql
     ports:
       - "5306:3306"
+
+  adminer:
+    image: adminer
+    restart: always
+    networks: 
+      - prod
+    ports:
+      - 8080:8080
+
+  botserver:
+    networks: 
+      - prod
+    build:
+      network: host
+      context: ./
+      dockerfile: ./BotWebServer/Dockerfile
+    ports:
+      - "5000:80"
+    depends_on: 
+      - database
+    links:
+      - database:db
+  
+networks:
+  prod:
+    name: custom_frontend
 
 volumes:
   # docker volume create botwebserver-mariadb
