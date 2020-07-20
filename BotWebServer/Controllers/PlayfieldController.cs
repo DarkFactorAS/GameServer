@@ -23,12 +23,21 @@ namespace BotWebServer.Controllers
         }
 
         [HttpGet]
+        [Route("GetPlayfieldList")]
+        public IList<PlayfieldData> GetPlayfieldList()
+        {
+            return _repository.GetPlayfieldList();
+        }
+
+        [HttpGet]
+        [Route("GetPlayfield")]
         public PlayfieldData GetPlayfield(uint playfieldId)
         {
             return _repository.GetPlayfield(playfieldId);
         }
 
         [HttpPut]
+        [Route("SavePlayfield")]
         public void SavePlayfield( PlayfieldData playfieldData )
         {
             if ( playfieldData != null )

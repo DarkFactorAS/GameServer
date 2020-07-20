@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using BotWebServer.Model;
 using DFCommonLib.DataAccess;
 using DFCommonLib.Config;
@@ -9,6 +10,7 @@ namespace BotWebServer.Repository
     public interface IPlayfieldRepository
     {
         PlayfieldData GetPlayfield(uint playfieldId);
+        IList<PlayfieldData> GetPlayfieldList();
         void SavePlayfield(PlayfieldData playfieldData);
     }
 
@@ -38,15 +40,41 @@ namespace BotWebServer.Repository
                 {
                     if (reader.Read())
                     {
-                        PlayfieldData playfieldData = new PlayfieldData();
-
-                        playfieldData.id = Convert.ToUInt32(reader["id"]);
-                        playfieldData.name = reader["name"].ToString();
+                        PlayfieldData playfieldData = ReadRow(reader);
                         return playfieldData;
                     }
                 }
             }
             return null;
+        }
+
+        private PlayfieldData ReadRow(System.Data.IDataReader reader )
+        {
+            PlayfieldData playfieldData = new PlayfieldData();
+
+            playfieldData.id = Convert.ToUInt32(reader["id"]);
+            playfieldData.name = reader["name"].ToString();
+            return playfieldData;
+        }
+
+        public IList<PlayfieldData> GetPlayfieldList()
+        {
+            // Get specific playfield
+            IList<PlayfieldData> playfieldList = new List<PlayfieldData>();
+
+            var sql = @"SELECT id,name,data FROM playfield order by updated desc limit 10";
+            using (var cmd = _connection.CreateCommand(sql))
+            {
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        PlayfieldData playfieldData = ReadRow(reader);
+                        playfieldList.Add(playfieldData);
+                    }
+                }
+            }
+            return playfieldList;
         }
 
         public void SavePlayfield(PlayfieldData playfieldData)
