@@ -12,14 +12,19 @@ namespace DFCommonLib.Config
 
         private IConfiguration GetConfigurationBuilder()
         {
-            IConfiguration builder = new ConfigurationBuilder()
+            string customerConfig = "customers.json";
+#if DEBUG
+            customerConfig = "customers_dev.json";
+#endif
+
+            IConfiguration config = new ConfigurationBuilder()
                 .SetBasePath($"{Directory.GetCurrentDirectory()}/Config")
                 .AddJsonFile(path: "appsettings.json", optional: false, reloadOnChange: true)
-                .AddJsonFile(path: "customers.json", optional: false, reloadOnChange: true)
+                .AddJsonFile(path: customerConfig, optional: false, reloadOnChange: true)
                 //.AddJsonFile(path: "testsettings.json", optional: true, reloadOnChange: true)
                 .Build();
 
-            return builder;
+            return config;
         }
 
         public IConfiguration ConfigurationBuilder { get; }
