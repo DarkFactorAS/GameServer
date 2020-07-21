@@ -24,7 +24,7 @@ namespace BotWebServer.Controllers
 
         [HttpGet]
         [Route("GetPlayfieldList")]
-        public IList<PlayfieldData> GetPlayfieldList()
+        public PlayfieldList GetPlayfieldList()
         {
             return _repository.GetPlayfieldList();
         }

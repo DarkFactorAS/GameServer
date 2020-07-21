@@ -10,13 +10,15 @@ namespace BotWebServer.Repository
     public interface IPlayfieldRepository
     {
         PlayfieldData GetPlayfield(uint playfieldId);
-        IList<PlayfieldData> GetPlayfieldList();
+        PlayfieldList GetPlayfieldList();
         void SavePlayfield(PlayfieldData playfieldData);
     }
 
     public class PlayfieldRepository : IPlayfieldRepository
     {
         private IDbConnectionFactory _connection;
+
+        private string owner = "Cha00z";
 
         public PlayfieldRepository(IConfigurationHelper configuration)
         {
@@ -53,16 +55,34 @@ namespace BotWebServer.Repository
             PlayfieldData playfieldData = new PlayfieldData();
 
             playfieldData.id = Convert.ToUInt32(reader["id"]);
+            playfieldData.owner = reader["ownerid"].ToString(); 
             playfieldData.name = reader["name"].ToString();
+            playfieldData.description = reader["description"].ToString();
+            playfieldData.playfieldFlags = Convert.ToUInt32(reader["playfieldFlags"]);
+            playfieldData.numPlayers = Convert.ToUInt32(reader["numPlayers"]);
+            playfieldData.numGoals = Convert.ToUInt32(reader["numGoals"]);
+            playfieldData.boardSizeX = Convert.ToUInt32(reader["boardSizeX"]);
+            playfieldData.boardSizeY = Convert.ToUInt32(reader["boardSizeY"]);
+
+            // Read data
+            byte[] buffer = new byte[10000];
+            int index = reader.GetOrdinal("data");
+            long numBytes = reader.GetBytes(index, 0, buffer, 0, 10000);
+
+            if ( numBytes > 0 )
+            {
+                playfieldData.data = Convert.ToBase64String( buffer, 0, (int)numBytes );
+            }
+
             return playfieldData;
         }
 
-        public IList<PlayfieldData> GetPlayfieldList()
+        public PlayfieldList GetPlayfieldList()
         {
             // Get specific playfield
-            IList<PlayfieldData> playfieldList = new List<PlayfieldData>();
+            PlayfieldList playfieldList = new PlayfieldList();
 
-            var sql = @"SELECT id,name,data FROM playfield order by updated desc limit 10";
+            var sql = @"SELECT id,ownerid,name,description,playfieldFlags,numPlayers,numGoals,boardSizeX, boardSizeY, data FROM playfield order by updated desc limit 10";
             using (var cmd = _connection.CreateCommand(sql))
             {
                 using (var reader = cmd.ExecuteReader())
@@ -70,7 +90,7 @@ namespace BotWebServer.Repository
                     if (reader.Read())
                     {
                         PlayfieldData playfieldData = ReadRow(reader);
-                        playfieldList.Add(playfieldData);
+                        playfieldList.list.Add(playfieldData);
                     }
                 }
             }
@@ -79,7 +99,7 @@ namespace BotWebServer.Repository
 
         public void SavePlayfield(PlayfieldData playfieldData)
         {
-            string owner = "Cha00z";
+            byte[] data = Convert.FromBase64String(playfieldData.data);
 
             var playfield = GetPlayfield(playfieldData.id);
             if ( playfield != null )
@@ -99,7 +119,7 @@ namespace BotWebServer.Repository
                     cmd.AddParameter("@description", playfieldData.description);
                     cmd.AddParameter("@numPlayers", playfieldData.numPlayers);
                     cmd.AddParameter("@numGoals", playfieldData.numGoals);
-                    cmd.AddParameter("@data", playfieldData.data);
+                    cmd.AddParameter("@data", data);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -120,7 +140,7 @@ namespace BotWebServer.Repository
                     cmd.AddParameter("@numGoals", playfieldData.numGoals);
                     cmd.AddParameter("@boardSizeX", playfieldData.boardSizeX);
                     cmd.AddParameter("@boardSizeY", playfieldData.boardSizeY);
-                    cmd.AddParameter("@data", playfieldData.data);
+                    cmd.AddClobParameter("@data", data);
                     cmd.ExecuteNonQuery();
                 }
             }
