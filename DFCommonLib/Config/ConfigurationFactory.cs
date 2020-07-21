@@ -5,17 +5,21 @@ namespace DFCommonLib.Config
 {
     public class ConfigurationFactory
     {
-        public ConfigurationFactory()
+        IHostingEnvironment _env;
+
+        public ConfigurationFactory(IHostingEnvironment env)
         {
+            _env = env;
             ConfigurationBuilder = GetConfigurationBuilder();
         }
 
         private IConfiguration GetConfigurationBuilder()
         {
             string customerConfig = "customers.json";
-#if DEBUG
-            customerConfig = "customers_dev.json";
-#endif
+            if ( _env.IsDevelopment() )
+            {
+                customerConfig = "customers_dev.json";
+            }
 
             IConfiguration config = new ConfigurationBuilder()
                 .SetBasePath($"{Directory.GetCurrentDirectory()}/Config")
