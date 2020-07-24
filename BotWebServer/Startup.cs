@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.AspNetCore.Swagger;
+using DFCommonLib.Utils;
 
 namespace BotWebServer
 {
@@ -19,6 +20,11 @@ namespace BotWebServer
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            //logger.LogInfo("******************************************");    
+            //logger.LogInfo("***                                    ***");    
+            //logger.LogInfo("***  Starting Bot WebServer            ***");    
+            //logger.LogInfo("***                                    ***");    
+            //logger.LogInfo("******************************************");    
         }
 
         public IConfiguration Configuration { get; }

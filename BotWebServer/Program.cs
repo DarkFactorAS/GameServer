@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using BotWebServer.Repository;
 
 using DFCommonLib.Config;
+using DFCommonLib.Utils;
 
 namespace BotWebServer
 {
@@ -24,8 +25,14 @@ namespace BotWebServer
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
+                    services.AddSingleton(typeof(IDFLogger<>), typeof(DFLogger<>));
+
+                    //DFCommonLib.Utils.DFCommonLib.SetupLogger(services);
+                    DFCommonLib.Utils.DFCommonLib.SetupMySql(services);
+
                     services.AddTransient<IPlayfieldRepository, PlayfieldRepository>();
                     services.AddTransient<IConfigurationHelper, ConfigurationHelper>();
+
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using BotWebServer.Model;
 using DFCommonLib.DataAccess;
 using DFCommonLib.Config;
+using DFCommonLib.Utils;
 using System.Linq;
 using Microsoft.Extensions.Logging;
 
@@ -21,12 +22,14 @@ namespace BotWebServer.Repository
 
         private string owner = "Cha00z";
 
-        private readonly ILogger<PlayfieldRepository> _logger;
+        private readonly IDFLogger<PlayfieldRepository> _logger;
 
-        public PlayfieldRepository(IConfigurationHelper configuration, ILogger<PlayfieldRepository> logger)
+        public PlayfieldRepository(
+            IDbConnectionFactory connection,
+            IDFLogger<PlayfieldRepository> logger
+            )
         {
-            Customer customer = configuration.ConfigurationSettings.CustomerSettings.Customers.FirstOrDefault();
-            _connection = new LocalMysqlConnectionFactory(customer);
+            _connection = connection;
             _logger = logger;
         }
 
@@ -86,7 +89,7 @@ namespace BotWebServer.Repository
             // Get specific playfield
             PlayfieldList playfieldList = new PlayfieldList();
 
-            _logger.LogWarning("GetPlayfieldList");
+            _logger.LogInfo("GetPlayfieldList");
 
             var sql = @"SELECT id,ownerid,name,description,playfieldFlags,numPlayers,numGoals,boardSizeX, boardSizeY, data FROM playfield order by updated desc limit 10";
             using (var cmd = _connection.CreateCommand(sql))
@@ -101,7 +104,7 @@ namespace BotWebServer.Repository
                 }
             }
 
-            _logger.LogWarning( string.Format("GetPlayfieldList : {0}", playfieldList.list.Count));
+            _logger.LogInfo( string.Format("GetPlayfieldList : {0}", playfieldList.list.Count));
 
             return playfieldList;
         }

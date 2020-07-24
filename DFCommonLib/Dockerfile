@@ -10,4 +10,4 @@ RUN dotnet restore DFCommonLib.csproj
 COPY ./DFCommonLib/ ./
 
 # Pack nuget 
-RUN dotnet pack -o ./nuget
+RUN dotnet pack -o /nuget

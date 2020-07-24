@@ -1,13 +1,14 @@
 ﻿using System.IO;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 
 namespace DFCommonLib.Config
 {
     public class ConfigurationFactory
     {
-        IHostingEnvironment _env;
+        IHostEnvironment _env;
 
-        public ConfigurationFactory(IHostingEnvironment env)
+        public ConfigurationFactory(IHostEnvironment env)
         {
             _env = env;
             ConfigurationBuilder = GetConfigurationBuilder();

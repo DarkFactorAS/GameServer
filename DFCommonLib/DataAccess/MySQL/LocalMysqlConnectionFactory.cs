@@ -1,12 +1,13 @@
 ﻿using System;
 using DFCommonLib.Config;
+using DFCommonLib.Utils;
 
 namespace DFCommonLib.DataAccess
 {
     public class LocalMysqlConnectionFactory : MySQLDbConnectionFactory
     {
-        public LocalMysqlConnectionFactory(Customer customer)
-            : base("LOCAL", customer )
+        public LocalMysqlConnectionFactory(IConfigurationHelper helper, IDFLogger<MySQLDbConnectionFactory> logger)
+            : base("LOCAL", helper, logger )
         {
         }
     }
