@@ -23,6 +23,7 @@
   <ItemGroup>
     <Folder Include="DataAccess\Base\" />
     <Folder Include="DataAccess\MySQL\" />
+    <Folder Include="Logger\" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="dotnet pack" />

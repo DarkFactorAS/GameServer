@@ -1,6 +1,6 @@
 ﻿using System;
 using DFCommonLib.Config;
-using DFCommonLib.Utils;
+using DFCommonLib.Logger;
 
 namespace DFCommonLib.DataAccess
 {

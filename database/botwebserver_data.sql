@@ -38,6 +38,18 @@ CREATE TABLE `playfield` (
 ) ENGINE=MyISAM AUTO_INCREMENT=143 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+DROP TABLE IF EXISTS `logtable`;
+CREATE TABLE `logtable` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created` datetime NOT NULL,
+  `loglevel` int(11) NOT NULL,
+  `group` varchar(30) NOT NULL DEFAULT '',
+  `message` varchar(30) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+);
+
+
+
 --
 -- Dumping data for table `playfield`
 --

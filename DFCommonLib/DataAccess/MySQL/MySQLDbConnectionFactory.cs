@@ -2,7 +2,7 @@
 using System.Data;
 using System.Linq;
 using DFCommonLib.Config;
-using DFCommonLib.Utils;
+using DFCommonLib.Logger;
 
 namespace DFCommonLib.DataAccess
 {
