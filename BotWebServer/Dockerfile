@@ -6,16 +6,23 @@ WORKDIR /app
 COPY ./NuGet/DarkFactor.Common.Lib.*.nupkg ./NuGet/
 RUN dotnet nuget add source /app/NuGet --name DarkFactor
 
-# Copy csproj and restore as distinct layers
-COPY ./BotWebServer/*.csproj ./
-RUN dotnet restore
+# Flush all nuget repos
+RUN dotnet nuget locals all -c
 
-# Copy everything else
-COPY ./BotWebServer/ ./
+# Copy files
+COPY ./DFCommonLib/ ./DFCommonLib/
+COPY ./BotWebServer/ ./BotWebServer/
 
-# Build solution
-#RUN dotnet publish PPJobService.csproj -r win-x64 -c Release -o out
-RUN dotnet publish BotWebServer.csproj -c Release -o out
+# Build nuget libs
+RUN dotnet restore DFCommonLib/DFCommonLib.csproj
+RUN dotnet build DFCommonLib/DFCommonLib.csproj
+RUN dotnet pack DFCommonLib/DFCommonLib.csproj -o /app/NuGet
+
+
+# Restore and build web
+RUN dotnet restore BotWebServer/BotWebServer.csproj
+RUN dotnet publish BotWebServer/BotWebServer.csproj -c Release -o out
+#RUN dotnet publish BotWebServer.csproj -r win-x64 -c Release -o out
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
