@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.AspNetCore.Swagger;
 using DFCommonLib.Utils;
+using DFCommonLib.Logger;
 
 namespace BotWebServer
 {
@@ -20,11 +21,9 @@ namespace BotWebServer
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            //logger.LogInfo("******************************************");    
-            //logger.LogInfo("***                                    ***");    
-            //logger.LogInfo("***  Starting Bot WebServer            ***");    
-            //logger.LogInfo("***                                    ***");    
-            //logger.LogInfo("******************************************");    
+
+            IDFLogger<Startup> logger = new DFLogger<Startup>();
+            logger.Startup();
         }
 
         public IConfiguration Configuration { get; }

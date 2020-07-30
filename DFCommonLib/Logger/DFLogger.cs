@@ -7,6 +7,7 @@ namespace DFCommonLib.Logger
 {
     public interface IDFLogger<T>
     {
+        void Startup();
         void LogDebug(string message);
         void LogInfo(string message);
         void LogWarning(string message);
@@ -41,6 +42,19 @@ namespace DFCommonLib.Logger
                 return lastGroup;
             }
             return groupName;
+        }
+
+        public void Startup()
+        {
+            var group = GetClassName();
+            var message = "Init application";
+            DFLogger.PrintStartup(DFLogLevel.INFO, group,message);
+
+            LogInfo("******************************************");    
+            LogInfo("***                                    ***");    
+            LogInfo("***  Starting Bot WebServer            ***");    
+            LogInfo("***                                    ***");    
+            LogInfo("******************************************");    
         }
 
         public void LogInfo( string message )
@@ -110,5 +124,31 @@ namespace DFCommonLib.Logger
             }
         }
 
+        public static void PrintStartup(DFLogLevel logLevel, string group, string message)
+        {
+            foreach (OutputWriter outputWriter in _ouputWriters)
+            {
+                if (outputWriter.logOutputWriter != null)
+                {
+                    try
+                    {
+                        outputWriter.logOutputWriter.LogMessage(logLevel, group, message);
+                    }
+                    catch(System.PlatformNotSupportedException ex)
+                    {
+                        outputWriter.logLevel = DFLogLevel.DISABLED;
+                        LogOutput(DFLogLevel.ERROR, "DFLogger", string.Format("Removing {0} due to : {1} ", outputWriter.logOutputWriter.GetName(), ex.ToString()));
+                    }
+                    catch(Exception ex)
+                    {
+                        // Temp disable this and try to log error to other outputs
+                        var tmpLogLevel = outputWriter.logLevel;
+                        outputWriter.logLevel = DFLogLevel.DISABLED;
+                        LogOutput(DFLogLevel.EXCEPTION, "DFLogger", string.Format("{0}:{1}", outputWriter.logOutputWriter.GetName(), ex.ToString()));
+                        outputWriter.logLevel = tmpLogLevel;
+                    }
+                }
+            }
+        }
     }
 }
