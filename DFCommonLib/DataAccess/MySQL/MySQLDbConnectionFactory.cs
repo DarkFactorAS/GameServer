@@ -14,11 +14,19 @@ namespace DFCommonLib.DataAccess
         private IConfigurationHelper _helper;
         private IDFLogger<MySQLDbConnectionFactory> _logger;
 
-        public MySQLDbConnectionFactory(string connectionType, IConfigurationHelper helper, IDFLogger<MySQLDbConnectionFactory> logger )
+        public MySQLDbConnectionFactory(string connectionType, IConfigurationHelper helper )
         {
             _connectionType = connectionType;
             _helper = helper;
-            _logger = logger;
+            _logger = new DFLogger<MySQLDbConnectionFactory>();
+        }
+
+        public MySQLDbConnectionFactory(string connectionType, string connectionString )
+        {
+            _connectionType = connectionType;
+            _connectionString = connectionString;
+            _helper = null;
+            _logger = new DFLogger<MySQLDbConnectionFactory>();
         }
 
         public IDbConnection CreateConnection()
@@ -61,7 +69,7 @@ namespace DFCommonLib.DataAccess
 
                 _connectionString = configDbConnection.ConnectionString;
 
-                _logger.LogInfo(string.Format("Connection string: {0} / {1}", _connectionType, _connectionString));
+                //_logger.LogDebug(string.Format("Connection string: {0} / {1}", _connectionType, _connectionString));
             }
             return _connectionString;
         }

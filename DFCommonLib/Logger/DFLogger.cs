@@ -7,78 +7,108 @@ namespace DFCommonLib.Logger
 {
     public interface IDFLogger<T>
     {
+        void LogDebug(string message);
         void LogInfo(string message);
         void LogWarning(string message);
+        void LogError(string message);
     }
 
-    public class OutputHandler
+    public class OutputWriter
     {
-        public enum DFLogLevel
-        {
-            Info,
-            Warning,
-            Error,
-            Fatal,
-        }
-
         public DFLogLevel logLevel;
-        public ILogOuputHandler callback;
+        public ILogOutputWriter logOutputWriter;
 
-        public OutputHandler(DFLogLevel logLevel, ILogOuputHandler callback)
+        public OutputWriter(DFLogLevel logLevel, ILogOutputWriter logOutputWriter)
         {
             this.logLevel = logLevel;
-            this.callback = callback;
+            this.logOutputWriter = logOutputWriter;
         }
     }
 
     public class DFLogger<T> : IDFLogger<T>
     {
-        private static IList<OutputHandler> _externalLogger;
-
-        public DFLogger( )
-        {
-            _externalLogger = new List<OutputHandler>();
-        }
-
         private string GetGroup()
         {
             return typeof(T).ToString();
         }
 
+        private string GetClassName()
+        {
+            var groupName = GetGroup();
+            var lastGroup = groupName.Split(".").LastOrDefault();
+            if ( lastGroup != null )
+            {
+                return lastGroup;
+            }
+            return groupName;
+        }
+
         public void LogInfo( string message )
         {
-            LogOutput(OutputHandler.DFLogLevel.Warning, message );
+            var group = GetClassName();
+            DFLogger.LogOutput(DFLogLevel.INFO, group, message );
+        }
+
+        public void LogDebug( string message )
+        {
+            #if DEBUG
+                var group = GetClassName();
+                DFLogger.LogOutput(DFLogLevel.DEBUG, group, message );
+            #endif
         }
 
         public void LogWarning( string message )
         {
-            LogOutput(OutputHandler.DFLogLevel.Warning, message );
+            var group = GetClassName();
+            DFLogger.LogOutput(DFLogLevel.WARNING, group, message );
         }
 
         public void LogError(string message)
         {
-            LogOutput(OutputHandler.DFLogLevel.Warning, message);
+            var group = GetClassName();
+            DFLogger.LogOutput(DFLogLevel.ERROR, group, message);
         }
+    }
 
-        public static void AddOutput(OutputHandler.DFLogLevel logLevel, ILogOuputHandler outputHandler )
+    public class DFLogger
+    {
+        private static IList<OutputWriter> _ouputWriters = new List<OutputWriter>();
+
+        public static void AddOutput(DFLogLevel logLevel, ILogOutputWriter outputWriter)
         {
-            var oldLogger = _externalLogger.Where(x => x == outputHandler).FirstOrDefault();
-            if ( oldLogger == null )
+            var oldLogger = _ouputWriters.Where(x => x == outputWriter).FirstOrDefault();
+            if (oldLogger == null)
             {
-                _externalLogger.Add( new OutputHandler( logLevel, outputHandler) );
+                _ouputWriters.Add(new OutputWriter(logLevel, outputWriter));
             }
         }
 
-        private void LogOutput(OutputHandler.DFLogLevel logLevel, string messagge )
+        public static void LogOutput(DFLogLevel logLevel, string group, string message)
         {
-            var group = GetGroup();
-            foreach (OutputHandler outputHandler in _externalLogger)
+            foreach (OutputWriter outputWriter in _ouputWriters)
             {
-                if (outputHandler.logLevel <= logLevel && outputHandler.callback != null )
+                if (outputWriter.logLevel <= logLevel && outputWriter.logOutputWriter != null)
                 {
-                    outputHandler.callback.LogMessage(logLevel, group, messagge);
+                    try
+                    {
+                        outputWriter.logOutputWriter.LogMessage(logLevel, group, message);
+                    }
+                    catch(System.PlatformNotSupportedException ex)
+                    {
+                        outputWriter.logLevel = DFLogLevel.DISABLED;
+                        LogOutput(DFLogLevel.ERROR, "DFLogger", string.Format("Removing {0} due to : {1} ", outputWriter.logOutputWriter.GetName(), ex.ToString()));
+                    }
+                    catch(Exception ex)
+                    {
+                        // Temp disable this and try to log error to other outputs
+                        var tmpLogLevel = outputWriter.logLevel;
+                        outputWriter.logLevel = DFLogLevel.DISABLED;
+                        LogOutput(DFLogLevel.EXCEPTION, "DFLogger", string.Format("{0}:{1}", outputWriter.logOutputWriter.GetName(), ex.ToString()));
+                        outputWriter.logLevel = tmpLogLevel;
+                    }
                 }
             }
         }
+
     }
 }

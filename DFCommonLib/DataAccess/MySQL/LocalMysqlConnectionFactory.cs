@@ -6,8 +6,8 @@ namespace DFCommonLib.DataAccess
 {
     public class LocalMysqlConnectionFactory : MySQLDbConnectionFactory
     {
-        public LocalMysqlConnectionFactory(IConfigurationHelper helper, IDFLogger<MySQLDbConnectionFactory> logger)
-            : base("LOCAL", helper, logger )
+        public LocalMysqlConnectionFactory(IConfigurationHelper helper)
+            : base("LOCAL", helper )
         {
         }
     }

@@ -3,18 +3,22 @@ using DFCommonLib.DataAccess;
 
 namespace DFCommonLib.Logger
 {
-    public class MySqlLogHandler : ILogOuputHandler
+    public class MySqlLogWriter : ILogOutputWriter
     {
         IDbConnectionFactory _connection;
 
-        public MySqlLogHandler(IDbConnectionFactory connection)
+        public MySqlLogWriter(IDbConnectionFactory connection)
         {
             _connection = connection;
         }
-
-        public void LogMessage(OutputHandler.DFLogLevel logLevel, string group, string message)
+        public string GetName()
         {
-            var sql = @"insert into logtable (id,created, loglevel,group,message) values(0,sysdate, @loglevel,@group,@message)";
+            return "MySqlLogWriter";
+        }
+
+        public void LogMessage(DFLogLevel logLevel, string group, string message)
+        {
+            var sql = @"insert into logtable (id,created, loglevel, groupname, message) values(0,sysdate(), @loglevel,@group,@message)";
             using (var command = _connection.CreateCommand(sql))
             {
                 command.AddParameter("@loglevel", (int) logLevel);
