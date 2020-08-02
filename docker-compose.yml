@@ -23,6 +23,7 @@ services:
     restart: always
     networks: 
       - net_bots_backend
+      - net_account_backend
     ports:
       - 8080:8080
 
@@ -37,22 +38,12 @@ services:
       - "5000:80"
     depends_on: 
       - database
-
-  accountserver:
-    networks: 
-      - net_bots_backend
-    build:
-      network: host
-      context: ./
-      dockerfile: ./AccountServer/Dockerfile-subfolder
-    ports:
-      - "6000:80"
-    depends_on: 
-      - database
-
+    
 networks:
   net_bots_backend:
     name: bots_backend
+  net_account_backend:
+    name: account_backend
 
 volumes:
   # docker volume create botwebserver-mariadb
