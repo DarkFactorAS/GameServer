@@ -10,14 +10,7 @@ RUN dotnet nuget add source /app/NuGet --name DarkFactor
 RUN dotnet nuget locals all -c
 
 # Copy files
-COPY ./DFCommonLib/ ./DFCommonLib/
 COPY ./BotWebServer/ ./BotWebServer/
-
-# Build nuget libs
-RUN dotnet restore DFCommonLib/DFCommonLib.csproj
-RUN dotnet build DFCommonLib/DFCommonLib.csproj
-RUN dotnet pack DFCommonLib/DFCommonLib.csproj -o /app/NuGet
-
 
 # Restore and build web
 RUN dotnet restore BotWebServer/BotWebServer.csproj

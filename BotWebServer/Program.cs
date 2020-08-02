@@ -17,7 +17,7 @@ namespace BotWebServer
 {
     public class Program
     {
-        private static string AppName = "BotWebServer";
+        public static string AppName = "Bot WebServer";
 
         public static void Main(string[] args)
         {
@@ -42,6 +42,7 @@ namespace BotWebServer
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                });
+                }
+        );
     }
 }
