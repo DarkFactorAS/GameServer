@@ -21,7 +21,7 @@ services:
     restart: always
     networks: 
       - net_bots_backend
-      - net_account_backend
+      #- net_account_backend
     ports:
       - 8080:8080
 
