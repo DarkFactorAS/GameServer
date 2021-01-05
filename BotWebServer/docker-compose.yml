@@ -31,7 +31,7 @@ services:
     build:
       network: host
       context: ./
-      dockerfile: ./BotWebServer/Dockerfile
+      dockerfile: ./Dockerfile
     ports:
       - "5000:80"
     depends_on: 
