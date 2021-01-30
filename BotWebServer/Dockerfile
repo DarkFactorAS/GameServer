@@ -2,19 +2,22 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env
 WORKDIR /app
 
+# Copy nuget file
+COPY ./NuGet.config ./
+
 # Add nuget repository
-COPY ./NuGet/DarkFactor.Common.Lib.*.nupkg ./NuGet/
-RUN dotnet nuget add source /app/NuGet --name DarkFactor
+#COPY ./NuGet/DarkFactor.Common.Lib.*.nupkg ./NuGet/
+#RUN dotnet nuget add source /app/NuGet --name DarkFactor
 
 # Flush all nuget repos
-RUN dotnet nuget locals all -c
+#RUN dotnet nuget locals all -c
 
 # Copy files
-COPY ./BotWebServer/ ./BotWebServer/
+COPY ./ ./
 
 # Restore and build web
-RUN dotnet restore BotWebServer/BotWebServer.csproj
-RUN dotnet publish BotWebServer/BotWebServer.csproj -c Release -o out
+RUN dotnet restore BotWebServer.csproj
+RUN dotnet publish BotWebServer.csproj -c Release -o out
 #RUN dotnet publish BotWebServer.csproj -r win-x64 -c Release -o out
 
 # Build runtime image
