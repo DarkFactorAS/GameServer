@@ -5,6 +5,7 @@
    "version": "0.2.0",
    "configurations": [
 
+
         {
             "name": "Bot WebServer",
             "type": "coreclr",
@@ -56,6 +57,27 @@
             // enable this to get normal console window
             //"console": "externalTerminal",
         },
+        {
+            "name": "BugReport Server",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build_bugreport",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/BugReportServer/bin/Debug/netcoreapp3.1/BugReportServer.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/BugReportServer",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            },
+            "console": "integratedTerminal",
+            // enable this to get normal console window
+            //"console": "externalTerminal",
+        },
+
         {
             "name": ".NET Core Attach",
             "type": "coreclr",
