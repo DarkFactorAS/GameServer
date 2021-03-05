@@ -15,6 +15,8 @@ services:
       - "MYSQL_PASSWORD=pewpewpew"
     volumes:
       - botwebserver-mariadb:/var/lib/mysql
+    ports:
+      - 5306:3306
 
   botsadmin:
     image: adminer
