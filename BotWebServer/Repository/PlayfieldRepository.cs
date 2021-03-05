@@ -38,7 +38,7 @@ namespace BotWebServer.Repository
             }
 
             // Get specific playfield
-            var sql = @"SELECT id,name,data FROM playfield WHERE id = @id";
+            var sql = @"SELECT * FROM playfield WHERE id = @id";
             using (var cmd = _connection.CreateCommand(sql))
             {
                 cmd.AddParameter("@id", playfieldId);
