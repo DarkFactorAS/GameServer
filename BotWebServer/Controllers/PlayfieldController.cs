@@ -47,7 +47,7 @@ namespace BotWebServer.Controllers
             }
             else
             {
-                _logger.LogDebug("Save playfield ...", playfieldData.id);
+                _logger.LogDebug("Save playfield failed");
             }
         }
     }
