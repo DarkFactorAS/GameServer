@@ -10,7 +10,7 @@ namespace BotWebServer.Repository
     {
         PlayfieldData GetPlayfield(uint playfieldId);
         PlayfieldList GetPlayfieldList();
-        void SavePlayfield(PlayfieldData playfieldData);
+        PlayfieldResponseData SavePlayfield(PlayfieldData playfieldData);
     }
 
     public class PlayfieldRepository : IPlayfieldRepository
@@ -106,7 +106,7 @@ namespace BotWebServer.Repository
             return playfieldList;
         }
 
-        public void SavePlayfield(PlayfieldData playfieldData)
+        public PlayfieldResponseData SavePlayfield(PlayfieldData playfieldData)
         {
             byte[] data = Convert.FromBase64String(playfieldData.data);
 
@@ -128,9 +128,11 @@ namespace BotWebServer.Repository
                     cmd.AddParameter("@description", playfieldData.description);
                     cmd.AddParameter("@numPlayers", playfieldData.numPlayers);
                     cmd.AddParameter("@numGoals", playfieldData.numGoals);
-                    cmd.AddParameter("@data", data);
+                    cmd.AddClobParameter("@data", data);
                     cmd.ExecuteNonQuery();
                 }
+
+                return new PlayfieldResponseData(playfieldData.id, "Playfield saved successfully");
             }
             else
             {
@@ -152,7 +154,27 @@ namespace BotWebServer.Repository
                     cmd.AddClobParameter("@data", data);
                     cmd.ExecuteNonQuery();
                 }
+
+                var playfieldId = GetId();
+                return new PlayfieldResponseData(playfieldId, "Playfield saved successfully");
             }
         }
-    }
+
+        private uint GetId()
+        {
+            var sql = @"SELECT LAST_INSERT_ID() as id";
+            using (var cmd = _connection.CreateCommand(sql))
+            {
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        uint id = Convert.ToUInt32(reader["id"]);
+                        return id;
+                    }
+                }
+            }
+            return 0;
+        }
+     }
 }

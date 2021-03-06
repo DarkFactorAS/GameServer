@@ -38,16 +38,17 @@ namespace BotWebServer.Controllers
 
         [HttpPut]
         [Route("SavePlayfield")]
-        public void SavePlayfield( PlayfieldData playfieldData )
+        public PlayfieldResponseData SavePlayfield( PlayfieldData playfieldData )
         {
             if ( playfieldData != null )
             {
                 _logger.LogDebug("Save playfield ...", playfieldData.id);
-                _repository.SavePlayfield(playfieldData);
+                return _repository.SavePlayfield(playfieldData);
             }
             else
             {
                 _logger.LogDebug("Save playfield failed");
+                return new PlayfieldResponseData( playfieldData.id, "Failed to save playfield");
             }
         }
     }
