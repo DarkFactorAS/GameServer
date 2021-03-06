@@ -17,7 +17,8 @@ namespace BotWebServer.Repository
     {
         private IDbConnectionFactory _connection;
 
-        private string owner = "Cha00z";
+        private string ownerName = "Chaoz";
+
 
         private readonly IDFLogger<PlayfieldRepository> _logger;
 
@@ -143,7 +144,7 @@ namespace BotWebServer.Repository
                 using (var cmd = _connection.CreateCommand(sql))
                 {
                     cmd.AddParameter("@id", playfieldData.id);
-                    cmd.AddParameter("@ownerid", owner);
+                    cmd.AddParameter("@ownerid", ownerName);
                     cmd.AddParameter("@name", playfieldData.name);
                     cmd.AddParameter("@description", playfieldData.description);
                     cmd.AddParameter("@playfieldFlags", playfieldData.playfieldFlags);
