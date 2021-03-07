@@ -51,5 +51,13 @@ namespace BotWebServer.Controllers
                 return new PlayfieldResponseData( playfieldData.id, "Failed to save playfield");
             }
         }
+
+        [HttpPut]
+        [Route("DeletePlayfield")]
+        public PlayfieldResponseData DeletePlayfield( uint playfieldId )
+        {
+            _logger.LogDebug("Delete playfield failed");
+            return new PlayfieldResponseData( playfieldId, "Failed to delete playfield");
+        }
     }
 }
