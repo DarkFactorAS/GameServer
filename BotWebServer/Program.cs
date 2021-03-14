@@ -13,6 +13,8 @@ using DFCommonLib.Config;
 using DFCommonLib.Logger;
 using DFCommonLib.Utils;
 
+using AccountClientModule.Client;
+
 namespace BotWebServer
 {
     public class Program
@@ -38,6 +40,8 @@ namespace BotWebServer
 
                     services.AddTransient<IPlayfieldRepository, PlayfieldRepository>();
                     services.AddTransient<IConfigurationHelper, ConfigurationHelper>();
+
+                    AccountClient.SetupService(services);
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {

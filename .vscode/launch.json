@@ -32,14 +32,14 @@
             //"console": "externalTerminal",
         },
         {
-            "name": "AccountServer",
+            "name": "AccountServer (Swagger)",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build_account",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/AccountServer/bin/Debug/netcoreapp3.1/AccountServer.dll",
+            "program": "${workspaceFolder}/AccountServer/AccountServer/bin/Debug/netcoreapp3.1/AccountServer.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/AccountServer",
+            "cwd": "${workspaceFolder}/AccountServer/AccountServer",
             "stopAtEntry": false,
             // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
             "serverReadyAction": {

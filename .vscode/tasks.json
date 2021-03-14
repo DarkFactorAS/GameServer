@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/AccountServer/AccountServer.csproj",
+                "${workspaceFolder}/AccountServer/AccountServer/AccountServer.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
