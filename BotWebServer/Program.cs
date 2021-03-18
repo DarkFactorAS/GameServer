@@ -13,6 +13,7 @@ using DFCommonLib.Config;
 using DFCommonLib.Logger;
 using DFCommonLib.Utils;
 
+using BotWebServer.Provider;
 using AccountClientModule.Client;
 
 namespace BotWebServer
@@ -30,6 +31,8 @@ namespace BotWebServer
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
+                    services.AddTransient<IConfigurationHelper, BotConfigurationHelper>();
+
                     new DFServices(services)
                         .SetupLogger()
                         .SetupMySql()
@@ -39,7 +42,6 @@ namespace BotWebServer
                         ;
 
                     services.AddTransient<IPlayfieldRepository, PlayfieldRepository>();
-                    services.AddTransient<IConfigurationHelper, ConfigurationHelper>();
 
                     AccountClient.SetupService(services);
                 })

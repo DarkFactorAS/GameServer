@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using AccountClientModule.Model;
 using AccountClientModule.Client;
+using DFCommonLib.Config;
+using BotWebServer.Model;
 
 namespace BotWebServer.Controllers
 {
@@ -16,10 +18,16 @@ namespace BotWebServer.Controllers
         ILogger<AccountController> _logger;
         IAccountClient _accountClient;
 
-        public AccountController(ILogger<AccountController> logger, IAccountClient accountClient)
+        public AccountController(ILogger<AccountController> logger, IAccountClient accountClient, IConfigurationHelper configuration)
         {
             _logger = logger;
             _accountClient = accountClient;
+
+            var customer = configuration.GetFirstCustomer() as BotCustomer;
+            if ( customer != null )
+            {
+                _accountClient.SetEndpoint(customer.AccountServer);
+            }
         }
 
         [HttpPut]
