@@ -8,6 +8,7 @@ using AccountClientModule.Model;
 using AccountClientModule.Client;
 using DFCommonLib.Config;
 using BotWebServer.Model;
+using BotWebServer.Provider;
 
 namespace BotWebServer.Controllers
 {
@@ -17,11 +18,16 @@ namespace BotWebServer.Controllers
     {
         ILogger<AccountController> _logger;
         IAccountClient _accountClient;
+        IBotSessionProvider _session;
 
-        public AccountController(ILogger<AccountController> logger, IAccountClient accountClient, IConfigurationHelper configuration)
+        public AccountController(ILogger<AccountController> logger, 
+            IAccountClient accountClient, 
+            IConfigurationHelper configuration,
+            IBotSessionProvider session )
         {
             _logger = logger;
             _accountClient = accountClient;
+            _session = session;
 
             var customer = configuration.GetFirstCustomer() as BotCustomer;
             if ( customer != null )
@@ -34,14 +40,24 @@ namespace BotWebServer.Controllers
         [Route("LoginAccount")]
         public AccountData LoginAccount(LoginData loginData)
         {
-            return _accountClient.LoginAccount(loginData);
+            var data = _accountClient.LoginAccount(loginData);
+            if ( data.errorCode == AccountData.ErrorCode.OK )
+            {
+                _session.SetUser( data.nickname, data.token);
+            }
+            return data;
         }
 
         [HttpPut]
         [Route("CreateAccount")]
         public AccountData CreateAccount( CreateAccountData createAccountData )
         {
-            return _accountClient.CreateAccount(createAccountData);
+            var data = _accountClient.CreateAccount(createAccountData);
+            if ( data.errorCode == AccountData.ErrorCode.OK )
+            {
+                _session.SetUser( data.nickname, data.token);
+            }
+            return data;
         }
     }
 }

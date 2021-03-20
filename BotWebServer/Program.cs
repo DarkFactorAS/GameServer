@@ -42,6 +42,8 @@ namespace BotWebServer
                         ;
 
                     services.AddTransient<IPlayfieldRepository, PlayfieldRepository>();
+                    services.AddTransient<IPlayfieldProvider, PlayfieldProvider>();
+                    services.AddTransient<IBotSessionProvider, BotSessionProvider>();
 
                     AccountClient.SetupService(services);
                 })

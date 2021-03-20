@@ -10,16 +10,12 @@ namespace BotWebServer.Repository
     {
         PlayfieldData GetPlayfield(uint playfieldId);
         PlayfieldList GetPlayfieldList();
-        PlayfieldResponseData SavePlayfield(PlayfieldData playfieldData);
+        PlayfieldResponseData SavePlayfield(PlayfieldData playfieldData, string ownerName);
     }
 
     public class PlayfieldRepository : IPlayfieldRepository
     {
         private IDbConnectionFactory _connection;
-
-        private string ownerName = "Chaoz";
-
-
         private readonly IDFLogger<PlayfieldRepository> _logger;
 
         public PlayfieldRepository(
@@ -107,7 +103,7 @@ namespace BotWebServer.Repository
             return playfieldList;
         }
 
-        public PlayfieldResponseData SavePlayfield(PlayfieldData playfieldData)
+        public PlayfieldResponseData SavePlayfield(PlayfieldData playfieldData, string ownerName)
         {
             byte[] data = Convert.FromBase64String(playfieldData.data);
 
@@ -121,7 +117,8 @@ namespace BotWebServer.Repository
                     numGoals = @numGoals,
                     updated = now(),
                     data=@data 
-                    where id = @id";
+                    where id = @id
+                    and ownerid = @ownerid";
                 using (var cmd = _connection.CreateCommand(sql))
                 {
                     cmd.AddParameter("@id", playfieldData.id);
@@ -130,6 +127,7 @@ namespace BotWebServer.Repository
                     cmd.AddParameter("@numPlayers", playfieldData.numPlayers);
                     cmd.AddParameter("@numGoals", playfieldData.numGoals);
                     cmd.AddClobParameter("@data", data);
+                    cmd.AddParameter("@ownerid", ownerName);
                     cmd.ExecuteNonQuery();
                 }
 
