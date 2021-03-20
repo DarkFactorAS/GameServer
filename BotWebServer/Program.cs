@@ -14,7 +14,6 @@ using DFCommonLib.Logger;
 using DFCommonLib.Utils;
 
 using BotWebServer.Provider;
-using AccountClientModule.Client;
 
 namespace BotWebServer
 {
@@ -41,11 +40,6 @@ namespace BotWebServer
                         .LogToEvent(DFLogLevel.ERROR, AppName);
                         ;
 
-                    services.AddTransient<IPlayfieldRepository, PlayfieldRepository>();
-                    services.AddTransient<IPlayfieldProvider, PlayfieldProvider>();
-                    services.AddTransient<IBotSessionProvider, BotSessionProvider>();
-
-                    AccountClient.SetupService(services);
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {

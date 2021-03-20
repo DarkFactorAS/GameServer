@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -9,10 +10,18 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.AspNetCore.Swagger;
+
 using DFCommonLib.Utils;
 using DFCommonLib.Logger;
+using AccountClientModule.Client;
+
+using BotWebServer.Repository;
+using BotWebServer.Provider;
+
+using DFCommonLib.Config;
 
 namespace BotWebServer
 {
@@ -47,6 +56,16 @@ namespace BotWebServer
                 options.Cookie.IsEssential = true;
             });
 
+            // services.AddTransient<IPlayfieldRepository, PlayfieldRepository>();
+            // services.AddTransient<IPlayfieldProvider, PlayfieldProvider>();
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddTransient(typeof(IPlayfieldRepository), typeof(PlayfieldRepository));
+            services.AddTransient(typeof(IPlayfieldProvider), typeof(PlayfieldProvider));
+            services.AddScoped(typeof(IBotSessionProvider), typeof(BotSessionProvider));
+            AccountClient.SetupService(services);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,10 +78,9 @@ namespace BotWebServer
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
             app.UseAuthorization();
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
@@ -77,7 +95,6 @@ namespace BotWebServer
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
 
-            app.UseSession();
         }
     }
 }
