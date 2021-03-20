@@ -41,7 +41,6 @@ namespace BotWebServer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
             services.AddMvc();
 
             // register the swagger generator
@@ -59,7 +58,9 @@ namespace BotWebServer
             // services.AddTransient<IPlayfieldRepository, PlayfieldRepository>();
             // services.AddTransient<IPlayfieldProvider, PlayfieldProvider>();
 
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddHttpContextAccessor();
+
+            //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddTransient(typeof(IPlayfieldRepository), typeof(PlayfieldRepository));
             services.AddTransient(typeof(IPlayfieldProvider), typeof(PlayfieldProvider));
