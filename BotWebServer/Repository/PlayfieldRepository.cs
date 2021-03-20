@@ -110,6 +110,7 @@ namespace BotWebServer.Repository
             var playfield = GetPlayfield(playfieldData.id);
             if ( playfield != null )
             {
+                int numRows = 0;
                 var sql = @"UPDATE playfield set 
                     name = @name, 
                     description = @description,
@@ -128,9 +129,13 @@ namespace BotWebServer.Repository
                     cmd.AddParameter("@numGoals", playfieldData.numGoals);
                     cmd.AddClobParameter("@data", data);
                     cmd.AddParameter("@ownerid", ownerName);
-                    cmd.ExecuteNonQuery();
+                    numRows = cmd.ExecuteNonQuery();
                 }
 
+                if ( numRows == 0 )
+                {
+                    return new PlayfieldResponseData(playfieldData.id, "Failed to save playfield ( No access to playfield )");
+                }
                 return new PlayfieldResponseData(playfieldData.id, "Playfield saved successfully");
             }
             else
