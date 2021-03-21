@@ -9,7 +9,7 @@
             "ConnectionString": "Server=botsdb;Port=3306;Database=bots;Uid=botuser;Pwd=pewpewpew;SslMode=Preferred;"
           }
         ],
-        "AccountServer" : "http://192.168.1.30:5100"
+        "AccountServer" : "http://login.darkfactor.net:5100"
       }
     ]
   }

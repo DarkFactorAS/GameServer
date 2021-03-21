@@ -2,6 +2,7 @@ using Microsoft.Extensions.Logging;
 
 using BotWebServer.Model;
 using BotWebServer.Repository;
+using DFCommonLib.Logger;
 
 namespace BotWebServer.Provider
 {
@@ -17,9 +18,9 @@ namespace BotWebServer.Provider
     {
         IPlayfieldRepository _repository;
         IBotSessionProvider _session;
-        ILogger<PlayfieldProvider> _logger;
+        IDFLogger<PlayfieldProvider> _logger;
 
-        public PlayfieldProvider( ILogger<PlayfieldProvider> logger,
+        public PlayfieldProvider( IDFLogger<PlayfieldProvider> logger,
             IPlayfieldRepository repository, 
             IBotSessionProvider session )
         {

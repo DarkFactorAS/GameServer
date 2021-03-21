@@ -16,16 +16,14 @@ namespace BotWebServer.Controllers
     [Route("[controller]")]
     public class AccountController : ControllerBase
     {
-        ILogger<AccountController> _logger;
         IAccountClient _accountClient;
         IBotSessionProvider _session;
 
-        public AccountController(ILogger<AccountController> logger, 
+        public AccountController(
             IAccountClient accountClient, 
             IConfigurationHelper configuration,
             IBotSessionProvider session )
         {
-            _logger = logger;
             _accountClient = accountClient;
             _session = session;
 
