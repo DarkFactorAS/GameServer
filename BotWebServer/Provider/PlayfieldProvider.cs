@@ -36,7 +36,20 @@ namespace BotWebServer.Provider
 
         public PlayfieldList GetPlayfieldList()
         {
-            return _repository.GetPlayfieldList();
+            if ( !_session.IsLoggedIn() )
+            {
+                _logger.LogDebug("Save playfield failed : Not logged in");
+                return new PlayfieldList();
+            }
+
+            var nickname = _session.GetNickname();
+            if ( string.IsNullOrEmpty(nickname) )
+            {
+                _logger.LogDebug("Save playfield failed : unknown nickname");
+                return new PlayfieldList();
+            }
+
+            return _repository.GetPlayfieldList(nickname);
         }
 
         public PlayfieldResponseData SavePlayfield(PlayfieldData playfieldData)

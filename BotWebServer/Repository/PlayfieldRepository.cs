@@ -9,7 +9,7 @@ namespace BotWebServer.Repository
     public interface IPlayfieldRepository
     {
         PlayfieldData GetPlayfield(uint playfieldId);
-        PlayfieldList GetPlayfieldList();
+        PlayfieldList GetPlayfieldList(string ownerName);
         PlayfieldResponseData SavePlayfield(PlayfieldData playfieldData, string ownerName);
     }
 
@@ -78,16 +78,21 @@ namespace BotWebServer.Repository
             return playfieldData;
         }
 
-        public PlayfieldList GetPlayfieldList()
+        public PlayfieldList GetPlayfieldList(string ownerName)
         {
             // Get specific playfield
             PlayfieldList playfieldList = new PlayfieldList();
 
             _logger.LogInfo("GetPlayfieldList");
 
-            var sql = @"SELECT id,ownerid,name,description,playfieldFlags,numPlayers,numGoals,boardSizeX, boardSizeY, data FROM playfield order by updated desc limit 10";
+            var sql = @"SELECT id,ownerid,name,description,playfieldFlags,numPlayers,numGoals,boardSizeX, boardSizeY, data 
+                FROM playfield 
+                where ownerid = @ownerid
+                order by updated desc limit 100";
             using (var cmd = _connection.CreateCommand(sql))
             {
+                cmd.AddParameter("@ownerid", ownerName);
+
                 using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
