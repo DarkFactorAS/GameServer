@@ -43,7 +43,7 @@ namespace BotWebServer.Controllers
 
         [HttpPut]
         [Route("DeletePlayfield")]
-        public PlayfieldResponseData DeletePlayfield( uint playfieldId )
+        public PlayfieldResponseData DeletePlayfield([FromBody] uint playfieldId )
         {
             return _provider.DeletePlayfield(playfieldId);
         }

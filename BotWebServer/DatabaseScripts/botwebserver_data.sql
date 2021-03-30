@@ -33,6 +33,7 @@ CREATE TABLE `playfield` (
   `numGoals` int(11) NOT NULL,
   `boardSizeX` int(11) NOT NULL,
   `boardSizeY` int(11) NOT NULL,
+  `version` int(11) NOT NULL,
   `data` mediumblob DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=143 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;

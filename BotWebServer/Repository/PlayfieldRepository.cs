@@ -11,6 +11,7 @@ namespace BotWebServer.Repository
         PlayfieldData GetPlayfield(uint playfieldId);
         PlayfieldList GetPlayfieldList(string ownerName);
         PlayfieldResponseData SavePlayfield(PlayfieldData playfieldData, string ownerName);
+        PlayfieldResponseData DeletePlayfield(uint playfieldId, string ownerName);
     }
 
     public class PlayfieldRepository : IPlayfieldRepository
@@ -64,6 +65,7 @@ namespace BotWebServer.Repository
             playfieldData.numGoals = Convert.ToUInt32(reader["numGoals"]);
             playfieldData.boardSizeX = Convert.ToUInt32(reader["boardSizeX"]);
             playfieldData.boardSizeY = Convert.ToUInt32(reader["boardSizeY"]);
+            playfieldData.version = Convert.ToUInt32(reader["version"]);
 
             // Read data
             byte[] buffer = new byte[10000];
@@ -85,7 +87,7 @@ namespace BotWebServer.Repository
 
             _logger.LogInfo("GetPlayfieldList");
 
-            var sql = @"SELECT id,ownerid,name,description,playfieldFlags,numPlayers,numGoals,boardSizeX, boardSizeY, data 
+            var sql = @"SELECT * 
                 FROM playfield 
                 where ownerid = @ownerid
                 order by updated desc limit 100";
@@ -121,6 +123,7 @@ namespace BotWebServer.Repository
                     description = @description,
                     numPlayers = @numPlayers,
                     numGoals = @numGoals,
+                    version = @version,
                     updated = now(),
                     data=@data 
                     where id = @id
@@ -132,6 +135,7 @@ namespace BotWebServer.Repository
                     cmd.AddParameter("@description", playfieldData.description);
                     cmd.AddParameter("@numPlayers", playfieldData.numPlayers);
                     cmd.AddParameter("@numGoals", playfieldData.numGoals);
+                    cmd.AddParameter("@version", playfieldData.version);
                     cmd.AddClobParameter("@data", data);
                     cmd.AddParameter("@ownerid", ownerName);
                     numRows = cmd.ExecuteNonQuery();
@@ -146,9 +150,9 @@ namespace BotWebServer.Repository
             else
             {
                 var sql = @"INSERT INTO playfield(id, updated, ownerid, name, description,
-                    playfieldFlags, numPlayers, numGoals, boardSizeX, boardSizeY, data) 
+                    playfieldFlags, numPlayers, numGoals, boardSizeX, boardSizeY, version,data) 
                     VALUES(@id,now(), @ownerid, @name, @description, 
-                    @playfieldFlags, @numPlayers, @numGoals, @boardSizeX, @boardSizeY,@data)";
+                    @playfieldFlags, @numPlayers, @numGoals, @boardSizeX, @boardSizeY, @version, @data)";
                 using (var cmd = _connection.CreateCommand(sql))
                 {
                     cmd.AddParameter("@id", playfieldData.id);
@@ -160,6 +164,7 @@ namespace BotWebServer.Repository
                     cmd.AddParameter("@numGoals", playfieldData.numGoals);
                     cmd.AddParameter("@boardSizeX", playfieldData.boardSizeX);
                     cmd.AddParameter("@boardSizeY", playfieldData.boardSizeY);
+                    cmd.AddParameter("@version", playfieldData.version);
                     cmd.AddClobParameter("@data", data);
                     cmd.ExecuteNonQuery();
                 }
@@ -167,6 +172,26 @@ namespace BotWebServer.Repository
                 var playfieldId = GetId();
                 return new PlayfieldResponseData(playfieldId, "Playfield saved successfully");
             }
+        }
+
+        public PlayfieldResponseData DeletePlayfield(uint playfieldId, string ownerName)
+        {
+            try
+            {
+                var sql = @"DELETE FROM playfield where id = @playfieldId and ownerid=@ownerid";
+                using (var cmd = _connection.CreateCommand(sql))
+                {
+                    cmd.AddParameter("@playfieldId", playfieldId);
+                    cmd.AddParameter("@ownerid", ownerName);
+                    cmd.ExecuteNonQuery();
+                }
+                return new PlayfieldResponseData(playfieldId, "Playfield deleted.");
+            }
+            catch( Exception ex )
+            {
+                _logger.LogError(ex.ToString());
+            }
+            return new PlayfieldResponseData(0, "Failed to delete playfield.");
         }
 
         private uint GetId()

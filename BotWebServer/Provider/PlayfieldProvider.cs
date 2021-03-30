@@ -78,8 +78,20 @@ namespace BotWebServer.Provider
 
         public PlayfieldResponseData DeletePlayfield( uint playfieldId )
         {
-            _logger.LogDebug("Delete playfield failed");
-            return new PlayfieldResponseData( playfieldId, "Failed to delete playfield");
+             if ( !_session.IsLoggedIn() )
+            {
+                _logger.LogDebug("Delete playfield failed : Not logged in");
+                return new PlayfieldResponseData(0, "Not logged in");
+            }
+
+            var nickname = _session.GetNickname();
+            if ( string.IsNullOrEmpty(nickname) )
+            {
+                _logger.LogDebug("Delete playfield failed : unknown nickname");
+                return new PlayfieldResponseData(0, "Not logged in");
+            }
+
+            return _repository.DeletePlayfield(playfieldId, nickname);
         }
     }
 }

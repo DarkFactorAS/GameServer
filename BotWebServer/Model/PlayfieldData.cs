@@ -14,6 +14,7 @@ namespace BotWebServer.Model
         public uint numGoals { get; set; }
         public uint boardSizeX { get; set; }
         public uint boardSizeY { get; set; }
+        public uint version { get; set; }
         public string data { get; set; }
 
         public PlayfieldData()
