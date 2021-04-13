@@ -47,6 +47,18 @@ namespace BotWebServer.Controllers
         }
 
         [HttpPut]
+        [Route("LoginToken")]
+        public AccountData LoginALoginTokenccount(LoginTokenData loginData)
+        {
+            var data = _accountClient.LoginToken(loginData);
+            if ( data.errorCode == AccountData.ErrorCode.OK )
+            {
+                _session.SetUser( data.nickname, data.token);
+            }
+            return data;
+        }
+
+        [HttpPut]
         [Route("CreateAccount")]
         public AccountData CreateAccount( CreateAccountData createAccountData )
         {
