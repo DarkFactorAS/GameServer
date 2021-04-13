@@ -48,7 +48,7 @@ namespace BotWebServer.Controllers
 
         [HttpPut]
         [Route("LoginToken")]
-        public AccountData LoginALoginTokenccount(LoginTokenData loginData)
+        public AccountData LoginToken(LoginTokenData loginData)
         {
             var data = _accountClient.LoginToken(loginData);
             if ( data.errorCode == AccountData.ErrorCode.OK )
