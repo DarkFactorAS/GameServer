@@ -57,20 +57,20 @@ namespace BotWebServer.Provider
             if ( playfieldData == null )
             {
                 _logger.LogDebug("Save playfield failed : No data");
-                return new PlayfieldResponseData( playfieldData.id, "Failed to save playfield");
+                return new PlayfieldResponseData( playfieldData.id, PlayfieldResponseData.ErrorNotLoggedIn, "Failed to save playfield");
             }
 
             if ( !_session.IsLoggedIn() )
             {
                 _logger.LogDebug("Save playfield failed : Not logged in");
-                return new PlayfieldResponseData(playfieldData.id, "Not logged in");
+                return new PlayfieldResponseData(playfieldData.id, PlayfieldResponseData.ErrorNotLoggedIn, "Not logged in");
             }
 
             var nickname = _session.GetNickname();
             if ( string.IsNullOrEmpty(nickname) )
             {
                 _logger.LogDebug("Save playfield failed : unknown nickname");
-                return new PlayfieldResponseData(playfieldData.id, "Not logged in");
+                return new PlayfieldResponseData(playfieldData.id, PlayfieldResponseData.ErrorNotLoggedIn, "Not logged in");
             }
 
             return _repository.SavePlayfield(playfieldData, nickname);
@@ -81,14 +81,14 @@ namespace BotWebServer.Provider
              if ( !_session.IsLoggedIn() )
             {
                 _logger.LogDebug("Delete playfield failed : Not logged in");
-                return new PlayfieldResponseData(0, "Not logged in");
+                return new PlayfieldResponseData(playfieldId, PlayfieldResponseData.ErrorNotLoggedIn, "Not logged in");
             }
 
             var nickname = _session.GetNickname();
             if ( string.IsNullOrEmpty(nickname) )
             {
                 _logger.LogDebug("Delete playfield failed : unknown nickname");
-                return new PlayfieldResponseData(0, "Not logged in");
+                return new PlayfieldResponseData(playfieldId, PlayfieldResponseData.ErrorNotLoggedIn, "Not logged in");
             }
 
             return _repository.DeletePlayfield(playfieldId, nickname);

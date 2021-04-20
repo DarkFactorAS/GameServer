@@ -143,9 +143,9 @@ namespace BotWebServer.Repository
 
                 if ( numRows == 0 )
                 {
-                    return new PlayfieldResponseData(playfieldData.id, "Failed to save playfield ( No access to playfield )");
+                    return new PlayfieldResponseData(playfieldData.id, PlayfieldResponseData.NotOwnerOfPlayfield, "Failed to save playfield ( No access to playfield )");
                 }
-                return new PlayfieldResponseData(playfieldData.id, "Playfield saved successfully");
+                return new PlayfieldResponseData(playfieldData.id, PlayfieldResponseData.Ok, "Playfield saved successfully");
             }
             else
             {
@@ -170,7 +170,7 @@ namespace BotWebServer.Repository
                 }
 
                 var playfieldId = GetId();
-                return new PlayfieldResponseData(playfieldId, "Playfield saved successfully");
+                return new PlayfieldResponseData(playfieldId, PlayfieldResponseData.Ok, "Playfield saved successfully");
             }
         }
 
@@ -185,13 +185,13 @@ namespace BotWebServer.Repository
                     cmd.AddParameter("@ownerid", ownerName);
                     cmd.ExecuteNonQuery();
                 }
-                return new PlayfieldResponseData(playfieldId, "Playfield deleted.");
+                return new PlayfieldResponseData(playfieldId, PlayfieldResponseData.Ok, "Playfield deleted.");
             }
             catch( Exception ex )
             {
                 _logger.LogError(ex.ToString());
             }
-            return new PlayfieldResponseData(0, "Failed to delete playfield.");
+            return new PlayfieldResponseData(0, PlayfieldResponseData.UnknownError, "Failed to delete playfield.");
         }
 
         private uint GetId()
