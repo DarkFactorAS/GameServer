@@ -27,7 +27,7 @@ services:
     environment: 
       ADMINER_DEFAULT_SERVER: botsdb
     ports:
-      - 8080:8080
+      - 8180:8080
 
   botsserver:
     networks: 
