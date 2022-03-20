@@ -25,6 +25,7 @@ using DFCommonLib.Config;
 
 namespace BotWebServer
 {
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -40,6 +41,8 @@ namespace BotWebServer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            DFServices.Create(services);
+
             services.AddControllers();
             services.AddMvc();
 

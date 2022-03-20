@@ -8,10 +8,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using BotWebServer.Repository;
+using BotWebServer.Model;
 
 using DFCommonLib.Config;
 using DFCommonLib.Logger;
 using DFCommonLib.Utils;
+using AccountClientModule.Client;
 
 using BotWebServer.Provider;
 
@@ -23,7 +25,27 @@ namespace BotWebServer
 
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var builder = CreateHostBuilder(args).Build();
+
+            try
+            {
+                IConfigurationHelper configuration = DFServices.GetService<IConfigurationHelper>();
+                IAccountClient client = DFServices.GetService<IAccountClient>();
+                var customer = configuration.GetFirstCustomer() as BotCustomer;
+                if ( customer != null )
+                {
+                    client.SetEndpoint(customer.AccountServer);
+                }
+                DFLogger.LogOutput(DFLogLevel.INFO, "BotServer", "AccountServer:PING" );
+                var result = client.PingServer();
+                DFLogger.LogOutput(DFLogLevel.INFO, "BotServer", "AccountServer:" + result );
+
+                builder.Run();
+            }
+            catch( Exception ex )
+            {
+                DFLogger.LogOutput(DFLogLevel.WARNING, "Startup", ex.ToString() );
+            }
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
