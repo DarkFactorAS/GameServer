@@ -9,7 +9,7 @@
             "ConnectionString": "Server=botsdb;Port=3306;Database=bots;Uid=botuser;Pwd=pewpewpew;SslMode=Preferred;"
           }
         ],
-        "AccountServer" : "http://host.docker.internal:80"
+        "AccountServer" : "http://host.docker.internal:5100"
       }
     ]
   }
