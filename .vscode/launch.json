@@ -61,11 +61,11 @@
             "name": "BugReport Server (Swagger)",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build_bugreport",
+            "preLaunchTask": "build_bugreport_server",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/BugReportServer/bin/Debug/netcoreapp3.1/BugReportServer.dll",
+            "program": "${workspaceFolder}/BugReportServer/Server/bin/Debug/netcoreapp3.1/BugReportServer.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/BugReportServer",
+            "cwd": "${workspaceFolder}/BugReportServer/Server",
             "stopAtEntry": false,
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development",
@@ -82,7 +82,31 @@
             // enable this to get normal console window
             //"console": "externalTerminal",
         },
-
+        {
+            "name": "BugReport Client (Web)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build_bugreport_client",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/BugReportServer/BugReportWeb/bin/Debug/net5.0/BugReportWeb.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/BugReportServer/BugReportWeb",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+            },
+            // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            },
+            "console": "integratedTerminal",
+            // enable this to get normal console window
+            //"console": "externalTerminal",
+        },
         {
             "name": ".NET Core Attach",
             "type": "coreclr",

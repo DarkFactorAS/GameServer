@@ -26,12 +26,24 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "build_bugreport",
+            "label": "build_bugreport_client",
             "command": "dotnet",
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/BugReportServer/BugReportServer.csproj",
+                "${workspaceFolder}/BugReportServer/BugReportWeb/BugReportWeb.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build_bugreport_server",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/BugReportServer/Server/BugReportServer.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
