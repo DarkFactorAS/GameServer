@@ -65,6 +65,7 @@ namespace BotWebServer
 
             //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
+            services.AddTransient(typeof(IStartupRepository), typeof(StartupRepository));
             services.AddTransient(typeof(IPlayfieldRepository), typeof(PlayfieldRepository));
             services.AddTransient(typeof(IPlayfieldProvider), typeof(PlayfieldProvider));
             services.AddScoped(typeof(IBotSessionProvider), typeof(BotSessionProvider));
