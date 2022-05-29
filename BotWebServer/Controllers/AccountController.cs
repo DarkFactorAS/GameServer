@@ -69,5 +69,13 @@ namespace BotWebServer.Controllers
             }
             return data;
         }
+
+        [HttpPut]
+        [Route("ResetPasswordWithEmail")]
+        public AccountData ResetPasswordWithEmail( ResetPasswordEmail resetPasswordEmail )
+        {
+            var data = _accountClient.ResetPasswordWithEmail(resetPasswordEmail);
+            return data;
+        }
     }
 }
