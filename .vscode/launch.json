@@ -58,6 +58,31 @@
             //"console": "externalTerminal",
         },
         {
+            "name": "MailServer",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build_mailserver",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/MailServer/bin/Debug/net5.0/MailServer.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/MailServer",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+            },
+            // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            },
+            "console": "integratedTerminal",
+            // enable this to get normal console window
+            //"console": "externalTerminal",
+        },
+        {
             "name": "BugReport Server (Swagger)",
             "type": "coreclr",
             "request": "launch",
