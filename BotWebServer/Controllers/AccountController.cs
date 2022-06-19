@@ -73,7 +73,7 @@ namespace BotWebServer.Controllers
 
         [HttpPut]
         [Route("ResetPasswordWithEmail")]
-        public WebAPIData ResetPasswordWithEmail( ResetPasswordDataEmail input )
+        public ReturnData ResetPasswordWithEmail( ResetPasswordDataEmail input )
         {
             var data = _accountClient.ResetPasswordWithEmail(input.emailAddress);
             return data;
@@ -81,7 +81,7 @@ namespace BotWebServer.Controllers
 
         [HttpPut]
         [Route("ResetPasswordWithCode")]
-        public WebAPIData ResetPasswordWithCode( ResetPasswordDataCode input )
+        public ReturnData ResetPasswordWithCode( ResetPasswordDataCode input )
         {
             var data = _accountClient.ResetPasswordWithCode(input.code,input.emailAddress);
             return data;
@@ -89,7 +89,7 @@ namespace BotWebServer.Controllers
 
         [HttpPut]
         [Route("ResetPasswordWithToken")]
-        public WebAPIData ResetPasswordWithToken( ResetPasswordDataToken input )
+        public ReturnData ResetPasswordWithToken( ResetPasswordDataToken input )
         {
             var data = _accountClient.ResetPasswordWithToken(input.token,input.password);
             return data;
