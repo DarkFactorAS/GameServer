@@ -16,15 +16,14 @@ cd ../..
 
 # Bug Report Server
 cd BugReportServer
-docker-compose build &
+docker-compose build
 cd ..
 
 # Account Server
 cd AccountServer/AccountServer
-docker-compose build &
+docker-compose build
 cd ../..
 
 # Bot Server
 cd BotWebServer
-docker-compose build &
-cd ..
+scd ..
