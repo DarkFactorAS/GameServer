@@ -55,7 +55,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/MailServer/MailServer.csproj",
+                "${workspaceFolder}/MailServer/MailServer/MailServer.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
