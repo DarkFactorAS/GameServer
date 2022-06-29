@@ -63,9 +63,9 @@
             "request": "launch",
             "preLaunchTask": "build_mailserver",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/MailServer/bin/Debug/net5.0/MailServer.dll",
+            "program": "${workspaceFolder}/MailServer/MailServer/bin/Debug/net5.0/MailServer.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/MailServer",
+            "cwd": "${workspaceFolder}/MailServer/MailServer",
             "stopAtEntry": false,
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development",
