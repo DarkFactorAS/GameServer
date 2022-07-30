@@ -37,7 +37,7 @@
             "request": "launch",
             "preLaunchTask": "build_account",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/AccountServer/AccountServer/bin/Debug/netcoreapp3.1/AccountServer.dll",
+            "program": "${workspaceFolder}/AccountServer/AccountServer/bin/Debug/net5.0/AccountServer.dll",
             "args": [],
             "cwd": "${workspaceFolder}/AccountServer/AccountServer",
             "stopAtEntry": false,
@@ -49,6 +49,31 @@
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development",
                 //"ASPNETCORE_URLS": "http://[::]:5100/"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            },
+            "console": "integratedTerminal",
+            // enable this to get normal console window
+            //"console": "externalTerminal",
+        },
+        {
+            "name": "MailServer",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build_mailserver",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/MailServer/MailServer/bin/Debug/net5.0/MailServer.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/MailServer/MailServer",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+            },
+            // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
             },
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"

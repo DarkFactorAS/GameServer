@@ -1,8 +1,9 @@
 using Microsoft.AspNetCore.Http;
+using DFCommonLib.Utils;
 
 namespace BotWebServer.Provider
 {
-    public interface IBotSessionProvider : IUserSessionProvider
+    public interface IBotSessionProvider : IDFUserSession
     {
         void SetUser(string nickname,string token);
         string GetNickname();
@@ -10,7 +11,7 @@ namespace BotWebServer.Provider
         bool IsLoggedIn();
     }
 
-    public class BotSessionProvider : UserSessionProvider, IBotSessionProvider
+    public class BotSessionProvider : DFUserSession, IBotSessionProvider
     {
         public static readonly string SessionNicknameKey = "Nickname";
         public static readonly string SessionTokenKey = "Token";

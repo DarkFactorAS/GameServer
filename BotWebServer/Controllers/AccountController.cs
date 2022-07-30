@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using AccountClientModule.Model;
 using AccountClientModule.Client;
 using DFCommonLib.Config;
+using DFCommonLib.HttpApi;
 using BotWebServer.Model;
 using BotWebServer.Provider;
 
@@ -67,6 +68,30 @@ namespace BotWebServer.Controllers
             {
                 _session.SetUser( data.nickname, data.token);
             }
+            return data;
+        }
+
+        [HttpPut]
+        [Route("ResetPasswordWithEmail")]
+        public ReturnData ResetPasswordWithEmail( ResetPasswordDataEmail input )
+        {
+            var data = _accountClient.ResetPasswordWithEmail(input.emailAddress);
+            return data;
+        }
+
+        [HttpPut]
+        [Route("ResetPasswordWithCode")]
+        public ReturnData ResetPasswordWithCode( ResetPasswordDataCode input )
+        {
+            var data = _accountClient.ResetPasswordWithCode(input.code,input.emailAddress);
+            return data;
+        }
+
+        [HttpPut]
+        [Route("ResetPasswordWithToken")]
+        public ReturnData ResetPasswordWithToken( ResetPasswordDataToken input )
+        {
+            var data = _accountClient.ResetPasswordWithToken(input.token,input.password);
             return data;
         }
     }

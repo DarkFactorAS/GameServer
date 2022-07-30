@@ -18,7 +18,10 @@ COPY ./ ./
 # Restore and build web
 RUN dotnet restore BotWebServer.csproj
 RUN dotnet publish BotWebServer.csproj -c Release -o out
-#RUN dotnet publish BotWebServer.csproj -r win-x64 -c Release -o out
+
+# Create self signed sertificate
+RUN dotnet dev-certs https -ep /app/out/certificate.pfx -p smurfepoliz
+#RUN dotnet dev-certs https --trust
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
