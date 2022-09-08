@@ -32,7 +32,6 @@ services:
   botsserver:
     networks: 
       - net_bots_backend
-      - net_account_frontend
     build:
       network: host
       context: ./
@@ -49,9 +48,6 @@ services:
 networks:
   net_bots_backend:
     name: bots_backend
-  net_account_frontend:
-    name: account_frontend
-
 volumes:
   # docker volume create botwebserver-mariadb
   botwebserver-mariadb:
