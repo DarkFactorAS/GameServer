@@ -24,6 +24,11 @@ cd AccountServer/AccountServer
 docker-compose build
 cd ../..
 
+# Mail Server
+cd MailServer
+docker-compose build
+cd ..
+
 # Bot Server
 cd BotWebServer
 scd ..
