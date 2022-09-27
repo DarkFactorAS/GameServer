@@ -1,3 +1,8 @@
+# Mail Server
+cd MailServer
+docker-compose up &
+cd ..
+
 # Bug Report Server
 cd BugReportServer
 docker-compose up &
