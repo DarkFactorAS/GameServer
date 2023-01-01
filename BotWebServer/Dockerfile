@@ -1,9 +1,6 @@
 ﻿# Use .Net Core 3.1 image
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build-env
 WORKDIR /app
-
-# Copy nuget file
-COPY ./NuGet.config ./
 
 # Add nuget repository
 #COPY ./NuGet/DarkFactor.Common.Lib.*.nupkg ./NuGet/
@@ -15,6 +12,9 @@ COPY ./NuGet.config ./
 # Copy files
 COPY ./ ./
 
+# Copy nuget file
+COPY ./NuGet_Docker.config ./NuGet.config
+
 # Restore and build web
 RUN dotnet restore BotWebServer.csproj
 RUN dotnet publish BotWebServer.csproj -c Release -o out
@@ -24,7 +24,7 @@ RUN dotnet dev-certs https -ep /app/out/certificate.pfx -p smurfepoliz
 #RUN dotnet dev-certs https --trust
 
 # Build runtime image
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
+FROM mcr.microsoft.com/dotnet/aspnet:5.0
 WORKDIR /app
 COPY --from=build-env /app/out .
 ENTRYPOINT ["dotnet", "BotWebServer.dll"]

@@ -23,6 +23,7 @@ namespace BotWebServer.Repository
         {
             _dbPatcher.Init();
             _dbPatcher.Patch(PATCHER,3, "ALTER TABLE playfield ADD COLUMN version int(11) NOT NULL DEFAULT 7 AFTER boardSizeY");
+            _dbPatcher.Patch(PATCHER,4, "ALTER TABLE playfield ADD COLUMN revisionid int(11) NOT NULL DEFAULT 1 AFTER id");
             return _dbPatcher.Successful();
         }
 

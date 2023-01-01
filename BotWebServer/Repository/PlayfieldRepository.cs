@@ -57,6 +57,7 @@ namespace BotWebServer.Repository
             PlayfieldData playfieldData = new PlayfieldData();
 
             playfieldData.id = Convert.ToUInt32(reader["id"]);
+            playfieldData.revisionId = Convert.ToUInt32(reader["revisionid"]);
             playfieldData.owner = reader["ownerid"].ToString(); 
             playfieldData.name = reader["name"].ToString();
             playfieldData.description = reader["description"].ToString();
@@ -119,6 +120,7 @@ namespace BotWebServer.Repository
             {
                 int numRows = 0;
                 var sql = @"UPDATE playfield set 
+                    revisionid = @revisionid,
                     name = @name, 
                     description = @description,
                     numPlayers = @numPlayers,
@@ -131,6 +133,7 @@ namespace BotWebServer.Repository
                 using (var cmd = _connection.CreateCommand(sql))
                 {
                     cmd.AddParameter("@id", playfieldData.id);
+                    cmd.AddParameter("@revisionid", playfieldData.revisionId);
                     cmd.AddParameter("@name", playfieldData.name);
                     cmd.AddParameter("@description", playfieldData.description);
                     cmd.AddParameter("@numPlayers", playfieldData.numPlayers);
@@ -149,13 +152,14 @@ namespace BotWebServer.Repository
             }
             else
             {
-                var sql = @"INSERT INTO playfield(id, updated, ownerid, name, description,
+                var sql = @"INSERT INTO playfield(id, revisionid, updated, ownerid, name, description,
                     playfieldFlags, numPlayers, numGoals, boardSizeX, boardSizeY, version,data) 
-                    VALUES(@id,now(), @ownerid, @name, @description, 
+                    VALUES(@id, @revisionid, now(), @ownerid, @name, @description, 
                     @playfieldFlags, @numPlayers, @numGoals, @boardSizeX, @boardSizeY, @version, @data)";
                 using (var cmd = _connection.CreateCommand(sql))
                 {
                     cmd.AddParameter("@id", playfieldData.id);
+                    cmd.AddParameter("@revisionid", playfieldData.revisionId);
                     cmd.AddParameter("@ownerid", ownerName);
                     cmd.AddParameter("@name", playfieldData.name);
                     cmd.AddParameter("@description", playfieldData.description);
