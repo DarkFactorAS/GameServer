@@ -33,7 +33,7 @@ namespace BotWebServer
             Configuration = configuration;
 
             IDFLogger<Startup> logger = new DFLogger<Startup>();
-            logger.Startup(Program.AppName);
+            logger.Startup(Program.AppName, Program.Version);
         }
 
         public IConfiguration Configuration { get; }
