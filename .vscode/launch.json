@@ -88,7 +88,7 @@
             "request": "launch",
             "preLaunchTask": "build_bugreport_server",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/BugReportServer/Server/bin/Debug/netcoreapp3.1/BugReportServer.dll",
+            "program": "${workspaceFolder}/BugReportServer/Server/bin/Debug/net7.0/BugReportServer.dll",
             "args": [],
             "cwd": "${workspaceFolder}/BugReportServer/Server",
             "stopAtEntry": false,
