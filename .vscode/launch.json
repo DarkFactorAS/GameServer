@@ -12,7 +12,7 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/BotWebServer/bin/Debug/netcoreapp3.1/BotWebServer.dll",
+            "program": "${workspaceFolder}/BotWebServer/bin/Debug/net7.0/BotWebServer.dll",
             "args": [],
             "cwd": "${workspaceFolder}/BotWebServer",
             "stopAtEntry": false,
@@ -37,7 +37,7 @@
             "request": "launch",
             "preLaunchTask": "build_account",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/AccountServer/AccountServer/bin/Debug/net5.0/AccountServer.dll",
+            "program": "${workspaceFolder}/AccountServer/AccountServer/bin/Debug/net7.0/AccountServer.dll",
             "args": [],
             "cwd": "${workspaceFolder}/AccountServer/AccountServer",
             "stopAtEntry": false,
@@ -88,7 +88,7 @@
             "request": "launch",
             "preLaunchTask": "build_bugreport_server",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/BugReportServer/Server/bin/Debug/netcoreapp3.1/BugReportServer.dll",
+            "program": "${workspaceFolder}/BugReportServer/Server/bin/Debug/net7.0/BugReportServer.dll",
             "args": [],
             "cwd": "${workspaceFolder}/BugReportServer/Server",
             "stopAtEntry": false,

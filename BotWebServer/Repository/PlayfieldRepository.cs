@@ -90,7 +90,7 @@ namespace BotWebServer.Repository
 
             var sql = @"SELECT * 
                 FROM playfield 
-                where ownerid = @ownerid
+                where ( ownerid = @ownerid or playfieldFlags = 2 )
                 order by updated desc limit 100";
             using (var cmd = _connection.CreateCommand(sql))
             {

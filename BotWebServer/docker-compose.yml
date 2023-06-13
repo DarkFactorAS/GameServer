@@ -2,7 +2,7 @@ version: '3.6'
 services:
 
   botsdb:
-    image: mariadb
+    image: mariadb:10.9
     networks: 
       - net_bots_backend
     container_name: botwebserver_database
@@ -37,7 +37,7 @@ services:
       context: ./
       dockerfile: ./Dockerfile
     ports:
-      - "5000:80"
+      - "5001:80"
 #    environment:
 #      - ASPNETCORE_URLS=https://+:443;http://+:80
 #      - ASPNETCORE_Kestrel__Certificates__Default__Password=smurfepoliz
