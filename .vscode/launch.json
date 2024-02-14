@@ -113,7 +113,7 @@
             "request": "launch",
             "preLaunchTask": "build_bugreport_client",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/BugReportServer/BugReportWeb/bin/Debug/net5.0/BugReportWeb.dll",
+            "program": "${workspaceFolder}/BugReportServer/BugReportWeb/bin/Debug/net7.0/BugReportWeb.dll",
             "args": [],
             "cwd": "${workspaceFolder}/BugReportServer/BugReportWeb",
             "stopAtEntry": false,
