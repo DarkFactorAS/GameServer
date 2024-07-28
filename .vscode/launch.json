@@ -37,9 +37,9 @@
             "request": "launch",
             "preLaunchTask": "build_account",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/AccountServer/AccountServer/bin/Debug/net7.0/AccountServer.dll",
+            "program": "${workspaceFolder}/Submodules/AccountServer/AccountServer/bin/Debug/net7.0/AccountServer.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/AccountServer/AccountServer",
+            "cwd": "${workspaceFolder}/Submodules/AccountServer/AccountServer",
             "stopAtEntry": false,
             // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
             "serverReadyAction": {
@@ -63,9 +63,9 @@
             "request": "launch",
             "preLaunchTask": "build_mailserver",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/MailServer/MailServer/bin/Debug/net5.0/MailServer.dll",
+            "program": "${workspaceFolder}/Submodules/MailServer/MailServer/bin/Debug/net5.0/MailServer.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/MailServer/MailServer",
+            "cwd": "${workspaceFolder}/Submodules/MailServer/MailServer",
             "stopAtEntry": false,
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development",
@@ -88,9 +88,9 @@
             "request": "launch",
             "preLaunchTask": "build_bugreport_server",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/BugReportServer/Server/bin/Debug/net7.0/BugReportServer.dll",
+            "program": "${workspaceFolder}/Submodules/BugReportServer/Server/bin/Debug/net7.0/BugReportServer.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/BugReportServer/Server",
+            "cwd": "${workspaceFolder}/Submodules/BugReportServer/Server",
             "stopAtEntry": false,
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development",
@@ -113,9 +113,9 @@
             "request": "launch",
             "preLaunchTask": "build_bugreport_client",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/BugReportServer/BugReportWeb/bin/Debug/net7.0/BugReportWeb.dll",
+            "program": "${workspaceFolder}/Submodules/BugReportServer/BugReportWeb/bin/Debug/net7.0/BugReportWeb.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/BugReportServer/BugReportWeb",
+            "cwd": "${workspaceFolder}/Submodules/BugReportServer/BugReportWeb",
             "stopAtEntry": false,
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development",

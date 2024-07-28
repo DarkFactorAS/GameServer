@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/AccountServer/AccountServer/AccountServer.csproj",
+                "${workspaceFolder}/Submodules/AccountServer/AccountServer/AccountServer.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -31,7 +31,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/BugReportServer/BugReportWeb/BugReportWeb.csproj",
+                "${workspaceFolder}/Submodules/BugReportServer/BugReportWeb/BugReportWeb.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -43,7 +43,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/BugReportServer/Server/BugReportServer.csproj",
+                "${workspaceFolder}/Submodules/BugReportServer/Server/BugReportServer.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -55,7 +55,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/MailServer/MailServer/MailServer.csproj",
+                "${workspaceFolder}/Submodules/MailServer/MailServer/MailServer.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
