@@ -2,6 +2,12 @@
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build-env
 WORKDIR /app
 
+# Get the NuGet arguments and set as environment to use in NuGet
+ARG username
+ARG token
+ENV NUGET_USERNAME $username
+ENV NUGET_TOKEN $token
+
 # Add nuget repository
 #COPY ./NuGet/DarkFactor.Common.Lib.*.nupkg ./NuGet/
 #RUN dotnet nuget add source /app/NuGet --name DarkFactor
@@ -13,7 +19,7 @@ WORKDIR /app
 COPY ./ ./
 
 # Copy nuget file
-COPY ./NuGet_Docker.config ./NuGet.config
+#COPY ./NuGet_Docker.config ./NuGet.config
 
 # Restore and build web
 RUN dotnet restore BotWebServer.csproj
