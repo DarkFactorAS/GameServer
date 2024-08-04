@@ -36,8 +36,12 @@ services:
       network: host
       context: ./
       dockerfile: ./Dockerfile
+      args:
+        username: ${NUGET_USERNAME}
+        token: ${NUGET_TOKEN}
     ports:
       - "5001:80"
+
 #    environment:
 #      - ASPNETCORE_URLS=https://+:443;http://+:80
 #      - ASPNETCORE_Kestrel__Certificates__Default__Password=smurfepoliz
