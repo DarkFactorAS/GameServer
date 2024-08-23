@@ -187,9 +187,12 @@ namespace BotWebServer.Repository
                 {
                     cmd.AddParameter("@playfieldId", playfieldId);
                     cmd.AddParameter("@ownerid", ownerName);
-                    cmd.ExecuteNonQuery();
+                    var rows = cmd.ExecuteNonQuery();
+                    if ( rows > 0)
+                    {
+                        return new PlayfieldResponseData(playfieldId, PlayfieldResponseData.Ok, "Playfield deleted.");
+                    }
                 }
-                return new PlayfieldResponseData(playfieldId, PlayfieldResponseData.Ok, "Playfield deleted.");
             }
             catch( Exception ex )
             {
