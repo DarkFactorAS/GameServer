@@ -4,8 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using AccountClientModule.Model;
+//using AccountClientModule.Model;
 using AccountClientModule.Client;
+using AccountCommon.SharedModel;
 using DFCommonLib.Config;
 using DFCommonLib.HttpApi;
 using BotWebServer.Model;
@@ -83,7 +84,7 @@ namespace BotWebServer.Controllers
         [Route("ResetPasswordWithCode")]
         public ReturnData ResetPasswordWithCode( ResetPasswordDataCode input )
         {
-            var data = _accountClient.ResetPasswordWithCode(input.code,input.emailAddress);
+            var data = _accountClient.ResetPasswordWithCode(input.code);
             return data;
         }
 
@@ -91,7 +92,7 @@ namespace BotWebServer.Controllers
         [Route("ResetPasswordWithToken")]
         public ReturnData ResetPasswordWithToken( ResetPasswordDataToken input )
         {
-            var data = _accountClient.ResetPasswordWithToken(input.token,input.password);
+            var data = _accountClient.ResetPasswordWithToken(input.password);
             return data;
         }
     }
