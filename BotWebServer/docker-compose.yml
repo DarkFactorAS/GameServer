@@ -41,7 +41,7 @@ services:
         token: ${NUGET_TOKEN}
     ports:
       - "5001:80"
-
+    restart: always 
 #    environment:
 #      - ASPNETCORE_URLS=https://+:443;http://+:80
 #      - ASPNETCORE_Kestrel__Certificates__Default__Password=smurfepoliz

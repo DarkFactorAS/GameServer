@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using BotWebServer.Repository;
 using BotWebServer.Model;
 
+using DFCommonLib.DataAccess;
 using DFCommonLib.Config;
 using DFCommonLib.Logger;
 using DFCommonLib.Utils;
@@ -22,7 +23,7 @@ namespace BotWebServer
     public class Program
     {
         public static string AppName = "Bot WebServer";
-        public static string Version = "0.9.1";
+        public static string Version = "0.9.3";
 
         public static void Main(string[] args)
         {
@@ -31,8 +32,18 @@ namespace BotWebServer
             try
             {
                 // Run database script
-                IStartupRepository startupRepository = DFServices.GetService<IStartupRepository>();
-                startupRepository.RunPatcher();
+                IStartupDatabasePatcher startupRepository = DFServices.GetService<IStartupDatabasePatcher>();
+                startupRepository.WaitForConnection();
+                if (startupRepository.RunPatcher() )
+                {
+                    DFLogger.LogOutput(DFLogLevel.INFO, "Startup", "Database patcher ran successfully" );
+                }
+                else
+                {
+                    DFLogger.LogOutput(DFLogLevel.ERROR, "Startup", "Database patcher failed" );
+                    Environment.Exit(1);
+                    return;                    
+                }
 
                 // Set adress to account server
                 IConfigurationHelper configuration = DFServices.GetService<IConfigurationHelper>();

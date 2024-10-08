@@ -3,29 +3,18 @@ using DFCommonLib.Logger;
 
 namespace BotWebServer.Repository
 {
-    public interface IStartupRepository
-    {
-        bool RunPatcher();
-    }
-
-    public class StartupRepository : IStartupRepository
+    public class BotDatabasePatcher : StartupDatabasePatcher
     {
         private static string PATCHER = "BotServer";
 
-        private IDBPatcher _dbPatcher;
-
-        public StartupRepository(IDBPatcher dbPatcher)
+        public BotDatabasePatcher(IDBPatcher dbPatcher) : base(dbPatcher)
         {
-            _dbPatcher = dbPatcher;
         }
 
-        public bool RunPatcher()
+        public override bool RunPatcher()
         {
-            _dbPatcher.Init();
-
-            // Create log table
-            _dbPatcher.Patch(PATCHER,1, "CREATE TABLE `logtable` ( `id` int(11) NOT NULL AUTO_INCREMENT, `created` datetime NOT NULL, `loglevel` int(11) NOT NULL, `groupname` varchar(100) NOT NULL DEFAULT '', `message` varchar(1024) NOT NULL DEFAULT '', PRIMARY KEY (`id`))");
-
+            base.RunPatcher();
+            
             // Playfield table
             _dbPatcher.Patch(PATCHER,2, "CREATE TABLE `playfield` ("
             + " `id` int(11) NOT NULL AUTO_INCREMENT, " 

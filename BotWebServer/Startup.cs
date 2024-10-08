@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.AspNetCore.Swagger;
 
+using DFCommonLib.DataAccess;
 using DFCommonLib.Utils;
 using DFCommonLib.Logger;
 using AccountClientModule.Client;
@@ -64,19 +65,16 @@ namespace BotWebServer
             services.AddHttpContextAccessor();
 
             //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
-            services.AddTransient(typeof(IStartupRepository), typeof(StartupRepository));
+            services.AddTransient(typeof(IStartupDatabasePatcher), typeof(BotDatabasePatcher));
             services.AddTransient(typeof(IPlayfieldRepository), typeof(PlayfieldRepository));
             services.AddTransient(typeof(IPlayfieldProvider), typeof(PlayfieldProvider));
             services.AddScoped(typeof(IBotSessionProvider), typeof(BotSessionProvider));
             AccountClient.SetupService(services);
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -97,9 +95,9 @@ namespace BotWebServer
             // specify the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
+                c.RoutePrefix = "";
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
-
         }
     }
 }
