@@ -34,6 +34,9 @@ namespace BotWebServer.Repository
             + ")"
             );
 
+            // Add key
+            _dbPatcher.Patch(PATCHER,3, "ALTER TABLE `playfield` ADD `uniqueId` varchar(20) NOT NULL AFTER `id`;");
+
             return _dbPatcher.Successful();
         }
     }
