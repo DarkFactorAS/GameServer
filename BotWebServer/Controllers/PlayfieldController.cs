@@ -29,9 +29,9 @@ namespace BotWebServer.Controllers
 
         [HttpGet]
         [Route("GetPlayfield")]
-        public PlayfieldData GetPlayfield(uint playfieldId)
+        public PlayfieldData GetPlayfield(string uuid)
         {
-            return _provider.GetPlayfield(playfieldId);
+            return _provider.GetPlayfield(uuid);
         }
 
         [HttpPut]
@@ -43,9 +43,9 @@ namespace BotWebServer.Controllers
 
         [HttpPut]
         [Route("DeletePlayfield")]
-        public PlayfieldResponseData DeletePlayfield([FromBody] uint playfieldId )
+        public PlayfieldResponseData DeletePlayfield([FromBody] string uuid )
         {
-            return _provider.DeletePlayfield(playfieldId);
+            return _provider.DeletePlayfield(uuid);
         }
     }
 }
