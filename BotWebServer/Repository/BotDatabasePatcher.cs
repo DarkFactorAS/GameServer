@@ -35,7 +35,9 @@ namespace BotWebServer.Repository
             );
 
             // Add key
-            _dbPatcher.Patch(PATCHER,3, "ALTER TABLE `playfield` ADD `uniqueId` varchar(40) NOT NULL AFTER `id`;");
+            _dbPatcher.Patch(PATCHER,3, "ALTER TABLE `playfield` ADD `uuid` varchar(40) NOT NULL AFTER `id`;");
+
+            //_dbPatcher.Patch(PATCHER,4, "ALTER TABLE `playfield` DROP `id`;");
 
             return _dbPatcher.Successful();
         }
