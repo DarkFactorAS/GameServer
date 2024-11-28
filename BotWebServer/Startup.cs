@@ -68,6 +68,10 @@ namespace BotWebServer
             services.AddTransient(typeof(IStartupDatabasePatcher), typeof(BotDatabasePatcher));
             services.AddTransient(typeof(IPlayfieldRepository), typeof(PlayfieldRepository));
             services.AddTransient(typeof(IPlayfieldProvider), typeof(PlayfieldProvider));
+
+            services.AddTransient(typeof(IDeveloperProvider), typeof(DeveloperProvider));
+            services.AddTransient(typeof(IDeveloperRepository), typeof(DeveloperRepository));
+
             services.AddScoped(typeof(IBotSessionProvider), typeof(BotSessionProvider));
             AccountClient.SetupService(services);
         }

@@ -38,6 +38,12 @@ namespace BotWebServer.Repository
             _dbPatcher.Patch(PATCHER,3, "ALTER TABLE `playfield` ADD `uuid` varchar(40) NOT NULL AFTER `id`;");
             _dbPatcher.Patch(PATCHER,4, "ALTER TABLE `playfield` DROP `id`;");
 
+            // Playfield table
+            _dbPatcher.Patch(PATCHER,5, "CREATE TABLE `developers` ("
+            + " `username` varchar(30) NOT NULL DEFAULT '', "
+            + " `flags` int(11) NOT NULL DEFAULT 0);"
+            );
+
             return _dbPatcher.Successful();
         }
     }

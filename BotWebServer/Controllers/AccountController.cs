@@ -20,14 +20,17 @@ namespace BotWebServer.Controllers
     {
         IAccountClient _accountClient;
         IBotSessionProvider _session;
+        IDeveloperProvider _developerProvider;
 
         public AccountController(
             IAccountClient accountClient, 
+            IDeveloperProvider developerProvider,
             IConfigurationHelper configuration,
             IBotSessionProvider session )
         {
             _accountClient = accountClient;
             _session = session;
+            _developerProvider = developerProvider;
 
             var customer = configuration.GetFirstCustomer() as BotCustomer;
             if ( customer != null )
@@ -58,6 +61,13 @@ namespace BotWebServer.Controllers
                 _session.SetUser( data.nickname, data.token);
             }
             return data;
+        }
+
+        [HttpPut]
+        [Route("SetDeveloper")]
+        public int SetDeveloper(bool enable)
+        {
+            return _developerProvider.EnableDeveloper(enable);
         }
 
         [HttpPut]
