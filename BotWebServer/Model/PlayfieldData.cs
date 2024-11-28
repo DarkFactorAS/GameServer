@@ -5,7 +5,6 @@ namespace BotWebServer.Model
 {
     public class PlayfieldData
     {
-        public uint id { get; set; }
         public string uuid { get; set; }
         public uint revisionId { get; set; }
         public string owner { get; set; }

@@ -51,7 +51,6 @@ namespace BotWebServer.Repository
         {
             PlayfieldData playfieldData = new PlayfieldData();
 
-            playfieldData.id = Convert.ToUInt32(reader["id"]);
             playfieldData.uuid = reader["uuid"].ToString(); 
             playfieldData.revisionId = Convert.ToUInt32(reader["revisionid"]);
             playfieldData.owner = reader["ownerid"].ToString(); 
