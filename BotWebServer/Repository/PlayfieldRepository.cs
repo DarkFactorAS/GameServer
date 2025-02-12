@@ -8,10 +8,10 @@ namespace BotWebServer.Repository
 {
     public interface IPlayfieldRepository
     {
-        PlayfieldData GetPlayfield(uint playfieldId);
+        PlayfieldData GetPlayfield(string uuid);
         PlayfieldList GetPlayfieldList(string ownerName);
         PlayfieldResponseData SavePlayfield(PlayfieldData playfieldData, string ownerName);
-        PlayfieldResponseData DeletePlayfield(uint playfieldId, string ownerName);
+        PlayfieldResponseData DeletePlayfield(string uuid, string ownerName);
     }
 
     public class PlayfieldRepository : IPlayfieldRepository
@@ -28,18 +28,13 @@ namespace BotWebServer.Repository
             _logger = logger;
         }
 
-        public PlayfieldData GetPlayfield(uint playfieldId)
+        public PlayfieldData GetPlayfield(string uuid)
         {
-            if ( playfieldId == 0 )
-            {
-                return null;
-            }
-
             // Get specific playfield
-            var sql = @"SELECT * FROM playfield WHERE id = @id";
+            var sql = @"SELECT * FROM playfield WHERE uuid = @uuid";
             using (var cmd = _connection.CreateCommand(sql))
             {
-                cmd.AddParameter("@id", playfieldId);
+                cmd.AddParameter("@uuid", uuid);
                 using (var reader = cmd.ExecuteReader())
                 {
                     if (reader.Read())
@@ -56,7 +51,7 @@ namespace BotWebServer.Repository
         {
             PlayfieldData playfieldData = new PlayfieldData();
 
-            playfieldData.id = Convert.ToUInt32(reader["id"]);
+            playfieldData.uuid = reader["uuid"].ToString(); 
             playfieldData.revisionId = Convert.ToUInt32(reader["revisionid"]);
             playfieldData.owner = reader["ownerid"].ToString(); 
             playfieldData.name = reader["name"].ToString();
@@ -115,7 +110,7 @@ namespace BotWebServer.Repository
         {
             byte[] data = Convert.FromBase64String(playfieldData.data);
 
-            var playfield = GetPlayfield(playfieldData.id);
+            var playfield = GetPlayfield(playfieldData.uuid);
             if ( playfield != null )
             {
                 int numRows = 0;
@@ -128,11 +123,11 @@ namespace BotWebServer.Repository
                     version = @version,
                     updated = now(),
                     data=@data 
-                    where id = @id
+                    where uuid = @uuid
                     and ownerid = @ownerid";
                 using (var cmd = _connection.CreateCommand(sql))
                 {
-                    cmd.AddParameter("@id", playfieldData.id);
+                    cmd.AddParameter("@uuid", playfieldData.uuid);
                     cmd.AddParameter("@revisionid", playfieldData.revisionId);
                     cmd.AddParameter("@name", playfieldData.name);
                     cmd.AddParameter("@description", playfieldData.description);
@@ -146,19 +141,19 @@ namespace BotWebServer.Repository
 
                 if ( numRows == 0 )
                 {
-                    return new PlayfieldResponseData(playfieldData.id, PlayfieldResponseData.NotOwnerOfPlayfield, "Failed to save playfield ( No access to playfield )");
+                    return new PlayfieldResponseData(playfieldData.uuid, PlayfieldResponseData.NotOwnerOfPlayfield, "Failed to save playfield ( No access to playfield )");
                 }
-                return new PlayfieldResponseData(playfieldData.id, PlayfieldResponseData.Ok, "Playfield saved successfully");
+                return new PlayfieldResponseData(playfieldData.uuid, PlayfieldResponseData.Ok, "Playfield saved successfully");
             }
             else
             {
-                var sql = @"INSERT INTO playfield(id, revisionid, updated, ownerid, name, description,
+                var sql = @"INSERT INTO playfield(uuid, revisionid, updated, ownerid, name, description,
                     playfieldFlags, numPlayers, numGoals, boardSizeX, boardSizeY, version,data) 
-                    VALUES(@id, @revisionid, now(), @ownerid, @name, @description, 
+                    VALUES(@uuid, @revisionid, now(), @ownerid, @name, @description, 
                     @playfieldFlags, @numPlayers, @numGoals, @boardSizeX, @boardSizeY, @version, @data)";
                 using (var cmd = _connection.CreateCommand(sql))
                 {
-                    cmd.AddParameter("@id", playfieldData.id);
+                    cmd.AddParameter("@uuid", playfieldData.uuid);
                     cmd.AddParameter("@revisionid", playfieldData.revisionId);
                     cmd.AddParameter("@ownerid", ownerName);
                     cmd.AddParameter("@name", playfieldData.name);
@@ -173,24 +168,23 @@ namespace BotWebServer.Repository
                     cmd.ExecuteNonQuery();
                 }
 
-                var playfieldId = GetId();
-                return new PlayfieldResponseData(playfieldId, PlayfieldResponseData.Ok, "Playfield saved successfully");
+                return new PlayfieldResponseData(playfieldData.uuid, PlayfieldResponseData.Ok, "Playfield saved successfully");
             }
         }
 
-        public PlayfieldResponseData DeletePlayfield(uint playfieldId, string ownerName)
+        public PlayfieldResponseData DeletePlayfield(string uuid, string ownerName)
         {
             try
             {
-                var sql = @"DELETE FROM playfield where id = @playfieldId and ownerid=@ownerid";
+                var sql = @"DELETE FROM playfield where uuid = @uuid and ownerid=@ownerid";
                 using (var cmd = _connection.CreateCommand(sql))
                 {
-                    cmd.AddParameter("@playfieldId", playfieldId);
+                    cmd.AddParameter("@uuid", uuid);
                     cmd.AddParameter("@ownerid", ownerName);
                     var rows = cmd.ExecuteNonQuery();
                     if ( rows > 0)
                     {
-                        return new PlayfieldResponseData(playfieldId, PlayfieldResponseData.Ok, "Playfield deleted.");
+                        return new PlayfieldResponseData(uuid, PlayfieldResponseData.Ok, "Playfield deleted.");
                     }
                 }
             }
@@ -198,7 +192,7 @@ namespace BotWebServer.Repository
             {
                 _logger.LogError(ex.ToString());
             }
-            return new PlayfieldResponseData(0, PlayfieldResponseData.UnknownError, "Failed to delete playfield.");
+            return new PlayfieldResponseData(uuid, PlayfieldResponseData.UnknownError, "Failed to delete playfield.");
         }
 
         private uint GetId()

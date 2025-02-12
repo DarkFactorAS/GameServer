@@ -6,6 +6,7 @@ namespace BotWebServer.Provider
     public interface IBotSessionProvider : IDFUserSession
     {
         void SetUser(string nickname,string token);
+        void SetDeveloperFlags(int flags);
         string GetNickname();
         string GetToken();
         bool IsLoggedIn();
@@ -15,6 +16,7 @@ namespace BotWebServer.Provider
     {
         public static readonly string SessionNicknameKey = "Nickname";
         public static readonly string SessionTokenKey = "Token";
+        public static readonly string SessionDevFlagsKey = "DevFlags";
 
         public BotSessionProvider( IHttpContextAccessor httpContext ) : base( "BotServer", httpContext )
         {
@@ -33,6 +35,11 @@ namespace BotWebServer.Provider
             SetConfigString(SessionTokenKey, token);
         }
 
+        public void SetDeveloperFlags(int flags)
+        {
+            SetConfigInt(SessionDevFlagsKey, flags);
+        }
+
         public string GetNickname()
         {
             return GetConfigString(SessionNicknameKey);
@@ -41,6 +48,12 @@ namespace BotWebServer.Provider
         public string GetToken()
         {
             return GetConfigString(SessionTokenKey);
+        }
+
+        public int GetDeveloperFlags()
+        {
+            var flags = GetConfigInt(SessionDevFlagsKey);
+            return flags ?? 0;
         }
 
         public bool IsLoggedIn()

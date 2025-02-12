@@ -10,7 +10,7 @@ namespace BotWebServer.Model
         public static uint NotOwnerOfPlayfield = 2;
         public static uint UnknownError = 3;
 
-        public uint playfieldId { get; set; }
+        public string uuid { get; set; }
         public uint errorId{ get; set; }
         public string message { get; set; }
 
@@ -18,9 +18,9 @@ namespace BotWebServer.Model
         {
         }
 
-        public PlayfieldResponseData(uint playfieldId, uint errorId, string message)
+        public PlayfieldResponseData(string uuid, uint errorId, string message)
         {
-            this.playfieldId = playfieldId;
+            this.uuid = uuid;
             this.errorId = errorId;
             this.message = message;
         }
