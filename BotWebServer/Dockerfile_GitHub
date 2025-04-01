@@ -7,7 +7,7 @@ WORKDIR /app
 # ENV NUGET_TOKEN $token
 
 # Copy files
-COPY ./ ./
+COPY ./Server/BotWebServer/ ./
 
 # Restore and build web
 RUN dotnet restore BotWebServer.csproj
