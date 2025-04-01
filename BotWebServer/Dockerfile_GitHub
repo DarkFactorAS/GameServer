@@ -3,8 +3,11 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build-env
 WORKDIR /app
 
 # The following arguments must be passed as environment variables
-# ENV NUGET_USERNAME $username
-# ENV NUGET_TOKEN $token
+# Get the NuGet arguments and set as environment to use in NuGet
+ARG username
+ARG token
+ENV NUGET_USERNAME $username
+ENV NUGET_TOKEN $token
 
 # Copy files
 COPY ./Server/BotWebServer/ ./
