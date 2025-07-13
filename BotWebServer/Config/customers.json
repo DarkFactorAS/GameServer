@@ -6,7 +6,7 @@
         "DatabaseConnections": [
           {
             "ConnectionType": "LOCAL",
-            "ConnectionString": "Server=botsdb;Port=3306;Database=bots;Uid=botuser;Pwd=pewpewpew;SslMode=Preferred;"
+            "ConnectionString": "Server=host.docker.internal;Port=5306;Database=bots;Uid=botuser;Pwd=pewpewpew;SslMode=Preferred;"
           }
         ],
         "AccountServer" : "http://host.docker.internal:5100"
