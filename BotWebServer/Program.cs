@@ -31,6 +31,11 @@ namespace BotWebServer
 
             try
             {
+                IConfigurationHelper configuration = DFServices.GetService<IConfigurationHelper>();
+                var customer = configuration.GetFirstCustomer() as BotCustomer;
+                var msg = string.Format("Connecting to DB : {0}", customer.DatabaseConnections.FirstOrDefault()?.ConnectionString);
+                DFLogger.LogOutput(DFLogLevel.INFO, "BotServer", msg);
+
                 // Run database script
                 IStartupDatabasePatcher startupRepository = DFServices.GetService<IStartupDatabasePatcher>();
                 startupRepository.WaitForConnection();
@@ -46,9 +51,7 @@ namespace BotWebServer
                 }
 
                 // Set adress to account server
-                IConfigurationHelper configuration = DFServices.GetService<IConfigurationHelper>();
                 IAccountClient client = DFServices.GetService<IAccountClient>();
-                var customer = configuration.GetFirstCustomer() as BotCustomer;
                 if ( customer != null )
                 {
                     client.SetEndpoint(customer.AccountServer);
