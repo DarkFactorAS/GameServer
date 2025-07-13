@@ -6,8 +6,8 @@ WORKDIR /app
 # Get the NuGet arguments and set as environment to use in NuGet
 ARG username
 ARG token
-ENV NUGET_USERNAME $username
-ENV NUGET_TOKEN $token
+ENV NUGET_USERNAME=$username
+ENV NUGET_TOKEN=$token
 
 # Copy files
 COPY ./Server/BotWebServer/ ./
