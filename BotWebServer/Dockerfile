@@ -1,5 +1,5 @@
 ﻿# Use .Net Core 3.1 image
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build-env
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
 WORKDIR /app
 
 # The following arguments must be passed as environment variables
@@ -17,9 +17,9 @@ RUN dotnet restore BotWebServer.csproj
 RUN dotnet publish BotWebServer.csproj -c Release -o out
 
 # Build runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:7.0
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build-env /app/out .
 ENTRYPOINT ["dotnet", "BotWebServer.dll"]
 
-EXPOSE 5000:80
+EXPOSE 5001:80
