@@ -22,4 +22,4 @@ WORKDIR /app
 COPY --from=build-env /app/out .
 ENTRYPOINT ["dotnet", "BotWebServer.dll"]
 
-EXPOSE 5001:80
+EXPOSE 5001:8080
