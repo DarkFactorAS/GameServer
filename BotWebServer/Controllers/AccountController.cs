@@ -110,27 +110,7 @@ namespace BotWebServer.Controllers
         [Route("LoginGameCenterAccount")]
         public AccountData LoginGameCenterAccount(LoginData loginData)
         {
-            var data = _accountClient.LoginAccount(loginData);
-            if ( data.errorCode == AccountData.ErrorCode.OK )
-            {
-                _session.SetUser( data.nickname, data.token);
-            }
-            else if (data.errorCode == AccountData.ErrorCode.UserDoesNotExist)
-            {
-                // If the account is not found, create a new one
-                var createData = new CreateAccountData
-                {
-                    username = loginData.username,
-                    password = loginData.password,
-                    nickname = loginData.username
-                };
-                data = _accountClient.CreateAccount(createData);
-                if (data.errorCode == AccountData.ErrorCode.OK)
-                {
-                    _session.SetUser(data.nickname, data.token);
-                }
-            }
-            return data;
+            return _accountClient.LoginGameCenter(loginData);
         }
     }
 }
