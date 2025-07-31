@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-//using AccountClientModule.Model;
 using AccountClientModule.Client;
 using AccountCommon.SharedModel;
 using DFCommonLib.Config;
@@ -23,17 +22,17 @@ namespace BotWebServer.Controllers
         IDeveloperProvider _developerProvider;
 
         public AccountController(
-            IAccountClient accountClient, 
+            IAccountClient accountClient,
             IDeveloperProvider developerProvider,
             IConfigurationHelper configuration,
-            IBotSessionProvider session )
+            IBotSessionProvider session)
         {
             _accountClient = accountClient;
             _session = session;
             _developerProvider = developerProvider;
 
             var customer = configuration.GetFirstCustomer() as BotCustomer;
-            if ( customer != null )
+            if (customer != null)
             {
                 _accountClient.SetEndpoint(customer.AccountServer);
             }
@@ -44,9 +43,9 @@ namespace BotWebServer.Controllers
         public AccountData LoginAccount(LoginData loginData)
         {
             var data = _accountClient.LoginAccount(loginData);
-            if ( data.errorCode == AccountData.ErrorCode.OK )
+            if (data.errorCode == AccountData.ErrorCode.OK)
             {
-                _session.SetUser( data.nickname, data.token);
+                _session.SetUser(data.nickname, data.token);
             }
             return data;
         }
@@ -56,9 +55,9 @@ namespace BotWebServer.Controllers
         public AccountData LoginToken(LoginTokenData loginData)
         {
             var data = _accountClient.LoginToken(loginData);
-            if ( data.errorCode == AccountData.ErrorCode.OK )
+            if (data.errorCode == AccountData.ErrorCode.OK)
             {
-                _session.SetUser( data.nickname, data.token);
+                _session.SetUser(data.nickname, data.token);
             }
             return data;
         }
@@ -72,19 +71,19 @@ namespace BotWebServer.Controllers
 
         [HttpPut]
         [Route("CreateAccount")]
-        public AccountData CreateAccount( CreateAccountData createAccountData )
+        public AccountData CreateAccount(CreateAccountData createAccountData)
         {
             var data = _accountClient.CreateAccount(createAccountData);
-            if ( data.errorCode == AccountData.ErrorCode.OK )
+            if (data.errorCode == AccountData.ErrorCode.OK)
             {
-                _session.SetUser( data.nickname, data.token);
+                _session.SetUser(data.nickname, data.token);
             }
             return data;
         }
 
         [HttpPut]
         [Route("ResetPasswordWithEmail")]
-        public ReturnData ResetPasswordWithEmail( ResetPasswordDataEmail input )
+        public ReturnData ResetPasswordWithEmail(ResetPasswordDataEmail input)
         {
             var data = _accountClient.ResetPasswordWithEmail(input.emailAddress);
             return data;
@@ -92,7 +91,7 @@ namespace BotWebServer.Controllers
 
         [HttpPut]
         [Route("ResetPasswordWithCode")]
-        public ReturnData ResetPasswordWithCode( ResetPasswordDataCode input )
+        public ReturnData ResetPasswordWithCode(ResetPasswordDataCode input)
         {
             var data = _accountClient.ResetPasswordWithCode(input.code);
             return data;
@@ -100,10 +99,34 @@ namespace BotWebServer.Controllers
 
         [HttpPut]
         [Route("ResetPasswordWithToken")]
-        public ReturnData ResetPasswordWithToken( ResetPasswordDataToken input )
+        public ReturnData ResetPasswordWithToken(ResetPasswordDataToken input)
         {
             var data = _accountClient.ResetPasswordWithToken(input.password);
             return data;
+        }
+
+        [HttpPut]
+        [Route("LoginGameCenterAccount")]
+        public AccountData LoginGameCenterAccount(LoginData loginData)
+        {
+            if (loginData == null)
+            {
+                return new AccountData
+                {
+                    errorCode = AccountData.ErrorCode.ErrorInData,
+                    errorMessage = "Login data cannot be null."
+                };
+            }
+
+            if (string.IsNullOrWhiteSpace(loginData.username) || string.IsNullOrWhiteSpace(loginData.password))
+            {
+                return new AccountData
+                {
+                    errorCode = AccountData.ErrorCode.ErrorInData,
+                    errorMessage = "Username and password are required."
+                };
+            }
+            return _accountClient.LoginGameCenter(loginData);
         }
     }
 }

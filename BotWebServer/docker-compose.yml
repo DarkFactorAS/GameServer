@@ -39,7 +39,7 @@ services:
         username: ${NUGET_USERNAME}
         token: ${NUGET_TOKEN}
     ports:
-      - "5001:80"
+      - "5001:8080"
     restart: always 
 #    environment:
 #      - ASPNETCORE_URLS=https://+:443;http://+:80
