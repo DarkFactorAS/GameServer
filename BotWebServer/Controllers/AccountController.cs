@@ -110,6 +110,23 @@ namespace BotWebServer.Controllers
         [Route("LoginGameCenterAccount")]
         public AccountData LoginGameCenterAccount(LoginData loginData)
         {
+            if (loginData == null)
+            {
+                return new AccountData
+                {
+                    errorCode = AccountData.ErrorCode.InvalidInput,
+                    errorMessage = "Login data cannot be null."
+                };
+            }
+
+            if (string.IsNullOrWhiteSpace(loginData.Username) || string.IsNullOrWhiteSpace(loginData.Password))
+            {
+                return new AccountData
+                {
+                    errorCode = AccountData.ErrorCode.InvalidInput,
+                    errorMessage = "Username and password are required."
+                };
+            }
             return _accountClient.LoginGameCenter(loginData);
         }
     }
