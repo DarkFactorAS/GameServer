@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-//using AccountClientModule.Model;
 using AccountClientModule.Client;
 using AccountCommon.SharedModel;
 using DFCommonLib.Config;
@@ -114,16 +113,16 @@ namespace BotWebServer.Controllers
             {
                 return new AccountData
                 {
-                    errorCode = AccountData.ErrorCode.InvalidInput,
+                    errorCode = AccountData.ErrorCode.ErrorInData,
                     errorMessage = "Login data cannot be null."
                 };
             }
 
-            if (string.IsNullOrWhiteSpace(loginData.Username) || string.IsNullOrWhiteSpace(loginData.Password))
+            if (string.IsNullOrWhiteSpace(loginData.username) || string.IsNullOrWhiteSpace(loginData.password))
             {
                 return new AccountData
                 {
-                    errorCode = AccountData.ErrorCode.InvalidInput,
+                    errorCode = AccountData.ErrorCode.ErrorInData,
                     errorMessage = "Username and password are required."
                 };
             }
