@@ -24,14 +24,14 @@ namespace BotWebServer.Controllers
         public AccountController(
             IAccountClient accountClient,
             IDeveloperProvider developerProvider,
-            IConfigurationHelper configuration,
+            IConfigurationHelper configurationHelper,
             IBotSessionProvider session)
         {
             _accountClient = accountClient;
             _session = session;
             _developerProvider = developerProvider;
 
-            var customer = configuration.GetFirstCustomer() as BotCustomer;
+            var customer = configurationHelper.Settings as BotConfig;
             if (customer != null)
             {
                 _accountClient.SetEndpoint(customer.AccountServer);
