@@ -41,10 +41,8 @@ services:
     ports:
       - "5001:8080"
     restart: always 
-#    environment:
-#      - ASPNETCORE_URLS=https://+:443;http://+:80
-#      - ASPNETCORE_Kestrel__Certificates__Default__Password=smurfepoliz
-#      - ASPNETCORE_Kestrel__Certificates__Default__Path=/app/certificate.pfx
+    environment:
+      - ASPNETCORE_ENVIRONMENT=DevelopmentDocker
     depends_on: 
       - botsdb
     
