@@ -59,7 +59,7 @@ namespace BotWebServer
 
                 // Make sure we have connection to database
                 DFLogger.LogOutput(DFLogLevel.INFO, "BotServer", "AccountServer:PING" );
-                var result = client.PingServer();
+                var result = client.Ping();
                 DFLogger.LogOutput(DFLogLevel.INFO, "BotServer", "AccountServer:" + result );
 
                 builder.Run();
