@@ -107,25 +107,8 @@ namespace BotWebServer.Controllers
 
         [HttpPut]
         [Route("LoginGameCenterAccount")]
-        public AccountData LoginGameCenterAccount(LoginData loginData)
+        public AccountData LoginGameCenterAccount(LoginGameCenterData loginData)
         {
-            if (loginData == null)
-            {
-                return new AccountData
-                {
-                    errorCode = AccountData.ErrorCode.ErrorInData,
-                    errorMessage = "Login data cannot be null."
-                };
-            }
-
-            if (string.IsNullOrWhiteSpace(loginData.username) || string.IsNullOrWhiteSpace(loginData.password))
-            {
-                return new AccountData
-                {
-                    errorCode = AccountData.ErrorCode.ErrorInData,
-                    errorMessage = "Username and password are required."
-                };
-            }
             return _accountClient.LoginGameCenter(loginData);
         }
     }
