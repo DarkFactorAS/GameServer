@@ -23,7 +23,7 @@ namespace BotWebServer
     public class Program
     {
         public static string AppName = "Bot WebServer";
-        public static string Version = "0.9.5";
+        public static string Version = "0.9.6";
 
         public static void Main(string[] args)
         {
@@ -31,9 +31,9 @@ namespace BotWebServer
 
             try
             {
-                IConfigurationHelper configuration = DFServices.GetService<IConfigurationHelper>();
-                var customer = configuration.GetFirstCustomer() as BotCustomer;
-                var msg = string.Format("Connecting to DB : {0}", customer.DatabaseConnections.FirstOrDefault()?.ConnectionString);
+                IConfigurationHelper configurationHelper = DFServices.GetService<IConfigurationHelper>();
+                var config = configurationHelper.Settings as BotConfig;
+                var msg = string.Format("Connecting to DB : {0}:{1}", config.DatabaseConnection.Server, config.DatabaseConnection.Port);
                 DFLogger.LogOutput(DFLogLevel.INFO, "BotServer", msg);
 
                 // Run database script
@@ -52,14 +52,14 @@ namespace BotWebServer
 
                 // Set adress to account server
                 IAccountClient client = DFServices.GetService<IAccountClient>();
-                if ( customer != null )
+                if ( config != null )
                 {
-                    client.SetEndpoint(customer.AccountServer);
+                    client.SetEndpoint(config.AccountServer);
                 }
 
                 // Make sure we have connection to database
                 DFLogger.LogOutput(DFLogLevel.INFO, "BotServer", "AccountServer:PING" );
-                var result = client.PingServer();
+                var result = client.Ping();
                 DFLogger.LogOutput(DFLogLevel.INFO, "BotServer", "AccountServer:" + result );
 
                 builder.Run();
@@ -74,7 +74,7 @@ namespace BotWebServer
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
-                    services.AddTransient<IConfigurationHelper, BotConfigurationHelper>();
+                    services.AddTransient<IConfigurationHelper, ConfigurationHelper<BotConfig>>();
 
                     new DFServices(services)
                         .SetupLogger()

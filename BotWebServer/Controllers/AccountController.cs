@@ -24,14 +24,14 @@ namespace BotWebServer.Controllers
         public AccountController(
             IAccountClient accountClient,
             IDeveloperProvider developerProvider,
-            IConfigurationHelper configuration,
+            IConfigurationHelper configurationHelper,
             IBotSessionProvider session)
         {
             _accountClient = accountClient;
             _session = session;
             _developerProvider = developerProvider;
 
-            var customer = configuration.GetFirstCustomer() as BotCustomer;
+            var customer = configurationHelper.Settings as BotConfig;
             if (customer != null)
             {
                 _accountClient.SetEndpoint(customer.AccountServer);
@@ -107,25 +107,8 @@ namespace BotWebServer.Controllers
 
         [HttpPut]
         [Route("LoginGameCenterAccount")]
-        public AccountData LoginGameCenterAccount(LoginData loginData)
+        public AccountData LoginGameCenterAccount(LoginGameCenterData loginData)
         {
-            if (loginData == null)
-            {
-                return new AccountData
-                {
-                    errorCode = AccountData.ErrorCode.ErrorInData,
-                    errorMessage = "Login data cannot be null."
-                };
-            }
-
-            if (string.IsNullOrWhiteSpace(loginData.username) || string.IsNullOrWhiteSpace(loginData.password))
-            {
-                return new AccountData
-                {
-                    errorCode = AccountData.ErrorCode.ErrorInData,
-                    errorMessage = "Username and password are required."
-                };
-            }
             return _accountClient.LoginGameCenter(loginData);
         }
     }
