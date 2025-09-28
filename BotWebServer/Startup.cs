@@ -23,6 +23,7 @@ using BotWebServer.Repository;
 using BotWebServer.Provider;
 
 using DFCommonLib.Config;
+using DFCommonLib.HttpApi.OAuth2;
 
 namespace BotWebServer
 {
@@ -47,8 +48,7 @@ namespace BotWebServer
             services.AddControllers();
             services.AddMvc();
 
-            // register the swagger generator
-            services.AddSwaggerGen();
+            OAuth2Server.SetupSwaggerApi(Program.AppName, services);
 
             services.AddSession(options =>
             {
@@ -74,6 +74,7 @@ namespace BotWebServer
 
             services.AddScoped(typeof(IBotSessionProvider), typeof(BotSessionProvider));
             AccountClient.SetupService(services);
+            OAuth2Server.SetupService(services); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -86,8 +87,8 @@ namespace BotWebServer
 
             app.UseHttpsRedirection();
             app.UseRouting();
-            app.UseAuthorization();
             app.UseSession();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

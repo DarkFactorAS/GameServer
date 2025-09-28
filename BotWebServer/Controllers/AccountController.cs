@@ -10,12 +10,13 @@ using DFCommonLib.Config;
 using DFCommonLib.HttpApi;
 using BotWebServer.Model;
 using BotWebServer.Provider;
+using DFCommonLib.HttpApi.OAuth2;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BotWebServer.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class AccountController : ControllerBase
+    [Authorize(AuthenticationSchemes = OAuth2Static.AuthenticationScheme)]
+    public class AccountController : DFRestOAuth2ServerController
     {
         IAccountClient _accountClient;
         IBotSessionProvider _session;
@@ -34,7 +35,8 @@ namespace BotWebServer.Controllers
             var customer = configurationHelper.Settings as BotConfig;
             if (customer != null)
             {
-                _accountClient.SetEndpoint(customer.AccountServer);
+                _accountClient.SetEndpoint(customer.AccountServer.Endpoint);
+                _accountClient.SetAuthCredentials(customer.AccountServer.ClientId, customer.AccountServer.ClientSecret, customer.AccountServer.Scope);
             }
         }
 
@@ -93,7 +95,15 @@ namespace BotWebServer.Controllers
         [Route("ResetPasswordWithCode")]
         public ReturnData ResetPasswordWithCode(ResetPasswordDataCode input)
         {
-            var data = _accountClient.ResetPasswordWithCode(input.code);
+            if (input.emailAddress == null || string.IsNullOrWhiteSpace(input.emailAddress))
+            {
+                return new ReturnData
+                {
+                    errorCode = (int)ReturnData.ReturnCode.ErrorInData,
+                    message = "emailAddress is required."
+                };
+            }
+            var data = _accountClient.ResetPasswordWithCode(input.code, input.emailAddress);
             return data;
         }
 
@@ -101,7 +111,15 @@ namespace BotWebServer.Controllers
         [Route("ResetPasswordWithToken")]
         public ReturnData ResetPasswordWithToken(ResetPasswordDataToken input)
         {
-            var data = _accountClient.ResetPasswordWithToken(input.password);
+            if (input == null || string.IsNullOrEmpty(input.token) || string.IsNullOrEmpty(input.password))
+            {
+                return new ReturnData
+                {
+                    errorCode = (int)ReturnData.ReturnCode.ErrorInData,
+                    message = "Token and password are required."
+                };
+            }
+            var data = _accountClient.ResetPasswordWithToken(input.token, input.password);
             return data;
         }
 

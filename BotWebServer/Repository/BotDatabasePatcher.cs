@@ -1,4 +1,5 @@
 using DFCommonLib.DataAccess;
+using DFCommonLib.HttpApi.OAuth2;
 using DFCommonLib.Logger;
 
 namespace BotWebServer.Repository
@@ -44,6 +45,9 @@ namespace BotWebServer.Repository
             + " `flags` int(11) NOT NULL DEFAULT 0);"
             );
 
+            // OAuth2 tables
+            _dbPatcher.Patch(PATCHER,6, ServerOAuth2Repository.GetCreateTableString());
+            
             return _dbPatcher.Successful();
         }
     }

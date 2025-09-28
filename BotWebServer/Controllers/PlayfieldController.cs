@@ -6,12 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 using BotWebServer.Model;
 using BotWebServer.Repository;
 using BotWebServer.Provider;
+using DFCommonLib.HttpApi.OAuth2;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BotWebServer.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class PlayfieldController : ControllerBase
+    [Authorize(AuthenticationSchemes = OAuth2Static.AuthenticationScheme)]
+    public class PlayfieldController : DFRestOAuth2ServerController
     {
         IPlayfieldProvider _provider;
 

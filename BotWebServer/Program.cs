@@ -23,7 +23,7 @@ namespace BotWebServer
     public class Program
     {
         public static string AppName = "Bot WebServer";
-        public static string Version = "0.9.6";
+        public static string Version = "0.9.8";
 
         public static void Main(string[] args)
         {
@@ -52,9 +52,9 @@ namespace BotWebServer
 
                 // Set adress to account server
                 IAccountClient client = DFServices.GetService<IAccountClient>();
-                if ( config != null )
+                if (config != null)
                 {
-                    client.SetEndpoint(config.AccountServer);
+                    client.SetEndpoint(config.AccountServer.Endpoint);
                 }
 
                 // Make sure we have connection to database

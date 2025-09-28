@@ -8,8 +8,16 @@ using DFCommonLib.Config;
 
 namespace BotWebServer.Model
 {
+    public class ApiSettings
+    {
+        public string Endpoint { get; set; }
+        public string ClientId { get; set; }
+        public string ClientSecret { get; set; }
+        public string Scope { get; set; }
+    }
+
     public class BotConfig : AppSettings
     {
-        public string AccountServer { get; set; }
+        public ApiSettings AccountServer { get; set; }
     }
 }
