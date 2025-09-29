@@ -129,5 +129,10 @@ namespace BotWebServer.Controllers
         {
             return _accountClient.LoginGameCenter(loginData);
         }
+
+        public override string Version()
+        {
+            return Program.Version;
+        }
     }
 }
