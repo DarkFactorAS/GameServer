@@ -23,7 +23,7 @@ namespace BotWebServer
     public class Program
     {
         public static string AppName = "Bot WebServer";
-        public static string Version = "1.0.0";
+        public static string Version = "1.0.1";
 
         public static void Main(string[] args)
         {
@@ -74,7 +74,7 @@ namespace BotWebServer
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
-                    services.AddTransient<IConfigurationHelper, ConfigurationHelper<BotConfig>>();
+                    services.AddSingleton<IConfigurationHelper, ConfigurationHelper<BotConfig>>();
 
                     new DFServices(services)
                         .SetupLogger()
