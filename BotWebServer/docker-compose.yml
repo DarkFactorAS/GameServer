@@ -35,9 +35,11 @@ services:
       network: host
       context: ./
       dockerfile: ./Dockerfile
+      secrets:
+        - nuget_username
+        - nuget_token
       args:
-        username: ${NUGET_USERNAME}
-        token: ${NUGET_TOKEN}
+        source_path: .
     ports:
       - "5001:8080"
     restart: always 
@@ -53,3 +55,9 @@ volumes:
   # docker volume create botwebserver-mariadb
   botwebserver-mariadb:
     external: true  
+
+secrets:
+  nuget_username:
+    environment: NUGET_USERNAME
+  nuget_token:
+    environment: NUGET_TOKEN
