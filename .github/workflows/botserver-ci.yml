@@ -1,0 +1,20 @@
+name: Bot Server - CI Docker Container
+
+on:
+  push:
+    paths:
+      - 'Server/BotWebServer/**'
+      - '.github/workflows/botserver-ci.yml'
+  workflow_dispatch:
+
+env:
+  IMAGE_NAME: botwebserverimage
+
+jobs:
+  build:
+    name: Build Docker Image
+    uses: DarkFactorAS/Infrastructure/.github/workflows/infrastructure-server-ci.yml@v1.1
+    with:
+      project_path: "Server/BotWebServer"
+      project_name: "BotWebServer"
+    secrets: inherit
