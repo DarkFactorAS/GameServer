@@ -2,9 +2,6 @@ name: Bot Server - CI Docker Container
 
 on:
   push:
-    paths:
-      - 'Server/BotWebServer/**'
-      - '.github/workflows/botserver-ci.yml'
   workflow_dispatch:
 
 env:
