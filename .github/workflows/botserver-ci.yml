@@ -15,6 +15,6 @@ jobs:
     name: Build Docker Image
     uses: DarkFactorAS/Infrastructure/.github/workflows/infrastructure-server-ci.yml@v1.1
     with:
-      project_path: "Server/BotWebServer"
+      project_path: "BotWebServer"
       project_name: "BotWebServer"
     secrets: inherit
