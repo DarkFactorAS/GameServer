@@ -88,3 +88,8 @@ Thumbs.db
 Assets/VSCode
 VSCode.meta
 settings.json
+
+# ========================= #
+# Automated tests (Postman) #
+# ========================= #
+*.postman_environment.json
