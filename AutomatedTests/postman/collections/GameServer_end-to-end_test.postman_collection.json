@@ -159,49 +159,6 @@
       "item": [
         {
           "name": "CreateAccount",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "e556aae5-e69c-4249-800a-36871aababaf",
-                "exec": [
-                  "pm.test(\"response is ok\",  ()=>{\r",
-                  "if( pm.response.to.have.status(200))\r",
-                  "{\r",
-                  "    var txt = pm.response.text();\r",
-                  "    var jsonData = JSON.parse(txt);\r",
-                  "    console.log(\"Setting code:\" + jsonData.token);\r",
-                  "    pm.collectionVariables.set(\"vars.login_token\", jsonData.token);\r",
-                  "}})"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
-              }
-            },
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "c15abde5-0e27-4a6b-8ac5-f069ccc34c5e",
-                "exec": [
-                  "function generateRandomStringShort() {\r",
-                  "  return Math.random().toString(36).slice(2);\r",
-                  "}\r",
-                  "\r",
-                  "var username = \"User\" + generateRandomStringShort();\r",
-                  "var nickname = \"Nick\" + generateRandomStringShort();\r",
-                  "var password = \"cGVwc2ltYXg=\";\r",
-                  "pm.collectionVariables.set(\"vars.login_username\", username);\r",
-                  "pm.collectionVariables.set(\"vars.login_nickname\", nickname);\r",
-                  "pm.collectionVariables.set(\"vars.login_password\", password);\r",
-                  ""
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
-              }
-            }
-          ],
           "id": "34735d5e-fa44-44d1-a810-8e824b49bcb9",
           "request": {
             "method": "PUT",
@@ -236,7 +193,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"username\": \"{{login_username}}\",\r\n  \"password\": \"cGVwc2ltYXg=\"\r\n}",
+              "raw": "{\r\n  \"username\": \"{{vars.login_username}}\",\r\n  \"password\": \"{{vars.login_password}}\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -257,7 +214,83 @@
           "response": []
         }
       ],
-      "id": "4717934d-3528-4819-adde-65f868072787"
+      "id": "4717934d-3528-4819-adde-65f868072787",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "9e8060c8-ad9e-44e7-ba8e-52046f74f30f",
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              "// ",
+              "// Common functions",
+              "//",
+              "",
+              "function generateRandomStringShort() ",
+              "{",
+              "  return Math.random().toString(36).slice(2);",
+              "}",
+              "",
+              "function GenerateOrSetVariable(variableName, variableValue )",
+              "{",
+              "    var col = pm.collectionVariables;",
+              "    var currentValue = col.get(\"vars.\" + variableName);",
+              "    if ( !currentValue )",
+              "    {",
+              "        var variableValue = variableValue + generateRandomStringShort();",
+              "        col.set(\"vars.\" + variableName, variableValue);",
+              "    }",
+              "}",
+              "",
+              "function SetVariableIfEmpty(variableName, variableValue)",
+              "{",
+              "    var col = pm.collectionVariables;",
+              "    var currentValue = col.get(\"vars.\" + variableName);",
+              "    if ( !currentValue )",
+              "    {",
+              "        col.set(\"vars.\" + variableName, variableValue);",
+              "    }",
+              "}",
+              "",
+              "//",
+              "// Generate unique username/nickname",
+              "//",
+              "GenerateOrSetVariable(\"login_username\",\"User\");",
+              "GenerateOrSetVariable(\"login_nickname\", \"Nick\");",
+              "SetVariableIfEmpty(\"login_password\", \"cGVwc2ltYXg=\");",
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "6adf5168-11ec-4ce6-8f6c-0ea15f02fcfa",
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              "pm.test(\"response is ok\",  ()=>{",
+              "if( pm.response.to.have.status(200))",
+              "{",
+              "    var txt = pm.response.text();",
+              "    var jsonData = JSON.parse(txt);",
+              "    if (jsonData.errorCode == 0)",
+              "    {",
+              "        console.log(\"Setting code:\" + jsonData.token);",
+              "        pm.collectionVariables.set(\"vars.login_token\", jsonData.token);",
+              "        return;",
+              "    }",
+              "    ",
+              "    // Fail the test since login fails",
+              "    pm.expect.fail();",
+              "}})"
+            ]
+          }
+        }
+      ]
     },
     {
       "name": "Playfield",
@@ -304,15 +337,40 @@
     {
       "listen": "prerequest",
       "script": {
-        "id": "da165398-03f5-4c89-a466-fbf9fe8cada8",
+        "id": "970683a9-4f8c-4506-898c-ca82693861f7",
         "type": "text/javascript",
         "packages": {},
         "requests": {},
         "exec": [
           "// ",
-          "// Remove all temp variables",
+          "// Common functions",
           "//",
-          "//pm.collectionVariables.clear();",
+          "",
+          "function generateRandomStringShort() ",
+          "{",
+          "  return Math.random().toString(36).slice(2);",
+          "}",
+          "",
+          "function GenerateOrSetVariable(variableName, variableValue )",
+          "{",
+          "    var col = pm.collectionVariables;",
+          "    var currentValue = col.get(\"vars.\" + variableName);",
+          "    if ( !currentValue )",
+          "    {",
+          "        var variableValue = variableValue + generateRandomStringShort();",
+          "        col.set(\"vars.\" + variableName, variableValue);",
+          "    }",
+          "}",
+          "",
+          "function SetVariableIfEmpty(variableName, variableValue)",
+          "{",
+          "    var col = pm.collectionVariables;",
+          "    var currentValue = col.get(\"vars.\" + variableName);",
+          "    if ( !currentValue )",
+          "    {",
+          "        col.set(\"vars.\" + variableName, variableValue);",
+          "    }",
+          "}",
           ""
         ]
       }
@@ -320,7 +378,7 @@
     {
       "listen": "test",
       "script": {
-        "id": "bd7e2ab2-8130-417f-842e-c415cc09676c",
+        "id": "d1b1b0b0-286f-4b02-a18c-969c1b5e0b1e",
         "type": "text/javascript",
         "packages": {},
         "requests": {},
@@ -336,37 +394,37 @@
   ],
   "variable": [
     {
-      "id": "56acba39-7d14-4b09-a395-751b0af4acb9",
+      "id": "c2fa413c-a902-4aeb-a171-dc06537e47af",
       "key": "vars.access_token",
       "value": ""
     },
     {
-      "id": "c4ddd021-dedf-4e60-81d4-17e5afbe9f70",
+      "id": "c75a23cc-d04a-4ff9-bdaf-c72ee8e6b303",
       "key": "vars.state",
       "value": ""
     },
     {
-      "id": "47124b90-f66d-4af2-ae4b-2cf8b6904518",
+      "id": "8b0e04b2-05d9-4b42-bf04-d49ef7afce8f",
       "key": "vars.code",
       "value": ""
     },
     {
-      "id": "25020304-1245-4be3-bdfa-19488df3eceb",
+      "id": "95766dad-8284-401b-b9a7-a6e23b0dc62f",
       "key": "vars.login_username",
       "value": ""
     },
     {
-      "id": "df0418da-0cac-4ea9-8b45-34a41a9276b3",
+      "id": "9f580425-e342-4230-acf9-b8aa9fbbd030",
       "key": "vars.login_nickname",
       "value": ""
     },
     {
-      "id": "5e95fc32-1373-40ce-9d3c-ed3c63def633",
+      "id": "20db3642-2cd2-46f9-b0b1-fa9f20f024ae",
       "key": "vars.login_password",
       "value": ""
     },
     {
-      "id": "58510d8e-23ec-4bb3-b8c2-71379af000fe",
+      "id": "8c665682-02f0-4394-9db7-5f0e39a4fc3f",
       "key": "vars.login_token",
       "value": ""
     }
