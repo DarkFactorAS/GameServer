@@ -35,7 +35,7 @@ jobs:
     uses: DarkFactorAS/Infrastructure/.github/workflows/infrastructure-server-deploy.yml@v1.1
     with:
       environment: staging
-      project_path: "Server/BotWebServer"
+      project_path: "BotWebServer"
       project_name: "BotWebServer"
       config_settings: "accountserver"
     secrets: inherit
@@ -46,7 +46,7 @@ jobs:
     uses: DarkFactorAS/Infrastructure/.github/workflows/infrastructure-server-deploy.yml@v1.1
     with:
       environment: production
-      project_path: "Server/BotWebServer"
+      project_path: "BotWebServer"
       project_name: "BotWebServer"
       config_settings: "accountserver"
     secrets: inherit

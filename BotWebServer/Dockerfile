@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
 WORKDIR /app
 
 # Add sourcepath as argument
-ARG source_path=./Server/BotWebServer/
+ARG source_path=./BotWebServer/
 
 # Copy files
 COPY $source_path ./
