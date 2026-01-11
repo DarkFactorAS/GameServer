@@ -1,0 +1,432 @@
+{
+  "info": {
+    "_postman_id": "83368588-9985-40f6-9df5-fde66e9a84d4",
+    "name": "GameServer - End-to-end test",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "OAuth2",
+      "item": [
+        {
+          "name": "OAuth2-Auth",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "d5d79272-48e7-49bf-af01-8b481e69f0ba",
+                "exec": [
+                  "pm.test(\"response is ok\",  ()=>{\r",
+                  "if( pm.response.to.have.status(200))\r",
+                  "{\r",
+                  "    var txt = pm.response.text();\r",
+                  "    var jsonData = JSON.parse(txt);\r",
+                  "    var envState = pm.collectionVariables.get(\"vars.state\");\r",
+                  "    if ( jsonData.code != \"\" && jsonData.state == envState )\r",
+                  "    {\r",
+                  "        console.log(\"Setting code:\" + jsonData.code);\r",
+                  "        pm.collectionVariables.set(\"vars.code\", jsonData.code);\r",
+                  "        return;\r",
+                  "    }\r",
+                  "\r",
+                  "    // Fail    \r",
+                  "    pm.expect.fail();\r",
+                  "}})"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "7c5d8367-79b4-4867-a56b-9cbbbe7f6816",
+                "exec": [
+                  "function generateRandomStringShort() {",
+                  "  return Math.random().toString(36).slice(2);",
+                  "}",
+                  "",
+                  "var state = generateRandomStringShort();",
+                  "pm.collectionVariables.set(\"vars.state\", state);",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "cf5c0282-758c-43b0-9300-4373b2afed0d",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"clientId\": \"{{ClientId}}\",\r\n  \"clientSecret\": \"{{ClientSecret}}\",\r\n  \"redirectUri\": \"{{redirectUri}}\",\r\n  \"scope\": \"{{ClientScope}}\",\r\n  \"state\": \"{{vars.state}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{server_address}}/Account/auth",
+              "host": [
+                "{{server_address}}"
+              ],
+              "path": [
+                "Account",
+                "auth"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "OAuth2-Code",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "1831b76f-d485-4771-90f3-5cb5772e2fd5",
+                "exec": [
+                  "pm.test(\"response is ok\",  ()=>{\r",
+                  "if( pm.response.to.have.status(200))\r",
+                  "{\r",
+                  "    var txt = pm.response.text();\r",
+                  "    var jsonData = JSON.parse(txt);\r",
+                  "    if (jsonData.errorCode == 0)\r",
+                  "    {\r",
+                  "        console.log(\"Setting access_token:\" + jsonData.accessToken);\r",
+                  "        pm.collectionVariables.set(\"vars.access_token\", jsonData.accessToken);\r",
+                  "        return;\r",
+                  "    }\r",
+                  "\r",
+                  "    // Fail the test since login fails\r",
+                  "    pm.expect.fail();\r",
+                  "}})"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "ad7b283d-3c74-4004-b65b-72a608d5f0fc",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "2781c2b1-3fbf-4f83-9aa9-e0f7d1fd476c",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"code\": \"{{vars.code}}\",\r\n  \"state\": \"{{vars.state}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{server_address}}/Account/code",
+              "host": [
+                "{{server_address}}"
+              ],
+              "path": [
+                "Account",
+                "code"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "145d167a-69ba-4da4-874a-32abb27c4557"
+    },
+    {
+      "name": "Account",
+      "item": [
+        {
+          "name": "CreateAccount",
+          "id": "34735d5e-fa44-44d1-a810-8e824b49bcb9",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"{{vars.login_username}}\",\r\n  \"password\": \"{{vars.login_password}}\",\r\n  \"nickname\": \"{{vars.login_nickname}}\",\r\n  \"email\": \"{{vars.login_username}}@email.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{server_address}}/Account/CreateAccount",
+              "host": [
+                "{{server_address}}"
+              ],
+              "path": [
+                "Account",
+                "CreateAccount"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "LoginUser",
+          "id": "e0bbc79a-95d9-423c-b0ca-f8c8a2e46e7a",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"{{vars.login_username}}\",\r\n  \"password\": \"{{vars.login_password}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{server_address}}/Account/LoginAccount",
+              "host": [
+                "{{server_address}}"
+              ],
+              "path": [
+                "Account",
+                "LoginAccount"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "4717934d-3528-4819-adde-65f868072787",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "9e8060c8-ad9e-44e7-ba8e-52046f74f30f",
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              "// ",
+              "// Common functions",
+              "//",
+              "",
+              "function generateRandomStringShort() ",
+              "{",
+              "  return Math.random().toString(36).slice(2);",
+              "}",
+              "",
+              "function GenerateOrSetVariable(variableName, variableValue )",
+              "{",
+              "    var col = pm.collectionVariables;",
+              "    var currentValue = col.get(\"vars.\" + variableName);",
+              "    if ( !currentValue )",
+              "    {",
+              "        variableValue = variableValue + generateRandomStringShort();",
+              "        col.set(\"vars.\" + variableName, variableValue);",
+              "    }",
+              "}",
+              "",
+              "function SetVariableIfEmpty(variableName, variableValue)",
+              "{",
+              "    var col = pm.collectionVariables;",
+              "    var currentValue = col.get(\"vars.\" + variableName);",
+              "    if ( !currentValue )",
+              "    {",
+              "        col.set(\"vars.\" + variableName, variableValue);",
+              "    }",
+              "}",
+              "",
+              "//",
+              "// Generate unique username/nickname",
+              "//",
+              "GenerateOrSetVariable(\"login_username\",\"User\");",
+              "GenerateOrSetVariable(\"login_nickname\", \"Nick\");",
+              "SetVariableIfEmpty(\"login_password\", \"cGVwc2ltYXg=\");",
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "6adf5168-11ec-4ce6-8f6c-0ea15f02fcfa",
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              "pm.test(\"response is ok\",  ()=>{",
+              "if( pm.response.to.have.status(200))",
+              "{",
+              "    var txt = pm.response.text();",
+              "    var jsonData = JSON.parse(txt);",
+              "    if (jsonData.errorCode == 0)",
+              "    {",
+              "        console.log(\"Setting token:\" + jsonData.token);",
+              "        pm.collectionVariables.set(\"vars.login_token\", jsonData.token);",
+              "        return;",
+              "    }",
+              "    ",
+              "    // Fail the test since login fails",
+              "    pm.expect.fail();",
+              "}})"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Playfield",
+      "item": [],
+      "id": "7b0c5763-51aa-4241-ab49-aa87bc453259"
+    },
+    {
+      "name": "Cleanup",
+      "item": [
+        {
+          "name": "DeleteAccount",
+          "id": "5179e888-e3b7-4924-893a-6a2e7655338e",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{server_address}}/Account/DeleteAccount",
+              "host": [
+                "{{server_address}}"
+              ],
+              "path": [
+                "Account",
+                "DeleteAccount"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "0c890077-1b77-4aff-aef7-99036b949cb1"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{vars.access_token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "970683a9-4f8c-4506-898c-ca82693861f7",
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          "// ",
+          "// Common functions",
+          "//",
+          "",
+          "function generateRandomStringShort() ",
+          "{",
+          "  return Math.random().toString(36).slice(2);",
+          "}",
+          "",
+          "function GenerateOrSetVariable(variableName, variableValue )",
+          "{",
+          "    var col = pm.collectionVariables;",
+          "    var currentValue = col.get(\"vars.\" + variableName);",
+          "    if ( !currentValue )",
+          "    {",
+          "        variableValue = variableValue + generateRandomStringShort();",
+          "        col.set(\"vars.\" + variableName, variableValue);",
+          "    }",
+          "}",
+          "",
+          "function SetVariableIfEmpty(variableName, variableValue)",
+          "{",
+          "    var col = pm.collectionVariables;",
+          "    var currentValue = col.get(\"vars.\" + variableName);",
+          "    if ( !currentValue )",
+          "    {",
+          "        col.set(\"vars.\" + variableName, variableValue);",
+          "    }",
+          "}",
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "d1b1b0b0-286f-4b02-a18c-969c1b5e0b1e",
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          "// ",
+          "// Remove all temp variables",
+          "//",
+          "//pm.collectionVariables.clear();",
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "id": "c2fa413c-a902-4aeb-a171-dc06537e47af",
+      "key": "vars.access_token",
+      "value": ""
+    },
+    {
+      "id": "c75a23cc-d04a-4ff9-bdaf-c72ee8e6b303",
+      "key": "vars.state",
+      "value": ""
+    },
+    {
+      "id": "8b0e04b2-05d9-4b42-bf04-d49ef7afce8f",
+      "key": "vars.code",
+      "value": ""
+    },
+    {
+      "id": "95766dad-8284-401b-b9a7-a6e23b0dc62f",
+      "key": "vars.login_username",
+      "value": ""
+    },
+    {
+      "id": "9f580425-e342-4230-acf9-b8aa9fbbd030",
+      "key": "vars.login_nickname",
+      "value": ""
+    },
+    {
+      "id": "20db3642-2cd2-46f9-b0b1-fa9f20f024ae",
+      "key": "vars.login_password",
+      "value": ""
+    },
+    {
+      "id": "8c665682-02f0-4394-9db7-5f0e39a4fc3f",
+      "key": "vars.login_token",
+      "value": ""
+    }
+  ]
+}
