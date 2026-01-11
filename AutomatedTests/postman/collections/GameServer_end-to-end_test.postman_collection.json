@@ -357,7 +357,7 @@
           "    var currentValue = col.get(\"vars.\" + variableName);",
           "    if ( !currentValue )",
           "    {",
-          "        var variableValue = variableValue + generateRandomStringShort();",
+          "        variableValue = variableValue + generateRandomStringShort();",
           "        col.set(\"vars.\" + variableName, variableValue);",
           "    }",
           "}",
