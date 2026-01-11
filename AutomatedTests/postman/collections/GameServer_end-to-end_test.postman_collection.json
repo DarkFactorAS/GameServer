@@ -279,7 +279,7 @@
               "    var jsonData = JSON.parse(txt);",
               "    if (jsonData.errorCode == 0)",
               "    {",
-              "        console.log(\"Setting code:\" + jsonData.token);",
+              "        console.log(\"Setting token:\" + jsonData.token);",
               "        pm.collectionVariables.set(\"vars.login_token\", jsonData.token);",
               "        return;",
               "    }",
