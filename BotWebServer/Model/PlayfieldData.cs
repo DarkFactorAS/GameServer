@@ -17,12 +17,9 @@ namespace BotWebServer.Model
         public uint boardSizeY { get; set; }
         public uint version { get; set; }
         public string data { get; set; }
-        public int flags { get; set; }
 
         public PlayfieldData()
         {
-            // Set everyone as developers
-            flags = 0;
         }
     }
 }
