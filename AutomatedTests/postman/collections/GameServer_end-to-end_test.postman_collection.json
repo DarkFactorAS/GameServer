@@ -311,7 +311,48 @@
     },
     {
       "name": "Playfield",
-      "item": [],
+      "item": [
+        {
+          "name": "GetPlayfieldList",
+          "id": "71311cc5-863d-470a-b977-0ff47ed27646",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "SavePlayfield",
+          "id": "b9d5ace1-08a5-418c-be17-367af7ce9dec",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"uuid\":\"1234\",\n    \"revisionId\":\"1\",\n    \"owner\":\"{{vars.login_nickname}}\",\n    \"name\" : \"name-of-playfield\",\n    \"description\" : \"description\",\n    \"playfieldFlags\" : \"0\",\n    \"numPlayers\" : \"2\",\n    \"numGoals\" : \"1\",\n    \"boardSizeX\" : \"4\",\n    \"boardSizeY\" : \"4\",\n    \"version\" : \"1\",\n    \"data\" : \"data\"\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{server_address}}/Playfield/SavePlayfield",
+              "host": [
+                "{{server_address}}"
+              ],
+              "path": [
+                "Playfield",
+                "SavePlayfield"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
       "id": "7b0c5763-51aa-4241-ab49-aa87bc453259"
     },
     {
@@ -352,37 +393,37 @@
   },
   "variable": [
     {
-      "id": "a956d23f-6cae-4fdd-8888-fb97b658c23f",
+      "id": "f14d6c27-2e0a-44b6-85c0-3a5eeb72a981",
       "key": "vars.access_token",
       "value": ""
     },
     {
-      "id": "c32a7cc5-513d-4d61-b0f8-4be12edae71b",
+      "id": "f56c130e-76fc-4ac9-84a2-0b6d8a2d9a5f",
       "key": "vars.state",
       "value": ""
     },
     {
-      "id": "7ee571a8-3778-4e99-8df9-4a6655876065",
+      "id": "8f8d1843-1bdd-4d97-ad6c-938799091dd7",
       "key": "vars.code",
       "value": ""
     },
     {
-      "id": "292fd69e-2d69-4304-9ca4-3af71a704548",
+      "id": "11d60db4-29c4-45b4-8385-55cb42f62cfd",
       "key": "vars.login_username",
       "value": ""
     },
     {
-      "id": "a1f65294-689b-42a6-a9e7-58036be06f87",
+      "id": "b75c53e4-2972-4f13-b772-5c0bdb243cd4",
       "key": "vars.login_nickname",
       "value": ""
     },
     {
-      "id": "85a2c33c-c3e9-4bb5-aa3c-81b34f41003f",
+      "id": "56b510ba-1eab-4201-bf72-ec71333a84f4",
       "key": "vars.login_password",
       "value": ""
     },
     {
-      "id": "6926f4b3-c805-4651-abcb-e037b9d51fd5",
+      "id": "61257330-1506-44fb-966d-a50355ab4470",
       "key": "vars.login_token",
       "value": ""
     }
