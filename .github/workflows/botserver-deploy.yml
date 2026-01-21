@@ -102,4 +102,4 @@ jobs:
       project_name: "BotWebServer"
       config_settings: "accountserver"
     secrets: inherit
-    needs: staging
+
