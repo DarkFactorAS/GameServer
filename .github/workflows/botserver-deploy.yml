@@ -29,9 +29,60 @@ on:
           - production
 
 jobs:
+  update-version:
+    name: Update Version Number
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.get-version.outputs.version }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Get version from GitHub context
+        id: get-version
+        run: |
+          if [ "${{ github.event_name }}" == "release" ]; then
+            # Extract version from release tag (remove 'v' prefix if present)
+            VERSION="${{ github.event.release.tag_name }}"
+            VERSION=${VERSION#v}
+          elif [ "${{ github.event.pull_request.merged }}" == "true" ]; then
+            # For merged PRs, increment patch version
+            CURRENT_VERSION=$(grep -o 'Version = "[^"]*"' BotWebServer/Program.cs | cut -d'"' -f2)
+            IFS='.' read -ra ADDR <<< "$CURRENT_VERSION"
+            MAJOR=${ADDR[0]}
+            MINOR=${ADDR[1]}
+            PATCH=${ADDR[2]}
+            PATCH=$((PATCH + 1))
+            VERSION="$MAJOR.$MINOR.$PATCH"
+          else
+            # For manual workflow dispatch, use current date-time for dev builds
+            VERSION="1.0.$(date +%y%m%d)"
+          fi
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Determined version: $VERSION"
+
+      - name: Update version in Program.cs
+        run: |
+          sed -i 's/public static string Version = "[^"]*";/public static string Version = "${{ steps.get-version.outputs.version }}";/' BotWebServer/Program.cs
+          
+      - name: Commit version update
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add BotWebServer/Program.cs
+          if git diff --staged --quiet; then
+            echo "No version changes to commit"
+          else
+            git commit -m "Update version to ${{ steps.get-version.outputs.version }} [skip ci]"
+            git push
+          fi
+
   staging:
     if: github.event.pull_request.merged == true || github.event.inputs.environment == 'staging' || github.event.inputs.environment == 'production'
     name: Deploy to Staging
+    needs: update-version
     uses: DarkFactorAS/Infrastructure/.github/workflows/infrastructure-server-deploy.yml@v1.1
     with:
       environment: staging
@@ -43,6 +94,7 @@ jobs:
   production:
     if: github.event.pull_request.merged == true || github.event.inputs.environment == 'production' || github.event_name == 'release'
     name: Deploy to Production
+    needs: [update-version, staging]
     uses: DarkFactorAS/Infrastructure/.github/workflows/infrastructure-server-deploy.yml@v1.1
     with:
       environment: production
