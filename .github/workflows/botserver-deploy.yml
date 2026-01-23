@@ -43,13 +43,13 @@ jobs:
       - name: Get version from GitHub context
         id: get-version
         run: |
-
           CURRENT_VERSION=$(grep -o 'Version = "[^"]*"' BotWebServer/Program.cs | cut -d'"' -f2)
+          IFS='.' read -ra ADDR <<< "$CURRENT_VERSION"
           MAJOR=${ADDR[0]}
           DATE="$(date +%y%m%d)"
           FULL_SHA=${{ github.sha }}
           SHORT_SHA=$(echo "${FULL_SHA}" | cut -c1-5)
-          VERSION="$MAJOR.$DATE.$SHORT_SHA"
+          VERSION="$MAJOR.$SHORT_SHA.$DATE"
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Determined version: $VERSION"
 
