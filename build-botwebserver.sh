@@ -14,6 +14,11 @@ SKIP_VERSION=false
 while [[ $# -gt 0 ]]; do
     case $1 in
         --version)
+            if [[ -z "$2" || "$2" == -* ]]; then
+                echo "Error: --version requires a VERSION argument."
+                echo "Usage: $0 --version VERSION"
+                exit 1
+            fi
             VERSION="$2"
             shift 2
             ;;
