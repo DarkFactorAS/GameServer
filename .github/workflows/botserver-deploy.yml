@@ -48,7 +48,7 @@ jobs:
           MAJOR=${ADDR[0]}
           DATE="$(date +%y%m%d)"
           FULL_SHA=${{ github.sha }}
-          SHORT_SHA=$(echo "${FULL_SHA}" | cut -c1-5)
+          SHORT_SHA=$(echo "${FULL_SHA}" | cut -c1-6)
           VERSION="$MAJOR.$SHORT_SHA.$DATE"
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Determined version: $VERSION"
