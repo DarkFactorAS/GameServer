@@ -29,67 +29,29 @@ on:
           - production
 
 jobs:
-  update-version:
-    name: Update Version Number
-    runs-on: ubuntu-latest
-    outputs:
-      version: ${{ steps.get-version.outputs.version }}
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Get version from GitHub context
-        id: get-version
-        run: |
-          CURRENT_VERSION=$(grep -o 'Version = "[^"]*"' BotWebServer/Program.cs | cut -d'"' -f2)
-          IFS='.' read -ra ADDR <<< "$CURRENT_VERSION"
-          MAJOR=${ADDR[0]}
-          DATE="$(date +%y%m%d)"
-          FULL_SHA=${{ github.sha }}
-          SHORT_SHA=$(echo "${FULL_SHA}" | cut -c1-6)
-          VERSION="$MAJOR.$SHORT_SHA.$DATE"
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
-          echo "Determined version: $VERSION"
-
-      - name: Update version in Program.cs
-        run: |
-          sed -i 's/public static string Version = "[^"]*";/public static string Version = "${{ steps.get-version.outputs.version }}";/' BotWebServer/Program.cs
-          
-      # - name: Commit version update
-      #   run: |
-      #     git config --local user.email "action@github.com"
-      #     git config --local user.name "GitHub Action"
-      #     git add BotWebServer/Program.cs
-      #     if git diff --staged --quiet; then
-      #       echo "No version changes to commit"
-      #     else
-      #       git commit -m "Update version to ${{ steps.get-version.outputs.version }} [skip ci]"
-      #       git push
-      #     fi
 
   staging:
     if: github.event.pull_request.merged == true || github.event.inputs.environment == 'staging' || github.event.inputs.environment == 'production'
     name: Deploy to Staging
-    needs: update-version
-    uses: DarkFactorAS/Infrastructure/.github/workflows/infrastructure-server-deploy.yml@v1.1
+    uses: DarkFactorAS/Infrastructure/.github/workflows/infrastructure-server-deploy.yml@v1.3
     with:
       environment: staging
       project_path: "BotWebServer"
       project_name: "BotWebServer"
       config_settings: "accountserver"
+      versionfile: "Program.cs"
     secrets: inherit
 
   production:
     if: github.event.pull_request.merged == true || github.event.inputs.environment == 'production' || github.event_name == 'release'
     name: Deploy to Production
-    needs: [update-version, staging]
-    uses: DarkFactorAS/Infrastructure/.github/workflows/infrastructure-server-deploy.yml@v1.1
+    needs: [staging]
+    uses: DarkFactorAS/Infrastructure/.github/workflows/infrastructure-server-deploy.yml@v1.3
     with:
       environment: production
       project_path: "BotWebServer"
       project_name: "BotWebServer"
       config_settings: "accountserver"
+      versionfile: "Program.cs"
     secrets: inherit
 
