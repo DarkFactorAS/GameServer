@@ -43,23 +43,13 @@ jobs:
       - name: Get version from GitHub context
         id: get-version
         run: |
-          if [ "${{ github.event_name }}" == "release" ]; then
-            # Extract version from release tag (remove 'v' prefix if present)
-            VERSION="${{ github.event.release.tag_name }}"
-            VERSION=${VERSION#v}
-          elif [ "${{ github.event.pull_request.merged }}" == "true" ]; then
-            # For merged PRs, increment patch version
-            CURRENT_VERSION=$(grep -o 'Version = "[^"]*"' BotWebServer/Program.cs | cut -d'"' -f2)
-            IFS='.' read -ra ADDR <<< "$CURRENT_VERSION"
-            MAJOR=${ADDR[0]}
-            MINOR=${ADDR[1]}
-            PATCH=${ADDR[2]}
-            PATCH=$((PATCH + 1))
-            VERSION="$MAJOR.$MINOR.$PATCH"
-          else
-            # For manual workflow dispatch, use current date-time for dev builds
-            VERSION="1.0.$(date +%y%m%d)"
-          fi
+
+          CURRENT_VERSION=$(grep -o 'Version = "[^"]*"' BotWebServer/Program.cs | cut -d'"' -f2)
+          MAJOR=${ADDR[0]}
+          DATE="$(date +%y%m%d)"
+          FULL_SHA=${{ github.sha }}
+          SHORT_SHA=$(echo "${FULL_SHA}" | cut -c1-5)
+          VERSION="$MAJOR.$DATE.$SHORT_SHA"
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Determined version: $VERSION"
 
@@ -67,17 +57,17 @@ jobs:
         run: |
           sed -i 's/public static string Version = "[^"]*";/public static string Version = "${{ steps.get-version.outputs.version }}";/' BotWebServer/Program.cs
           
-      - name: Commit version update
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add BotWebServer/Program.cs
-          if git diff --staged --quiet; then
-            echo "No version changes to commit"
-          else
-            git commit -m "Update version to ${{ steps.get-version.outputs.version }} [skip ci]"
-            git push
-          fi
+      # - name: Commit version update
+      #   run: |
+      #     git config --local user.email "action@github.com"
+      #     git config --local user.name "GitHub Action"
+      #     git add BotWebServer/Program.cs
+      #     if git diff --staged --quiet; then
+      #       echo "No version changes to commit"
+      #     else
+      #       git commit -m "Update version to ${{ steps.get-version.outputs.version }} [skip ci]"
+      #       git push
+      #     fi
 
   staging:
     if: github.event.pull_request.merged == true || github.event.inputs.environment == 'staging' || github.event.inputs.environment == 'production'
