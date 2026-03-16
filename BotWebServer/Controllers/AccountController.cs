@@ -127,7 +127,12 @@ namespace BotWebServer.Controllers
         [Route("LoginGameCenterAccount")]
         public AccountData LoginGameCenterAccount(LoginGameCenterData loginData)
         {
-            return _accountClient.LoginGameCenter(loginData);
+            var data = _accountClient.LoginGameCenter(loginData);
+            if (data.errorCode == AccountData.ErrorCode.OK)
+            {
+                _session.SetUser(data.nickname, data.token);
+            }
+            return data;
         }
 
         public override string Version()
