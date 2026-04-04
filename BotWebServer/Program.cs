@@ -23,7 +23,7 @@ namespace BotWebServer
     public class Program
     {
         public static string AppName = "Bot WebServer";
-        public static string Version = "1.0.260123";
+        public static string Version = "1.0.260404";
 
         public static void Main(string[] args)
         {
