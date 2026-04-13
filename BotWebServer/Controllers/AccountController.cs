@@ -47,7 +47,7 @@ namespace BotWebServer.Controllers
             var data = _accountClient.LoginAccount(loginData);
             if (data.errorCode == AccountData.ErrorCode.OK)
             {
-                _session.SetUser(data.nickname, data.token);
+                _session.SetUser(data.accountId.ToString(), data.nickname, data.token);
             }
             return data;
         }
@@ -59,7 +59,7 @@ namespace BotWebServer.Controllers
             var data = _accountClient.LoginToken(loginData);
             if (data.errorCode == AccountData.ErrorCode.OK)
             {
-                _session.SetUser(data.nickname, data.token);
+                _session.SetUser(data.accountId.ToString(), data.nickname, data.token);
             }
             return data;
         }
@@ -78,7 +78,7 @@ namespace BotWebServer.Controllers
             var data = _accountClient.CreateAccount(createAccountData);
             if (data.errorCode == AccountData.ErrorCode.OK)
             {
-                _session.SetUser(data.nickname, data.token);
+                _session.SetUser(data.accountId.ToString(), data.nickname, data.token);
             }
             return data;
         }
@@ -130,7 +130,7 @@ namespace BotWebServer.Controllers
             var data = _accountClient.LoginGameCenter(loginData);
             if (data.errorCode == AccountData.ErrorCode.OK)
             {
-                _session.SetUser(data.nickname, data.token);
+                _session.SetUser(data.accountId.ToString(), data.nickname, data.token);
             }
             return data;
         }
