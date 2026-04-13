@@ -45,7 +45,7 @@ namespace BotWebServer.Provider
             var accountId = _session.GetAccountId();
             if ( string.IsNullOrEmpty(accountId) )
             {
-                _logger.LogDebug("Save playfield failed : unknown account id");
+                _logger.LogDebug("Get playfield list failed : unknown account id");
                 return new PlayfieldList();
             }
 
