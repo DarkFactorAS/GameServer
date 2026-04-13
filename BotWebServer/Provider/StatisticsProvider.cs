@@ -34,14 +34,14 @@ namespace BotWebServer.Provider
                 return new PlayerStatisticsData();
             }
 
-            var playerId = _session.GetNickname();
-            if (string.IsNullOrEmpty(playerId))
+            var accountId = _session.GetAccountId();
+            if (accountId == null)
             {
                 _logger.LogDebug("GetStatistics failed : unknown player id");
                 return new PlayerStatisticsData();
             }
 
-            return _repository.GetPlayerStatistics(playerId);
+            return _repository.GetPlayerStatistics(accountId.ToString());
         }
 
         public StatisticsResponseData UpdateStatistics(PlayerStatisticsData statistics)
@@ -58,14 +58,14 @@ namespace BotWebServer.Provider
                 return new StatisticsResponseData(StatisticsResponseData.ErrorNotLoggedIn, "Not logged in");
             }
 
-            var playerId = _session.GetNickname();
-            if (string.IsNullOrEmpty(playerId))
+            var accountId = _session.GetAccountId();
+            if (accountId == null)
             {
                 _logger.LogDebug("UpdateStatistics failed : unknown player id");
                 return new StatisticsResponseData(StatisticsResponseData.ErrorNotLoggedIn, "Not logged in");
             }
 
-            return _repository.UpdatePlayerStatistics(playerId, statistics);
+            return _repository.UpdatePlayerStatistics(accountId.ToString(), statistics);
         }
     }
 }
