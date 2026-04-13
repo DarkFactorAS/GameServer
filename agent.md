@@ -41,5 +41,9 @@ This agent.md file defines the agent's role, coding standards, and conventions f
 - Update documentation and configuration as needed for new features or changes.
 - Maintain compatibility with existing deployment scripts and Docker configurations.
 
+## Related Repositories
+
+- [Bots (Client App)](https://github.com/DarkFactorAS/Bots.git)
+
 ## Contact
 For questions or contributions, refer to the repository maintainers or open an issue.
