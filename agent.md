@@ -3,6 +3,14 @@
 ## Purpose
 This agent.md file defines the agent's role, coding standards, and conventions for the BotsServer project. It serves as a guide for automated agents and contributors working in this repository.
 
+## Goals for this app
+- This app is a gameserver for a game called BOTS, which is a game about programming robots to fight each other.
+- All data received from the client is done through the controllers 
+- The instructions should be comprehensive and clear, guiding GitHub Copilot to the best practices for all developers.
+- The gameserver requires authentication for most of its API functions
+- Instructions should be adaptable to different repositories, scenarios, and user needs.
+- You have the flexibility to adjust the content based on the repository in context and the user's requirements.
+
 ---
 
 ## Agent Role
