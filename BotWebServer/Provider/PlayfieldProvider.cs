@@ -42,14 +42,14 @@ namespace BotWebServer.Provider
                 return new PlayfieldList();
             }
 
-            var accountId = _session.GetAccountId();
-            if ( string.IsNullOrEmpty(accountId) )
+            var nickname = _session.GetNickname();
+            if ( string.IsNullOrEmpty(nickname) )
             {
-                _logger.LogDebug("Get playfield list failed : unknown account id");
+                _logger.LogDebug("Save playfield failed : unknown nickname");
                 return new PlayfieldList();
             }
 
-            return _repository.GetPlayfieldList(accountId);
+            return _repository.GetPlayfieldList(nickname);
         }
 
         public PlayfieldResponseData SavePlayfield(PlayfieldData playfieldData)
@@ -66,14 +66,14 @@ namespace BotWebServer.Provider
                 return new PlayfieldResponseData(playfieldData.uuid, PlayfieldResponseData.ErrorNotLoggedIn, "Not logged in");
             }
 
-            var accountId = _session.GetAccountId();
-            if ( string.IsNullOrEmpty(accountId) )
+            var nickname = _session.GetNickname();
+            if ( string.IsNullOrEmpty(nickname) )
             {
-                _logger.LogDebug("Save playfield failed : unknown account id");
+                _logger.LogDebug("Save playfield failed : unknown nickname");
                 return new PlayfieldResponseData(playfieldData.uuid, PlayfieldResponseData.ErrorNotLoggedIn, "Not logged in");
             }
 
-            return _repository.SavePlayfield(playfieldData, accountId);
+            return _repository.SavePlayfield(playfieldData, nickname);
         }
 
         public PlayfieldResponseData DeletePlayfield( string uuid )
@@ -84,14 +84,14 @@ namespace BotWebServer.Provider
                 return new PlayfieldResponseData(uuid, PlayfieldResponseData.ErrorNotLoggedIn, "Not logged in");
             }
 
-            var accountId = _session.GetAccountId();
-            if ( string.IsNullOrEmpty(accountId) )
+            var nickname = _session.GetNickname();
+            if ( string.IsNullOrEmpty(nickname) )
             {
-                _logger.LogDebug("Delete playfield failed : unknown account id");
+                _logger.LogDebug("Delete playfield failed : unknown nickname");
                 return new PlayfieldResponseData(uuid, PlayfieldResponseData.ErrorNotLoggedIn, "Not logged in");
             }
 
-            return _repository.DeletePlayfield(uuid, accountId);
+            return _repository.DeletePlayfield(uuid, nickname);
         }
     }
 }

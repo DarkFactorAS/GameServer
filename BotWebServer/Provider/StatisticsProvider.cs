@@ -34,7 +34,7 @@ namespace BotWebServer.Provider
                 return new PlayerStatisticsData();
             }
 
-            var playerId = _session.GetAccountId();
+            var playerId = _session.GetNickname();
             if (string.IsNullOrEmpty(playerId))
             {
                 _logger.LogDebug("GetStatistics failed : unknown player id");
@@ -58,7 +58,7 @@ namespace BotWebServer.Provider
                 return new StatisticsResponseData(StatisticsResponseData.ErrorNotLoggedIn, "Not logged in");
             }
 
-            var playerId = _session.GetAccountId();
+            var playerId = _session.GetNickname();
             if (string.IsNullOrEmpty(playerId))
             {
                 _logger.LogDebug("UpdateStatistics failed : unknown player id");
