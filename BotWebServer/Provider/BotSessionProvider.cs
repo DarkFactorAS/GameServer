@@ -29,6 +29,7 @@ namespace BotWebServer.Provider
             RemoveConfig(SessionAccountIdKey);
             RemoveConfig(SessionNicknameKey);
             RemoveConfig(SessionTokenKey);
+            RemoveConfig(SessionDevFlagsKey);
         }
 
         public void SetUser(string accountId, string nickname, string token)
