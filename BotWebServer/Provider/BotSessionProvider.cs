@@ -5,9 +5,9 @@ namespace BotWebServer.Provider
 {
     public interface IBotSessionProvider : IDFUserSession
     {
-        void SetUser(int accountId, string nickname, string token);
+        void SetUser(uint accountId, string nickname, string token);
         void SetDeveloperFlags(int flags);
-        int? GetAccountId();
+        uint? GetAccountId();
         string GetNickname();
         string GetToken();
         bool IsLoggedIn();
@@ -31,17 +31,18 @@ namespace BotWebServer.Provider
             RemoveConfig(SessionTokenKey);
         }
 
-        public void SetUser(int accountId, string nickname, string token)
+        public void SetUser(uint accountId, string nickname, string token)
         {
             RemoveSession();
-            SetConfigInt(SessionAccountIdKey, accountId);
+            SetConfigInt(SessionAccountIdKey, (int)accountId);
             SetConfigString(SessionNicknameKey, nickname);
             SetConfigString(SessionTokenKey, token);
         }
 
-        public int? GetAccountId()
+        public uint? GetAccountId()
         {
-            return GetConfigInt(SessionAccountIdKey);
+            var value = GetConfigInt(SessionAccountIdKey);
+            return value.HasValue ? (uint?)( (uint)value.Value ) : null;
         }
 
         public void SetDeveloperFlags(int flags)
