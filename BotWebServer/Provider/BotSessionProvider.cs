@@ -34,15 +34,20 @@ namespace BotWebServer.Provider
         public void SetUser(uint accountId, string nickname, string token)
         {
             RemoveSession();
-            SetConfigInt(SessionAccountIdKey, (int)accountId);
+            SetConfigString(SessionAccountIdKey, accountId.ToString());
             SetConfigString(SessionNicknameKey, nickname);
             SetConfigString(SessionTokenKey, token);
         }
 
         public uint? GetAccountId()
         {
-            var value = GetConfigInt(SessionAccountIdKey);
-            return value.HasValue ? (uint?)( (uint)value.Value ) : null;
+            var value = GetConfigString(SessionAccountIdKey);
+            if ( string.IsNullOrEmpty(value) )
+            {
+                return null;
+            }
+
+            return uint.TryParse(value, out var accountId) ? accountId : (uint?)null;
         }
 
         public void SetDeveloperFlags(int flags)
