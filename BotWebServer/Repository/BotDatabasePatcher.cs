@@ -47,7 +47,27 @@ namespace BotWebServer.Repository
 
             // OAuth2 tables
             _dbPatcher.Patch(PATCHER,6, ServerOAuth2Repository.GetCreateTableString());
-            
+
+            // Player statistics table
+            _dbPatcher.Patch(PATCHER,7, "CREATE TABLE `player_statistics` ("
+            + " `playerid` varchar(30) NOT NULL DEFAULT '', "
+            + " `totalWins` int(11) NOT NULL DEFAULT 0,"
+            + " `totalStars` int(11) NOT NULL DEFAULT 0,"
+            + " `totalGamesPlayed` int(11) NOT NULL DEFAULT 0,"
+            + " PRIMARY KEY (`playerid`)"
+            + ")"
+            );
+
+            // Player playfield statistics table
+            _dbPatcher.Patch(PATCHER,8, "CREATE TABLE `player_playfield_statistics` ("
+            + " `playerid` varchar(30) NOT NULL DEFAULT '', "
+            + " `playfieldUUID` varchar(40) NOT NULL DEFAULT '', "
+            + " `gamesPlayed` int(11) NOT NULL DEFAULT 0,"
+            + " `wins` int(11) NOT NULL DEFAULT 0,"
+            + " PRIMARY KEY (`playerid`, `playfieldUUID`)"
+            + ")"
+            );
+
             return _dbPatcher.Successful();
         }
     }

@@ -72,6 +72,9 @@ namespace BotWebServer
             services.AddTransient(typeof(IDeveloperProvider), typeof(DeveloperProvider));
             services.AddTransient(typeof(IDeveloperRepository), typeof(DeveloperRepository));
 
+            services.AddTransient(typeof(IStatisticsRepository), typeof(StatisticsRepository));
+            services.AddTransient(typeof(IStatisticsProvider), typeof(StatisticsProvider));
+
             services.AddScoped(typeof(IBotSessionProvider), typeof(BotSessionProvider));
             AccountClient.SetupService(services);
             OAuth2Server.SetupService(services); 
